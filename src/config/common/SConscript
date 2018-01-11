@@ -91,7 +91,7 @@ env.Depends(process_info_pkg, pkg)
 rel_path = Dir('cfgm_common').path
 def BuildInfoAction(target, source, env):
     env.GenerateBuildInfoPyCode(path=rel_path)
-build_info_rules = [env.Command(target='buildinfo.py', source = None, action=BuildInfoAction)]
+build_info_rules = [env.Command(target='cfgm_common/buildinfo.py', source = None, action=BuildInfoAction)]
 
 sdist_depends = []
 sdist_depends.extend(setup_sources_rules)

@@ -16,7 +16,7 @@ env.Alias('controller/test', [
     'controller/src/database/gendb:test',
     'controller/src/ifmap:test',
     'controller/src/net:test',
-    'controller/src/opserver:test',
+#    'controller/src/opserver:test',
     'controller/src/query_engine:test',
     'controller/src/schema:test',
     'controller/src/xmpp:test',

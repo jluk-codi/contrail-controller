@@ -112,20 +112,6 @@ env.Alias('install', env.Install(env['INSTALL_CONF'] +
 env.Alias('install', env.Install(
     env['INSTALL_MESSAGE_DOC'] + '/contrail-device-manager/', doc_files))
 
-buildspace_link = os.environ.get('CONTRAIL_REPO')
-if buildspace_link:
-    # in CI environment shebang limit exceeds for python
-    # in easy_install/pip, reach to it via symlink
-    top_path = buildspace_link + '/' + Dir('.').path
-    top_dir = Dir(top_path)
-else:
-    top_dir = Dir('.')
-
-cov_cmd = env.Command('coveragetest.log', sdist_gen,
-          'bash -c "set -o pipefail && cd ' + Dir(top_dir).path + ' && python setup.py run_tests --coverage 2>&1 | tee coveragetest.log"')
-test_cmd = env.Command('test.log', sdist_gen,
-          'bash -c "set -o pipefail && cd ' + Dir(top_dir).path + ' && python setup.py run_tests 2>&1 | tee test.log"')
-
 test_depends = ['/config/common/dist/cfgm_common-0.1dev.tar.gz',
                 '/api-lib/dist/vnc_api-0.1dev.tar.gz',
                 '/tools/sandesh/library/python/dist/sandesh-0.1dev.tar.gz',
@@ -133,12 +119,12 @@ test_depends = ['/config/common/dist/cfgm_common-0.1dev.tar.gz',
                 '/config/api-server/dist/vnc_cfg_api_server-0.1dev.tar.gz',
                 '/config/schema-transformer/dist/schema_transformer-0.1dev.tar.gz',
 ]
-env.Depends(test_cmd, [env['TOP']+x for x in test_depends])
-env.Depends(cov_cmd, [env['TOP']+x for x in test_depends])
 
-env.Alias('flaky-test', test_cmd)
-env.Alias('coverage', cov_cmd)
-env.Alias('test', test_cmd)
-env.Alias('controller/src/config/device-manager:flaky-test', test_cmd)
-env.Alias('controller/src/config/device-manager:coverage', cov_cmd)
-env.Alias('controller/src/config/device-manager:test', test_cmd)
+test_target = env.SetupPyTestSuite(sdist_gen, test_depends)
+
+env.Alias('flaky-test', test_target)
+env.Alias('controller/src/config/device-manager:flaky-test', test_target)
+
+# Local Variables:
+# mode: python
+# End:

@@ -279,11 +279,16 @@ elif OpEnv['PYTESTARG']:
     OpEnv.Depends(test_cmd, [OpEnv['TOP']+x for x in test_depends])
     OpEnv.Depends(test_cmd, sdist_depends)
 else:
+    print("Just doing the last else...")
     test_cmd = OpEnv.Command('test.log', sdist_gen + sandesh_pkgs,
             testr_str % ('', 'test'))
     OpEnv.Depends(test_cmd, [OpEnv['TOP']+x for x in test_depends])
     OpEnv.Depends(test_cmd, sdist_depends)
 
-OpEnv.Alias('tests', test_cmd)
-OpEnv.Alias('controller/src/opserver:test', test_cmd)
-OpEnv.AlwaysBuild(test_cmd)
+# OpEnv.Alias('tests', test_cmd)
+# OpEnv.Alias('controller/src/opserver:test', test_cmd)
+# OpEnv.AlwaysBuild(test_cmd)
+
+# Local Variables:
+# mode: python
+# End:
