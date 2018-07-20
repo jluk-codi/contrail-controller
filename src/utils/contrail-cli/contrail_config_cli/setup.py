@@ -2,7 +2,7 @@
 # Copyright (c) 2016 Juniper Networks, Inc. All rights reserved.
 #
 
-PROJECT = 'ContrailConfigCli'
+PROJECT = 'TungstenConfigCli'
 
 VERSION = '0.1'
 
@@ -12,7 +12,7 @@ from entry_points import entry_points_dict
 
 setup( name=PROJECT,
         version=VERSION,
-        description='Contrail Config Command Line Interface',
+        description='Tungsten Config Command Line Interface',
         packages=find_packages(),
         platforms=['Any'],
         install_requires=['cliff'],

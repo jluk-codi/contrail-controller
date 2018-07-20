@@ -3,7 +3,7 @@
  */
 
 /**
- *  Definitions of structures added by contrail-database-nodemgr that go into
+ *  Definitions of structures added by tungsten-database-nodemgr that go into
  *  Database Node UVE.
  */
 
@@ -22,7 +22,7 @@ struct DatabaseUsageStats {
 
 /**
  * Database Usage info added into the Database Node UVE by
- * contrail-database-nodemgr
+ * tungsten-database-nodemgr
  */
 struct DatabaseUsageInfo {
     1: string                              name (key="ObjectDatabaseInfo")
@@ -33,7 +33,7 @@ struct DatabaseUsageInfo {
 
 /**
  * @description: Database Usage info added into the Database Node UVE by
- * contrail-database-nodemgr
+ * tungsten-database-nodemgr
  * @object: database-node
  */
 uve sandesh DatabaseUsage {
@@ -61,7 +61,7 @@ struct CassandraStatusData {
 
 /**
  * @description: For monitoring nodetool tpstats and compaction pending counts
- * contrail-database-nodemgr
+ * tungsten-database-nodemgr
  * @object: database-node
  */
 uve sandesh CassandraStatusUVE {

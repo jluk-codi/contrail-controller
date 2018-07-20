@@ -54,7 +54,7 @@ def parse_args(args_str):
         'log_level': SandeshLevel.SYS_NOTICE,
         'log_category': '',
         'log_file': Sandesh._DEFAULT_LOG_FILE,
-        'trace_file': '/var/log/contrail/vnc_openstack.err',
+        'trace_file': '/var/log/tungsten/vnc_openstack.err',
         'use_syslog': False,
         'syslog_facility': Sandesh._DEFAULT_SYSLOG_FACILITY,
         'logging_level': 'WARN',
@@ -88,16 +88,16 @@ def parse_args(args_str):
         'object_cache_exclude_types': '', # csv of object types to *not* cache
         'db_engine': 'cassandra',
         'max_request_size': 1024000,
-        'fabric_ansible_dir': '/opt/contrail/fabric_ansible_playbooks',
+        'fabric_ansible_dir': '/opt/tungsten/fabric_ansible_playbooks',
         'fabric_ansible_conf_file':
-            ['/etc/contrail/contrail-keystone-auth.conf',
-             '/etc/contrail/contrail-fabric-ansible.conf'],
+            ['/etc/tungsten/tungsten-keystone-auth.conf',
+             '/etc/tungsten/tungsten-fabric-ansible.conf'],
         'enable_fabric_ansible': True,
     }
     defaults.update(SandeshConfig.get_default_options(['DEFAULTS']))
     # keystone options
     ksopts = {
-        'signing_dir': '/var/lib/contrail/keystone-signing',
+        'signing_dir': '/var/lib/tungsten/keystone-signing',
         'auth_host': '127.0.0.1',
         'auth_port': '35357',
         'auth_protocol': 'http',

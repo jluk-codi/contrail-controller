@@ -65,7 +65,7 @@ class LoadbalancerAgentTest(unittest.TestCase):
 
         mocked_gsc = mock.MagicMock()
         mocked_gsc.uuid = 'fake-gsc-uuid'
-        self.vnc_lib.service_appliance_set_create.return_value = "opencontrail"
+        self.vnc_lib.service_appliance_set_create.return_value = "Tungsten Fabric"
         self.vnc_lib.global_system_config_read.return_value = mocked_gsc
         def no_id_side_effect(fq_name):
             raise NoIdError("xxx")
@@ -78,8 +78,8 @@ class LoadbalancerAgentTest(unittest.TestCase):
         def sas_read_side_effect(obj_type, uuids, **kwargs):
             if obj_type == 'service_appliance_set':
                 return (True, [{
-                   'fq_name': ['default-global-system-config', 'opencontrail'],
-                   'service_appliance_driver': 'svc_monitor.services.loadbalancer.drivers.ha_proxy.driver.OpencontrailLoadbalancerDriver'
+                   'fq_name': ['default-global-system-config', 'Tungsten Fabric'],
+                   'service_appliance_driver': 'svc_monitor.services.loadbalancer.drivers.ha_proxy.driver.Tungsten FabricLoadbalancerDriver'
                    }])
             return (False, None)
         self.cassandra.object_read = mock.Mock(
@@ -88,16 +88,16 @@ class LoadbalancerAgentTest(unittest.TestCase):
         self.lb_agent = loadbalancer_agent.LoadbalancerAgent(self.svc, self.vnc_lib,
                                                self.cassandra, self._args)
         self.svc.loadbalancer_agent = self.lb_agent
-        sas = config_db.ServiceApplianceSetSM.get('opencontrail')
-        self.assertEqual(sas.driver, "svc_monitor.services.loadbalancer.drivers.ha_proxy.driver.OpencontrailLoadbalancerDriver")
+        sas = config_db.ServiceApplianceSetSM.get('Tungsten Fabric')
+        self.assertEqual(sas.driver, "svc_monitor.services.loadbalancer.drivers.ha_proxy.driver.Tungsten FabricLoadbalancerDriver")
         sas.add()
-        self.assertIsNotNone(self.lb_agent._loadbalancer_driver['opencontrail'])
+        self.assertIsNotNone(self.lb_agent._loadbalancer_driver['Tungsten Fabric'])
     # end setUp
 
     def tearDown(self):
         config_db.ServiceApplianceSM.delete("test-lb-provider-0")
         config_db.ServiceApplianceSetSM.delete("test-lb-provider")
-        config_db.ServiceApplianceSetSM.delete("opencontrail")
+        config_db.ServiceApplianceSetSM.delete("Tungsten Fabric")
         config_db.LoadbalancerPoolSM.reset()
         config_db.LoadbalancerMemberSM.reset()
         config_db.VirtualIpSM.reset()
@@ -113,7 +113,7 @@ class LoadbalancerAgentTest(unittest.TestCase):
                        {'key': 'key2', 'value': 'value2'},
                        {'key': 'key3', 'value': 'value3'}]
         sas.ha_mode = "standalone"
-        sas.driver = "svc_monitor.tests.fake_lb_driver.OpencontrailFakeLoadbalancerDriver"
+        sas.driver = "svc_monitor.tests.fake_lb_driver.Tungsten FabricFakeLoadbalancerDriver"
         return sas
     # end create_sa_set
 
@@ -124,7 +124,7 @@ class LoadbalancerAgentTest(unittest.TestCase):
         sa_obj['display_name'] = fq_name_str
         sa_obj['parent_uuid'] = parent_uuid
         sa_obj['service_appliance_ip_address'] = "1.1.1.1"
-        sa_obj['service_appliance_user_credentials'] = {'username': "admin", 'password': "contrail123"}
+        sa_obj['service_appliance_user_credentials'] = {'username': "admin", 'password': "tungsten123"}
         sa = config_db.ServiceApplianceSM.locate(sa_obj['uuid'], sa_obj)
         sa.kvpairs = [{'key': 'key1', 'value': 'value1'},
                       {'key': 'key2', 'value': 'value2'},
@@ -287,7 +287,7 @@ class LoadbalancerAgentTest(unittest.TestCase):
         sa = self.create_sa("test-lb-provider-0", "test-lb-provider")
         sas.add()
         sas_tmp = config_db.ServiceApplianceSetSM.get('test-lb-provider')
-        self.assertEqual(sas_tmp.driver, "svc_monitor.tests.fake_lb_driver.OpencontrailFakeLoadbalancerDriver")
+        self.assertEqual(sas_tmp.driver, "svc_monitor.tests.fake_lb_driver.Tungsten FabricFakeLoadbalancerDriver")
         self.assertIsNotNone(self.lb_agent._loadbalancer_driver['test-lb-provider'])
     # end test_add_delete_sas
 

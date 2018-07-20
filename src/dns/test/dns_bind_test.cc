@@ -168,9 +168,9 @@ TEST_F(DnsBindTest, Config) {
     NamedConfigTest *cfg = static_cast<NamedConfigTest *>(NamedConfig::GetNamedConfigObject());
 
     string dns_domains[] = {
-        "contrail.juniper.net",
+        "tungsten.juniper.net",
         "test.example.com",
-        "contrail.juniper.com",
+        "tungsten.juniper.com",
         "2.1.1.in-addr.arpa",
         "3.2.1.in-addr.arpa",
         "6.5.4.in-addr.arpa",
@@ -181,7 +181,7 @@ TEST_F(DnsBindTest, Config) {
                 "controller/src/dns/testdata/named.conf.1"));
     string s1 = cfg->GetZoneFilePath(dns_domains[0]);
     EXPECT_TRUE(FilesEqual(s1.c_str(),
-                "controller/src/dns/testdata/contrail.juniper.net.zone.1"));
+                "controller/src/dns/testdata/tungsten.juniper.net.zone.1"));
     string s2 = cfg->GetZoneFilePath(dns_domains[1]);
     EXPECT_TRUE(FilesEqual(s2.c_str(),
                 "controller/src/dns/testdata/test.example.com.zone.1"));
@@ -196,7 +196,7 @@ TEST_F(DnsBindTest, Config) {
     const char config_change[] = "\
 <config>\
     <virtual-DNS name='test-DNS' domain='default-domain'>\
-        <domain-name>contrail.juniper.com</domain-name>\
+        <domain-name>tungsten.juniper.com</domain-name>\
         <dynamic-records-from-client>true</dynamic-records-from-client>\
         <record-order>fixed</record-order>\
         <default-ttl-seconds>120</default-ttl-seconds>\
@@ -211,7 +211,7 @@ TEST_F(DnsBindTest, Config) {
                 "controller/src/dns/testdata/named.conf.2"));
     s1 = cfg->GetZoneFilePath(dns_domains[2]);
     EXPECT_TRUE(FilesEqual(s1.c_str(),
-                "controller/src/dns/testdata/contrail.juniper.com.zone.1"));
+                "controller/src/dns/testdata/tungsten.juniper.com.zone.1"));
     s2 = cfg->GetZoneFilePath(dns_domains[1]);
     EXPECT_TRUE(FilesEqual(s2.c_str(),
                 "controller/src/dns/testdata/test.example.com.zone.1"));
@@ -239,7 +239,7 @@ TEST_F(DnsBindTest, Reordered) {
     NamedConfigTest *cfg = static_cast<NamedConfigTest *>(NamedConfig::GetNamedConfigObject());
 
     string dns_domains[] = {
-        "contrail.juniper.net",
+        "tungsten.juniper.net",
         "test.example.com",
         "test.juniper.net",
         "test1.juniper.net",
@@ -526,7 +526,7 @@ TEST_F(DnsBindTest, ReorderedExternalReverseResolutionDisabled) {
     NamedConfigTest *cfg = static_cast<NamedConfigTest *>(NamedConfig::GetNamedConfigObject());
 
     string dns_domains[] = {
-        "contrail.juniper.net",
+        "tungsten.juniper.net",
         "test.example.com",
         "test.juniper.net",
         "test1.juniper.net",
@@ -1146,7 +1146,7 @@ int main(int argc, char **argv) {
     boost::asio::ip::udp::socket sock(*Dns::GetEventManager()->io_service());
     boost::asio::ip::udp::endpoint ep(boost::asio::ip::address::
                                       from_string("0.0.0.0", ec),
-                                      ContrailPorts::ContrailDnsClientUdpPort());
+                                      TungstenPorts::TungstenDnsClientUdpPort());
     sock.open(boost::asio::ip::udp::v4(), ec);
     assert(ec.value() == 0);
     sock.bind(ep, ec);

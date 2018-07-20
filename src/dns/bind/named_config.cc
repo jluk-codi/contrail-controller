@@ -9,7 +9,7 @@
 #include <sys/types.h>
 #include <dirent.h>
 #include "base/logging.h"
-#include <base/contrail_ports.h>
+#include <base/tungsten_ports.h>
 #include <bind/bind_util.h>
 #include <cfg/dns_config.h>
 #include <mgr/dns_oper.h>
@@ -20,9 +20,9 @@ using namespace std;
 
 NamedConfig *NamedConfig::singleton_;
 const string NamedConfig::NamedZoneFileSuffix = "zone";
-const string NamedConfig::NamedZoneNSPrefix = "contrail-ns";
-const string NamedConfig::NamedZoneMXPrefix = "contrail-mx";
-const char NamedConfig::pid_file_name[] = "contrail-named.pid";
+const string NamedConfig::NamedZoneNSPrefix = "tungsten-ns";
+const string NamedConfig::NamedZoneMXPrefix = "tungsten-mx";
+const char NamedConfig::pid_file_name[] = "tungsten-named.pid";
 const char NamedConfig::sessionkey_file_name[] = "session.key";
 
 void NamedConfig::Init(const std::string& named_config_dir,
@@ -133,20 +133,20 @@ void NamedConfig::UpdateNamedConf(const VirtualDnsConfig *updated_vdns) {
     sync();
 #endif
 
-    ifstream pyscript("/etc/contrail/dns/applynamedconfig.py");
+    ifstream pyscript("/etc/tungsten/dns/applynamedconfig.py");
     if (!pyscript.good()) {
         std::stringstream str;
-        str << "/usr/bin/contrail-rndc -c " << rndc_config_file_ << " -p ";
-        str << ContrailPorts::DnsRndc();
+        str << "/usr/bin/tungsten-rndc -c " << rndc_config_file_ << " -p ";
+        str << TungstenPorts::DnsRndc();
         str << " reconfig";
         int res = system(str.str().c_str());
         if (res) {
-            LOG(WARN, "/usr/bin/contrail-rndc command failed");
+            LOG(WARN, "/usr/bin/tungsten-rndc command failed");
         }
     } else {
         std::stringstream str;
         // execute the helper script to apply named config
-        str << "python /etc/contrail/dns/applynamedconfig.py";
+        str << "python /etc/tungsten/dns/applynamedconfig.py";
         int res = system(str.str().c_str());
         if (res) {
             LOG(ERROR, "Applying named configuration failed");
@@ -178,7 +178,7 @@ void NamedConfig::CreateRndcConf() {
      file_ << "options {" << endl;
      file_ << "    default-key \"rndc-key\";" << endl;
      file_ << "    default-server 127.0.0.1;" << endl;
-     file_ << "    default-port " << ContrailPorts::DnsRndc() << ";" << endl;
+     file_ << "    default-port " << TungstenPorts::DnsRndc() << ";" << endl;
      file_ << "};" << endl << endl;
 
      file_.flush();
@@ -209,7 +209,7 @@ void NamedConfig::WriteRndcConfig() {
 
 
     file_ << "controls {" << endl;
-    file_ << "    inet 127.0.0.1 port "<< ContrailPorts::DnsRndc() << endl;
+    file_ << "    inet 127.0.0.1 port "<< TungstenPorts::DnsRndc() << endl;
     file_ << "    allow { 127.0.0.1; }  keys { \"rndc-key\"; };" << endl;
     file_ << "};" << endl << endl;
 }
@@ -506,7 +506,7 @@ BindStatus::~BindStatus() {
     TimerManager::DeleteTimer(status_timer_);
 }
 
-// Check if a given pid belongs to contrail-named
+// Check if a given pid belongs to tungsten-named
 bool BindStatus::IsBindPid(uint32_t pid) {
     bool ret = false;
     std::stringstream str;
@@ -519,7 +519,7 @@ bool BindStatus::IsBindPid(uint32_t pid) {
             cmdline.assign((istreambuf_iterator<char>(ifile)),
                             istreambuf_iterator<char>());
             istringstream cmdstream(cmdline);
-            if (cmdstream.str().find("/usr/bin/contrail-named") !=
+            if (cmdstream.str().find("/usr/bin/tungsten-named") !=
                 std::string::npos) {
                ret = true;
             }

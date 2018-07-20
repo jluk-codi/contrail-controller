@@ -32,9 +32,9 @@ import svc_monitor.tests.test_common_utils as test_utils
 AGENTS_STATUS = \
 {
  u'vrouter1': {u'NodeStatus': {u'process_status':
-    [{u'module_id': u'contrail-vrouter-agent', u'state': u'Functional'}]}},
+    [{u'module_id': u'tungsten-vrouter-agent', u'state': u'Functional'}]}},
  u'vrouter2': {u'NodeStatus': {u'process_status':
-    [{u'module_id': u'contrail-vrouter-agent', u'state': u'Functional'}]}}
+    [{u'module_id': u'tungsten-vrouter-agent', u'state': u'Functional'}]}}
 }
 
 VROUTERS_MODE = \

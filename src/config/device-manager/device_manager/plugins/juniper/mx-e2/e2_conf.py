@@ -1001,8 +1001,8 @@ class MxE2Conf(JuniperConf):
                 config = etree.SubElement(add_config, "configuration")
                 config_group = etree.SubElement(
                     config, "groups", operation=operation)
-                contrail_group = etree.SubElement(config_group, "name")
-                contrail_group.text = "__contrail-e2__"
+                tungsten_group = etree.SubElement(config_group, "name")
+                tungsten_group.text = "__tungsten-e2__"
                 if isinstance(new_config, list):
                     for nc in new_config:
                         config_group.append(nc)
@@ -1011,11 +1011,11 @@ class MxE2Conf(JuniperConf):
                 if operation == "delete":
                     apply_groups = etree.SubElement(
                         config, "apply-groups", operation=operation)
-                    apply_groups.text = "__contrail-e2__"
+                    apply_groups.text = "__tungsten-e2__"
                 else:
                     apply_groups = etree.SubElement(config, "apply-groups",
                                                     insert="first")
-                    apply_groups.text = "__contrail-e2__"
+                    apply_groups.text = "__tungsten-e2__"
                 self._logger.info("\nsend netconf message: Router %s: %s\n" % (
                     self.management_ip,
                     etree.tostring(add_config, pretty_print=True)))

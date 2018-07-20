@@ -27,7 +27,7 @@ class ConfigCass2JsonAdapter;
 class ConfigJsonParser : public ConfigJsonParserBase {
 public:
     typedef boost::function<
-        bool(const contrail_rapidjson::Value &, std::auto_ptr<AutogenProperty > *)
+        bool(const tungsten_rapidjson::Value &, std::auto_ptr<AutogenProperty > *)
     > MetadataParseFn;
     typedef std::map<std::string, MetadataParseFn> MetadataParseMap;
     typedef std::list<struct DBRequest *> RequestList;
@@ -59,20 +59,20 @@ private:
         const IFMapTable::RequestKey &key, IFMapOrigin::Origin origin,
         RequestList *req_list, bool add_change) const;
     bool ParseOneProperty(const ConfigCass2JsonAdapter &adapter,
-        const contrail_rapidjson::Value &key_node,
-        const contrail_rapidjson::Value &value_node,
+        const tungsten_rapidjson::Value &key_node,
+        const tungsten_rapidjson::Value &value_node,
         const IFMapTable::RequestKey &key, IFMapOrigin::Origin origin,
         RequestList *req_list, bool add_change) const;
     bool ParseLinks(const ConfigCass2JsonAdapter &adapter,
         const IFMapTable::RequestKey &key, IFMapOrigin::Origin origin,
         RequestList *req_list, bool add_change) const;
     bool ParseRef(const ConfigCass2JsonAdapter &adapter,
-        const contrail_rapidjson::Value &ref_entry,
+        const tungsten_rapidjson::Value &ref_entry,
         IFMapOrigin::Origin origin, const std::string &refer,
         const IFMapTable::RequestKey &key,
         RequestList *req_list, bool add_change) const;
     bool ParseOneRef(const ConfigCass2JsonAdapter &adapter,
-        const contrail_rapidjson::Value &arr,
+        const tungsten_rapidjson::Value &arr,
         const IFMapTable::RequestKey &key, IFMapOrigin::Origin origin,
         RequestList *req_list, const std::string &key_str,
         size_t pos, bool add_change) const;

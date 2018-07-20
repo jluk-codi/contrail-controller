@@ -7,13 +7,13 @@ import itertools
 
 from cert_mgr.cert_manager import CertManager
 
-LBAAS_DIR = "/var/lib/contrail/loadbalancer"
+LBAAS_DIR = "/var/lib/tungsten/loadbalancer"
 HAPROXY_DIR = LBAAS_DIR + "/" + "haproxy"
 HAPROXY_PROCESS = 'haproxy'
 HAPROXY_PROCESS_CONF = HAPROXY_PROCESS + ".conf"
-SUPERVISOR_BASE_DIR = '/etc/contrail/supervisord_vrouter_files/lbaas-haproxy-'
+SUPERVISOR_BASE_DIR = '/etc/tungsten/supervisord_vrouter_files/lbaas-haproxy-'
 
-LOG_FILE= '/var/log/contrail/contrail-lbaas-haproxy-stdout.log'
+LOG_FILE= '/var/log/tungsten/tungsten-lbaas-haproxy-stdout.log'
 logging.basicConfig(level=logging.WARNING,
                     format='%(asctime)s %(levelname)-8s %(message)s',
                     datefmt='%m/%d/%Y %H:%M:%S',
@@ -76,7 +76,7 @@ def get_haproxy_config_file(cfg_file, dir_name):
             if 'lbaas_auth_conf' in lb_dict:
                 lbaas_auth_conf = lb_dict['lbaas_auth_conf']
             else:
-                lbaas_auth_conf = '/etc/contrail/contrail-lbaas-auth.conf'
+                lbaas_auth_conf = '/etc/tungsten/tungsten-lbaas-auth.conf'
             if not (os.path.isfile(lbaas_auth_conf)):
                 msg = "%s is missing for "\
                       "Loadbalancer-ID %s" %(lbaas_auth_conf, lb_uuid)
@@ -317,7 +317,7 @@ def _set_config(pool_id, netns, conf_file):
         'killasgroup=true',
         'stdout_capture_maxbytes=1MB',
         'redirect_stderr=true',
-        'stdout_logfile=/var/log/contrail/lbaas-haproxy-stdout.log',
+        'stdout_logfile=/var/log/tungsten/lbaas-haproxy-stdout.log',
         'stderr_logfile=/dev/null',
         'startsecs=5',
         'exitcodes=0'

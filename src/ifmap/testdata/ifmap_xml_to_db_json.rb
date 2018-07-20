@@ -67,7 +67,7 @@ def init_fake_db (records)
                 !record["metadata"]["id_perms"].key? "uuid"
         uuid = get_uuid(record["metadata"]["id_perms"]["uuid"])
         next if @db.key? uuid
-        next if record["identity"]["name"] !~ /contrail:(.*?):(.*$)/
+        next if record["identity"]["name"] !~ /tungsten:(.*?):(.*$)/
         fq_name = $2; type = $1.gsub("-", "_")
         @db[uuid] = {
             "uuid" => uuid, "fq_name" => fq_name.split(/:/).to_json,
@@ -103,7 +103,7 @@ def print_db (oper, uuid, fq_name, type)
     event = {
         "oper" => oper_convert(oper), "fq_name" => fq_name, "type" => type,
         "uuid" => "#{@events.size + (@only_initial_sync ? 1 : 0)}:#{uuid}",
-        "imid" => "contrail:#{type}:#{fqs}",
+        "imid" => "tungsten:#{type}:#{fqs}",
     }
     db_copy = @db.deep_dup
     db_copy.each { |k, v| v.delete "uuid" }
@@ -112,16 +112,16 @@ def print_db (oper, uuid, fq_name, type)
 end
 
 def extract_fq_name_and_type (name)
-    return $2, $1.gsub("-", "_") if name =~ /contrail:(.*?):(.*$)/
+    return $2, $1.gsub("-", "_") if name =~ /tungsten:(.*?):(.*$)/
 end
 
 def parse_links (record)
     fq1, t1 = extract_fq_name_and_type(record["identity"][0]["name"])
     fq2, t2 = extract_fq_name_and_type(record["identity"][1]["name"])
 
-#   return if record["identity"][0]["name"] !~ /contrail:(.*?):(.*$)/
+#   return if record["identity"][0]["name"] !~ /tungsten:(.*?):(.*$)/
 #   fq1 = $2; t1 = $1.gsub("-", "_")
-#   return if record["identity"][1]["name"] !~ /contrail:(.*?):(.*$)/
+#   return if record["identity"][1]["name"] !~ /tungsten:(.*?):(.*$)/
 #   fq2 = $2; t2 = $1.gsub("-", "_")
 
     # Add/Remove ref and back-ref
@@ -158,7 +158,7 @@ end
 
 def parse_nodes (record)
     return if !record.key? "identity" or !record["identity"].key? "name"
-    return if record["identity"]["name"] !~ /contrail:(.*?):(.*$)/
+    return if record["identity"]["name"] !~ /tungsten:(.*?):(.*$)/
     fq_name = $2; type = $1.gsub("-", "_")
     pp record["metadata"] if record["metadata"]["id_perms"].nil?
     return if record["metadata"]["id_perms"]["uuid"].nil?

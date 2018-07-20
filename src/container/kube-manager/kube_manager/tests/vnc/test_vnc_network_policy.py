@@ -55,10 +55,10 @@ class VncNetworkPolicyTest(KMTestCase):
         ns_meta['labels'] = labels
 
         if ns_eval_vn_dict:
-            ns_meta['annotations']['opencontrail.org/network'] = \
+            ns_meta['annotations']['tungsten.io/network'] = \
                 ns_eval_vn_dict
         if is_isolated:
-            ns_meta['annotations']['opencontrail.org/isolation'] = 'true'
+            ns_meta['annotations']['tungsten.io/isolation'] = 'true'
 
         NamespaceKM.delete(ns_name)
         ns = NamespaceKM.locate(ns_name, ns_object)

@@ -10,14 +10,14 @@
 #include "bfd/bfd_control_packet.h"
 #include "bfd/bfd_session.h"
 
-typedef contrail::regex regex_t;
+typedef tungsten::regex regex_t;
 #include "bfd/test/bfd_test_utils.h"
 
 #include "io/test/event_manager_test.h"
 #include "base/regex.h"
 #include "base/test/task_test_util.h"
 
-typedef contrail::regex regex_t;
+typedef tungsten::regex regex_t;
 #include <testing/gunit.h>
 
 using namespace BFD;

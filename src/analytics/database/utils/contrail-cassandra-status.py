@@ -136,7 +136,7 @@ def verify_up_status(options):
     # stop cassandra
     secs_since_up = get_cassandra_secs_since_up(options)
     if secs_since_up >= options.max_allowed_down_seconds:
-        cmd = ["service", "contrail-database", "stop"]
+        cmd = ["service", "tungsten-database", "stop"]
         success, cmd, _, stderr = run_command(*cmd)
         if not success:
             logging.error("FAILED: {cmd}".format(cmd=cmd))

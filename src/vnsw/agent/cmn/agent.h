@@ -290,7 +290,7 @@ extern void RouterIdDepInit(Agent *agent);
 /****************************************************************************
  * Definitions related to config/resource backup/restore
  ****************************************************************************/
-#define CFG_BACKUP_DIR "/var/lib/contrail/backup"
+#define CFG_BACKUP_DIR "/var/lib/tungsten/backup"
 #define CFG_BACKUP_COUNT 2
 #define CFG_BACKUP_IDLE_TIMEOUT (10*1000)
 #define CFG_RESTORE_AUDIT_TIMEOUT (15*1000)

@@ -3,9 +3,9 @@
  */
 
 /**
- * Message definitions for contrail-control main module
+ * Message definitions for tungsten-control main module
  *
- * Main module glues various contrail-component classes together. It is
+ * Main module glues various tungsten-component classes together. It is
  * responsible for reporting overall health periodically.
  */
 

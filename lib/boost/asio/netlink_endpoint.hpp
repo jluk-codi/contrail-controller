@@ -3,7 +3,7 @@
 // ~~~~~~~~~~~~~~~~~~~~
 //
 // Created by Praveen K V
-// Copyright (c) 2012 Contrail Systems. All rights reserved.
+// Copyright (c) 2012 Tungsten Systems. All rights reserved.
 //
 // Borrowed heavily from boost::asio::local socket code
 

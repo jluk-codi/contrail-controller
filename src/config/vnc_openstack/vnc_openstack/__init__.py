@@ -101,7 +101,7 @@ def fill_keystone_opts(obj, conf_sections):
     try:
         obj._err_file = conf_sections.get('DEFAULTS', 'trace_file')
     except ConfigParser.NoOptionError:
-        obj._err_file = '/var/log/contrail/vnc_openstack.err'
+        obj._err_file = '/var/log/tungsten/vnc_openstack.err'
 
     try:
         # Duration between polls to keystone to find deleted projects
@@ -121,7 +121,7 @@ def fill_keystone_opts(obj, conf_sections):
 
     try:
         # If new project with same name as an orphan project
-        # (gone in keystone, present in # contrail with resources within)
+        # (gone in keystone, present in # tungsten with resources within)
         # is encountered,
         # a. proceed with unique ified name (new_unique_fqn)
         # b. refuse to sync (new_fail)
@@ -262,7 +262,7 @@ class OpenstackDriver(vnc_plugin_base.Resync):
         self._failed_domain_dels = set()
         self._failed_project_dels = set()
 
-        # active domains/projects in contrail/vnc api server
+        # active domains/projects in tungsten/vnc api server
         self._vnc_domain_ids = set()
         self._vnc_project_ids = set()
 
@@ -887,7 +887,7 @@ class ResourceApiDriver(vnc_plugin_base.ResourceApi):
                 break
             except Exception as e:
                 if tries % RETRIES_BEFORE_LOG == 0:
-                    err_msg = "Connect error to contrail api %s tries: %s" \
+                    err_msg = "Connect error to tungsten api %s tries: %s" \
                               %(tries, e)
                     self._sandesh_logger.error(err_msg)
                 gevent.sleep(1)
@@ -923,7 +923,7 @@ class ResourceApiDriver(vnc_plugin_base.ResourceApi):
             # read succeeded domain already known, done.
             return
 
-        # follow through, and sync domain to contrail
+        # follow through, and sync domain to tungsten
         try:
             self._openstack_drv.sync_domain_to_vnc(id)
         except vnc_api.RefsExistError as e:
@@ -963,7 +963,7 @@ class ResourceApiDriver(vnc_plugin_base.ResourceApi):
             # read succeeded project already known, done.
             return
 
-        # follow through, and sync project to contrail
+        # follow through, and sync project to tungsten
         try:
             self._openstack_drv.sync_project_to_vnc(id)
         except vnc_api.RefsExistError as e:
@@ -1122,19 +1122,19 @@ class NeutronApiDriver(vnc_plugin_base.NeutronApi):
             except vnc_exc.AuthFailed as e:
                 bottle.abort(401, str(e))
             except vnc_exc.PermissionDenied as e:
-                npd._raise_contrail_exception(
+                npd._raise_tungsten_exception(
                           'NotAuthorized', msg=str(e))
             except vnc_exc.BadRequest as e:
-                npd._raise_contrail_exception(
+                npd._raise_tungsten_exception(
                           'BadRequest', msg=str(e))
             except vnc_exc.RefsExistError as e:
-                npd._raise_contrail_exception(
+                npd._raise_tungsten_exception(
                           'Conflict', msg=str(e))
             except vnc_exc.OverQuota as e:
-                npd._raise_contrail_exception(
+                npd._raise_tungsten_exception(
                           'OverQuota', msg=str(e))
             except vnc_exc.NoIdError as e:
-                npd._raise_contrail_exception(
+                npd._raise_tungsten_exception(
                           'NotFound', msg=str(e))
             except Exception as e:
                 # don't log details of bottle.abort i.e handled error cases

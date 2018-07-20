@@ -22,7 +22,7 @@
 #include "config-client-mgr/config_amqp_client.h"
 #include "config-client-mgr/config_db_client.h"
 
-using contrail_rapidjson::Value;
+using tungsten_rapidjson::Value;
 using std::cout;
 using std::endl;
 using std::string;

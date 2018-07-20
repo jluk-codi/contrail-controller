@@ -5,7 +5,7 @@
 /****************************************************************************
  * VRouter routines for CNI plugin
  ****************************************************************************/
-package contrailCni
+package tungstenCni
 
 import (
 	log "../logging"
@@ -29,7 +29,7 @@ const VROUTER_POLL_TIMEOUT = 3
 const VROUTER_POLL_RETRIES = 20
 
 //Directory containing configuration for the container
-const VROUTER_CONFIG_DIR = "/var/lib/contrail/ports/vm"
+const VROUTER_CONFIG_DIR = "/var/lib/tungsten/ports/vm"
 
 /* struct to hold data for a connection to VRouter Agent */
 type VRouter struct {
@@ -45,7 +45,7 @@ type VRouter struct {
 }
 
 type vrouterJson struct {
-	VRouter VRouter `json:"contrail"`
+	VRouter VRouter `json:"tungsten"`
 }
 
 // Make filename to store config
@@ -189,7 +189,7 @@ func (vrouter *VRouter) PollUrl(url string) (*Result, error) {
  * ADD message handling
  ****************************************************************************/
 // Add request to VRouter
-type contrailAddMsg struct {
+type tungstenAddMsg struct {
 	Time            string `json:"time"`
 	Vm              string `json:"vm-id"`
 	VmUuid          string `json:"vm-uuid"`
@@ -203,7 +203,7 @@ type contrailAddMsg struct {
 func makeMsg(containerName, containerUuid, containerId, containerNamespace,
 	containerIfName, hostIfName string) []byte {
 	t := time.Now()
-	addMsg := contrailAddMsg{Time: t.String(), Vm: containerId,
+	addMsg := tungstenAddMsg{Time: t.String(), Vm: containerId,
 		VmUuid: containerUuid, VmName: containerName, HostIfName: hostIfName,
 		ContainerIfName: containerIfName, Namespace: containerNamespace}
 
@@ -406,7 +406,7 @@ func (vrouter *VRouter) CanDelete(containerId, containerUuid,
 		return fmt.Errorf("Error reading file %s. Error : %s", fname, err)
 	}
 
-	var obj contrailAddMsg
+	var obj tungstenAddMsg
 	json.Unmarshal(file, &obj)
 	if obj.Vm != vrouter.containerId {
 		log.Infof("Mismatch in container-id between request and config file."+

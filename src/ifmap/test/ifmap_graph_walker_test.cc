@@ -27,9 +27,9 @@
 #include "testing/gunit.h"
 
 using namespace std;
-using contrail_rapidjson::Document;
-using contrail_rapidjson::SizeType;
-using contrail_rapidjson::Value;
+using tungsten_rapidjson::Document;
+using tungsten_rapidjson::SizeType;
+using tungsten_rapidjson::Value;
 
 class IFMapGraphWalkerTest : public ::testing::Test {
 protected:
@@ -154,16 +154,16 @@ TEST_F(IFMapGraphWalkerTest, Cli1Vn1Vm3Add) {
     FeedEventsJson();
 
     IFMapClientMock
-        c1("default-global-system-config:a1s27.contrail.juniper.net");
+        c1("default-global-system-config:a1s27.tungsten.juniper.net");
     server_->AddClient(&c1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "2d308482-c7b3-4e05-af14-e732b7b50117", true, 1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", true, 2);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "43d086ab-52c4-4a1f-8c3d-63b321e36e8a", true, 3);
     task_util::WaitForIdle();
     TASK_UTIL_EXPECT_NE(0, c1.count());
@@ -171,7 +171,7 @@ TEST_F(IFMapGraphWalkerTest, Cli1Vn1Vm3Add) {
     TASK_UTIL_EXPECT_NE(0, c1.link_count());
 
     IFMapClientMock
-        c2("default-global-system-config:a1s28.contrail.juniper.net");
+        c2("default-global-system-config:a1s28.tungsten.juniper.net");
     server_->AddClient(&c2);
     task_util::WaitForIdle();
     TASK_UTIL_EXPECT_EQ(0, c2.count());
@@ -183,7 +183,7 @@ TEST_F(IFMapGraphWalkerTest, Cli1Vn1Vm3Add) {
     TASK_UTIL_EXPECT_FALSE(c1.NodeExists("virtual-network",
                                          "default-domain:demo:vn28"));
     TASK_UTIL_EXPECT_TRUE(c1.NodeExists("virtual-router",
-        "default-global-system-config:a1s27.contrail.juniper.net"));
+        "default-global-system-config:a1s27.tungsten.juniper.net"));
     TASK_UTIL_EXPECT_EQ(c1.NodeKeyCount("virtual-network"), 1);
     TASK_UTIL_EXPECT_EQ(c1.NodeKeyCount("virtual-machine"), 3);
     TASK_UTIL_EXPECT_EQ(c1.NodeKeyCount("virtual-machine-interface"), 3);
@@ -194,10 +194,10 @@ TEST_F(IFMapGraphWalkerTest, Cli2Vn2Vm2Add) {
     FeedEventsJson();
 
     IFMapClientMock
-        c1("default-global-system-config:a1s27.contrail.juniper.net");
+        c1("default-global-system-config:a1s27.tungsten.juniper.net");
     server_->AddClient(&c1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "0af0866c-08c9-49ae-856b-0f4a58179920", true, 1);
     task_util::WaitForIdle();
     TASK_UTIL_EXPECT_NE(0, c1.count());
@@ -205,10 +205,10 @@ TEST_F(IFMapGraphWalkerTest, Cli2Vn2Vm2Add) {
     TASK_UTIL_EXPECT_NE(0, c1.link_count());
 
     IFMapClientMock
-        c2("default-global-system-config:a1s28.contrail.juniper.net");
+        c2("default-global-system-config:a1s28.tungsten.juniper.net");
     server_->AddClient(&c2);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s28.contrail.juniper.net",
+        "default-global-system-config:a1s28.tungsten.juniper.net",
         "0d9dd007-b25a-4d86-bf68-dc0e85e317e3", true, 1);
     task_util::WaitForIdle();
     TASK_UTIL_EXPECT_NE(0, c2.count());
@@ -227,9 +227,9 @@ TEST_F(IFMapGraphWalkerTest, Cli2Vn2Vm2Add) {
     TASK_UTIL_EXPECT_FALSE(c1.NodeExists("virtual-network",
                                          "default-domain:demo:vn28"));
     TASK_UTIL_EXPECT_TRUE(c1.NodeExists("virtual-router",
-        "default-global-system-config:a1s27.contrail.juniper.net"));
+        "default-global-system-config:a1s27.tungsten.juniper.net"));
     TASK_UTIL_EXPECT_FALSE(c1.NodeExists("virtual-router",
-        "default-global-system-config:a1s28.contrail.juniper.net"));
+        "default-global-system-config:a1s28.tungsten.juniper.net"));
     TASK_UTIL_EXPECT_EQ(c1.NodeKeyCount("virtual-network"), 1);
     TASK_UTIL_EXPECT_EQ(c1.NodeKeyCount("virtual-machine"), 1);
     TASK_UTIL_EXPECT_EQ(c1.NodeKeyCount("virtual-machine-interface"), 1);
@@ -239,9 +239,9 @@ TEST_F(IFMapGraphWalkerTest, Cli2Vn2Vm2Add) {
     TASK_UTIL_EXPECT_FALSE(c2.NodeExists("virtual-network",
                                          "default-domain:demo:vn104"));
     TASK_UTIL_EXPECT_TRUE(c2.NodeExists("virtual-router",
-        "default-global-system-config:a1s28.contrail.juniper.net"));
+        "default-global-system-config:a1s28.tungsten.juniper.net"));
     TASK_UTIL_EXPECT_FALSE(c2.NodeExists("virtual-router",
-        "default-global-system-config:a1s27.contrail.juniper.net"));
+        "default-global-system-config:a1s27.tungsten.juniper.net"));
     TASK_UTIL_EXPECT_EQ(c2.NodeKeyCount("virtual-network"), 1);
     TASK_UTIL_EXPECT_EQ(c2.NodeKeyCount("virtual-machine"), 1);
     TASK_UTIL_EXPECT_EQ(c2.NodeKeyCount("virtual-machine-interface"), 1);
@@ -252,13 +252,13 @@ TEST_F(IFMapGraphWalkerTest, Cli1Vn2Np2Add) {
     FeedEventsJson();
 
     IFMapClientMock
-        c1("default-global-system-config:a1s27.contrail.juniper.net");
+        c1("default-global-system-config:a1s27.tungsten.juniper.net");
     server_->AddClient(&c1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "695d391b-65e6-4091-bea5-78e5eae32e66", true, 1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "5f25dd5e-5442-4edf-89d1-6a318c0d213b", true, 2);
     task_util::WaitForIdle();
     TASK_UTIL_EXPECT_NE(0, c1.count());
@@ -266,7 +266,7 @@ TEST_F(IFMapGraphWalkerTest, Cli1Vn2Np2Add) {
     TASK_UTIL_EXPECT_NE(0, c1.link_count());
 
     IFMapClientMock
-        c2("default-global-system-config:a1s28.contrail.juniper.net");
+        c2("default-global-system-config:a1s28.tungsten.juniper.net");
     server_->AddClient(&c2);
     task_util::WaitForIdle();
     TASK_UTIL_EXPECT_EQ(0, c2.count());
@@ -278,7 +278,7 @@ TEST_F(IFMapGraphWalkerTest, Cli1Vn2Np2Add) {
     TASK_UTIL_EXPECT_TRUE(c1.NodeExists("virtual-network",
                                         "default-domain:demo:vn27-2"));
     TASK_UTIL_EXPECT_TRUE(c1.NodeExists("virtual-router",
-        "default-global-system-config:a1s27.contrail.juniper.net"));
+        "default-global-system-config:a1s27.tungsten.juniper.net"));
     TASK_UTIL_EXPECT_FALSE(c1.LinkExists("virtual-network",
         "virtual-network-network-policy", "default-domain:demo:vn27-1",
         "attr(default-domain:demo:vn27-1,default-domain:demo:vn27-1to2)"));
@@ -303,13 +303,13 @@ TEST_F(IFMapGraphWalkerTest, Cli1Vn2Np1Add) {
     FeedEventsJson();
 
     IFMapClientMock
-        c1("default-global-system-config:a1s27.contrail.juniper.net");
+        c1("default-global-system-config:a1s27.tungsten.juniper.net");
     server_->AddClient(&c1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "ae85ef17-1bff-4303-b1a0-980e0e9b0705", true, 1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "fd6e78d3-a4fb-400f-94a7-c367c232a56c", true, 2);
     task_util::WaitForIdle();
     TASK_UTIL_EXPECT_NE(0, c1.count());
@@ -317,7 +317,7 @@ TEST_F(IFMapGraphWalkerTest, Cli1Vn2Np1Add) {
     TASK_UTIL_EXPECT_NE(0, c1.link_count());
 
     IFMapClientMock
-        c2("default-global-system-config:a1s28.contrail.juniper.net");
+        c2("default-global-system-config:a1s28.tungsten.juniper.net");
     server_->AddClient(&c2);
     task_util::WaitForIdle();
     TASK_UTIL_EXPECT_EQ(0, c2.count());
@@ -329,7 +329,7 @@ TEST_F(IFMapGraphWalkerTest, Cli1Vn2Np1Add) {
     TASK_UTIL_EXPECT_TRUE(c1.NodeExists("virtual-network",
                                         "default-domain:demo:vn27-2"));
     TASK_UTIL_EXPECT_TRUE(c1.NodeExists("virtual-router",
-        "default-global-system-config:a1s27.contrail.juniper.net"));
+        "default-global-system-config:a1s27.tungsten.juniper.net"));
     TASK_UTIL_EXPECT_FALSE(c1.LinkExists("virtual-network",
         "virtual-network-network-policy", "default-domain:demo:vn27-1",
         "attr(default-domain:demo:v27-1-2,default-domain:demo:vn27-1)"));
@@ -354,10 +354,10 @@ TEST_F(IFMapGraphWalkerTest, Cli2Vn2Np2Add) {
     FeedEventsJson();
 
     IFMapClientMock
-        c1("default-global-system-config:a1s27.contrail.juniper.net");
+        c1("default-global-system-config:a1s27.tungsten.juniper.net");
     server_->AddClient(&c1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "29fe5698-d04b-47ca-acf0-199b21c0a6ee", true, 1);
     task_util::WaitForIdle();
     TASK_UTIL_EXPECT_NE(0, c1.count());
@@ -365,10 +365,10 @@ TEST_F(IFMapGraphWalkerTest, Cli2Vn2Np2Add) {
     TASK_UTIL_EXPECT_NE(0, c1.link_count());
 
     IFMapClientMock
-        c2("default-global-system-config:a1s28.contrail.juniper.net");
+        c2("default-global-system-config:a1s28.tungsten.juniper.net");
     server_->AddClient(&c2);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s28.contrail.juniper.net",
+        "default-global-system-config:a1s28.tungsten.juniper.net",
         "39ed8f81-cf9c-4789-a118-e71f53abdf85", true, 1);
     task_util::WaitForIdle();
     TASK_UTIL_EXPECT_NE(0, c2.count());
@@ -380,9 +380,9 @@ TEST_F(IFMapGraphWalkerTest, Cli2Vn2Np2Add) {
     TASK_UTIL_EXPECT_FALSE(c1.NodeExists("virtual-network",
                                          "default-domain:demo:vn28"));
     TASK_UTIL_EXPECT_TRUE(c1.NodeExists("virtual-router",
-        "default-global-system-config:a1s27.contrail.juniper.net"));
+        "default-global-system-config:a1s27.tungsten.juniper.net"));
     TASK_UTIL_EXPECT_FALSE(c1.NodeExists("virtual-router",
-        "default-global-system-config:a1s28.contrail.juniper.net"));
+        "default-global-system-config:a1s28.tungsten.juniper.net"));
     TASK_UTIL_EXPECT_FALSE(c1.LinkExists("virtual-network",
         "virtual-network-network-policy", "default-domain:demo:vn27",
         "attr(default-domain:demo:2728biIcmp,default-domain:demo:vn27)"));
@@ -397,9 +397,9 @@ TEST_F(IFMapGraphWalkerTest, Cli2Vn2Np2Add) {
     TASK_UTIL_EXPECT_FALSE(c2.NodeExists("virtual-network",
                                          "default-domain:demo:vn27"));
     TASK_UTIL_EXPECT_TRUE(c2.NodeExists("virtual-router",
-        "default-global-system-config:a1s28.contrail.juniper.net"));
+        "default-global-system-config:a1s28.tungsten.juniper.net"));
     TASK_UTIL_EXPECT_FALSE(c2.NodeExists("virtual-router",
-        "default-global-system-config:a1s27.contrail.juniper.net"));
+        "default-global-system-config:a1s27.tungsten.juniper.net"));
     TASK_UTIL_EXPECT_FALSE(c2.LinkExists("virtual-network",
         "virtual-network-network-policy", "default-domain:demo:vn28",
         "attr(default-domain:demo:2728biIcmp,default-domain:demo:vn28)"));
@@ -426,19 +426,19 @@ TEST_F(IFMapGraphWalkerTest, Cli2Vn3Vm6Np2Add) {
     FeedEventsJson();
 
     IFMapClientMock
-        c1("default-global-system-config:a1s27.contrail.juniper.net");
+        c1("default-global-system-config:a1s27.tungsten.juniper.net");
     server_->AddClient(&c1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "7285b8b4-63e7-4251-8690-bbef70c2ccc1", true, 1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "98e60d70-460a-4618-b334-1dbd6333e599", true, 2);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "7e87e01a-6847-4e24-b668-4a1ad24cef1c", true, 3);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "34a09a89-823a-4934-bf3d-f2cd9513e121", true, 4);
     task_util::WaitForIdle();
     TASK_UTIL_EXPECT_NE(0, c1.count());
@@ -446,13 +446,13 @@ TEST_F(IFMapGraphWalkerTest, Cli2Vn3Vm6Np2Add) {
     TASK_UTIL_EXPECT_NE(0, c1.link_count());
 
     IFMapClientMock
-        c2("default-global-system-config:a1s28.contrail.juniper.net");
+        c2("default-global-system-config:a1s28.tungsten.juniper.net");
     server_->AddClient(&c2);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s28.contrail.juniper.net",
+        "default-global-system-config:a1s28.tungsten.juniper.net",
         "2af8952f-ee66-444b-be63-67e8c6efaf74", true, 1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s28.contrail.juniper.net",
+        "default-global-system-config:a1s28.tungsten.juniper.net",
         "9afa046f-743c-42e0-ab63-2786a81d5731", true, 2);
     task_util::WaitForIdle();
     TASK_UTIL_EXPECT_NE(0, c2.count());

@@ -91,7 +91,7 @@ class VerifyBgp(VerifyRouteTarget):
             fq_name=['default-domain', 'default-project', 'ip-fabric', '__default__'])
         router = BgpRouter(name, parent_obj=ip_fabric_ri)
         params = BgpRouterParams()
-        params.vendor = 'contrail'
+        params.vendor = 'tungsten'
         params.autonomous_system = asn
         if cluster_id:
 	    params.cluster_id = cluster_id
@@ -278,7 +278,7 @@ class TestBgp(STTestCase, VerifyBgp):
         self.check_lr_is_deleted(uuid=lr.uuid)
         self.check_rt_is_deleted(name=lr_target)
 
-    def create_bgp_router_sub(self, name, vendor='contrail', asn=None,
+    def create_bgp_router_sub(self, name, vendor='tungsten', asn=None,
                                router_type=None, sub_cluster=None):
         ip_fabric_ri = self._vnc_lib.routing_instance_read(
             fq_name=['default-domain', 'default-project', 'ip-fabric', '__default__'])
@@ -304,20 +304,20 @@ class TestBgp(STTestCase, VerifyBgp):
                 fq_name=sub_cluster_obj.get_fq_name())
         # create router1
         r1_name = self.id() + 'router1'
-        router1 = self.create_bgp_router_sub(r1_name, 'contrail', asn=64513,
+        router1 = self.create_bgp_router_sub(r1_name, 'tungsten', asn=64513,
                                              router_type='external-control-node',
                                              sub_cluster=sub_cluster_obj)
         # create router2
         r2_name = self.id() + 'router2'
-        router2 = self.create_bgp_router_sub(r2_name, 'contrail', asn=64513,
+        router2 = self.create_bgp_router_sub(r2_name, 'tungsten', asn=64513,
                                              router_type='external-control-node',
                                              sub_cluster=sub_cluster_obj)
         # create router3
         r3_name = self.id() + 'router3'
-        router3 = self.create_bgp_router(r3_name, 'contrail')
+        router3 = self.create_bgp_router(r3_name, 'tungsten')
         # create router4
         r4_name = self.id() + 'router4'
-        router4 = self.create_bgp_router(r4_name, 'contrail')
+        router4 = self.create_bgp_router(r4_name, 'tungsten')
 
         self.check_bgp_peering(router3, router4, 1)
         self.check_bgp_peering(router1, router2, 1)
@@ -337,15 +337,15 @@ class TestBgp(STTestCase, VerifyBgp):
 
         # create route reflector
         r3_name = self.id() + 'router3'
-        router3 = self.create_bgp_router(r3_name, 'contrail', None, cluster_id=1000)
+        router3 = self.create_bgp_router(r3_name, 'tungsten', None, cluster_id=1000)
 
         # create router1
         r1_name = self.id() + 'router1'
-        router1 = self.create_bgp_router(r1_name, 'contrail')
+        router1 = self.create_bgp_router(r1_name, 'tungsten')
 
         # create router2
         r2_name = self.id() + 'router2'
-        router2 = self.create_bgp_router(r2_name, 'contrail')
+        router2 = self.create_bgp_router(r2_name, 'tungsten')
 
         # router1 and router2 should not be connected, both of them should be
         # connected to router3
@@ -365,11 +365,11 @@ class TestBgp(STTestCase, VerifyBgp):
 
         # create router1
         r1_name = self.id() + 'router1'
-        router1 = self.create_bgp_router(r1_name, 'contrail')
+        router1 = self.create_bgp_router(r1_name, 'tungsten')
 
         # create router2
         r2_name = self.id() + 'router2'
-        router2 = self.create_bgp_router(r2_name, 'contrail')
+        router2 = self.create_bgp_router(r2_name, 'tungsten')
 
         self.check_bgp_peering(router1, router2, 1)
 
@@ -410,7 +410,7 @@ class TestBgp(STTestCase, VerifyBgp):
 
         # create router1
         r1_name = self.id() + 'router1'
-        router1 = self.create_bgp_router(r1_name, 'contrail')
+        router1 = self.create_bgp_router(r1_name, 'tungsten')
         self.check_bgp_asn(router1.get_fq_name(), 64512)
 
         # create virtual machine interface
@@ -569,7 +569,7 @@ class TestBgp(STTestCase, VerifyBgp):
         server_router_obj = self._vnc_lib.bgp_router_read(fq_name_str=server_fq_name)
 
         router1_name = vn1_obj.get_fq_name_str() + ':' + vn1_name + ':' + port_name
-        mx_bgp_router = self.create_bgp_router("mx-bgp-router", "contrail")
+        mx_bgp_router = self.create_bgp_router("mx-bgp-router", "tungsten")
         mx_bgp_router_name = mx_bgp_router.get_fq_name_str()
         self.wait_to_get_object(config_db.BgpRouterST, mx_bgp_router_name)
         mx_bgp_router = self._vnc_lib.bgp_router_read(fq_name_str=mx_bgp_router_name)

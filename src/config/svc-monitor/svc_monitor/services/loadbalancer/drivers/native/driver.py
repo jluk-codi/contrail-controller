@@ -14,8 +14,8 @@ from vnc_api.vnc_api import NoIdError, RefsExistError
 
 from svc_monitor.config_db import *
 
-class OpencontrailLoadbalancerDriver(
-        abstract_driver.ContrailLoadBalancerAbstractDriver):
+class Tungsten FabricLoadbalancerDriver(
+        abstract_driver.TungstenLoadBalancerAbstractDriver):
     def __init__(self, name, manager, api, db, args=None):
         self._name = name
         self._api = api

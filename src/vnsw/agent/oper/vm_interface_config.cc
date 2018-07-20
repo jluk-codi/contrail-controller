@@ -1069,7 +1069,7 @@ static void ReadAnalyzerNameAndCreate(Agent *agent,
         if (mirror_to.udp_port) {
             dport = mirror_to.udp_port;
         } else {
-            dport = ContrailPorts::AnalyzerUdpPort();
+            dport = TungstenPorts::AnalyzerUdpPort();
         }
          MirrorEntryData::MirrorEntryFlags mirror_flag =
              MirrorTable::DecodeMirrorFlag(mirror_to.nh_mode,

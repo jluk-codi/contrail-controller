@@ -1,7 +1,7 @@
-#This is a python based script for configuring required MX router resources in the contrail controller. It uses the VNC Rest API provided by contrail controller.
+#This is a python based script for configuring required MX router resources in the tungsten controller. It uses the VNC Rest API provided by tungsten controller.
 #Usage : # python provision_physical_router.py --api_server_ip <127.0.0.1> --api_server_port <8082> --admin_user <user1> --admin_password <password1> --admin_tenant_name default-domain --op {add_basic|remove_basic|fip_test|delete_fip_test}  {--public_vrf_test [True|False]} {--vxlan <vxlan-identifier>}
-#Note: make sure, api server authentication is disabled in contrail api server to run this script.
-#      To disable: Please set "multi_tenancy=False" in /etc/contrail/contrail-api.conf  and restart API server
+#Note: make sure, api server authentication is disabled in tungsten api server to run this script.
+#      To disable: Please set "multi_tenancy=False" in /etc/tungsten/tungsten-api.conf  and restart API server
 #      Please update right MX ip address and credentials in the script.
 #File name:   provision_physical_router.py
 #!/usr/bin/python

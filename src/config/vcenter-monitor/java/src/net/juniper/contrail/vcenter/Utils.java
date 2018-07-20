@@ -1,4 +1,4 @@
-package net.juniper.contrail.vcenter;
+package net.juniper.tungsten.vcenter;
 
 import java.math.BigInteger;
 import java.util.Collections;

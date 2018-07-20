@@ -202,7 +202,7 @@ BackUpResourceTable::FindFile(const std::string &root,
         // Check Start of the file_name matches with prefix name.
         if (!file_name.find(file_prefix)) {
             // check for file format filename-hashvalue(digits)
-            // example name contrail_interface_resource-12345678
+            // example name tungsten_interface_resource-12345678
             std::string tmpstr(file_name.c_str());
             std::vector<string> tokens;
             boost::split(tokens, tmpstr, boost::is_any_of("-"));
@@ -275,7 +275,7 @@ void BackUpResourceTable::ReadMapFromFile(T* sandesh_data,
 VrfMplsBackUpResourceTable::VrfMplsBackUpResourceTable
 (ResourceBackupManager *manager) :
     BackUpResourceTable(manager, "VrfMplsBackUpResourceTable",
-                        "contrail_vrf_resource") {
+                        "tungsten_vrf_resource") {
 }
 
 VrfMplsBackUpResourceTable::~VrfMplsBackUpResourceTable() {
@@ -312,7 +312,7 @@ void VrfMplsBackUpResourceTable::RestoreResource() {
 VlanMplsBackUpResourceTable::VlanMplsBackUpResourceTable
 (ResourceBackupManager *manager) :
     BackUpResourceTable(manager, "VlanMplsBackUpResourceTable",
-                        "contrail_vlan_resource") {
+                        "tungsten_vlan_resource") {
 }
 
 VlanMplsBackUpResourceTable::~VlanMplsBackUpResourceTable() {
@@ -351,7 +351,7 @@ void VlanMplsBackUpResourceTable::RestoreResource() {
 RouteMplsBackUpResourceTable::RouteMplsBackUpResourceTable
 (ResourceBackupManager *manager) :
     BackUpResourceTable(manager, "RouteMplsBackUpResourceTable",
-                        "contrail_route_resource") {
+                        "tungsten_route_resource") {
 }
 
 RouteMplsBackUpResourceTable::~RouteMplsBackUpResourceTable() {
@@ -386,7 +386,7 @@ void RouteMplsBackUpResourceTable::RestoreResource() {
 InterfaceMplsBackUpResourceTable::InterfaceMplsBackUpResourceTable
 (ResourceBackupManager *manager) :
     BackUpResourceTable(manager, "InterfaceMplsBackUpResourceTable",
-                        "contrail_interface_resource") {
+                        "tungsten_interface_resource") {
 }
 
 InterfaceMplsBackUpResourceTable::~InterfaceMplsBackUpResourceTable() {
@@ -437,7 +437,7 @@ void InterfaceMplsBackUpResourceTable::RestoreResource() {
 VmInterfaceBackUpResourceTable::VmInterfaceBackUpResourceTable
 (ResourceBackupManager *manager) :
     BackUpResourceTable(manager, "VmInterfaceBackUpResourceTable",
-                        "contrail_vm_interface_resource") {
+                        "tungsten_vm_interface_resource") {
 }
 
 VmInterfaceBackUpResourceTable::~VmInterfaceBackUpResourceTable() {
@@ -475,7 +475,7 @@ void VmInterfaceBackUpResourceTable::RestoreResource() {
 VrfBackUpResourceTable::VrfBackUpResourceTable
 (ResourceBackupManager *manager) :
     BackUpResourceTable(manager, "VrfBackUpResourceTable",
-                        "contrail_vrf_index_resource") {
+                        "tungsten_vrf_index_resource") {
 }
 
 VrfBackUpResourceTable::~VrfBackUpResourceTable() {
@@ -513,7 +513,7 @@ void VrfBackUpResourceTable::RestoreResource() {
 QosBackUpResourceTable::QosBackUpResourceTable
 (ResourceBackupManager *manager) :
     BackUpResourceTable(manager, "QosBackUpResourceTable",
-                        "contrail_qos_resource") {
+                        "tungsten_qos_resource") {
 }
 
 QosBackUpResourceTable::~QosBackUpResourceTable() {
@@ -551,7 +551,7 @@ void QosBackUpResourceTable::RestoreResource() {
 BgpAsServiceBackUpResourceTable::BgpAsServiceBackUpResourceTable
 (ResourceBackupManager *manager) :
     BackUpResourceTable(manager, "BgpAsServiceBackUpResourceTable",
-                        "contrail_bgp_as_service_resource") {
+                        "tungsten_bgp_as_service_resource") {
 }
 
 BgpAsServiceBackUpResourceTable::~BgpAsServiceBackUpResourceTable() {
@@ -589,7 +589,7 @@ void BgpAsServiceBackUpResourceTable::RestoreResource() {
 MirrorBackUpResourceTable::MirrorBackUpResourceTable
 (ResourceBackupManager *manager) :
     BackUpResourceTable(manager, "MirrorBackUpResourceTable",
-                        "contrail_mirror_index_resource") {
+                        "tungsten_mirror_index_resource") {
 }
 
 MirrorBackUpResourceTable::~MirrorBackUpResourceTable() {
@@ -627,7 +627,7 @@ void MirrorBackUpResourceTable::RestoreResource() {
 NextHopBackUpResourceTable::NextHopBackUpResourceTable
 (ResourceBackupManager *manager) :
     BackUpResourceTable(manager, "NextHopBackUpResourceTable",
-                        "contrail_nexthop_index_resource") {
+                        "tungsten_nexthop_index_resource") {
 }
 
 NextHopBackUpResourceTable::~NextHopBackUpResourceTable() {
@@ -797,7 +797,7 @@ void NextHopBackUpResourceTable::RestoreResource() {
 ComposteNHBackUpResourceTable::ComposteNHBackUpResourceTable
 (ResourceBackupManager *manager) :
     BackUpResourceTable(manager, "ComposteNHBackUpResourceTable",
-                        "contrail_composite_index_resource") {
+                        "tungsten_composite_index_resource") {
 }
 
 ComposteNHBackUpResourceTable::~ComposteNHBackUpResourceTable() {

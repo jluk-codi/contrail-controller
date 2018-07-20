@@ -13,7 +13,7 @@ class KSyncVxlanVrfObject;
  ****************************************************************************/
 
 /****************************************************************************
- * In Contrail, each Virtual-Network defines a broadcast domain. Each
+ * In Tungsten, each Virtual-Network defines a broadcast domain. Each
  * Virtual-Network has a VRF associated with it. The FDB Table for a
  * Virtual-Network is got from the VRF for it.
  *

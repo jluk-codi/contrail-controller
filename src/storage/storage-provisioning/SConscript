@@ -6,9 +6,9 @@ sources = [
     'setup.py',
     'requirements.txt',
     'MANIFEST.in',
-    'contrail_storage_provisioning/__init__.py',
-    'contrail_storage_provisioning/ceph_provision.py',
-    'contrail_storage_provisioning/ceph_utils.py',
+    'tungsten_storage_provisioning/__init__.py',
+    'tungsten_storage_provisioning/ceph_provision.py',
+    'tungsten_storage_provisioning/ceph_utils.py',
     ]
 
 cd_cmd = 'cd ' + Dir('.').path + ' && '

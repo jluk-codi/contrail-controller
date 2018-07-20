@@ -74,7 +74,7 @@ trace sandesh ServerOpenFailTrace {
  * @description: XMPP Server socket bind operation failure
  * @severity: WARNING
  * @cause: Possibly the port already bound to and used by another process
- * @action: Check if another/duplicate process is already using the same port using netstat and lsof command line tools. If found, kill such offending processes and restart the daemon. If the port is used by another application legitimately, try changing the xmpp server port to a different unused port in /etc/contrail/contrail-control.conf
+ * @action: Check if another/duplicate process is already using the same port using netstat and lsof command line tools. If found, kill such offending processes and restart the daemon. If the port is used by another application legitimately, try changing the xmpp server port to a different unused port in /etc/tungsten/tungsten-control.conf
  */
 systemlog sandesh ServerBindFailure {
     1: "Bind failure: ";

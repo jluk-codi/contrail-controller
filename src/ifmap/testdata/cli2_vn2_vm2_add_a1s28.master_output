@@ -1,8 +1,8 @@
-<iq type="set" from="network-control@contrailsystems.com" to="default-global-system-config:a1s28.contrail.juniper.net/config">
+<iq type="set" from="network-control@tungstensystems.com" to="default-global-system-config:a1s28.tungsten.juniper.net/config">
  <config>
   <update>
    <node type="virtual-router">
-    <name>default-global-system-config:a1s28.contrail.juniper.net</name>
+    <name>default-global-system-config:a1s28.tungsten.juniper.net</name>
     <id-perms>
      <permissions>
       <owner>cloud-admin</owner>
@@ -24,7 +24,7 @@
   </update>
  </config>
 </iq>
-<iq type="set" from="network-control@contrailsystems.com" to="default-global-system-config:a1s28.contrail.juniper.net/config">
+<iq type="set" from="network-control@tungstensystems.com" to="default-global-system-config:a1s28.tungsten.juniper.net/config">
  <config>
   <update>
    <node type="virtual-machine">
@@ -50,12 +50,12 @@
   </update>
  </config>
 </iq>
-<iq type="set" from="network-control@contrailsystems.com" to="default-global-system-config:a1s28.contrail.juniper.net/config">
+<iq type="set" from="network-control@tungstensystems.com" to="default-global-system-config:a1s28.tungsten.juniper.net/config">
  <config>
   <update>
    <link>
     <node type="virtual-router">
-     <name>default-global-system-config:a1s28.contrail.juniper.net</name>
+     <name>default-global-system-config:a1s28.tungsten.juniper.net</name>
     </node>
     <node type="virtual-machine">
      <name>0d9dd007-b25a-4d86-bf68-dc0e85e317e3</name>
@@ -65,7 +65,7 @@
   </update>
  </config>
 </iq>
-<iq type="set" from="network-control@contrailsystems.com" to="default-global-system-config:a1s28.contrail.juniper.net/config">
+<iq type="set" from="network-control@tungstensystems.com" to="default-global-system-config:a1s28.tungsten.juniper.net/config">
  <config>
   <update>
    <node type="global-system-config">
@@ -92,7 +92,7 @@
   </update>
  </config>
 </iq>
-<iq type="set" from="network-control@contrailsystems.com" to="default-global-system-config:a1s28.contrail.juniper.net/config">
+<iq type="set" from="network-control@tungstensystems.com" to="default-global-system-config:a1s28.tungsten.juniper.net/config">
  <config>
   <update>
    <link>
@@ -100,14 +100,14 @@
      <name>default-global-system-config</name>
     </node>
     <node type="virtual-router">
-     <name>default-global-system-config:a1s28.contrail.juniper.net</name>
+     <name>default-global-system-config:a1s28.tungsten.juniper.net</name>
     </node>
     <metadata type="global-system-config-virtual-router" />
    </link>
   </update>
  </config>
 </iq>
-<iq type="set" from="network-control@contrailsystems.com" to="default-global-system-config:a1s28.contrail.juniper.net/config">
+<iq type="set" from="network-control@tungstensystems.com" to="default-global-system-config:a1s28.tungsten.juniper.net/config">
  <config>
   <update>
    <node type="virtual-machine-interface">
@@ -136,7 +136,7 @@
   </update>
  </config>
 </iq>
-<iq type="set" from="network-control@contrailsystems.com" to="default-global-system-config:a1s28.contrail.juniper.net/config">
+<iq type="set" from="network-control@tungstensystems.com" to="default-global-system-config:a1s28.tungsten.juniper.net/config">
  <config>
   <update>
    <link>
@@ -151,7 +151,7 @@
   </update>
  </config>
 </iq>
-<iq type="set" from="network-control@contrailsystems.com" to="default-global-system-config:a1s28.contrail.juniper.net/config">
+<iq type="set" from="network-control@tungstensystems.com" to="default-global-system-config:a1s28.tungsten.juniper.net/config">
  <config>
   <update>
    <node type="virtual-network">
@@ -177,7 +177,7 @@
   </update>
  </config>
 </iq>
-<iq type="set" from="network-control@contrailsystems.com" to="default-global-system-config:a1s28.contrail.juniper.net/config">
+<iq type="set" from="network-control@tungstensystems.com" to="default-global-system-config:a1s28.tungsten.juniper.net/config">
  <config>
   <update>
    <link>
@@ -192,7 +192,7 @@
   </update>
  </config>
 </iq>
-<iq type="set" from="network-control@contrailsystems.com" to="default-global-system-config:a1s28.contrail.juniper.net/config">
+<iq type="set" from="network-control@tungstensystems.com" to="default-global-system-config:a1s28.tungsten.juniper.net/config">
  <config>
   <update>
    <node type="instance-ip">
@@ -219,7 +219,7 @@
   </update>
  </config>
 </iq>
-<iq type="set" from="network-control@contrailsystems.com" to="default-global-system-config:a1s28.contrail.juniper.net/config">
+<iq type="set" from="network-control@tungstensystems.com" to="default-global-system-config:a1s28.tungsten.juniper.net/config">
  <config>
   <update>
    <link>
@@ -234,7 +234,7 @@
   </update>
  </config>
 </iq>
-<iq type="set" from="network-control@contrailsystems.com" to="default-global-system-config:a1s28.contrail.juniper.net/config">
+<iq type="set" from="network-control@tungstensystems.com" to="default-global-system-config:a1s28.tungsten.juniper.net/config">
  <config>
   <update>
    <node type="virtual-network-network-ipam">
@@ -252,7 +252,7 @@
   </update>
  </config>
 </iq>
-<iq type="set" from="network-control@contrailsystems.com" to="default-global-system-config:a1s28.contrail.juniper.net/config">
+<iq type="set" from="network-control@tungstensystems.com" to="default-global-system-config:a1s28.tungsten.juniper.net/config">
  <config>
   <update>
    <link>
@@ -267,7 +267,7 @@
   </update>
  </config>
 </iq>
-<iq type="set" from="network-control@contrailsystems.com" to="default-global-system-config:a1s28.contrail.juniper.net/config">
+<iq type="set" from="network-control@tungstensystems.com" to="default-global-system-config:a1s28.tungsten.juniper.net/config">
  <config>
   <update>
    <node type="access-control-list">
@@ -419,7 +419,7 @@
   </update>
  </config>
 </iq>
-<iq type="set" from="network-control@contrailsystems.com" to="default-global-system-config:a1s28.contrail.juniper.net/config">
+<iq type="set" from="network-control@tungstensystems.com" to="default-global-system-config:a1s28.tungsten.juniper.net/config">
  <config>
   <update>
    <link>
@@ -434,7 +434,7 @@
   </update>
  </config>
 </iq>
-<iq type="set" from="network-control@contrailsystems.com" to="default-global-system-config:a1s28.contrail.juniper.net/config">
+<iq type="set" from="network-control@tungstensystems.com" to="default-global-system-config:a1s28.tungsten.juniper.net/config">
  <config>
   <update>
    <link>
@@ -449,7 +449,7 @@
   </update>
  </config>
 </iq>
-<iq type="set" from="network-control@contrailsystems.com" to="default-global-system-config:a1s28.contrail.juniper.net/config">
+<iq type="set" from="network-control@tungstensystems.com" to="default-global-system-config:a1s28.tungsten.juniper.net/config">
  <config>
   <update>
    <node type="network-ipam">
@@ -475,7 +475,7 @@
   </update>
  </config>
 </iq>
-<iq type="set" from="network-control@contrailsystems.com" to="default-global-system-config:a1s28.contrail.juniper.net/config">
+<iq type="set" from="network-control@tungstensystems.com" to="default-global-system-config:a1s28.tungsten.juniper.net/config">
  <config>
   <update>
    <link>

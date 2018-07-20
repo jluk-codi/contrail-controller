@@ -251,9 +251,9 @@ void AgentUveBase::VrouterAgentProcessState
             continue;
         }
         /* Don't consider ConnectionType::TOR type for counting connections.
-         * contrail-tor-agent is not supposed to report as Non-Functional when
-         * it is in backup mode, but contrail-tor-agent does not have a way to
-         * figure out that it is in backup mode. Hence for contrail-tor-agent
+         * tungsten-tor-agent is not supposed to report as Non-Functional when
+         * it is in backup mode, but tungsten-tor-agent does not have a way to
+         * figure out that it is in backup mode. Hence for tungsten-tor-agent
          * (both active and backup modes) we don't consider connection to TOR
          * for reporting Node Status */
         num_conns++;

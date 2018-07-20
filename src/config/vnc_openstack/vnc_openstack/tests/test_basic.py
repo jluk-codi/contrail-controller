@@ -206,7 +206,7 @@ class TestBasic(test_case.NeutronBackendTestCase):
                 '/neutron/%s' %(url_pfx), body)
             return json.loads(resp.text)
 
-        # for collections that are objects in contrail model
+        # for collections that are objects in tungsten model
         for (objs, res_url_pfx, res_xlate_name) in collection_types:
             res_dicts = list_resource(res_url_pfx)
             present_ids = [r['id'] for r in res_dicts]
@@ -233,7 +233,7 @@ class TestBasic(test_case.NeutronBackendTestCase):
             present_ids = [r['id'] for r in res_dicts]
             for obj in objs:
                 self.assertIn(obj.uuid, present_ids)
-        # end for collections that are objects in contrail model
+        # end for collections that are objects in tungsten model
 
         # subnets, sg-rules etc.
         res_dicts = list_resource('subnet')
@@ -2259,7 +2259,7 @@ class TestExtraFieldsPresenceByKnob(test_case.NeutronBackendTestCase):
     @classmethod
     def setUpClass(cls):
         super(TestExtraFieldsPresenceByKnob, cls).setUpClass(
-            extra_config_knobs=[('NEUTRON', 'contrail_extensions_enabled', True)])
+            extra_config_knobs=[('NEUTRON', 'tungsten_extensions_enabled', True)])
 
     def test_extra_fields_on_network(self):
         test_obj = self._create_test_object()
@@ -2279,7 +2279,7 @@ class TestExtraFieldsAbsenceByKnob(test_case.NeutronBackendTestCase):
     @classmethod
     def setUpClass(cls):
         super(TestExtraFieldsAbsenceByKnob, cls).setUpClass(
-            extra_config_knobs=[('NEUTRON', 'contrail_extensions_enabled', False)])
+            extra_config_knobs=[('NEUTRON', 'tungsten_extensions_enabled', False)])
 
     def test_no_extra_fields_on_network(self):
         test_obj = self._create_test_object()

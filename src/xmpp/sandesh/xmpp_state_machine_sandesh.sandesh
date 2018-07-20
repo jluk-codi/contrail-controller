@@ -196,7 +196,7 @@ trace sandesh XmppControlMessageTrace {
  * @description: XMPP KeepAlive timer error
  * @severity: ERROR
  * @cause: Scheduled Timer operation did not operate correctly
- * @action: Check system logs for any additional insight into this issue. Peer clear or contrail-control restart might help as a work around.
+ * @action: Check system logs for any additional insight into this issue. Peer clear or tungsten-control restart might help as a work around.
  */
 systemlog sandesh XmppKeepaliveTimeError {
     1: "XMPP Peer"

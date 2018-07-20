@@ -10,16 +10,16 @@ template = string.Template("""
 # IP address to be used to connect to control-node. Maximum of 2 IP addresses
 # (separated by a space) can be provided. If no IP is configured then the
 # value provided by discovery service will be used. (optional)
-servers=$__contrail_control_servers__
+servers=$__tungsten_control_servers__
 
 [DEFAULT]
-agent_name=$__contrail_tor_agent_name__
+agent_name=$__tungsten_tor_agent_name__
 # Everything in this section is optional
 
 # IP address and port to be used to connect to collector. If these are not
 # configured, value provided by discovery service will be used. Multiple
 # IP:port strings separated by space can be provided
-collectors=$__contrail_collector_servers__
+collectors=$__tungsten_collector_servers__
 
 # Enable/disable debug logging. Possible values are 0 (disable) and 1 (enable)
 # debug=0
@@ -35,7 +35,7 @@ collectors=$__contrail_collector_servers__
 # log_category=
 
 # Local log file name
-log_file=/var/log/contrail/contrail-tor-agent-$__contrail_tor_id__.log
+log_file=/var/log/tungsten/tungsten-tor-agent-$__tungsten_tor_id__.log
 
 # Log severity levels. Possible values are SYS_EMERG, SYS_ALERT, SYS_CRIT,
 # SYS_ERR, SYS_WARN, SYS_NOTICE, SYS_INFO and SYS_DEBUG. Default is SYS_DEBUG
@@ -61,7 +61,7 @@ log_file=/var/log/contrail/contrail-tor-agent-$__contrail_tor_id__.log
 
 # Http server port for inspecting vnswad state (useful for debugging)
 # http_server_port=8085
-http_server_port=$__contrail_http_server_port__
+http_server_port=$__tungsten_http_server_port__
 
 # Number of control-nodes info to be provided by Discovery service. Possible
 # values are 1 and 2
@@ -75,49 +75,49 @@ xmpp_dns_auth_enable=$__xmpp_dns_auth_enable__
 # IP address to be used to connect to dns-node. Maximum of 2 IP addresses
 # (separated by a space) can be provided. If no IP is configured then the
 # value provided by discovery service will be used. (Optional)
-servers=$__contrail_dns_servers__
+servers=$__tungsten_dns_servers__
 
 [NETWORKS]
 # control-channel IP address used by WEB-UI to connect to vnswad to fetch
 # required information (Optional)
-control_network_ip=$__contrail_control_ip__
+control_network_ip=$__tungsten_control_ip__
 
 [TOR]
 # IP address of the TOR to manage
-tor_ip=$__contrail_tor_ip__
+tor_ip=$__tungsten_tor_ip__
 
 # Identifier for ToR. Agent will subscribe to ifmap-configuration by this name
-tor_id=$__contrail_tor_id__
+tor_id=$__tungsten_tor_id__
 
 # ToR management scheme is based on this type. Only supported value is "ovs"
 tor_type=ovs
 
 # OVS server port number on the ToR
-tor_ovs_port=$__contrail_tsn_ovs_port__
+tor_ovs_port=$__tungsten_tsn_ovs_port__
 
 # IP-Transport protocol used to connect to tor. Supported values are "tcp", "pssl"
-tor_ovs_protocol=$__contrail_tor_ovs_protocol__
+tor_ovs_protocol=$__tungsten_tor_ovs_protocol__
 
 #tor name on the TOR
-tor_name=$__contrail_tor_name__
+tor_name=$__tungsten_tor_name__
 
 # tor vendor name
-tor_vendor_name=$__contrail_tor_vendor_name__
+tor_vendor_name=$__tungsten_tor_vendor_name__
 
 #tor product name
-tor_product_name=$__contrail_tor_product_name__
+tor_product_name=$__tungsten_tor_product_name__
 
 # Path to ssl certificate for tor-agent, needed for pssl
-ssl_cert=$__contrail_tor_ssl_cert__
+ssl_cert=$__tungsten_tor_ssl_cert__
 
 # Path to ssl private-key for tor-agent, needed for pssl
-ssl_privkey=$__contrail_tor_ssl_privkey__
+ssl_privkey=$__tungsten_tor_ssl_privkey__
 
 # Path to ssl cacert for tor-agent, needed for pssl
-ssl_cacert=$__contrail_tor_ssl_cacert__
+ssl_cacert=$__tungsten_tor_ssl_cacert__
 
-tsn_ip=$__contrail_tsn_ip__
+tsn_ip=$__tungsten_tsn_ip__
 
 # OVS keep alive timer interval in milliseconds
-tor_keepalive_interval=$__contrail_tor_agent_ovs_ka__
+tor_keepalive_interval=$__tungsten_tor_agent_ovs_ka__
 """)

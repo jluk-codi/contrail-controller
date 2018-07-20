@@ -57,7 +57,7 @@ class AnalyticsNodeProvisioner(object):
 
     def _parse_args(self, args_str):
         '''
-        Eg. python provision_analytics_node.py --host_name a3s30.contrail.juniper.net
+        Eg. python provision_analytics_node.py --host_name a3s30.tungsten.juniper.net
                                         --host_ip 10.1.1.1
                                         --api_server_ip 127.0.0.1
                                         --api_server_port 8082

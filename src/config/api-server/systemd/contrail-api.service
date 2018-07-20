@@ -1,26 +1,26 @@
 [Unit]
-Description="Contrail API"
+Description="Tungsten API"
 After=network.target
 
 [Service]
 RestartSec=3s
 Type=simple
-ExecStart=/usr/bin/contrail-api --conf_file /etc/contrail/contrail-api.conf --conf_file /etc/contrail/contrail-keystone-auth.conf --conf_file /etc/contrail/contrail-database.conf --listen_port 9100
-PIDFile=/var/run/contrail/contrail-api.pid
+ExecStart=/usr/bin/tungsten-api --conf_file /etc/tungsten/tungsten-api.conf --conf_file /etc/tungsten/tungsten-keystone-auth.conf --conf_file /etc/tungsten/tungsten-database.conf --listen_port 9100
+PIDFile=/var/run/tungsten/tungsten-api.pid
 TimeoutStopSec=0
 Restart=always
-User=contrail
-Group=contrail
+User=tungsten
+Group=tungsten
 ExecStop=/bin/kill -s TERM $MAINPID
 
 PrivateTmp=yes
 PrivateDevices=yes
 ProtectHome=yes
 ReadOnlyDirectories=/
-ReadWriteDirectories=-/var/lib/contrail
+ReadWriteDirectories=-/var/lib/tungsten
 ReadWriteDirectories=-/var/crashes
-ReadWriteDirectories=-/var/log/contrail
-ReadWriteDirectories=-/etc/contrail
+ReadWriteDirectories=-/var/log/tungsten
+ReadWriteDirectories=-/etc/tungsten
 
 [Install]
 WantedBy=multi-user.target

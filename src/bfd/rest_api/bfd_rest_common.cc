@@ -11,10 +11,10 @@
 
 #include "http/http_session.h"
 
-using contrail_rapidjson::Document;
-using contrail_rapidjson::StringBuffer;
-using contrail_rapidjson::Value;
-using contrail_rapidjson::Writer;
+using tungsten_rapidjson::Document;
+using tungsten_rapidjson::StringBuffer;
+using tungsten_rapidjson::Value;
+using tungsten_rapidjson::Writer;
 
 
 namespace BFD {

@@ -63,7 +63,7 @@ class VncEndpointsTestBase(test_case.KMTestCase):
         ns_add_event = self.create_add_namespace_event(namespace_name, ns_uid)
         if isolated:
             ns_add_event['object']['metadata']['annotations'] = {
-                'opencontrail.org/isolation': 'true'}
+                'tungsten.io/isolation': 'true'}
         NamespaceKM.locate(ns_uid, ns_add_event['object'])
         self.enqueue_event(ns_add_event)
         return namespace_name, ns_uid

@@ -26,7 +26,7 @@ class F5LBTest(unittest.TestCase):
             self.assertTrue(False)
         #end
         self.vnc_lib.kv_retrieve = mock.Mock(side_effect=mock_kv_retrieve)
-        self.vnc_lib.service_appliance_set_create.return_value = "opencontrail"
+        self.vnc_lib.service_appliance_set_create.return_value = "Tungsten Fabric"
 
         self._mock_bigip_interfaces = None
         self._mock_BigIp = None
@@ -58,9 +58,9 @@ class F5LBTest(unittest.TestCase):
         def sas_read_side_effect(obj_type, uuids, **kwargs):
             if obj_type == 'service_appliance_set':
                 return (True, [{
-                 'fq_name': ['default-global-system-config', 'opencontrail'],
+                 'fq_name': ['default-global-system-config', 'Tungsten Fabric'],
                  'service_appliance_driver': 'svc_monitor.services.loadbalancer\
-.drivers.ha_proxy.driver.OpencontrailLoadbalancerDriver'
+.drivers.ha_proxy.driver.Tungsten FabricLoadbalancerDriver'
                    }])
             return (False, None)
         DBBase.init(self.svc, None, self.object_db)
@@ -76,10 +76,10 @@ class F5LBTest(unittest.TestCase):
         self.lb_agent = loadbalancer_agent.LoadbalancerAgent(self.svc,
             self.vnc_lib, self.object_db, self._args)
         self.svc.loadbalancer_agent = self.lb_agent
-        sas = config_db.ServiceApplianceSetSM.get('opencontrail')
+        sas = config_db.ServiceApplianceSetSM.get('Tungsten Fabric')
         self.assertEqual(sas.driver,
 "svc_monitor.services.loadbalancer.drivers.ha_proxy.driver.\
-OpencontrailLoadbalancerDriver")
+Tungsten FabricLoadbalancerDriver")
         sas.add()
         DBBase.init(self.svc, None, self.object_db)
         config_db.ServiceApplianceSetSM._object_db.object_read = \
@@ -106,7 +106,7 @@ OpencontrailLoadbalancerDriver")
                        {'key': 'vip_vlan', 'value': 'access'},
                        {'key': 'use_snat', 'value': 'True'}]
         sas.ha_mode = "standalone"
-        sas.driver = "svc_monitor.services.loadbalancer.drivers.f5.f5_driver.OpencontrailF5LoadbalancerDriver"
+        sas.driver = "svc_monitor.services.loadbalancer.drivers.f5.f5_driver.Tungsten FabricF5LoadbalancerDriver"
 
         sa_obj = {}
         sa_obj['fq_name'] = ["default-global-system-config", "f5", "bigip"]
@@ -115,7 +115,7 @@ OpencontrailLoadbalancerDriver")
         sa_obj['parent_uuid'] = 'f5-sas'
         sa_obj['service_appliance_ip_address'] = "1.1.1.1"
         sa_obj['service_appliance_user_credentials'] = {'username': "admin",
-                                                      'password': "contrail123"}
+                                                      'password': "tungsten123"}
         sa = config_db.ServiceApplianceSM.locate(sa_obj['uuid'], sa_obj)
 
         def test_decorate_name(name1, name2):
@@ -135,7 +135,7 @@ OpencontrailLoadbalancerDriver")
 
     def tearDown(self):
         self._mock_BigIp.reset_mock()
-        config_db.ServiceApplianceSetSM.delete("opencontrail")
+        config_db.ServiceApplianceSetSM.delete("Tungsten Fabric")
         config_db.ServiceApplianceSetSM.delete("f5-sas")
         config_db.ServiceApplianceSM.delete("bigip")
         config_db.LoadbalancerPoolSM.reset()
@@ -307,7 +307,7 @@ OpencontrailLoadbalancerDriver")
         self.assertTrue('test-lb-pool' in self._db)
 
         # Ensure we call the BigIp with correct ip, user name and password
-        self._mock_BigIp.assert_called_with('1.1.1.1', 'admin', 'contrail123',
+        self._mock_BigIp.assert_called_with('1.1.1.1', 'admin', 'tungsten123',
                                             5, True, True)
         self._mock_BigIp.return_value.pool.create.assert_called_with(
             description='test-lb-pool:Test pool', folder='tenant',

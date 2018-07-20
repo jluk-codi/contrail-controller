@@ -5,7 +5,7 @@ import csv
 from pysandesh.sandesh_logger import SandeshLogger
 from pysandesh.gen_py.sandesh.ttypes import SandeshLevel
 
-HAPROXY_DIR = '/var/lib/contrail/loadbalancer/haproxy/'
+HAPROXY_DIR = '/var/lib/tungsten/loadbalancer/haproxy/'
 
 STATS_MAP = {
     'active_connections': 'qcur',

@@ -31,7 +31,7 @@ buildinfo_dep_libs = [
 def MapBuildCmnLib(list):
     return [File('../../../' + x).abspath for x in list]
 
-# Common contrail libraries
+# Common tungsten libraries
 buildinfo_dep_libs += MapBuildCmnLib([
     'base/' + env['LIBPREFIX'] + 'base' + env['LIBSUFFIX'],
     'base/' + env['LIBPREFIX'] + 'cpuinfo' + env['LIBSUFFIX'],
@@ -86,7 +86,7 @@ env.GenerateBuildInfoCode(
     path=str(Dir('.').abspath))
 build_obj = [env.Object('buildinfo.cc')]
 
-# Add contrail-vrouter-agent specific libraries
+# Add tungsten-vrouter-agent specific libraries
 env.Prepend(LIBS = AgentEnv['CONTRAIL_LIBS'])
 
 if sys.platform != 'win32':
@@ -108,20 +108,20 @@ elif sys.platform.startswith('win'):
     platform_dependent = 'windows/pkt0_interface.cc'
 
 
-contrail_vrouter_agent = env.Program(target = 'contrail-vrouter-agent',
-                     source = ['contrail_agent_init.cc',
+tungsten_vrouter_agent = env.Program(target = 'tungsten-vrouter-agent',
+                     source = ['tungsten_agent_init.cc',
                                'main.cc',
                                'pkt0_interface_base.cc',
                                 buildinfo_dep_libs,
                                 build_obj,
                                 platform_dependent])
 
-env.Alias('contrail-vrouter-agent', contrail_vrouter_agent)
-env.Default(contrail_vrouter_agent)
+env.Alias('tungsten-vrouter-agent', tungsten_vrouter_agent)
+env.Default(tungsten_vrouter_agent)
 
 if sys.platform == 'win32':
     #Use WiX for MSI generation
-    agent_msi = env.WiX('contrail-vrouter-agent.msi', ['windows/msi/agent_msi.wxs'])
+    agent_msi = env.WiX('tungsten-vrouter-agent.msi', ['windows/msi/agent_msi.wxs'])
     env.Append(WIXCANDLEFLAGS = ['-doptimization=' + env['OPT']])
     if env['OPT'] == 'debug':
         env.Append(WIXCANDLEFLAGS = ['-dTbbDll=tbb_debug.dll'])
@@ -132,9 +132,9 @@ if sys.platform == 'win32':
 
     env.Append(WIXCANDLEFLAGS = ['-ext', 'WixUtilExtension.dll'])
     env.Append(WIXLIGHTFLAGS = ['-ext', 'WixUtilExtension.dll'])
-    env.Depends(agent_msi, [contrail_vrouter_agent, 'winsw'])
+    env.Depends(agent_msi, [tungsten_vrouter_agent, 'winsw'])
 
-    env.Alias('contrail-vrouter-agent.msi', agent_msi)
+    env.Alias('tungsten-vrouter-agent.msi', agent_msi)
     env.Default(agent_msi)
 
 utils_scripts = [
@@ -150,25 +150,25 @@ doc_files += env['AGENT_FLOW_DOC_FILES']
 doc_files += env['AGENT_STATS_COLLECTOR_DOC_FILES']
 
 # Please update sandesh/common/vns.sandesh on process name change
-env.Alias('install', env.Install(env['INSTALL_BIN'], contrail_vrouter_agent))
-env.Alias('install', env.Install(env['INSTALL_BIN'], 'contrail-vrouter-agent-health-check.py'))
-env.Alias('install', env.Install(env['INSTALL_BIN'], 'contrail_crypt_tunnel_client.py'))
+env.Alias('install', env.Install(env['INSTALL_BIN'], tungsten_vrouter_agent))
+env.Alias('install', env.Install(env['INSTALL_BIN'], 'tungsten-vrouter-agent-health-check.py'))
+env.Alias('install', env.Install(env['INSTALL_BIN'], 'tungsten_crypt_tunnel_client.py'))
 for utils in utils_scripts:
   env.Alias('install', env.Install(env['INSTALL_EXAMPLE'], utils))
 env.Alias('install', env.Install(env['INSTALL_CONF'],
-          '../contrail-vrouter-agent.conf'))
+          '../tungsten-vrouter-agent.conf'))
 env.Alias('install',
         env.InstallAs(env['INSTALL_CONF'] + 
-        '/supervisord_vrouter_files/' + 'contrail-vrouter-agent.ini',
-        '../contrail-vrouter-agent.ini'))
+        '/supervisord_vrouter_files/' + 'tungsten-vrouter-agent.ini',
+        '../tungsten-vrouter-agent.ini'))
 env.Alias('install',
-        env.InstallAs(env['INSTALL_INITD'] + '/contrail-vrouter-agent',
-        '../contrail-vrouter.initd.supervisord'))
+        env.InstallAs(env['INSTALL_INITD'] + '/tungsten-vrouter-agent',
+        '../tungsten-vrouter.initd.supervisord'))
 env.Alias('install',
-        env.InstallAs(env['INSTALL_SYSTEMD'] + '/contrail-vrouter-agent.service',
-        '../systemd/contrail-vrouter-agent.service'))
+        env.InstallAs(env['INSTALL_SYSTEMD'] + '/tungsten-vrouter-agent.service',
+        '../systemd/tungsten-vrouter-agent.service'))
 env.Alias('install', env.Install(env['INSTALL_CONF'], 
     '../supervisord_vrouter.conf'))
 env.Alias('install', env.Install(
-    env['INSTALL_MESSAGE_DOC'] + '/contrail-vrouter-agent/',
+    env['INSTALL_MESSAGE_DOC'] + '/tungsten-vrouter-agent/',
     doc_files))

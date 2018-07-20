@@ -27,7 +27,7 @@ def error_409(err):
 
 class NeutronPluginInterface(object):
     """
-    An instance of this class receives requests from Contrail Neutron Plugin
+    An instance of this class receives requests from Tungsten Neutron Plugin
     """
 
     def __init__(self, api_server_ip, api_server_port, conf_sections, sandesh,
@@ -45,10 +45,10 @@ class NeutronPluginInterface(object):
 
         try:
             exts_enabled = conf_sections.getboolean('NEUTRON',
-                'contrail_extensions_enabled')
+                'tungsten_extensions_enabled')
         except (ConfigParser.NoSectionError, ConfigParser.NoOptionError):
             exts_enabled = True
-        self._contrail_extensions_enabled = exts_enabled
+        self._tungsten_extensions_enabled = exts_enabled
 
         try:
             strict = conf_sections.getboolean('NEUTRON',
@@ -95,7 +95,7 @@ class NeutronPluginInterface(object):
         """
         if self._cfgdb is None:
             # Initialize connection to DB and add default entries
-            exts_enabled = self._contrail_extensions_enabled
+            exts_enabled = self._tungsten_extensions_enabled
             apply_sn_route = self._sn_host_route
             self._cfgdb = DBInterface(self,
                                       self._auth_user,
@@ -104,7 +104,7 @@ class NeutronPluginInterface(object):
                                       self._vnc_api_ip,
                                       self._vnc_api_port,
                                       api_server_obj=self._api_server_obj,
-                                      contrail_extensions_enabled=exts_enabled,
+                                      tungsten_extensions_enabled=exts_enabled,
                                       list_optimization_enabled=\
                                       self._list_optimization_enabled,
                                       apply_subnet_host_routes=apply_sn_route,

@@ -50,7 +50,7 @@ const string IFMapSTOptions::kDEFAULT_EVENT_WEIGHTS_FILE=
         "controller/src/ifmap/testdata/ifmap_event_weights.txt";
 
 const string IFMapStressTest::kXMPP_CLIENT_PREFIX = "XmppClient";
-const string IFMapStressTest::kDefaultXmppServerName = "bgp.contrail.com";
+const string IFMapStressTest::kDefaultXmppServerName = "bgp.tungsten.com";
 
 // **** Start IFMapSTOptions routines.
 

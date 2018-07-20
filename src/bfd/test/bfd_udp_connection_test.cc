@@ -8,7 +8,7 @@
 #include "bfd/bfd_udp_connection.h"
 #include "bfd/bfd_control_packet.h"
 
-typedef contrail::regex regex_t;
+typedef tungsten::regex regex_t;
 #include "bfd/test/bfd_test_utils.h"
 
 #include <boost/asio.hpp>

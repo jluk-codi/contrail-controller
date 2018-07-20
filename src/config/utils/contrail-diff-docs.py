@@ -74,7 +74,7 @@ class DocDiff(object):
 
 def main():
     if len(sys.argv) != 3:
-        print 'Usage is python contrail-diff-docs.py <path to old index_logs.doc.schema.json> <path new index_logs.doc.schema.json>'
+        print 'Usage is python tungsten-diff-docs.py <path to old index_logs.doc.schema.json> <path new index_logs.doc.schema.json>'
         exit(-1)
     diff = DocDiff(sys.argv[1], sys.argv[2])
     diff.run()

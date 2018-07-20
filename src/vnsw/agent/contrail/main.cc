@@ -4,7 +4,7 @@
 
 #include <boost/program_options.hpp>
 #include <base/logging.h>
-#include <base/contrail_ports.h>
+#include <base/tungsten_ports.h>
 
 #include <pugixml/pugixml.hpp>
 
@@ -38,7 +38,7 @@
 #include <boost/functional/factory.hpp>
 #include <cmn/agent_factory.h>
 
-#include "contrail_agent_init.h"
+#include "tungsten_agent_init.h"
 namespace opt = boost::program_options;
 
 void RouterIdDepInit(Agent *agent) {
@@ -94,7 +94,7 @@ int main(int argc, char *argv[]) {
     TaskScheduler::Initialize(params.tbb_thread_count());
 
     // Initialize the agent-init control class
-    ContrailAgentInit init;
+    TungstenAgentInit init;
     if (params.vrouter_on_windows()) {
         // On Windows vhost interface is created when Hyper-V switch is created
         init.set_create_vhost(false);

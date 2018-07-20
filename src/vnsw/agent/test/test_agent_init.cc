@@ -23,7 +23,7 @@
 #include <vrouter/flow_stats/session_stats_collector.h>
 
 #include "test_agent_init.h"
-TestAgentInit::TestAgentInit() : ContrailInitCommon() {
+TestAgentInit::TestAgentInit() : TungstenInitCommon() {
 }
 
 TestAgentInit::~TestAgentInit() {
@@ -35,7 +35,7 @@ TestAgentInit::~TestAgentInit() {
 void TestAgentInit::ProcessOptions
     (const std::string &config_file, const std::string &program_name) {
 
-    ContrailInitCommon::ProcessOptions(config_file, program_name);
+    TungstenInitCommon::ProcessOptions(config_file, program_name);
 
     boost::program_options::variables_map var_map = agent_param()->var_map();
     if (var_map.count("disable-vhost")) {
@@ -56,7 +56,7 @@ void TestAgentInit::ProcessOptions
 }
 
 void TestAgentInit::ProcessComputeAddress(AgentParam *param) {
-    ContrailInitCommon::ProcessComputeAddress(param);
+    TungstenInitCommon::ProcessComputeAddress(param);
 }
 
 /****************************************************************************
@@ -83,7 +83,7 @@ void TestAgentInit::FactoryInit() {
 void TestAgentInit::CreateModules() {
     /* Set timeout to high value so that it doesn't get fired */
     agent()->stats()->set_flow_stats_update_timeout(0x7FFFFFFF);
-    ContrailInitCommon::CreateModules();
+    TungstenInitCommon::CreateModules();
     pkt0_.reset(new TestPkt0Interface(agent(), "pkt0",
                 *agent()->event_manager()->io_service()));
     agent()->pkt()->set_control_interface(pkt0_.get());
@@ -114,7 +114,7 @@ void TestAgentInit::CreateModules() {
 }
 
 void TestAgentInit::InitDone() {
-    ContrailInitCommon::InitDone();
+    TungstenInitCommon::InitDone();
     if (agent()->port_ipc_handler()) {
         agent()->port_ipc_handler()->InitDone();
     }

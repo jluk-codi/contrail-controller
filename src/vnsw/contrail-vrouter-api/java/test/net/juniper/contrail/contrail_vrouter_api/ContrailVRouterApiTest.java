@@ -2,7 +2,7 @@
  * Copyright (c) 2014 Juniper Networks, Inc
  */
 
-package net.juniper.contrail.contrail_vrouter_api;
+package net.juniper.tungsten.tungsten_vrouter_api;
 
 import java.util.UUID;
 import java.net.InetAddress;
@@ -21,30 +21,30 @@ import static org.mockito.Mockito.*;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.mockito.MockitoAnnotations;
 
-import net.juniper.contrail.contrail_vrouter_api.ContrailVRouterApi;
-import net.juniper.contrail.contrail_vrouter_api.InstanceService;
-import net.juniper.contrail.contrail_vrouter_api.Port;
+import net.juniper.tungsten.tungsten_vrouter_api.TungstenVRouterApi;
+import net.juniper.tungsten.tungsten_vrouter_api.InstanceService;
+import net.juniper.tungsten.tungsten_vrouter_api.Port;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ContrailVRouterApiTest {
+public class TungstenVRouterApiTest {
     @MockitoAnnotations.Mock
     private InstanceService.Iface mockClient;
-    private ContrailVRouterApi apiTest;
+    private TungstenVRouterApi apiTest;
     private static final Logger s_logger =
-        Logger.getLogger(ContrailVRouterApiTest.class);
+        Logger.getLogger(TungstenVRouterApiTest.class);
         
     @Before
     public void setUp() throws Exception {
-        s_logger.debug("Setting up ContrailVRouterApiTest");
+        s_logger.debug("Setting up TungstenVRouterApiTest");
         int port = -1;
-        apiTest = spy(new ContrailVRouterApi(InetAddress.getLocalHost(),
+        apiTest = spy(new TungstenVRouterApi(InetAddress.getLocalHost(),
             port, false));
         doReturn(mockClient).when(apiTest).CreateRpcClient();
     }
 
     @After
     public void tearDown() throws Exception {
-        s_logger.debug("Tearing down ContrailVRouterApiTest");
+        s_logger.debug("Tearing down TungstenVRouterApiTest");
     }
 
     @Test

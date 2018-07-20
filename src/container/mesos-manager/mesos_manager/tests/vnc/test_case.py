@@ -35,7 +35,7 @@ class MMTestCase(test_common.TestCase):
                                         cls._api_server_port)
 
         mesos_config = [
-            ('DEFAULTS', 'log_file', 'contrail-mesos-manager.log'),
+            ('DEFAULTS', 'log_file', 'tungsten-mesos-manager.log'),
             ('VNC', 'vnc_endpoint_ip', cls._api_server_ip),
             ('VNC', 'vnc_endpoint_port', cls._api_server_port),
             ('VNC', 'cassandra_server_list', "0.0.0.0:9160"),
@@ -72,7 +72,7 @@ class MMTestCase(test_common.TestCase):
     def generate_mesos_args(self):
         args_str = ""
         mesos_config = [
-            ('DEFAULTS', 'log_file', 'contrail-mesos-manager.log'),
+            ('DEFAULTS', 'log_file', 'tungsten-mesos-manager.log'),
             ('VNC', 'vnc_endpoint_ip', self._api_server_ip),
             ('VNC', 'vnc_endpoint_port', self._api_server_port),
             ('VNC', 'cassandra_server_list', "0.0.0.0:9160"),

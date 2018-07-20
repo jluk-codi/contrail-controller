@@ -36,32 +36,32 @@ bool del_physical_port(const string &physical_switch,
 
 bool add_ucast_mac_local(const string &logical_switch, const string &mac,
                          const string &dest_ip) {
-    execute_vtep_cmd("add-ucast-local Contrail-" + logical_switch +
+    execute_vtep_cmd("add-ucast-local Tungsten-" + logical_switch +
                      " " + mac + " " + dest_ip);
-    return execute_vtep_cmd("list-local-macs Contrail-" + logical_switch +
+    return execute_vtep_cmd("list-local-macs Tungsten-" + logical_switch +
                             " | grep " + mac);
 }
 
 bool del_ucast_mac_local(const string &logical_switch, const string &mac) {
-    execute_vtep_cmd("del-ucast-local Contrail-" + logical_switch +
+    execute_vtep_cmd("del-ucast-local Tungsten-" + logical_switch +
                      " " + mac);
-    return !execute_vtep_cmd("list-local-macs Contrail-" + logical_switch +
+    return !execute_vtep_cmd("list-local-macs Tungsten-" + logical_switch +
                             " | grep " + mac);
 }
 
 bool add_mcast_mac_local(const string &logical_switch, const string &mac,
                          const string &dest_ip) {
-    execute_vtep_cmd("add-mcast-local Contrail-" + logical_switch +
+    execute_vtep_cmd("add-mcast-local Tungsten-" + logical_switch +
                      " " + mac + " " + dest_ip);
-    return execute_vtep_cmd("list-local-macs Contrail-" + logical_switch +
+    return execute_vtep_cmd("list-local-macs Tungsten-" + logical_switch +
                             " | grep " + mac + " | grep " + dest_ip);
 }
 
 bool del_mcast_mac_local(const string &logical_switch, const string &mac,
                          const string &dest_ip) {
-    execute_vtep_cmd("del-mcast-local Contrail-" + logical_switch +
+    execute_vtep_cmd("del-mcast-local Tungsten-" + logical_switch +
                      " " + mac + " " + dest_ip);
-    return !execute_vtep_cmd("list-local-macs Contrail-" + logical_switch +
+    return !execute_vtep_cmd("list-local-macs Tungsten-" + logical_switch +
                             " | grep " + mac + " | grep " + dest_ip);
 }
 

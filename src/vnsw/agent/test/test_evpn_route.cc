@@ -2,7 +2,7 @@
 //  test_evpn_route.cc
 //  vnsw/agent/test
 //
-//  Copyright (c) 2015 Contrail Systems. All rights reserved.
+//  Copyright (c) 2015 Tungsten Systems. All rights reserved.
 //
 #include "base/os.h"
 #include <base/logging.h>

@@ -3226,13 +3226,13 @@ class BgpRouterST(DBBaseST):
     # end delete_ref
 
     def set_params(self, params):
-        self.vendor = (params.vendor or 'contrail').lower()
+        self.vendor = (params.vendor or 'tungsten').lower()
         self.identifier = params.identifier
         self.router_type = params.router_type
         self.source_port = params.source_port
         self.cluster_id = params.cluster_id
         if self.router_type not in ('bgpaas-client', 'bgpaas-server'):
-            if self.vendor == 'contrail':
+            if self.vendor == 'tungsten':
                 self.update_global_asn(
                     GlobalSystemConfigST.get_autonomous_system())
             else:
@@ -3240,7 +3240,7 @@ class BgpRouterST(DBBaseST):
     # end set_params
 
     def update_global_asn(self, asn):
-        if self.vendor != 'contrail' or self.asn == int(asn):
+        if self.vendor != 'tungsten' or self.asn == int(asn):
             return
         if self.router_type in ('bgpaas-client', 'bgpaas-server'):
             return

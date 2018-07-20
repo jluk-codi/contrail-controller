@@ -17,7 +17,7 @@ struct UveVirtualNetworkCtrl {  // Control plane view of the virtual network
 }
 
 /**
- * @description: contrail-control state information
+ * @description: tungsten-control state information
  * @severity: DEBUG
  * @cause: Normal operation
  */

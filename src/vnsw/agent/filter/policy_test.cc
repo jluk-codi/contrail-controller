@@ -39,7 +39,7 @@ TEST_F(PolicyTest, Basic) {
     policy_c_s1.vpc_id = vpc_id1;
     policy_c_s1.policy_id = policy_id1;
     policy_c_s1.name.clear();
-    policy_c_s1.name.append("Contrail Employee SG");
+    policy_c_s1.name.append("Tungsten Employee SG");
     policy_c_s1.inbound = true;
     policy_c_s1.acl_id = StringToUuid("00000000-0000-0000-0000-000000000001");
 
@@ -74,7 +74,7 @@ TEST_F(PolicyTest, ChangeAnEntry) {
     policy_c_s1.vpc_id = vpc_id1;
     policy_c_s1.policy_id = policy_id1;
     policy_c_s1.name.clear();
-    policy_c_s1.name.append("Contrail Employee SG");
+    policy_c_s1.name.append("Tungsten Employee SG");
     policy_c_s1.inbound = true;
     policy_c_s1.acl_id = StringToUuid("00000000-0000-0000-0000-000000000001");
 

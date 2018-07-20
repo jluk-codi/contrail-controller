@@ -92,11 +92,11 @@ bool IFMapServerParser::ParseMetadata(const pugi::xml_node &node,
     return true;
 }
 
-// Expect the identifier name to be [contrail:]type:name
+// Expect the identifier name to be [tungsten:]type:name
 static void IdentifierNsTypeName(const string &id, string *id_type,
                                  string *id_name) {
-    size_t ns = id.find("contrail:");
-    size_t start = (ns == 0) ? sizeof("contrail:") - 1: 0;
+    size_t ns = id.find("tungsten:");
+    size_t start = (ns == 0) ? sizeof("tungsten:") - 1: 0;
     size_t loc = id.find(':', start);
     if (loc != string::npos) {
         *id_type = string(id, start, loc - start);

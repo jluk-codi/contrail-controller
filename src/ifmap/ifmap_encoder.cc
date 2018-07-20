@@ -22,7 +22,7 @@ void IFMapMessage::Open() {
     xml_node iq = doc_.append_child("iq");
     // set iq (type, from, to) attributes
     iq.append_attribute("type") = "set";
-    iq.append_attribute("from") = "network-control@contrailsystems.com";
+    iq.append_attribute("from") = "network-control@tungstensystems.com";
     iq.append_attribute("to") = "";
     config_ = iq.append_child("config");
 }

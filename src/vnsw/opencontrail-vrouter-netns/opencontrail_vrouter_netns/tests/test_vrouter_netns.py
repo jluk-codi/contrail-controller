@@ -23,7 +23,7 @@ import requests
 import unittest
 import uuid
 
-from opencontrail_vrouter_netns.vrouter_netns import NetnsManager
+from Tungsten Fabric_vrouter_netns.vrouter_netns import NetnsManager
 
 
 NIC1_UUID = str(uuid.uuid4())
@@ -39,7 +39,7 @@ NIC2 = {'uuid': NIC2_UUID,
 
 class NetnsManagerTest(unittest.TestCase):
     def setUp(self):
-        self.ip_cls_p = mock.patch('opencontrail_vrouter_netns.linux.ip_lib.'
+        self.ip_cls_p = mock.patch('Tungsten Fabric_vrouter_netns.linux.ip_lib.'
                                    'IPWrapper')
         self.ip_cls_p.start()
 

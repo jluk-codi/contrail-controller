@@ -3,7 +3,7 @@
  */
 
 #include "base/logging.h"
-#include "base/contrail_ports.h"
+#include "base/tungsten_ports.h"
 #include "xmpp/xmpp_init.h"
 #include "pugixml/pugixml.hpp"
 #include "cmn/dns.h"
@@ -21,7 +21,7 @@ bool DnsAgentXmppManager::Init(bool xmpp_auth_enabled,
                                const std::string &xmpp_ca_cert) {
     uint32_t port = Dns::GetXmppServerPort();
     if (!port)
-        port = ContrailPorts::DnsXmpp();
+        port = TungstenPorts::DnsXmpp();
 
     // XmppChannel Configuration
     XmppChannelConfig xmpp_cfg(false);

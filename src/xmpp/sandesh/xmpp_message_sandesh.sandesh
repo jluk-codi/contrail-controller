@@ -73,8 +73,8 @@ trace sandesh XmppSessionDeleteTrace {
 /**
  * @description: XMPP Invalid Message
  * @severity: ERROR
- * @cause: Possibly due to mis-behaving xmpp message sender (contrail-vrouter-agent software)
- * @action: Check logs from offending contrail-vrouter-agent which has sent incorrect or malformed xmpp chat message. Peer clear might help as a work around.
+ * @cause: Possibly due to mis-behaving xmpp message sender (tungsten-vrouter-agent software)
+ * @action: Check logs from offending tungsten-vrouter-agent which has sent incorrect or malformed xmpp chat message. Peer clear might help as a work around.
  */
 systemlog sandesh XmppIqMessageInvalid {
     1: "XMPP Peer"
@@ -95,8 +95,8 @@ trace sandesh XmppIqMessageInvalidTrace {
 /**
  * @description: XMPP IQ message parsing failure
  * @severity: WARNING
- * @cause: Possibly due to mis-behaving xmpp message sender (contrail-vrouter-agent software)
- * @action: Check logs from offending contrail-vrouter-agent which has sent incorrect or malformed xmpp iq message. Peer clear might help as a work around.
+ * @cause: Possibly due to mis-behaving xmpp message sender (tungsten-vrouter-agent software)
+ * @action: Check logs from offending tungsten-vrouter-agent which has sent incorrect or malformed xmpp iq message. Peer clear might help as a work around.
  */
 systemlog sandesh XmppIqMessageParseFail {
     1: "XMPP Peer"
@@ -117,8 +117,8 @@ trace sandesh XmppIqMessageParseFailTrace {
 /**
  * @description: XMPP Chat message parsing failure
  * @severity: WARNING
- * @cause: Possibly due to mis-behaving xmpp message sender (contrail-vrouter-agent software)
- * @action: Check logs from offending contrail-vrouter-agent which has sent incorrect or malformed xmpp chat message. Peer clear might help as a work around.
+ * @cause: Possibly due to mis-behaving xmpp message sender (tungsten-vrouter-agent software)
+ * @action: Check logs from offending tungsten-vrouter-agent which has sent incorrect or malformed xmpp chat message. Peer clear might help as a work around.
  */
 systemlog sandesh XmppChatMessageParseFail {
     1: "XMPP Peer"
@@ -139,8 +139,8 @@ trace sandesh XmppChatMessageParseFailTrace {
 /**
  * @description: XMPP Bad message received
  * @severity: WARNING
- * @cause: Possibly due to mis-behaving xmpp message sender (contrail-vrouter-agent software)
- * @action: Check logs from offending contrail-vrouter-agent which has sent incorrect or malformed xmpp message. Peer clear might help as a work around.
+ * @cause: Possibly due to mis-behaving xmpp message sender (tungsten-vrouter-agent software)
+ * @action: Check logs from offending tungsten-vrouter-agent which has sent incorrect or malformed xmpp message. Peer clear might help as a work around.
  */
 systemlog sandesh XmppBadMessage {
     1: "XMPP Peer"
@@ -213,8 +213,8 @@ trace sandesh XmppSslHandShakeFailureTrace {
 /**
  * @description: XMPP IQ Collection error
  * @severity: ERROR
- * @cause: Possibly due to mis-behaving xmpp message sender (contrail-vrouter-agent software)
- * @action: Check logs from offending contrail-vrouter-agent which has sent incorrect or malformed xmpp message. Peer clear might help as a work around.
+ * @cause: Possibly due to mis-behaving xmpp message sender (tungsten-vrouter-agent software)
+ * @action: Check logs from offending tungsten-vrouter-agent which has sent incorrect or malformed xmpp message. Peer clear might help as a work around.
  */
 systemlog sandesh XmppIqCollectionError {
     1: "XMPP Peer"

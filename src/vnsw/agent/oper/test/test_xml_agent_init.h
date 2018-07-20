@@ -6,7 +6,7 @@
 #define vnsw_test_xml_agent_init_hpp
 
 #include <boost/program_options.hpp>
-#include <init/contrail_init_common.h>
+#include <init/tungsten_init_common.h>
 #include <test/test_pkt0_interface.h>
 #include <test/test_agent_init.h>
 

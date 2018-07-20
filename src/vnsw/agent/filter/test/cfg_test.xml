@@ -1,4 +1,4 @@
-<iq type="set" from="network-control@contrailsystems.com/config" to="phys-host-1">
+<iq type="set" from="network-control@tungstensystems.com/config" to="phys-host-1">
  <config>
   <update>
    <node type="virtual-router">

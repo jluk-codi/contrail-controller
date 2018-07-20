@@ -52,8 +52,8 @@ private:
     static const int kSessionKeepaliveProbes = 3; // # unack probe
     typedef std::deque<Buffer> BufferQueue;
 
-    contrail::regex tag_to_pattern(const char *);
-    int MatchRegex(const contrail::regex &patt);
+    tungsten::regex tag_to_pattern(const char *);
+    int MatchRegex(const tungsten::regex &patt);
     bool Match(Buffer buffer, int *result, bool NewBuf);
     void SetBuf(const std::string &);
     void ReplaceBuf(const std::string &);
@@ -75,14 +75,14 @@ private:
     int tcp_user_timeout_;
     bool stream_open_matched_;
 
-    static const contrail::regex patt_;
-    static const contrail::regex stream_patt_;
-    static const contrail::regex stream_res_end_;
-    static const contrail::regex whitespace_;
-    static const contrail::regex stream_features_patt_;
-    static const contrail::regex starttls_patt_;
-    static const contrail::regex proceed_patt_;
-    static const contrail::regex end_patt_;
+    static const tungsten::regex patt_;
+    static const tungsten::regex stream_patt_;
+    static const tungsten::regex stream_res_end_;
+    static const tungsten::regex whitespace_;
+    static const tungsten::regex stream_features_patt_;
+    static const tungsten::regex starttls_patt_;
+    static const tungsten::regex proceed_patt_;
+    static const tungsten::regex end_patt_;
 
     DISALLOW_COPY_AND_ASSIGN(XmppSession);
 };

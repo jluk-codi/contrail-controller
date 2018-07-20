@@ -7,7 +7,7 @@
 
 #include <boost/asio/ip/host_name.hpp>
 
-#include "base/contrail_ports.h"
+#include "base/tungsten_ports.h"
 #include "base/test/task_test_util.h"
 #include "base/util.h"
 #include "base/logging.h"
@@ -20,9 +20,9 @@
 using namespace std;
 using namespace boost::asio::ip;
 
-static uint16_t default_bgp_port = ContrailPorts::ControlBgp();
-static uint16_t default_http_server_port = ContrailPorts::HttpPortControl();
-static uint16_t default_xmpp_port = ContrailPorts::ControlXmpp();
+static uint16_t default_bgp_port = TungstenPorts::ControlBgp();
+static uint16_t default_http_server_port = TungstenPorts::HttpPortControl();
+static uint16_t default_xmpp_port = TungstenPorts::ControlXmpp();
 
 class OptionsTest : public ::testing::Test {
 protected:
@@ -62,13 +62,13 @@ TEST_F(OptionsTest, NoArguments) {
     EXPECT_EQ(options_.bgp_port(), default_bgp_port);
     TASK_UTIL_EXPECT_VECTOR_EQ(default_collector_server_list_,
                      options_.collector_server_list());
-    EXPECT_EQ(options_.config_file(), "/etc/contrail/contrail-control.conf");
+    EXPECT_EQ(options_.config_file(), "/etc/tungsten/tungsten-control.conf");
     EXPECT_EQ(options_.hostname(), hostname_);
     EXPECT_EQ(options_.host_ip(), host_ip_);
     EXPECT_EQ(options_.http_server_port(), default_http_server_port);
     EXPECT_EQ(options_.log_category(), "");
     EXPECT_EQ(options_.log_disable(), false);
-    EXPECT_EQ(options_.log_file(), "/var/log/contrail/contrail-control.log");
+    EXPECT_EQ(options_.log_file(), "/var/log/tungsten/tungsten-control.log");
     EXPECT_EQ(options_.log_files_count(), 10);
     EXPECT_EQ(options_.log_file_size(), 10*1024*1024);
     EXPECT_EQ(options_.log_level(), "SYS_NOTICE");
@@ -96,7 +96,7 @@ TEST_F(OptionsTest, DefaultConfFile) {
     int argc = 2;
     char *argv[argc];
     char argv_0[] = "options_test";
-    char argv_1[] = "--conf_file=controller/src/control-node/contrail-control.conf";
+    char argv_1[] = "--conf_file=controller/src/control-node/tungsten-control.conf";
     argv[0] = argv_0;
     argv[1] = argv_1;
 
@@ -107,13 +107,13 @@ TEST_F(OptionsTest, DefaultConfFile) {
     TASK_UTIL_EXPECT_VECTOR_EQ(default_collector_server_list_,
                      options_.collector_server_list());
     EXPECT_EQ(options_.config_file(),
-              "controller/src/control-node/contrail-control.conf");
+              "controller/src/control-node/tungsten-control.conf");
     EXPECT_EQ(options_.hostname(), hostname_);
     EXPECT_EQ(options_.host_ip(), host_ip_);
     EXPECT_EQ(options_.http_server_port(), default_http_server_port);
     EXPECT_EQ(options_.log_category(), "");
     EXPECT_EQ(options_.log_disable(), false);
-    EXPECT_EQ(options_.log_file(), "/var/log/contrail/contrail-control.log");
+    EXPECT_EQ(options_.log_file(), "/var/log/tungsten/tungsten-control.log");
     EXPECT_EQ(options_.log_files_count(), 10);
     EXPECT_EQ(options_.log_file_size(), 10*1024*1024);
     EXPECT_EQ(options_.log_level(), "SYS_NOTICE");
@@ -130,7 +130,7 @@ TEST_F(OptionsTest, OverrideStringFromCommandLine) {
     int argc = 4;
     char *argv[argc];
     char argv_0[] = "options_test";
-    char argv_1[] = "--conf_file=controller/src/control-node/contrail-control.conf";
+    char argv_1[] = "--conf_file=controller/src/control-node/tungsten-control.conf";
     char argv_2[] = "--DEFAULT.log_file=test.log";
     char argv_3[] = "--DEFAULT.sandesh_send_rate_limit=5";
     argv[0] = argv_0;
@@ -145,7 +145,7 @@ TEST_F(OptionsTest, OverrideStringFromCommandLine) {
     TASK_UTIL_EXPECT_VECTOR_EQ(default_collector_server_list_,
                      options_.collector_server_list());
     EXPECT_EQ(options_.config_file(),
-              "controller/src/control-node/contrail-control.conf");
+              "controller/src/control-node/tungsten-control.conf");
     EXPECT_EQ(options_.hostname(), hostname_);
     EXPECT_EQ(options_.host_ip(), host_ip_);
     EXPECT_EQ(options_.http_server_port(), default_http_server_port);
@@ -178,7 +178,7 @@ TEST_F(OptionsTest, OverrideBooleanFromCommandLine) {
     int argc = 5;
     char *argv[argc];
     char argv_0[] = "options_test";
-    char argv_1[] = "--conf_file=controller/src/control-node/contrail-control.conf";
+    char argv_1[] = "--conf_file=controller/src/control-node/tungsten-control.conf";
     char argv_2[] = "--DEFAULT.test_mode";
     char argv_3[] = "--SANDESH.disable_object_logs";
     char argv_4[] = "--DEFAULT.mvpn_ipv4_enable";
@@ -195,13 +195,13 @@ TEST_F(OptionsTest, OverrideBooleanFromCommandLine) {
     TASK_UTIL_EXPECT_VECTOR_EQ(default_collector_server_list_,
                      options_.collector_server_list());
     EXPECT_EQ(options_.config_file(),
-              "controller/src/control-node/contrail-control.conf");
+              "controller/src/control-node/tungsten-control.conf");
     EXPECT_EQ(options_.hostname(), hostname_);
     EXPECT_EQ(options_.host_ip(), host_ip_);
     EXPECT_EQ(options_.http_server_port(), default_http_server_port);
     EXPECT_EQ(options_.log_category(), "");
     EXPECT_EQ(options_.log_disable(), false);
-    EXPECT_EQ(options_.log_file(), "/var/log/contrail/contrail-control.log");
+    EXPECT_EQ(options_.log_file(), "/var/log/tungsten/tungsten-control.log");
     EXPECT_EQ(options_.log_files_count(), 10);
     EXPECT_EQ(options_.log_file_size(), 10*1024*1024);
     EXPECT_EQ(options_.log_level(), "SYS_NOTICE");
@@ -542,7 +542,7 @@ TEST_F(OptionsTest, OverrideConfigdbOptionsFromCommandLine) {
     int argc = 9;
     char *argv[argc];
     char argv_0[] = "options_test";
-    char argv_1[] = "--conf_file=controller/src/control-node/contrail-control.conf";
+    char argv_1[] = "--conf_file=controller/src/control-node/tungsten-control.conf";
     char argv_2[] = "--CONFIGDB.rabbitmq_user=myuser";
     char argv_3[] = "--CONFIGDB.rabbitmq_password=mynewpassword";
     char argv_4[] = "--CONFIGDB.rabbitmq_use_ssl=false";

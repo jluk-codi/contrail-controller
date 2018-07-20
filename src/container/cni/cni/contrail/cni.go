@@ -2,7 +2,7 @@
 //
 // Copyright (c) 2017 Juniper Networks, Inc. All rights reserved.
 //
-package contrailCni
+package tungstenCni
 
 import (
 	"encoding/json"
@@ -19,25 +19,25 @@ var CNIVersion string
 /* Example configuration file
 {
     "cniVersion": "0.3.1",
-    "contrail" : {
+    "tungsten" : {
         "vrouter-ip"    : "127.0.0.1",
         "vrouter-port"  : 9092,
-        "config-dir"    : "/var/lib/contrail/ports/vm",
+        "config-dir"    : "/var/lib/tungsten/ports/vm",
         "poll-timeout"  : 15,
         "poll-retries"  : 5,
-        "log-dir"       : "/var/log/contrail/cni",
+        "log-dir"       : "/var/log/tungsten/cni",
         "log-level"     : "2",
         "mode"          : "k8s/mesos",
         "vif-type"      : "veth/macvlan",
         "parent-interface" : "eth0"
     },
 
-    "name": "contrail",
-    "type": "contrail"
+    "name": "tungsten",
+    "type": "tungsten"
 }
 */
 
-const LOG_DIR = "/var/log/contrail/cni"
+const LOG_DIR = "/var/log/tungsten/cni"
 const LOG_LEVEL = "2"
 
 // Container orchestrator modes
@@ -54,7 +54,7 @@ const VIF_TYPE_MACVLAN = "macvlan"
 const CONTRAIL_PARENT_INTERFACE = "eth0"
 
 // Definition of Logging arguments in form of json in STDIN
-type ContrailCni struct {
+type TungstenCni struct {
 	cniArgs       *skel.CmdArgs
 	Mode          string `json:"mode"`
 	VifType       string `json:"vif-type"`
@@ -70,13 +70,13 @@ type ContrailCni struct {
 }
 
 type cniJson struct {
-	ContrailCni ContrailCni `json:"contrail"`
+	TungstenCni TungstenCni `json:"tungsten"`
 	CniVersion  string      `json:"cniVersion"`
 }
 
 // Apply logging configuration. We use log packet for logging.
 // log supports log-dir and log-level as arguments only.
-func (cni *ContrailCni) loggingInit() error {
+func (cni *TungstenCni) loggingInit() error {
 	log.Init(cni.LogFile, 10, 5)
 	//flag.Parse()
 	//flag.Lookup("log_dir").Value.Set(cni.LogDir)
@@ -84,7 +84,7 @@ func (cni *ContrailCni) loggingInit() error {
 	return nil
 }
 
-func (cni *ContrailCni) Log() {
+func (cni *TungstenCni) Log() {
 	log.Infof("ContainerID : %s\n", cni.cniArgs.ContainerID)
 	log.Infof("NetNS : %s\n", cni.cniArgs.Netns)
 	log.Infof("Container Ifname : %s\n", cni.cniArgs.IfName)
@@ -96,14 +96,14 @@ func (cni *ContrailCni) Log() {
 	cni.VRouter.Log()
 }
 
-func Init(args *skel.CmdArgs) (*ContrailCni, error) {
+func Init(args *skel.CmdArgs) (*TungstenCni, error) {
 	vrouter, _ := VRouterInit(args.StdinData)
 
-	cni := ContrailCni{cniArgs: args, Mode: CNI_MODE_K8S,
+	cni := TungstenCni{cniArgs: args, Mode: CNI_MODE_K8S,
 		VifType: VIF_TYPE_VETH, VifParent: CONTRAIL_PARENT_INTERFACE,
 		LogDir: LOG_DIR, LogLevel: LOG_LEVEL, Mtu: cniIntf.CNI_MTU,
 		VRouter: *vrouter}
-	json_args := cniJson{ContrailCni: cni}
+	json_args := cniJson{TungstenCni: cni}
 
 	if err := json.Unmarshal(args.StdinData, &json_args); err != nil {
 		log.Errorf("Error decoding stdin\n %s \n. Error %+v",
@@ -117,18 +117,18 @@ func Init(args *skel.CmdArgs) (*ContrailCni, error) {
 		CNIVersion = "0.2.0"
 	}
 
-	json_args.ContrailCni.loggingInit()
-	return &json_args.ContrailCni, nil
+	json_args.TungstenCni.loggingInit()
+	return &json_args.TungstenCni, nil
 }
 
-func (cni *ContrailCni) Update(containerName, containerUuid,
+func (cni *TungstenCni) Update(containerName, containerUuid,
 	containerVn string) {
 	cni.ContainerUuid = containerUuid
 	cni.ContainerName = containerName
 	cni.ContainerVn = containerVn
 }
 
-func (cni *ContrailCni) makeInterface(vlanId int) cniIntf.CniIntfMethods {
+func (cni *TungstenCni) makeInterface(vlanId int) cniIntf.CniIntfMethods {
 	if cni.VifType == VIF_TYPE_MACVLAN {
 		return cniIntf.CniIntfMethods(cniIntf.InitMacVlan(cni.VifParent,
 			cni.cniArgs.IfName, cni.cniArgs.ContainerID, cni.ContainerUuid,
@@ -155,7 +155,7 @@ func (cni *ContrailCni) makeInterface(vlanId int) cniIntf.CniIntfMethods {
    - Bring-up the interface
  - Return result in form of types.Result
 */
-func (cni *ContrailCni) CmdAdd() error {
+func (cni *TungstenCni) CmdAdd() error {
 	// Pre-fetch initial configuration for the interface from vrouter
 	// This will give MAC address for the interface and in case of
 	// VMI sub-interface, we will also get the vlan-tag
@@ -206,7 +206,7 @@ func (cni *ContrailCni) CmdAdd() error {
 /****************************************************************************
  * Delete message handlers
  ****************************************************************************/
-func (cni *ContrailCni) CmdDel() error {
+func (cni *TungstenCni) CmdDel() error {
 	intf := cni.makeInterface(0)
 	intf.Log()
 

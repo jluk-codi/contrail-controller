@@ -1,26 +1,26 @@
 [Unit]
-Description="Contrail kube-manager"
-Documentation="Contrail kube manager"
+Description="Tungsten kube-manager"
+Documentation="Tungsten kube manager"
 After=network.target
 
 [Service]
 Type=simple
 NotifyAccess=all
-ExecStart=/usr/bin/contrail-kube-manager -c /etc/contrail/contrail-kubernetes.conf
+ExecStart=/usr/bin/tungsten-kube-manager -c /etc/tungsten/tungsten-kubernetes.conf
 TimeoutStartSec=0
 MountFlags=slave
 Restart=on-abnormal
-PIDFile=/var/run/contrail/contrail-kube-manager.pid
-User=contrail
-Group=contrail
+PIDFile=/var/run/tungsten/tungsten-kube-manager.pid
+User=tungsten
+Group=tungsten
 ExecStop=/bin/kill -s TERM $MAINPID
 PrivateTmp=yes
 PrivateDevices=yes
 ProtectHome=yes
 ReadOnlyDirectories=/
 ReadWriteDirectories=-/var/crashes
-ReadWriteDirectories=-/var/log/contrail
-ReadWriteDirectories=-/etc/contrail
+ReadWriteDirectories=-/var/log/tungsten
+ReadWriteDirectories=-/etc/tungsten
 
 [Install]
 WantedBy=multi-user.target

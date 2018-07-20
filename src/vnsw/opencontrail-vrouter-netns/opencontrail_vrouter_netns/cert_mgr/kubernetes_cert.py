@@ -15,7 +15,7 @@ class KubernetesCert:
         if auth_conf:
             self.auth_conf = auth_conf
         else:
-            self.auth_conf = '/etc/contrail/contrail-lbaas-auth.conf'
+            self.auth_conf = '/etc/tungsten/tungsten-lbaas-auth.conf'
         self.parse_args()
 
         self.headers = {'Connection': 'Keep-Alive'}

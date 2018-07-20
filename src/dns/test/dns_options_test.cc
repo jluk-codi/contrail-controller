@@ -6,7 +6,7 @@
 #include <iostream>
 
 #include <boost/asio/ip/host_name.hpp>
-#include "base/contrail_ports.h"
+#include "base/tungsten_ports.h"
 #include "base/util.h"
 #include "base/logging.h"
 #include "base/test/task_test_util.h"
@@ -17,8 +17,8 @@
 using namespace std;
 using namespace boost::asio::ip;
 
-static uint16_t default_http_server_port = ContrailPorts::HttpPortDns();
-static uint16_t default_dns_server_port = ContrailPorts::DnsServerPort();
+static uint16_t default_http_server_port = TungstenPorts::HttpPortDns();
+static uint16_t default_dns_server_port = TungstenPorts::DnsServerPort();
 
 class OptionsTest : public ::testing::Test {
 protected:
@@ -53,11 +53,11 @@ TEST_F(OptionsTest, NoArguments) {
     TASK_UTIL_EXPECT_VECTOR_EQ(default_collector_server_list_,
                      options_.collector_server_list());
     EXPECT_EQ(options_.dns_config_file(), "dns_config.xml");
-    EXPECT_EQ(options_.config_file(), "/etc/contrail/contrail-dns.conf");
-    EXPECT_EQ(options_.named_config_file(), "contrail-named.conf");
-    EXPECT_EQ(options_.named_config_dir(), "/etc/contrail/dns");
-    EXPECT_EQ(options_.named_log_file(), "/var/log/contrail/contrail-named.log");
-    EXPECT_EQ(options_.rndc_config_file(), "contrail-rndc.conf");
+    EXPECT_EQ(options_.config_file(), "/etc/tungsten/tungsten-dns.conf");
+    EXPECT_EQ(options_.named_config_file(), "tungsten-named.conf");
+    EXPECT_EQ(options_.named_config_dir(), "/etc/tungsten/dns");
+    EXPECT_EQ(options_.named_log_file(), "/var/log/tungsten/tungsten-named.log");
+    EXPECT_EQ(options_.rndc_config_file(), "tungsten-rndc.conf");
     EXPECT_EQ(options_.rndc_secret(), "xvysmOR8lnUQRBcunkC6vg==");
     EXPECT_EQ(options_.named_max_cache_size(), "32M");
     EXPECT_EQ(options_.hostname(), hostname_);
@@ -91,7 +91,7 @@ TEST_F(OptionsTest, DefaultConfFile) {
     int argc = 2;
     char *argv[argc];
     char argv_0[] = "dns_options_test";
-    char argv_1[] = "--conf_file=controller/src/dns/contrail-dns.conf";
+    char argv_1[] = "--conf_file=controller/src/dns/tungsten-dns.conf";
     argv[0] = argv_0;
     argv[1] = argv_1;
 
@@ -101,11 +101,11 @@ TEST_F(OptionsTest, DefaultConfFile) {
                      options_.collector_server_list());
     EXPECT_EQ(options_.dns_config_file(), "dns_config.xml");
     EXPECT_EQ(options_.config_file(),
-              "controller/src/dns/contrail-dns.conf");
-    EXPECT_EQ(options_.named_config_file(), "contrail-named.conf");
-    EXPECT_EQ(options_.named_config_dir(), "/etc/contrail/dns");
-    EXPECT_EQ(options_.named_log_file(), "/var/log/contrail/contrail-named.log");
-    EXPECT_EQ(options_.rndc_config_file(), "contrail-rndc.conf");
+              "controller/src/dns/tungsten-dns.conf");
+    EXPECT_EQ(options_.named_config_file(), "tungsten-named.conf");
+    EXPECT_EQ(options_.named_config_dir(), "/etc/tungsten/dns");
+    EXPECT_EQ(options_.named_log_file(), "/var/log/tungsten/tungsten-named.log");
+    EXPECT_EQ(options_.rndc_config_file(), "tungsten-rndc.conf");
     EXPECT_EQ(options_.rndc_secret(), "xvysmOR8lnUQRBcunkC6vg==");
     EXPECT_EQ(options_.named_max_cache_size(), "32M");
     EXPECT_EQ(options_.hostname(), hostname_);
@@ -114,7 +114,7 @@ TEST_F(OptionsTest, DefaultConfFile) {
     EXPECT_EQ(options_.dns_server_port(), default_dns_server_port);
     EXPECT_EQ(options_.log_category(), "");
     EXPECT_EQ(options_.log_disable(), false);
-    EXPECT_EQ(options_.log_file(), "/var/log/contrail/contrail-dns.log");
+    EXPECT_EQ(options_.log_file(), "/var/log/tungsten/tungsten-dns.log");
     EXPECT_EQ(options_.log_property_file(), "");
     EXPECT_EQ(options_.log_files_count(), 10);
     EXPECT_EQ(options_.log_file_size(), 1024*1024);
@@ -137,7 +137,7 @@ TEST_F(OptionsTest, OverrideStringFromCommandLine) {
     int argc = 7;
     char *argv[argc];
     char argv_0[] = "dns_options_test";
-    char argv_1[] = "--conf_file=controller/src/dns/contrail-dns.conf";
+    char argv_1[] = "--conf_file=controller/src/dns/tungsten-dns.conf";
     char argv_2[] = "--DEFAULT.log_file=test.log";
     char argv_3[] = "--DEFAULT.rndc_config_file=test.rndc";
     char argv_4[] = "--DEFAULT.rndc_secret=secret123";
@@ -157,10 +157,10 @@ TEST_F(OptionsTest, OverrideStringFromCommandLine) {
                      options_.collector_server_list());
     EXPECT_EQ(options_.dns_config_file(), "dns_config.xml");
     EXPECT_EQ(options_.config_file(),
-              "controller/src/dns/contrail-dns.conf");
-    EXPECT_EQ(options_.named_config_file(), "contrail-named.conf");
-    EXPECT_EQ(options_.named_config_dir(), "/etc/contrail/dns");
-    EXPECT_EQ(options_.named_log_file(), "/var/log/contrail/contrail-named.log");
+              "controller/src/dns/tungsten-dns.conf");
+    EXPECT_EQ(options_.named_config_file(), "tungsten-named.conf");
+    EXPECT_EQ(options_.named_config_dir(), "/etc/tungsten/dns");
+    EXPECT_EQ(options_.named_log_file(), "/var/log/tungsten/tungsten-named.log");
     EXPECT_EQ(options_.rndc_config_file(), "test.rndc");
     EXPECT_EQ(options_.rndc_secret(), "secret123");
     EXPECT_EQ(options_.hostname(), hostname_);
@@ -188,7 +188,7 @@ TEST_F(OptionsTest, OverrideBooleanFromCommandLine) {
     int argc = 4;
     char *argv[argc];
     char argv_0[] = "dns_options_test";
-    char argv_1[] = "--conf_file=controller/src/dns/contrail-dns.conf";
+    char argv_1[] = "--conf_file=controller/src/dns/tungsten-dns.conf";
     char argv_2[] = "--DEFAULT.test_mode";
     char argv_3[] = "--SANDESH.disable_object_logs";
     argv[0] = argv_0;
@@ -202,14 +202,14 @@ TEST_F(OptionsTest, OverrideBooleanFromCommandLine) {
                      options_.collector_server_list());
     EXPECT_EQ(options_.dns_config_file(), "dns_config.xml");
     EXPECT_EQ(options_.config_file(),
-              "controller/src/dns/contrail-dns.conf");
+              "controller/src/dns/tungsten-dns.conf");
     EXPECT_EQ(options_.hostname(), hostname_);
     EXPECT_EQ(options_.host_ip(), host_ip_);
     EXPECT_EQ(options_.http_server_port(), default_http_server_port);
     EXPECT_EQ(options_.dns_server_port(), default_dns_server_port);
     EXPECT_EQ(options_.log_category(), "");
     EXPECT_EQ(options_.log_disable(), false);
-    EXPECT_EQ(options_.log_file(), "/var/log/contrail/contrail-dns.log");
+    EXPECT_EQ(options_.log_file(), "/var/log/tungsten/tungsten-dns.log");
     EXPECT_EQ(options_.log_files_count(), 10);
     EXPECT_EQ(options_.log_file_size(), 1024*1024);
     EXPECT_EQ(options_.log_level(), "SYS_NOTICE");
@@ -232,7 +232,7 @@ TEST_F(OptionsTest, CustomConfigFile) {
         "dns_config_file=test.xml\n"
         "named_config_file=named.test\n"
         "named_config_directory=/var/log/dns\n"
-        "named_log_file=/etc/contrail/dns/named.log\n"
+        "named_log_file=/etc/tungsten/dns/named.log\n"
         "rndc_config_file=file.rndc\n"
         "rndc_secret=abcd123\n"
         "hostip=1.2.3.4\n"
@@ -289,7 +289,7 @@ TEST_F(OptionsTest, CustomConfigFile) {
               "./dns_options_test_config_file.conf");
     EXPECT_EQ(options_.named_config_file(), "named.test");
     EXPECT_EQ(options_.named_config_dir(), "/var/log/dns");
-    EXPECT_EQ(options_.named_log_file(), "/etc/contrail/dns/named.log");
+    EXPECT_EQ(options_.named_log_file(), "/etc/tungsten/dns/named.log");
     EXPECT_EQ(options_.rndc_config_file(), "file.rndc");
     EXPECT_EQ(options_.rndc_secret(), "abcd123");
     EXPECT_EQ(options_.hostname(), "test");
@@ -327,7 +327,7 @@ TEST_F(OptionsTest, CustomConfigFileAndOverrideFromCommandLine) {
         "dns_config_file=test.xml\n"
         "named_config_file=named.test\n"
         "named_config_directory=/var/log/dns\n"
-        "named_log_file=/etc/contrail/dns/named.log\n"
+        "named_log_file=/etc/tungsten/dns/named.log\n"
         "rndc_config_file=rndc.test\n"
         "rndc_secret=abcd123\n"
         "hostip=1.2.3.4\n"
@@ -368,7 +368,7 @@ TEST_F(OptionsTest, CustomConfigFileAndOverrideFromCommandLine) {
     char argv_4[] = "--DEFAULT.collectors=11.10.10.1:100";
     char argv_5[] = "--DEFAULT.collectors=21.20.20.2:200";
     char argv_6[] = "--DEFAULT.collectors=31.30.30.3:300";
-    char argv_7[] = "--DEFAULT.named_config_directory=/etc/contrail/dns/test";
+    char argv_7[] = "--DEFAULT.named_config_directory=/etc/tungsten/dns/test";
     char argv_8[] = "--DEFAULT.rndc_config_file=new.rndc";
     char argv_9[] = "--DEFAULT.rndc_secret=new-secret-123";
     char argv_10[] = "--DEFAULT.sandesh_send_rate_limit=7";
@@ -398,8 +398,8 @@ TEST_F(OptionsTest, CustomConfigFileAndOverrideFromCommandLine) {
     EXPECT_EQ(options_.config_file(),
               "./dns_options_test_config_file.conf");
     EXPECT_EQ(options_.named_config_file(), "named.test");
-    EXPECT_EQ(options_.named_config_dir(), "/etc/contrail/dns/test");
-    EXPECT_EQ(options_.named_log_file(), "/etc/contrail/dns/named.log");
+    EXPECT_EQ(options_.named_config_dir(), "/etc/tungsten/dns/test");
+    EXPECT_EQ(options_.named_log_file(), "/etc/tungsten/dns/named.log");
     EXPECT_EQ(options_.rndc_config_file(), "new.rndc");
     EXPECT_EQ(options_.rndc_secret(), "new-secret-123");
     EXPECT_EQ(options_.hostname(), "test");
@@ -447,7 +447,7 @@ TEST_F(OptionsTest, OverrideConfigdbOptionsFromCommandLine) {
     int argc = 9;
     char *argv[argc];
     char argv_0[] = "options_test";
-    char argv_1[] = "--conf_file=controller/src/control-node/contrail-control.conf";
+    char argv_1[] = "--conf_file=controller/src/control-node/tungsten-control.conf";
     char argv_2[] = "--CONFIGDB.rabbitmq_user=myuser";
     char argv_3[] = "--CONFIGDB.rabbitmq_password=mynewpassword";
     char argv_4[] = "--CONFIGDB.rabbitmq_use_ssl=false";

@@ -95,7 +95,7 @@ class VncNamespaceTestClusterProjectDefined(VncNamespaceTest):
         NamespaceKM.delete(self.ns_name)
 
     def test_add_namespace_with_isolation_annotation(self):
-        ns_annotations = {'opencontrail.org/isolation': "true"}
+        ns_annotations = {'tungsten.io/isolation': "true"}
 
         ns_uuid = self._create_and_add_namespace(self.ns_name, {},
                                                  ns_annotations, locate=True)
@@ -188,7 +188,7 @@ class VncNamespaceTestCustomNetwork(VncNamespaceTest):
         vn_dict = {'domain': self.domain,
                    'project': proj_name,
                    'name': self.vn_name}
-        ns_annotations = {'opencontrail.org/network': repr(vn_dict)}
+        ns_annotations = {'tungsten.io/network': repr(vn_dict)}
 
         self._create_and_add_namespace(self.ns_name, {}, ns_annotations,
            locate=True)

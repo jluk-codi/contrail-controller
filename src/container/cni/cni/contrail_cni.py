@@ -6,14 +6,14 @@
 #
 
 """
-Contrail CNI plugin
+Tungsten CNI plugin
 """
 import ConfigParser
 
-from mesos_cni import contrail_mesos_cni
-from kube_cni import contrail_kube_cni
+from mesos_cni import tungsten_mesos_cni
+from kube_cni import tungsten_kube_cni
 
-ORCHES_FILE = '/etc/contrail/orchestrator.ini'
+ORCHES_FILE = '/etc/tungsten/orchestrator.ini'
 
 ORCHES_MESOS = 'mesos'
 ORCHES_K8S   = 'kubernetes'
@@ -28,9 +28,9 @@ def main():
         orches = ORCHES_MESOS
 
     if orches == ORCHES_K8S:
-        contrail_kube_cni.main()
+        tungsten_kube_cni.main()
     else:
-        contrail_mesos_cni.main()
+        tungsten_mesos_cni.main()
 
 if __name__ == "__main__":
     main()

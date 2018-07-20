@@ -5,13 +5,13 @@
 import setuptools
 
 setuptools.setup(
-    name='contrail-vrouter-api',
+    name='tungsten-vrouter-api',
     version='1.0',
     packages=setuptools.find_packages(),
 
     # metadata
-    author="OpenContrail",
-    author_email="dev@lists.opencontrail.org",
+    author="Tungsten Fabric",
+    author_email="dev@lists.tungsten.io",
     license="Apache Software License",
-    url="http://www.opencontrail.org/",
+    url="http://www.tungsten.io/",
 )

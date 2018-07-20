@@ -4,7 +4,7 @@
 
 """
 This file contains implementation of dependency tracker
-for contrail config daemons
+for tungsten config daemons
 """
 
 from collections import OrderedDict

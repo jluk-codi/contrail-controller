@@ -4,7 +4,7 @@
 #
 
 """
-Logger for Opencontrail CNI
+Logger for Tungsten Fabric CNI
 """
 
 import logging

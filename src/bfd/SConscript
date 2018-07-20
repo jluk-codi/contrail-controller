@@ -23,9 +23,9 @@ env.Prepend(LIBS = ['io', 'base', 'bfd', 'gunit', 'io',
                     'boost_program_options', 'boost_thread', 'boost_chrono',
                     'boost_regex'])
 
-contrail_bfd = env.Program(target = 'contrail-bfd', source = ['bfdd.cc'])
-# env.Depends(contrail_bfd, [libbfd, File('../bfd/rest_api/libbfd_rest.a')])
-env.Alias('contrail-bfd', contrail_bfd)
+tungsten_bfd = env.Program(target = 'tungsten-bfd', source = ['bfdd.cc'])
+# env.Depends(tungsten_bfd, [libbfd, File('../bfd/rest_api/libbfd_rest.a')])
+env.Alias('tungsten-bfd', tungsten_bfd)
 
 bfd_test_suite = env.SConscript('rest_api/SConscript', exports='BuildEnv',
                                  duplicate = 0)

@@ -11,7 +11,7 @@ jsonpickle
 cfgm_common
 sandesh
 sandesh-common
-contrail-api-client
-contrail-api-server
+tungsten-api-client
+tungsten-api-server
 ../../../noarch/config/svc-monitor
 junitxml

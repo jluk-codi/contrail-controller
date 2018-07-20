@@ -19,7 +19,7 @@ class VncObjectDBClient(object):
                     ro_keyspaces, logger, generate_url, reset_config, credential, walk, obj_cache_entries,
                     obj_cache_exclude_types, None, ssl_enabled, ca_certs)
             else:
-                msg = ("Contrail API server does not support database backend "
+                msg = ("Tungsten API server does not support database backend "
                        "'%s'" % db_engine)
                 raise NotImplementedError(msg)
 

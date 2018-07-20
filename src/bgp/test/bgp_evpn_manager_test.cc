@@ -1112,7 +1112,7 @@ protected:
         attr_spec.push_back(&nexthop);
         PmsiTunnelSpec pmsi_spec;
         pmsi_spec.tunnel_flags = PmsiTunnelSpec::ARLeaf;
-        pmsi_spec.tunnel_type = PmsiTunnelSpec::AssistedReplicationContrail;
+        pmsi_spec.tunnel_type = PmsiTunnelSpec::AssistedReplicationTungsten;
         ExtCommunity ext(server_->extcomm_db(), ext_comm);
         pmsi_spec.SetLabel(peer->label(), &ext);
         pmsi_spec.SetIdentifier(peer->replicator_address());
@@ -1201,7 +1201,7 @@ protected:
 
         PmsiTunnelSpec pmsi_spec;
         pmsi_spec.tunnel_flags = PmsiTunnelSpec::ARLeaf;
-        pmsi_spec.tunnel_type = PmsiTunnelSpec::AssistedReplicationContrail;
+        pmsi_spec.tunnel_type = PmsiTunnelSpec::AssistedReplicationTungsten;
         ExtCommunity ext(server_->extcomm_db(), ext_comm);
         pmsi_spec.SetLabel(label ? label : peer->label(), &ext);
         pmsi_spec.SetIdentifier(peer->replicator_address());
@@ -1285,7 +1285,7 @@ protected:
         TASK_UTIL_EXPECT_TRUE(attr->pmsi_tunnel() != NULL);
         const PmsiTunnel *pmsi_tunnel = attr->pmsi_tunnel();
         TASK_UTIL_EXPECT_EQ(PmsiTunnelSpec::ARLeaf, pmsi_tunnel->tunnel_flags());
-        TASK_UTIL_EXPECT_EQ(PmsiTunnelSpec::AssistedReplicationContrail,
+        TASK_UTIL_EXPECT_EQ(PmsiTunnelSpec::AssistedReplicationTungsten,
             pmsi_tunnel->tunnel_type());
         ExtCommunitySpec ext_comm;
         ExtCommunity ext(server_->extcomm_db(), ext_comm);

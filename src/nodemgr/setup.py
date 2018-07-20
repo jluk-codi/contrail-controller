@@ -25,7 +25,7 @@ setup(
     long_description="Nodemgr Implementation",
     entry_points={
         'console_scripts': [
-            'contrail-nodemgr = nodemgr.main:main',
+            'tungsten-nodemgr = nodemgr.main:main',
         ],
     },
 )

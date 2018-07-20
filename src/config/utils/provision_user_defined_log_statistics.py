@@ -2,7 +2,7 @@
 #This is a python based script for configuring user-defined-log-statistics
 # from commandline
 # Usage :
-# ./provision_user_defined_log_statistics.py --conf /etc/contrail/contrail-schema.conf --conf /etc/contrail/contrail-keystone-auth.conf -h
+# ./provision_user_defined_log_statistics.py --conf /etc/tungsten/tungsten-schema.conf --conf /etc/tungsten/tungsten-keystone-auth.conf -h
 # usage: user_defined_log_statistics.py [-h] [-c FILE]
 #                                       [--api_server_ip API_SERVER_IP]
 #                                       [--api_server_port API_SERVER_PORT]
@@ -30,22 +30,22 @@
 #                         Tenamt name for keystone admin user
 #
 #
-# ./provision_user_defined_log_statistics.py --conf /etc/contrail/contrail-schema.conf --conf /etc/contrail/contrail-keystone-auth.conf list
+# ./provision_user_defined_log_statistics.py --conf /etc/tungsten/tungsten-schema.conf --conf /etc/tungsten/tungsten-keystone-auth.conf list
 # ls ->
 # Configured:
 # Name: "HostName", Pattern: "a5s318"
 # Name: "MyIp", Pattern: "10.84.14.38"
-# ./provision_user_defined_log_statistics.py --conf /etc/contrail/contrail-schema.conf --conf /etc/contrail/contrail-keystone-auth.conf add statname 'foo.*bar'
+# ./provision_user_defined_log_statistics.py --conf /etc/tungsten/tungsten-schema.conf --conf /etc/tungsten/tungsten-keystone-auth.conf add statname 'foo.*bar'
 # Add ->  statname, foo.*bar
-# ./provision_user_defined_log_statistics.py --conf /etc/contrail/contrail-schema.conf --conf /etc/contrail/contrail-keystone-auth.conf list
+# ./provision_user_defined_log_statistics.py --conf /etc/tungsten/tungsten-schema.conf --conf /etc/tungsten/tungsten-keystone-auth.conf list
 # ls ->
 # Configured:
 # Name: "statname", Pattern: "foo.*bar"
 # Name: "HostName", Pattern: "a5s318"
 # Name: "MyIp", Pattern: "10.84.14.38"
-# ./provision_user_defined_log_statistics.py --conf /etc/contrail/contrail-schema.conf --conf /etc/contrail/contrail-keystone-auth.conf delete statname
+# ./provision_user_defined_log_statistics.py --conf /etc/tungsten/tungsten-schema.conf --conf /etc/tungsten/tungsten-keystone-auth.conf delete statname
 # Delete ->  statname
-# ./provision_user_defined_log_statistics.py --conf /etc/contrail/contrail-schema.conf --conf /etc/contrail/contrail-keystone-auth.conf list
+# ./provision_user_defined_log_statistics.py --conf /etc/tungsten/tungsten-schema.conf --conf /etc/tungsten/tungsten-keystone-auth.conf list
 # ls ->
 # Configured:
 # Name: "HostName", Pattern: "a5s318"

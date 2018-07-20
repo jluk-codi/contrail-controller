@@ -11,8 +11,8 @@ jsonpickle
 cfgm_common
 sandesh
 sandesh_common
-contrail-api-client
-contrail-api-server
+tungsten-api-client
+tungsten-api-server
 schema_transformer
 junitxml
 xmltodict

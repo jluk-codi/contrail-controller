@@ -123,7 +123,7 @@ def has_role(role, roles):
 
 
 def get_lr_internal_vn_name(uuid):
-    return '__contrail_lr_internal_vn_' + uuid + '__'
+    return '__tungsten_lr_internal_vn_' + uuid + '__'
 
 
 def _obj_serializer_all(obj):

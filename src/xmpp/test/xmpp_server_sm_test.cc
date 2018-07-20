@@ -28,7 +28,7 @@ using namespace boost::assign;
 
 namespace ip = boost::asio::ip;
 
-#define XMPP_CONTROL_SERV   "bgp.contrail.com"
+#define XMPP_CONTROL_SERV   "bgp.tungsten.com"
 
 class XmppServerTest : public XmppServer {
 public:
@@ -183,7 +183,7 @@ protected:
         msg_ = new XmppStanza::XmppStreamMessage();
         msg_->strmtype = XmppStanza::XmppStreamMessage::INIT_STREAM_HEADER;
         msg_->from = "agent";
-        msg_->to = "bgp.contrail.com";
+        msg_->to = "bgp.tungsten.com";
         sm_->OnMessage(session_, msg_);
     }
 

@@ -5,7 +5,7 @@ coverage
 pyaml
 cfgm_common
 fabric_ansible
-contrail-api-client
+tungsten-api-client
 sandesh
 sandesh_common
 junitxml

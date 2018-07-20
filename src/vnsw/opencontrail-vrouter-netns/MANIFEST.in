@@ -1,2 +1,2 @@
 include *.txt
-prune opencontrail_vrouter_netns/tests
+prune Tungsten Fabric_vrouter_netns/tests

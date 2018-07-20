@@ -178,7 +178,7 @@
       },
       "service_appliance_set": {
         "default-global-system-config:f5:997e0122-3a2c-48fc-b16c-37113b3abdf4": "null",
-        "default-global-system-config:opencontrail:c01d73fa-fa59-49ce-9763-b1c411d9ed05": "null"
+        "default-global-system-config:Tungsten Fabric:c01d73fa-fa59-49ce-9763-b1c411d9ed05": "null"
       },
       "namespace": {
         "default-domain:default-namespace:e43e2e9e-0278-4412-967d-3d67fa893208": "null"
@@ -296,10 +296,10 @@
         "parent_type": "\"global-system-config\"",
         "prop:alarm_severity": "1",
         "prop:display_name": "\"system-defined-conf-incorrect\"",
-        "prop:id_perms": "{\"enable\": true, \"uuid\": {\"uuid_mslong\": 13479901218288716567, \"uuid_lslong\": 11522792418483558912}, \"creator\": null, \"created\": \"2016-12-15T09:21:38.715239\", \"user_visible\": true, \"last_modified\": \"2016-12-15T09:21:38.715239\", \"permissions\": {\"owner\": \"admin\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"KeystoneAdmin\", \"group_access\": 7}, \"description\": \"ContrailConfig missing or incorrect. Configuration pushed to Ifmap as ContrailConfig is missing/incorrect.\"}",
+        "prop:id_perms": "{\"enable\": true, \"uuid\": {\"uuid_mslong\": 13479901218288716567, \"uuid_lslong\": 11522792418483558912}, \"creator\": null, \"created\": \"2016-12-15T09:21:38.715239\", \"user_visible\": true, \"last_modified\": \"2016-12-15T09:21:38.715239\", \"permissions\": {\"owner\": \"admin\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"KeystoneAdmin\", \"group_access\": 7}, \"description\": \"TungstenConfig missing or incorrect. Configuration pushed to Ifmap as TungstenConfig is missing/incorrect.\"}",
         "prop:perms2": "{\"owner\": \"13f0865eaa21470d8008b230a2699c83\", \"owner_access\": 7, \"global_access\": 0, \"share\": []}",
         "prop:uve_keys": "{\"uve_key\": [\"analytics-node\", \"config-node\", \"control-node\", \"database-node\", \"vrouter\"]}",
-        "propl:alarm_rules:0": "{\"and_list\": [{\"operation\": \"==\", \"operand1\": \"ContrailConfig\", \"operand2\": {\"json_value\": \"null\"}}]}",
+        "propl:alarm_rules:0": "{\"and_list\": [{\"operation\": \"==\", \"operand1\": \"TungstenConfig\", \"operand2\": {\"json_value\": \"null\"}}]}",
         "type": "\"alarm\""
       },
       "fb30b46a-4fbe-4fc2-8e8d-5fc747c235eb": {
@@ -413,7 +413,7 @@
         "prop:id_perms": "{\"enable\": true, \"uuid\": {\"uuid_mslong\": 14909071975113638341, \"uuid_lslong\": 9897853703510297063}, \"creator\": null, \"created\": \"2016-12-15T09:21:38.548431\", \"user_visible\": true, \"last_modified\": \"2016-12-15T09:21:38.548431\", \"permissions\": {\"owner\": \"admin\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"KeystoneAdmin\", \"group_access\": 7}, \"description\": \"Compute Node IP Address mismatch.\"}",
         "prop:perms2": "{\"owner\": \"13f0865eaa21470d8008b230a2699c83\", \"owner_access\": 7, \"global_access\": 0, \"share\": []}",
         "prop:uve_keys": "{\"uve_key\": [\"vrouter\"]}",
-        "propl:alarm_rules:0": "{\"and_list\": [{\"operation\": \"!=\", \"operand1\": \"ContrailConfig.elements.virtual_router_ip_address\", \"operand2\": {\"uve_attribute\": \"VrouterAgent.control_ip\"}}]}",
+        "propl:alarm_rules:0": "{\"and_list\": [{\"operation\": \"!=\", \"operand1\": \"TungstenConfig.elements.virtual_router_ip_address\", \"operand2\": {\"uve_attribute\": \"VrouterAgent.control_ip\"}}]}",
         "type": "\"alarm\""
       },
       "effdf28a-0d33-426f-b4b4-0ab1b7360ec3": {
@@ -557,7 +557,7 @@
         "parent:virtual_network:33ff04c6-df2b-41d9-b8e9-7395a60ad2dd": "null",
         "parent_type": "\"virtual-network\"",
         "prop:display_name": "\"vn3\"",
-        "prop:id_perms": "{\"enable\": true, \"description\": null, \"creator\": null, \"created\": \"2017-01-09T10:27:35.456476\", \"user_visible\": true, \"last_modified\": \"2017-01-09T10:27:35.714350\", \"permissions\": {\"owner\": \"contrail-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}, \"uuid\": {\"uuid_mslong\": 3160996067846733923, \"uuid_lslong\": 12921228643043915924}}",
+        "prop:id_perms": "{\"enable\": true, \"description\": null, \"creator\": null, \"created\": \"2017-01-09T10:27:35.456476\", \"user_visible\": true, \"last_modified\": \"2017-01-09T10:27:35.714350\", \"permissions\": {\"owner\": \"tungsten-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}, \"uuid\": {\"uuid_mslong\": 3160996067846733923, \"uuid_lslong\": 12921228643043915924}}",
         "prop:perms2": "{\"owner\": \"cloud-admin\", \"owner_access\": 7, \"global_access\": 0, \"share\": []}",
         "prop:routing_instance_has_pnf": "false",
         "prop:routing_instance_is_default": "true",
@@ -574,7 +574,7 @@
         "parent:virtual_network:78df14c9-8183-4d4f-8b61-488ae2cda410": "null",
         "parent_type": "\"virtual-network\"",
         "prop:display_name": "\"vn2\"",
-        "prop:id_perms": "{\"enable\": true, \"description\": null, \"creator\": null, \"created\": \"2016-12-20T09:59:22.852401\", \"user_visible\": true, \"last_modified\": \"2016-12-20T09:59:23.074466\", \"permissions\": {\"owner\": \"contrail-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}, \"uuid\": {\"uuid_mslong\": 3437774608271232947, \"uuid_lslong\": 11016646074020344419}}",
+        "prop:id_perms": "{\"enable\": true, \"description\": null, \"creator\": null, \"created\": \"2016-12-20T09:59:22.852401\", \"user_visible\": true, \"last_modified\": \"2016-12-20T09:59:23.074466\", \"permissions\": {\"owner\": \"tungsten-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}, \"uuid\": {\"uuid_mslong\": 3437774608271232947, \"uuid_lslong\": 11016646074020344419}}",
         "prop:perms2": "{\"owner\": \"cloud-admin\", \"owner_access\": 7, \"global_access\": 0, \"share\": []}",
         "prop:routing_instance_has_pnf": "false",
         "prop:routing_instance_is_default": "true",
@@ -626,7 +626,7 @@
         "parent:virtual_network:de1dd993-9cd0-40e1-9eb7-a8412826505c": "null",
         "parent_type": "\"virtual-network\"",
         "prop:display_name": "\"vn6\"",
-        "prop:id_perms": "{\"enable\": true, \"description\": null, \"creator\": null, \"created\": \"2017-01-08T17:00:48.841587\", \"user_visible\": true, \"last_modified\": \"2017-01-08T17:00:49.097384\", \"permissions\": {\"owner\": \"contrail-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}, \"uuid\": {\"uuid_mslong\": 12992348444665857856, \"uuid_lslong\": 10969162468284431080}}",
+        "prop:id_perms": "{\"enable\": true, \"description\": null, \"creator\": null, \"created\": \"2017-01-08T17:00:48.841587\", \"user_visible\": true, \"last_modified\": \"2017-01-08T17:00:49.097384\", \"permissions\": {\"owner\": \"tungsten-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}, \"uuid\": {\"uuid_mslong\": 12992348444665857856, \"uuid_lslong\": 10969162468284431080}}",
         "prop:perms2": "{\"owner\": \"cloud-admin\", \"owner_access\": 7, \"global_access\": 0, \"share\": []}",
         "prop:routing_instance_has_pnf": "false",
         "prop:routing_instance_is_default": "true",
@@ -741,7 +741,7 @@
         "prop:id_perms": "{\"enable\": true, \"uuid\": {\"uuid_mslong\": 8608062736949069802, \"uuid_lslong\": 9751024260202632114}, \"creator\": null, \"created\": \"2016-12-15T09:21:38.599802\", \"user_visible\": true, \"last_modified\": \"2016-12-15T09:21:38.599802\", \"permissions\": {\"owner\": \"admin\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"KeystoneAdmin\", \"group_access\": 7}, \"description\": \"Control Node IP Address mismatch.\"}",
         "prop:perms2": "{\"owner\": \"13f0865eaa21470d8008b230a2699c83\", \"owner_access\": 7, \"global_access\": 0, \"share\": []}",
         "prop:uve_keys": "{\"uve_key\": [\"control-node\"]}",
-        "propl:alarm_rules:0": "{\"and_list\": [{\"operation\": \"not in\", \"operand1\": \"ContrailConfig.elements.bgp_router_parameters.address\", \"operand2\": {\"uve_attribute\": \"BgpRouterState.bgp_router_ip_list\"}}]}",
+        "propl:alarm_rules:0": "{\"and_list\": [{\"operation\": \"not in\", \"operand1\": \"TungstenConfig.elements.bgp_router_parameters.address\", \"operand2\": {\"uve_attribute\": \"BgpRouterState.bgp_router_ip_list\"}}]}",
         "type": "\"alarm\""
       },
       "b5adc99f-f2af-4b59-8aec-25b01f9a5c66": {
@@ -856,7 +856,7 @@
         "parent:virtual_network:3a79e98f-f2ba-45c9-9533-4ed88c8cc814": "null",
         "parent_type": "\"virtual-network\"",
         "prop:display_name": "\"pool-vn\"",
-        "prop:id_perms": "{\"enable\": true, \"description\": null, \"creator\": null, \"created\": \"2017-01-18T17:11:55.280221\", \"user_visible\": true, \"last_modified\": \"2017-01-18T17:31:17.792363\", \"permissions\": {\"owner\": \"contrail-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}, \"uuid\": {\"uuid_mslong\": 14180237695430312151, \"uuid_lslong\": 11286429405879390950}}",
+        "prop:id_perms": "{\"enable\": true, \"description\": null, \"creator\": null, \"created\": \"2017-01-18T17:11:55.280221\", \"user_visible\": true, \"last_modified\": \"2017-01-18T17:31:17.792363\", \"permissions\": {\"owner\": \"tungsten-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}, \"uuid\": {\"uuid_mslong\": 14180237695430312151, \"uuid_lslong\": 11286429405879390950}}",
         "prop:perms2": "{\"owner\": \"cloud-admin\", \"owner_access\": 7, \"global_access\": 0, \"share\": []}",
         "prop:routing_instance_has_pnf": "false",
         "prop:routing_instance_is_default": "true",
@@ -944,13 +944,13 @@
       },
       "c01d73fa-fa59-49ce-9763-b1c411d9ed05": {
         "META:latest_col_ts": "null",
-        "fq_name": "[\"default-global-system-config\", \"opencontrail\"]",
+        "fq_name": "[\"default-global-system-config\", \"Tungsten Fabric\"]",
         "parent:global_system_config:817fc9a2-4a1b-4614-9246-d28401781c1b": "null",
         "parent_type": "\"global-system-config\"",
-        "prop:display_name": "\"opencontrail\"",
+        "prop:display_name": "\"Tungsten Fabric\"",
         "prop:id_perms": "{\"enable\": true, \"uuid\": {\"uuid_mslong\": 13843348351385946574, \"uuid_lslong\": 10908758178092674309}, \"creator\": null, \"created\": \"2016-12-15T09:20:18.439198\", \"user_visible\": true, \"last_modified\": \"2016-12-15T09:20:18.439198\", \"permissions\": {\"owner\": \"admin\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"KeystoneAdmin\", \"group_access\": 7}, \"description\": null}",
         "prop:perms2": "{\"owner\": \"13f0865eaa21470d8008b230a2699c83\", \"owner_access\": 7, \"global_access\": 0, \"share\": []}",
-        "prop:service_appliance_driver": "\"svc_monitor.services.loadbalancer.drivers.ha_proxy.driver.OpencontrailLoadbalancerDriver\"",
+        "prop:service_appliance_driver": "\"svc_monitor.services.loadbalancer.drivers.ha_proxy.driver.Tungsten FabricLoadbalancerDriver\"",
         "type": "\"service_appliance_set\""
       },
       "a44772e1-df7a-4a20-9798-f51911ad4473": {
@@ -1011,7 +1011,7 @@
         "fq_name": "[\"default-domain\", \"default-project\", \"ip-fabric\", \"__default__\", \"nodea27\"]",
         "parent:routing_instance:df4296a0-1fda-443a-835d-c19707ca39bc": "null",
         "parent_type": "\"routing-instance\"",
-        "prop:bgp_router_parameters": "{\"vendor\": \"contrail\", \"admin_down\": false, \"ipv6_gateway_address\": null, \"local_autonomous_system\": null, \"auth_data\": null, \"autonomous_system\": 100, \"address\": \"10.204.216.23\", \"source_port\": null, \"router_type\": \"control-node\", \"identifier\": \"10.204.216.23\", \"hold_time\": 0, \"port\": 179, \"address_families\": {\"family\": [\"route-target\", \"inet-vpn\", \"e-vpn\", \"erm-vpn\", \"inet6-vpn\"]}, \"gateway_address\": null}",
+        "prop:bgp_router_parameters": "{\"vendor\": \"tungsten\", \"admin_down\": false, \"ipv6_gateway_address\": null, \"local_autonomous_system\": null, \"auth_data\": null, \"autonomous_system\": 100, \"address\": \"10.204.216.23\", \"source_port\": null, \"router_type\": \"control-node\", \"identifier\": \"10.204.216.23\", \"hold_time\": 0, \"port\": 179, \"address_families\": {\"family\": [\"route-target\", \"inet-vpn\", \"e-vpn\", \"erm-vpn\", \"inet6-vpn\"]}, \"gateway_address\": null}",
         "prop:display_name": "\"nodea27\"",
         "prop:id_perms": "{\"enable\": true, \"description\": null, \"creator\": null, \"created\": \"2016-12-15T09:21:41.941131\", \"user_visible\": true, \"last_modified\": \"2016-12-15T10:54:55.529510\", \"permissions\": {\"owner\": \"admin\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"KeystoneAdmin\", \"group_access\": 7}, \"uuid\": {\"uuid_mslong\": 16085440277231390119, \"uuid_lslong\": 9369166168748909229}}",
         "prop:perms2": "{\"owner\": \"13f0865eaa21470d8008b230a2699c83\", \"owner_access\": 7, \"global_access\": 0, \"share\": []}",
@@ -1049,7 +1049,7 @@
         "parent:virtual_network:af0b9f94-05f7-48e2-b08e-38ce4e792a1c": "null",
         "parent_type": "\"virtual-network\"",
         "prop:display_name": "\"vn7\"",
-        "prop:id_perms": "{\"enable\": true, \"description\": null, \"creator\": null, \"created\": \"2017-01-18T17:01:31.255471\", \"user_visible\": true, \"last_modified\": \"2017-01-18T17:31:17.854899\", \"permissions\": {\"owner\": \"contrail-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}, \"uuid\": {\"uuid_mslong\": 2921753851843399552, \"uuid_lslong\": 10280103193764791695}}",
+        "prop:id_perms": "{\"enable\": true, \"description\": null, \"creator\": null, \"created\": \"2017-01-18T17:01:31.255471\", \"user_visible\": true, \"last_modified\": \"2017-01-18T17:31:17.854899\", \"permissions\": {\"owner\": \"tungsten-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}, \"uuid\": {\"uuid_mslong\": 2921753851843399552, \"uuid_lslong\": 10280103193764791695}}",
         "prop:perms2": "{\"owner\": \"cloud-admin\", \"owner_access\": 7, \"global_access\": 0, \"share\": []}",
         "prop:routing_instance_has_pnf": "false",
         "prop:routing_instance_is_default": "true",
@@ -1108,7 +1108,7 @@
         "parent:virtual_network:403b5dc2-b6f5-4d21-8b61-e8be2b07caa3": "null",
         "parent_type": "\"virtual-network\"",
         "prop:display_name": "\"vn5\"",
-        "prop:id_perms": "{\"enable\": true, \"description\": null, \"created\": \"2017-01-04T18:06:22.276190\", \"creator\": null, \"uuid\": {\"uuid_mslong\": 14482518796559467287, \"uuid_lslong\": 12851732628354141992}, \"user_visible\": true, \"last_modified\": \"2017-01-18T17:31:18.063650\", \"permissions\": {\"owner\": \"contrail-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}}",
+        "prop:id_perms": "{\"enable\": true, \"description\": null, \"created\": \"2017-01-04T18:06:22.276190\", \"creator\": null, \"uuid\": {\"uuid_mslong\": 14482518796559467287, \"uuid_lslong\": 12851732628354141992}, \"user_visible\": true, \"last_modified\": \"2017-01-18T17:31:18.063650\", \"permissions\": {\"owner\": \"tungsten-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}}",
         "prop:perms2": "{\"owner\": \"cloud-admin\", \"owner_access\": 7, \"global_access\": 0, \"share\": []}",
         "prop:routing_instance_has_pnf": "false",
         "prop:routing_instance_is_default": "true",
@@ -1147,7 +1147,7 @@
         "prop:id_perms": "{\"enable\": true, \"uuid\": {\"uuid_mslong\": 7396396005783978303, \"uuid_lslong\": 9872581831516821956}, \"creator\": null, \"created\": \"2016-12-15T09:21:39.538012\", \"user_visible\": true, \"last_modified\": \"2016-12-15T09:21:39.538012\", \"permissions\": {\"owner\": \"admin\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"KeystoneAdmin\", \"group_access\": 7}, \"description\": \"Prouter connectivity to controlling tsn agent does not exist we look for non-empty value for tsn_agent_list\"}",
         "prop:perms2": "{\"owner\": \"13f0865eaa21470d8008b230a2699c83\", \"owner_access\": 7, \"global_access\": 0, \"share\": []}",
         "prop:uve_keys": "{\"uve_key\": [\"prouter\"]}",
-        "propl:alarm_rules:0": "{\"and_list\": [{\"operation\": \"!=\", \"operand1\": \"ContrailConfig.elements.virtual_router_refs\", \"operand2\": {\"json_value\": \"null\"}}, {\"operation\": \"size!=\", \"operand1\": \"ProuterData.tsn_agent_list\", \"operand2\": {\"json_value\": \"1\"}}]}",
+        "propl:alarm_rules:0": "{\"and_list\": [{\"operation\": \"!=\", \"operand1\": \"TungstenConfig.elements.virtual_router_refs\", \"operand2\": {\"json_value\": \"null\"}}, {\"operation\": \"size!=\", \"operand1\": \"ProuterData.tsn_agent_list\", \"operand2\": {\"json_value\": \"1\"}}]}",
         "type": "\"alarm\""
       },
       "49ff65f4-33e0-4331-b4c6-a60e64578185": {
@@ -1159,7 +1159,7 @@
         "parent:virtual_network:aca1ac7f-34b4-4902-938b-07f62c44e969": "null",
         "parent_type": "\"virtual-network\"",
         "prop:display_name": "\"vn1\"",
-        "prop:id_perms": "{\"enable\": true, \"description\": null, \"creator\": null, \"created\": \"2016-12-15T10:10:18.528408\", \"user_visible\": true, \"last_modified\": \"2017-01-18T16:39:50.339175\", \"permissions\": {\"owner\": \"contrail-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}, \"uuid\": {\"uuid_mslong\": 5332092583346717489, \"uuid_lslong\": 13026281552958947717}}",
+        "prop:id_perms": "{\"enable\": true, \"description\": null, \"creator\": null, \"created\": \"2016-12-15T10:10:18.528408\", \"user_visible\": true, \"last_modified\": \"2017-01-18T16:39:50.339175\", \"permissions\": {\"owner\": \"tungsten-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}, \"uuid\": {\"uuid_mslong\": 5332092583346717489, \"uuid_lslong\": 13026281552958947717}}",
         "prop:perms2": "{\"owner\": \"cloud-admin\", \"owner_access\": 7, \"global_access\": 0, \"share\": []}",
         "prop:routing_instance_has_pnf": "false",
         "prop:routing_instance_is_default": "true",
@@ -1237,7 +1237,7 @@
         "prop:perms2": "{\"owner\": \"13f0865eaa21470d8008b230a2699c83\", \"owner_access\": 7, \"global_access\": 0, \"share\": []}",
         "prop:service_appliance_ip_address": "\"10.84.29.225\"",
         "prop:service_appliance_properties": "{\"key_value_pair\": []}",
-        "prop:service_appliance_user_credentials": "{\"username\": \"admin\", \"password\": \"contrail123\"}",
+        "prop:service_appliance_user_credentials": "{\"username\": \"admin\", \"password\": \"tungsten123\"}",
         "type": "\"service_appliance\""
       },
       "0d2748d8-ad3b-496f-baeb-c712f67feca1": {
@@ -1329,7 +1329,7 @@
         "prop:display_name": "\"f5\"",
         "prop:id_perms": "{\"enable\": true, \"uuid\": {\"uuid_mslong\": 11060278981385013500, \"uuid_lslong\": 12784653989345672692}, \"creator\": null, \"created\": \"2017-01-18T17:10:55.372471\", \"user_visible\": true, \"last_modified\": \"2017-01-18T17:10:55.372471\", \"permissions\": {\"owner\": \"admin\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"KeystoneAdmin\", \"group_access\": 7}, \"description\": null}",
         "prop:perms2": "{\"owner\": \"13f0865eaa21470d8008b230a2699c83\", \"owner_access\": 7, \"global_access\": 0, \"share\": []}",
-        "prop:service_appliance_driver": "\"svc_monitor.services.loadbalancer.drivers.f5.f5_driver.OpencontrailF5LoadbalancerDriver\"",
+        "prop:service_appliance_driver": "\"svc_monitor.services.loadbalancer.drivers.f5.f5_driver.Tungsten FabricF5LoadbalancerDriver\"",
         "prop:service_appliance_set_properties": "{\"key_value_pair\": [{\"value\": \"replication\", \"key\": \"sync_mode\"}, {\"value\": \"1\", \"key\": \"num_snat\"}, {\"value\": \"True\", \"key\": \"use_snat\"}, {\"value\": \"external\", \"key\": \"vip_vlan\"}, {\"value\": \"True\", \"key\": \"global_routed_mode\"}]}",
         "type": "\"service_appliance_set\""
       },
@@ -1538,7 +1538,7 @@
         "parent:virtual_network:45b6222e-7e5b-4723-959b-3f83ab44ab62": "null",
         "parent_type": "\"virtual-network\"",
         "prop:display_name": "\"svc-vn-mgmt\"",
-        "prop:id_perms": "{\"enable\": true, \"description\": null, \"creator\": null, \"created\": \"2017-01-18T17:03:26.208388\", \"user_visible\": true, \"last_modified\": \"2017-01-18T17:31:17.925694\", \"permissions\": {\"owner\": \"contrail-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}, \"uuid\": {\"uuid_mslong\": 15682100925073738504, \"uuid_lslong\": 11785024869020622845}}",
+        "prop:id_perms": "{\"enable\": true, \"description\": null, \"creator\": null, \"created\": \"2017-01-18T17:03:26.208388\", \"user_visible\": true, \"last_modified\": \"2017-01-18T17:31:17.925694\", \"permissions\": {\"owner\": \"tungsten-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}, \"uuid\": {\"uuid_mslong\": 15682100925073738504, \"uuid_lslong\": 11785024869020622845}}",
         "prop:perms2": "{\"owner\": \"cloud-admin\", \"owner_access\": 7, \"global_access\": 0, \"share\": []}",
         "prop:routing_instance_has_pnf": "false",
         "prop:routing_instance_is_default": "true",
@@ -1615,7 +1615,7 @@
         "parent:virtual_network:d16af10f-1d0a-4da7-88a9-c03aa18eeec4": "null",
         "parent_type": "\"virtual-network\"",
         "prop:display_name": "\"snat-si-left_snat_06ea311a-9a05-4295-9bc9-eacf09ea3a51_566184ff-e906-44ed-a257-e664f1c6caca\"",
-        "prop:id_perms": "{\"enable\": true, \"uuid\": {\"uuid_mslong\": 384612024395254186, \"uuid_lslong\": 9976161962935887029}, \"creator\": null, \"created\": \"2017-01-18T16:49:47.024886\", \"user_visible\": true, \"last_modified\": \"2017-01-23T14:51:36.461712\", \"permissions\": {\"owner\": \"contrail-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}, \"description\": null}",
+        "prop:id_perms": "{\"enable\": true, \"uuid\": {\"uuid_mslong\": 384612024395254186, \"uuid_lslong\": 9976161962935887029}, \"creator\": null, \"created\": \"2017-01-18T16:49:47.024886\", \"user_visible\": true, \"last_modified\": \"2017-01-23T14:51:36.461712\", \"permissions\": {\"owner\": \"tungsten-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}, \"description\": null}",
         "prop:perms2": "{\"owner\": \"cloud-admin\", \"owner_access\": 7, \"global_access\": 0, \"share\": []}",
         "prop:routing_instance_has_pnf": "false",
         "prop:routing_instance_is_default": "true",
@@ -1963,7 +1963,7 @@
         "prop:id_perms": "{\"enable\": true, \"uuid\": {\"uuid_mslong\": 9815913284855614137, \"uuid_lslong\": 10014537560813553033}, \"creator\": null, \"created\": \"2016-12-15T09:21:39.458800\", \"user_visible\": true, \"last_modified\": \"2016-12-15T09:21:39.458800\", \"permissions\": {\"owner\": \"admin\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"KeystoneAdmin\", \"group_access\": 7}, \"description\": \"Prouter connectivity to controlling tor agent does not exist we look for non-empty value for connected_agent_list\"}",
         "prop:perms2": "{\"owner\": \"13f0865eaa21470d8008b230a2699c83\", \"owner_access\": 7, \"global_access\": 0, \"share\": []}",
         "prop:uve_keys": "{\"uve_key\": [\"prouter\"]}",
-        "propl:alarm_rules:0": "{\"and_list\": [{\"operation\": \"!=\", \"operand1\": \"ContrailConfig.elements.virtual_router_refs\", \"operand2\": {\"json_value\": \"null\"}}, {\"operation\": \"size!=\", \"operand1\": \"ProuterData.connected_agent_list\", \"operand2\": {\"json_value\": \"1\"}}]}",
+        "propl:alarm_rules:0": "{\"and_list\": [{\"operation\": \"!=\", \"operand1\": \"TungstenConfig.elements.virtual_router_refs\", \"operand2\": {\"json_value\": \"null\"}}, {\"operation\": \"size!=\", \"operand1\": \"ProuterData.connected_agent_list\", \"operand2\": {\"json_value\": \"1\"}}]}",
         "type": "\"alarm\""
       },
       "d16af10f-1d0a-4da7-88a9-c03aa18eeec4": {
@@ -2040,7 +2040,7 @@
         "parent:virtual_network:1b79eca4-efb6-4829-ae4a-40d1b258e740": "null",
         "parent_type": "\"virtual-network\"",
         "prop:display_name": "\"vn4\"",
-        "prop:id_perms": "{\"enable\": true, \"description\": null, \"created\": \"2017-01-04T18:04:37.976178\", \"creator\": null, \"uuid\": {\"uuid_mslong\": 3647532248363450811, \"uuid_lslong\": 12908279364010667959}, \"user_visible\": true, \"last_modified\": \"2017-01-18T17:31:18.082996\", \"permissions\": {\"owner\": \"contrail-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}}",
+        "prop:id_perms": "{\"enable\": true, \"description\": null, \"created\": \"2017-01-04T18:04:37.976178\", \"creator\": null, \"uuid\": {\"uuid_mslong\": 3647532248363450811, \"uuid_lslong\": 12908279364010667959}, \"user_visible\": true, \"last_modified\": \"2017-01-18T17:31:18.082996\", \"permissions\": {\"owner\": \"tungsten-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}}",
         "prop:perms2": "{\"owner\": \"cloud-admin\", \"owner_access\": 7, \"global_access\": 0, \"share\": []}",
         "prop:routing_instance_has_pnf": "false",
         "prop:routing_instance_is_default": "true",
@@ -2476,7 +2476,7 @@
         "parent:virtual_network:326f2ad1-df13-46c9-8f06-fb7ccf034deb": "null",
         "parent_type": "\"virtual-network\"",
         "prop:display_name": "\"prakash-0\"",
-        "prop:id_perms": "{\"enable\": true, \"description\": null, \"creator\": null, \"created\": \"2017-01-11T14:35:38.646570\", \"user_visible\": true, \"last_modified\": \"2017-01-11T14:35:38.737220\", \"permissions\": {\"owner\": \"contrail-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}, \"uuid\": {\"uuid_mslong\": 5942006045440429837, \"uuid_lslong\": 9511085178462881327}}",
+        "prop:id_perms": "{\"enable\": true, \"description\": null, \"creator\": null, \"created\": \"2017-01-11T14:35:38.646570\", \"user_visible\": true, \"last_modified\": \"2017-01-11T14:35:38.737220\", \"permissions\": {\"owner\": \"tungsten-api\", \"owner_access\": 7, \"other_access\": 7, \"group\": \"admin\", \"group_access\": 7}, \"uuid\": {\"uuid_mslong\": 5942006045440429837, \"uuid_lslong\": 9511085178462881327}}",
         "prop:perms2": "{\"owner\": \"cloud-admin\", \"owner_access\": 7, \"global_access\": 0, \"share\": []}",
         "prop:routing_instance_has_pnf": "false",
         "prop:routing_instance_is_default": "true",

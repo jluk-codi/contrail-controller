@@ -6,11 +6,11 @@
 import sys
 import logging
 
-from contrail_vrouter_provisioning.cmdparser import ComputeArgsParser
-from contrail_vrouter_provisioning.common import CommonComputeSetup
+from tungsten_vrouter_provisioning.cmdparser import ComputeArgsParser
+from tungsten_vrouter_provisioning.common import CommonComputeSetup
 
 
-log = logging.getLogger('contrail_vrouter_provisioning.setup')
+log = logging.getLogger('tungsten_vrouter_provisioning.setup')
 
 
 def main():

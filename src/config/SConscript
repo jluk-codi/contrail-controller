@@ -40,7 +40,7 @@ subdirs=[
     'utils',
     'uve',
     'vnc_openstack',
-    'contrail_issu',
+    'tungsten_issu',
     'fabric-ansible',
 ]
 

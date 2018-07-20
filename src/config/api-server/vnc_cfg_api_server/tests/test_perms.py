@@ -75,13 +75,13 @@ class TestUserVisible(test_case.ApiServerTestCase):
         super(TestUserVisible, self).setUp()
         ip = self._api_server_ip
         port = self._api_server_port
-        kc = keystone.Client(username='admin', password='contrail123',
+        kc = keystone.Client(username='admin', password='tungsten123',
                        tenant_name='admin',
                        auth_url='http://127.0.0.1:5000/v2.0')
 
         # prepare token before vnc api invokes keystone
         self.test = User(ip, port, kc, 'test', 'test123', 'test-role', 'admin-%s' % self.id())
-        self.admin = User(ip, port, kc, 'admin', 'contrail123', 'cloud-admin', 'admin-%s' % self.id())
+        self.admin = User(ip, port, kc, 'admin', 'tungsten123', 'cloud-admin', 'admin-%s' % self.id())
 
     def test_user_visible_perms(self):
         user = self.test

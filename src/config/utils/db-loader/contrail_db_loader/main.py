@@ -107,7 +107,7 @@ class LoadDataBase(object):
         logger.debug("Santizing resources distribution")
         self._resource_map = OrderedDict()
         for resource_type in self._SUPPORTED_RESOURCES:
-            object_path = 'contrail_db_loader.resources.%s.%s' %\
+            object_path = 'tungsten_db_loader.resources.%s.%s' %\
                           (resource_type.replace('-', '_'),
                            camel_case(resource_type))
             kwargs = {

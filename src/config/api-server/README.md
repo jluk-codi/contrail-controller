@@ -1,12 +1,12 @@
-# Contrail API Server
+# Tungsten API Server
 
-## What is Contrail API server?
+## What is Tungsten API server?
 
-Contrail API server python package contains service which allows manipulation
+Tungsten API server python package contains service which allows manipulation
 of configuration elements exposed by the SDN. Interaction with this server is
 possible through either a REST interface or by a python library (which
 internally uses the same REST API). For more infomation please see
-[documentations](https://github.com/Juniper/contrail-controller/wiki/Contrail-API)
+[documentations](https://github.com/Juniper/tungsten-controller/wiki/Tungsten-API)
 
 ## Running Tests
 
@@ -14,7 +14,7 @@ Before submitting a patch for review you should always ensure all tests pass; a
 tox run is triggered by the jenkins gate executed on gerrit for each patch
 pushed for review.
 
-Contrail API uses [tox](http://tox.readthedocs.org/en/latest/) for managing the
+Tungsten API uses [tox](http://tox.readthedocs.org/en/latest/) for managing the
 virtual environments for running test cases. It uses
 [Testr](https://wiki.openstack.org/wiki/Testr) for managing the running of the
 test cases.
@@ -29,7 +29,7 @@ the tracking of long-running tests and other things.
 ### PEP8 and Unit Tests
 
 Running unit tests is as easy as executing this in the root directory
-of the Contrail API server source code:
+of the Tungsten API server source code:
 
     tox
 
@@ -59,7 +59,7 @@ If you want to pass other arguments to testr, you can do the following:
 
 ### Coverage
 
-Contrail has a fast growing code base and there are plenty of areas that need
+Tungsten has a fast growing code base and there are plenty of areas that need
 better coverage.
 
 To get a grasp of the areas where tests are needed, you can check current unit

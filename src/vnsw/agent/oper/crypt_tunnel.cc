@@ -25,7 +25,7 @@ SandeshTraceBufferPtr
     CryptTunnelTraceBuf(SandeshTraceBufferCreate("CryptTunnel", 5000));
 
 const std::string CryptTunnelTask::kCryptTunnelCmd
-("/usr/bin/contrail_crypt_tunnel_client.py");
+("/usr/bin/tungsten_crypt_tunnel_client.py");
 
 
 CryptTunnelTable *CryptTunnelTable::crypt_tunnel_table_;

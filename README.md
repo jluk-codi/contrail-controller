@@ -1,7 +1,7 @@
-contrail-controller
+tungsten-controller
 ===================
 
-# Contrail Virtual Network Controller
+# Tungsten Virtual Network Controller
 
 This software is licensed under the Apache License, Version 2.0 (the "License");
 you may not use this software except in compliance with the License.
@@ -15,13 +15,13 @@ limitations under the License.
 
 ### Overview
 
-The Contrail Controller repository contains the code for the configuration management, analytics and control-plane components of the Contrail network virtualization solution.
+The Tungsten Controller repository contains the code for the configuration management, analytics and control-plane components of the Tungsten network virtualization solution.
 
-The data-plane component (aka vrouter) is avaialable in a separate code repository (http://github.com/Juniper/contrail-vrouter).
+The data-plane component (aka vrouter) is avaialable in a separate code repository (http://github.com/Juniper/tungsten-vrouter).
 
 The configuration management component is located under 'src/config'. It provides a REST API to an orchestration system and translates the system configuration as an [IF-MAP](http://www.trustedcomputinggroup.org/files/resource_files/2888CAD9-1A4B-B294-D0ED95712B121FEF/TNC_IFMAP_v2_1r15.pdf) database.
 
-The configuration schema used by the contrail controller is defined under src/schema. A [code generation tool](http://github.com/Juniper/contrail-generateds) is used to convert the schema into accessor methods used by the API clients (src/api-lib), the API server as well as the control-plane components.
+The configuration schema used by the tungsten controller is defined under src/schema. A [code generation tool](http://github.com/Juniper/tungsten-generateds) is used to convert the schema into accessor methods used by the API clients (src/api-lib), the API server as well as the control-plane components.
 
 The control-node daemon code is located under (src/{bgp,control-node,ifmap,xmpp}). It implements the operational state database and iteroperates with networking equipment as well as the compute-node agents. The protocol used between the control-node and the compute-node agents is documented as an [IETF draft](http://tools.ietf.org/html/draft-ietf-l3vpn-end-system-01). This component contains the network reachability (a.k.a. routing) information in the system which is transient and can potentially have a higher rate of change than the configuration state.
 
@@ -32,6 +32,6 @@ Data gathered from all these components is collected into a logically centralize
 
 ### Contributing code
 * Sign the [CLA](https://na2.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=cf81ffe2-5694-4ad8-9d92-334fc57a8a7c)
-* Submit change requests via gerrit at http://review.opencontrail.org.
+* Submit change requests via gerrit at http://review.tungsten.io.
 
-[![ga](https://www.google-analytics.com/__utm.gif?utmac=UA-44166833-1&utmp=contrail-controller%2FREADME.md&utmdt=README.md)](https://www.google-analytics.com)
+[![ga](https://www.google-analytics.com/__utm.gif?utmac=UA-44166833-1&utmp=tungsten-controller%2FREADME.md&utmdt=README.md)](https://www.google-analytics.com)

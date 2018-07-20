@@ -15,7 +15,7 @@ import re
 import time
 import socket
 
-PORT_PATH = "/var/lib/contrail/ports/"
+PORT_PATH = "/var/lib/tungsten/ports/"
 PORT_IPC_VROUTER_AGENT_PORT = 9091
 TIMEOUT_SECS = 15
 DPDK_NETLINK_TCP_PORT = 20914

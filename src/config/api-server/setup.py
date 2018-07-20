@@ -25,16 +25,16 @@ def requirements(filename):
 
 
 setup(
-    name='contrail-api-server',
-    description="Contrail VNC Configuration API Server Implementation",
+    name='tungsten-api-server',
+    description="Tungsten VNC Configuration API Server Implementation",
     long_description=open('README.md').read(),
     license='Apache-2',
-    author='OpenContrail',
-    author_email='dev@lists.opencontrail.org',
-    url='http://www.opencontrail.org/documentation/api/r4.0/',
+    author='Tungsten Fabric',
+    author_email='dev@lists.tungsten.io',
+    url='http://www.tungsten.io/documentation/api/r4.0/',
     version='0.1dev',
     classifiers=[
-        'Environment :: OpenContrail',
+        'Environment :: Tungsten Fabric',
         'Intended Audience :: Information Technology',
         'Intended Audience :: Developers',
         'Intended Audience :: System Administrators',
@@ -50,10 +50,10 @@ setup(
     tests_require=requirements('test-requirements.txt'),
     entry_points={
         'console_scripts': [
-            'contrail-api = vnc_cfg_api_server.vnc_cfg_api_server:server_main',
-            'contrail-db-check = vnc_cfg_api_server.db_manage:db_check',
+            'tungsten-api = vnc_cfg_api_server.vnc_cfg_api_server:server_main',
+            'tungsten-db-check = vnc_cfg_api_server.db_manage:db_check',
         ],
     },
-    keywords='contrail vnc api server',
+    keywords='tungsten vnc api server',
     test_suite="vnc_cfg_api_server.tests"
 )

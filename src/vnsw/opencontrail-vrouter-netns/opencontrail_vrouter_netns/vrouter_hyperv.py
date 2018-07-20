@@ -24,7 +24,7 @@ def call_powershell(cmds):
 
 LEFT_DEV_PREFIX = 'int'
 RIGHT_DEV_PREFIX = 'gw'
-WINGW_PREFIX = 'contrail-wingw-'
+WINGW_PREFIX = 'tungsten-wingw-'
 
 
 class BlockingSSHClient(paramiko.SSHClient):
@@ -263,12 +263,12 @@ class SNATVirtualMachine(object):
                 ssh_client.close()
 
     def register(self):
-        """registers VM ports to Contrail"""
+        """registers VM ports to Tungsten"""
         self.nic_left.register()
         self.nic_right.register()
 
     def unregister(self):
-        """unregisters VM ports from Contrail"""
+        """unregisters VM ports from Tungsten"""
         self.nic_left.unregister()
         self.nic_right.unregister()
 

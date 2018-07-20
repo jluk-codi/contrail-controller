@@ -23,10 +23,10 @@ import unittest
 from cfgm_common.analytics_client import Client
 
 
-class TestOpenContrailClient(unittest.TestCase):
+class TestTungsten FabricClient(unittest.TestCase):
 
     def setUp(self):
-        super(TestOpenContrailClient, self).setUp()
+        super(TestTungsten FabricClient, self).setUp()
         self.client = Client('http://127.0.0.1:8081', {'arg1': 'aaa'})
 
         self.get_resp = mock.MagicMock()

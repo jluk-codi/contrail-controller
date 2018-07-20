@@ -12,7 +12,7 @@ from vnc_api.vnc_api import *
 from cfgm_common.exceptions import *
 
 
-class ISSUContrailPostProvisioner(object):
+class ISSUTungstenPostProvisioner(object):
 
     def __init__(self, args_str=None):
         self._args = None
@@ -48,7 +48,7 @@ class ISSUContrailPostProvisioner(object):
 
     def _parse_args(self, args_str):
         '''
-        Eg. python provision_post_issu.py --host_name a3s30.contrail.juniper.net
+        Eg. python provision_post_issu.py --host_name a3s30.tungsten.juniper.net
                                         --host_ip 10.1.1.1
                                         --api_server_ip 127.0.0.1
                                         --api_server_port 8082
@@ -250,11 +250,11 @@ class ISSUContrailPostProvisioner(object):
 
     # end del_node
 
-# end class ISSUContrailPostProvisioner
+# end class ISSUTungstenPostProvisioner
 
 
 def main(args_str=None):
-    ISSUContrailPostProvisioner(args_str)
+    ISSUTungstenPostProvisioner(args_str)
 # end main
 
 if __name__ == "__main__":

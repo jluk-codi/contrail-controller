@@ -52,7 +52,7 @@ DnsItem mx_items[MAX_ITEMS];
 std::string names[MAX_ITEMS] = {"www.google.com",
                                 "www.cnn.com",
                                 "test.example.com",
-                                "contrail.juniper.net",
+                                "tungsten.juniper.net",
                                 "movies" };
 std::string addresses[MAX_ITEMS] = {"1.2.3.4",
                                     "5.6.7.8",
@@ -77,7 +77,7 @@ std::string cname_data[MAX_ITEMS] = {"server.google.com",
 std::string auth_names[MAX_ITEMS] = {"ns.google.com",
                                      "ns.cnn.com",
                                      "ns1.test.example.com",
-                                     "nameserver.contrail.juniper.net",
+                                     "nameserver.tungsten.juniper.net",
                                      "ns.local" };
 std::string auth_data[MAX_ITEMS] = {"8.8.8.254",
                                     "7.7.7.254",
@@ -260,7 +260,7 @@ public:
         } else if (type == DNS_OPCODE_UPDATE) {
             BindUtil::Operation op =
                 update ? BindUtil::ADD_UPDATE : BindUtil::DELETE_UPDATE;
-            len = SendDnsUpdate(dns, op, "vdns1", "test.contrail.juniper.net",
+            len = SendDnsUpdate(dns, op, "vdns1", "test.tungsten.juniper.net",
                                 numItems, items);
         } else
             assert(0);
@@ -448,7 +448,7 @@ TEST_F(DnsTest, VirtualDnsReqTest) {
 
     char vdns_attr[] =
         "<virtual-DNS-data>\
-            <domain-name>test.contrail.juniper.net</domain-name>\
+            <domain-name>test.tungsten.juniper.net</domain-name>\
             <dynamic-records-from-client>true</dynamic-records-from-client>\
             <record-order>fixed</record-order>\
             <default-ttl-seconds>120</default-ttl-seconds>\
@@ -603,7 +603,7 @@ TEST_F(DnsTest, VirtualDnsIpamUpdateReqTest) {
 
     char vdns_attr[] =
         "<virtual-DNS-data>\
-            <domain-name>test.contrail.juniper.net</domain-name>\
+            <domain-name>test.tungsten.juniper.net</domain-name>\
             <dynamic-records-from-client>true</dynamic-records-from-client>\
             <record-order>fixed</record-order>\
             <default-ttl-seconds>120</default-ttl-seconds>\
@@ -665,7 +665,7 @@ TEST_F(DnsTest, VirtualDnsVdnsFirstReqTest) {
 
     char vdns_attr[] =
         "<virtual-DNS-data>\
-            <domain-name>test.contrail.juniper.net</domain-name>\
+            <domain-name>test.tungsten.juniper.net</domain-name>\
             <dynamic-records-from-client>true</dynamic-records-from-client>\
             <record-order>fixed</record-order>\
             <default-ttl-seconds>120</default-ttl-seconds>\
@@ -724,7 +724,7 @@ TEST_F(DnsTest, VirtualDnsVdnsFirstReorderTest) {
 
     char vdns_attr[] =
         "<virtual-DNS-data>\
-            <domain-name>test.contrail.juniper.net</domain-name>\
+            <domain-name>test.tungsten.juniper.net</domain-name>\
             <dynamic-records-from-client>true</dynamic-records-from-client>\
             <record-order>fixed</record-order>\
             <default-ttl-seconds>120</default-ttl-seconds>\
@@ -783,7 +783,7 @@ TEST_F(DnsTest, VirtualDnsIpamFirstTest) {
 
     char vdns_attr[] =
         "<virtual-DNS-data>\
-            <domain-name>test.contrail.juniper.net</domain-name>\
+            <domain-name>test.tungsten.juniper.net</domain-name>\
             <dynamic-records-from-client>true</dynamic-records-from-client>\
             <record-order>fixed</record-order>\
             <default-ttl-seconds>120</default-ttl-seconds>\
@@ -842,7 +842,7 @@ TEST_F(DnsTest, VirtualDnsIpamFirstReorderTest) {
 
     char vdns_attr[] =
         "<virtual-DNS-data>\
-            <domain-name>test.contrail.juniper.net</domain-name>\
+            <domain-name>test.tungsten.juniper.net</domain-name>\
             <dynamic-records-from-client>true</dynamic-records-from-client>\
             <record-order>fixed</record-order>\
             <default-ttl-seconds>120</default-ttl-seconds>\
@@ -912,7 +912,7 @@ TEST_F(DnsTest, VirtualDnsLinkLocalReqTest) {
 
     char vdns_attr[] =
         "<virtual-DNS-data>\
-            <domain-name>test.contrail.juniper.net</domain-name>\
+            <domain-name>test.tungsten.juniper.net</domain-name>\
             <dynamic-records-from-client>true</dynamic-records-from-client>\
             <record-order>fixed</record-order>\
             <default-ttl-seconds>120</default-ttl-seconds>\
@@ -1004,7 +1004,7 @@ TEST_F(DnsTest, DnsXmppTest) {
 
     char vdns_attr[] =
         "<virtual-DNS-data>\
-            <domain-name>test.contrail.juniper.net</domain-name>\
+            <domain-name>test.tungsten.juniper.net</domain-name>\
             <dynamic-records-from-client>true</dynamic-records-from-client>\
             <record-order>fixed</record-order>\
             <default-ttl-seconds>120</default-ttl-seconds>\

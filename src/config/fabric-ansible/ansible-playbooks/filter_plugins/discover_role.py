@@ -159,8 +159,8 @@ def _mock_job_ctx_discover_role():
                 "10.155.75.102:8086"
             ],
             "fabric_ansible_conf_file": [
-                "/etc/contrail/contrail-keystone-auth.conf",
-                "/etc/contrail/contrail-fabric-ansible.conf"
+                "/etc/tungsten/tungsten-keystone-auth.conf",
+                "/etc/tungsten/tungsten-fabric-ansible.conf"
             ]
         },
         "current_task_index": 1,
@@ -185,8 +185,8 @@ def _mock_pb_input_discover_role():
 
     return {
         "args": "{\"fabric_ansible_conf_file\": "
-                "    [\"/etc/contrail/contrail-keystone-auth.conf\","
-                "     \"/etc/contrail/contrail-fabric-ansible.conf\"],"
+                "    [\"/etc/tungsten/tungsten-keystone-auth.conf\","
+                "     \"/etc/tungsten/tungsten-fabric-ansible.conf\"],"
                 " \"collectors\": [\"10.155.75.102:8086\"]}",
         "auth_token": "b71842739db94305a217f3b3cb36eb02",
         "device_family": "junos-qfx",

@@ -1177,7 +1177,7 @@ void MulticastHandler::ModifyFabricMembers(const Peer *peer,
 
 /*
  * Request to populate evpn olist by list of TOR NH seen by control node
- * Currently this is done only for TOR/Gateway(outside contrail vrouter network)
+ * Currently this is done only for TOR/Gateway(outside tungsten vrouter network)
  * Source label is ignored as it is used by non-vrouters.
  * Olist consists of TOR/Gateway endpoints with label advertised or use VXLAN.
  * Note: Non Vrouter can talk in VXLAN/MPLS. Encap received in XMPP will

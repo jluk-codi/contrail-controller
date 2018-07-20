@@ -56,7 +56,7 @@
         </ipam-subnets>
     </virtual-network-network-ipam>
     <virtual-DNS name='test-DNS' domain='default-domain'>
-        <domain-name>contrail.juniper.net</domain-name>
+        <domain-name>tungsten.juniper.net</domain-name>
         <dynamic-records-from-client>0</dynamic-records-from-client>
         <record-order>random</record-order>
         <default-ttl-seconds>60</default-ttl-seconds>

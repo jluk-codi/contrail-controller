@@ -36,11 +36,11 @@ using boost::assign::list_of;
 namespace test {
 
 const char *XmppDocumentMock::kControlNodeJID =
-    "network-control@contrailsystems.com";
+    "network-control@tungstensystems.com";
 const char *XmppDocumentMock::kNetworkServiceJID =
-    "network-control@contrailsystems.com/bgp-peer";
+    "network-control@tungstensystems.com/bgp-peer";
 const char *XmppDocumentMock::kConfigurationServiceJID =
-    "network-control@contrailsystems.com/config";
+    "network-control@tungstensystems.com/config";
 const char *XmppDocumentMock::kPubSubNS =
     "http://jabber.org/protocol/pubsub";
 
@@ -1025,7 +1025,7 @@ void NetworkAgentMock::XmppHandleChannelEvent(XmppChannel *channel,
 void NetworkAgentMock::DisableRead(bool disable_read) {
     XmppConnection *connection;
 
-    connection = client_->FindConnection("network-control@contrailsystems.com");
+    connection = client_->FindConnection("network-control@tungstensystems.com");
     if (connection) connection->set_disable_read(disable_read);
 }
 
@@ -1116,7 +1116,7 @@ void NetworkAgentMock::SessionDown() {
     tbb::mutex::scoped_lock lock(mutex_);
     down_ = true;
     XmppConnection *connection =
-        client_->FindConnection("network-control@contrailsystems.com");
+        client_->FindConnection("network-control@tungstensystems.com");
     if (connection)
         connection->SetAdminState(true);
 }
@@ -1125,38 +1125,38 @@ void NetworkAgentMock::SessionUp() {
     tbb::mutex::scoped_lock lock(mutex_);
     down_ = false;
     XmppConnection *connection =
-        client_->FindConnection("network-control@contrailsystems.com");
+        client_->FindConnection("network-control@tungstensystems.com");
     if (connection)
         connection->SetAdminState(false);
 }
 
 size_t NetworkAgentMock::get_sm_connect_attempts() {
     XmppConnection *connection =
-        client_->FindConnection("network-control@contrailsystems.com");
+        client_->FindConnection("network-control@tungstensystems.com");
     return (connection ? connection->get_sm_connect_attempts() : 0);
 }
 
 size_t NetworkAgentMock::get_sm_keepalive_count() {
     XmppConnection *connection =
-        client_->FindConnection("network-control@contrailsystems.com");
+        client_->FindConnection("network-control@tungstensystems.com");
     return (connection ? connection->get_sm_keepalive_count() : 0);
 }
 
 size_t NetworkAgentMock::get_connect_error() {
     XmppConnection *connection =
-        client_->FindConnection("network-control@contrailsystems.com");
+        client_->FindConnection("network-control@tungstensystems.com");
     return (connection ? connection->get_connect_error() : 0);
 }
 
 size_t NetworkAgentMock::get_session_close() {
     XmppConnection *connection =
-        client_->FindConnection("network-control@contrailsystems.com");
+        client_->FindConnection("network-control@tungstensystems.com");
     return (connection ? connection->get_session_close() : 0);
 }
 
 uint32_t NetworkAgentMock::flap_count() {
     XmppConnection *connection =
-        client_->FindConnection("network-control@contrailsystems.com");
+        client_->FindConnection("network-control@tungstensystems.com");
     return (connection ? connection->flap_count() : 0);
 }
 

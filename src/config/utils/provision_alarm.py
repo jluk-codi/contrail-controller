@@ -12,7 +12,7 @@ import ConfigParser
 from vnc_api.vnc_api import *
 from vnc_admin_api import VncApiAdmin
 from cfgm_common.exceptions import *
-from contrail_alarm import alarm_list
+from tungsten_alarm import alarm_list
 
 
 class AlarmProvisioner(object):
@@ -72,7 +72,7 @@ class AlarmProvisioner(object):
         Eg. python provision_alarm.py --api_server_ip localhost
                                       --api_server_port 8082
                                       --admin_user admin
-                                      --admin_password contrail123
+                                      --admin_password tungsten123
                                       --admin_tenant_name admin
                                       --api_server_use_ssl False
         '''

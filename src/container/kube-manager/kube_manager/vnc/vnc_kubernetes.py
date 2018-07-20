@@ -64,7 +64,7 @@ class VncKubernetes(VncCommon):
             vnc_lib=self.vnc_lib, args=self.args, queue=self.q, kube=self.kube)
 
         #
-        # In nested mode, kube-manager connects to contrail components running
+        # In nested mode, kube-manager connects to tungsten components running
         # in underlay via global link local services. TCP flows established on
         # link local services will be torn down by vrouter, if there is no
         # activity for configured(or default) timeout. So disable flow timeout

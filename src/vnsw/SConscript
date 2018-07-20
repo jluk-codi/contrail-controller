@@ -21,8 +21,8 @@ for dir in subdirs:
                    duplicate=0)
 
 noarch_subdirs = [
-    'contrail-vrouter-api',
-    'opencontrail-vrouter-netns',
+    'tungsten-vrouter-api',
+    'Tungsten Fabric-vrouter-netns',
     'provisioning'
 ]
 

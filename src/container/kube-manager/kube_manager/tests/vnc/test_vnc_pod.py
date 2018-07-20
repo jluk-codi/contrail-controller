@@ -110,10 +110,10 @@ class VncPodTest(KMTestCase):
         ns_meta['labels'] = labels
 
         if ns_eval_vn_dict:
-            ns_meta['annotations']['opencontrail.org/network'] = \
+            ns_meta['annotations']['tungsten.io/network'] = \
                 ns_eval_vn_dict
         if is_isolated:
-            ns_meta['annotations']['opencontrail.org/isolation'] = 'true'
+            ns_meta['annotations']['tungsten.io/isolation'] = 'true'
 
         NamespaceKM.delete(ns_name)
         NamespaceKM.delete(ns_uuid)
@@ -142,7 +142,7 @@ class VncPodTest(KMTestCase):
                     'namespace': pod_namespace, 'labels': pod_labels}
         if eval_vn_dict:
             pod_meta['annotations'] = {
-                'opencontrail.org/network': eval_vn_dict}
+                'tungsten.io/network': eval_vn_dict}
         pod_add_event = self.create_event('Pod', pod_spec, pod_meta, action)
         pod_add_event['object']['status'] = pod_status
         pod = PodKM.locate(pod_uuid, pod_add_event['object'])

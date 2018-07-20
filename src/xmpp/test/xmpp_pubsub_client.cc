@@ -24,8 +24,8 @@ using namespace boost::asio;
 using namespace std;
 
 #define PUBSUB_NODE_ADDR    "bgp-node.contrai.com"
-#define SUB_ADDR            "agent@vnsw.contrailsystems.com"
-#define XMPP_CONTROL_SERV   "bgp.contrail.com"
+#define SUB_ADDR            "agent@vnsw.tungstensystems.com"
+#define XMPP_CONTROL_SERV   "bgp.tungsten.com"
 #define XMPP_SERVER_PORT    5288
 
 class XmppBgpMockPeer : public XmppSamplePeer {

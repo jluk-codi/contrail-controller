@@ -22,9 +22,9 @@ using namespace boost::asio;
 using namespace std;
 using namespace autogen;
 
-#define SUB_ADDR "agent@vnsw.contrailsystems.com"
-#define XMPP_CONTROL_SERV   "bgp.contrail.com"
-#define PUBSUB_NODE_ADDR "bgp-node.contrail.com"
+#define SUB_ADDR "agent@vnsw.tungstensystems.com"
+#define XMPP_CONTROL_SERV   "bgp.tungsten.com"
+#define PUBSUB_NODE_ADDR "bgp-node.tungsten.com"
 
 class XmppChannelMuxMock : public XmppChannelMux {
 public:

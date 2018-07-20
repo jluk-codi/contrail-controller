@@ -37,10 +37,10 @@ setuptools.setup(
     package_data={'': ['*.html', '*.css', '*.xml', '*.yml']},
 
     # metadata
-    author="OpenContrail",
-    author_email="dev@lists.opencontrail.org",
+    author="Tungsten Fabric",
+    author_email="dev@lists.tungsten.io",
     license="Apache Software License",
-    url="http://www.opencontrail.org/",
+    url="http://www.tungsten.io/",
 
     long_description="Common Kubernetes/Mesos CNI Plugin",
 
@@ -49,7 +49,7 @@ setuptools.setup(
     entry_points = {
         # Please update sandesh/common/vns.sandesh on process name change
         'console_scripts' : [
-            'contrail-cni = cni.contrail_cni:main',
+            'tungsten-cni = cni.tungsten_cni:main',
         ],
     },
     cmdclass={

@@ -2,8 +2,8 @@
  * Copyright (c) 2014 Juniper Networks, Inc. All rights reserved.
  */
 
-#ifndef vnsw_agent_init_contrail_cmn_init_hpp
-#define vnsw_agent_init_contrail_cmn_init_hpp
+#ifndef vnsw_agent_init_tungsten_cmn_init_hpp
+#define vnsw_agent_init_tungsten_cmn_init_hpp
 
 #include <boost/program_options.hpp>
 #include <init/agent_init.h>
@@ -13,10 +13,10 @@ class AgentParam;
 
 // The class to drive agent initialization.
 // Defines control parameters used to enable/disable agent features
-class ContrailInitCommon : public AgentInit {
+class TungstenInitCommon : public AgentInit {
 public:
-    ContrailInitCommon();
-    virtual ~ContrailInitCommon();
+    TungstenInitCommon();
+    virtual ~TungstenInitCommon();
 
     void ProcessOptions(const std::string &config_file,
                         const std::string &program_name);
@@ -70,7 +70,7 @@ private:
     std::auto_ptr<PktModule> pkt_;
     std::auto_ptr<VirtualGateway> vgw_;
     std::auto_ptr<MacLearningModule> mac_learning_module_;
-    DISALLOW_COPY_AND_ASSIGN(ContrailInitCommon);
+    DISALLOW_COPY_AND_ASSIGN(TungstenInitCommon);
 };
 
-#endif // vnsw_agent_init_contrail_cmn_init_hpp
+#endif // vnsw_agent_init_tungsten_cmn_init_hpp

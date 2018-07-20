@@ -8,9 +8,9 @@ import logging
 import ast
 from cfgm_common.vnc_kombu import VncKombuClient
 from pysandesh.gen_py.sandesh.ttypes import SandeshLevel
-from issu_contrail_common import ICCassandraClient
-from issu_contrail_common import ICCassandraInfo
-import issu_contrail_config
+from issu_tungsten_common import ICCassandraClient
+from issu_tungsten_common import ICCassandraInfo
+import issu_tungsten_config
 
 
 class ICAmqpInfo():
@@ -41,8 +41,8 @@ class ICKombuClient(VncKombuClient):
                                             q_name, subscribe_cb, logger)
 
     def _reinit_control(self):
-        cmd_cid = ('docker ps --filter "label=net.juniper.contrail.pod=control"'
-                   ' --filter "label=net.juniper.contrail.service=control" -q')
+        cmd_cid = ('docker ps --filter "label=net.juniper.tungsten.pod=control"'
+                   ' --filter "label=net.juniper.tungsten.service=control" -q')
         cmd_reinit = 'docker kill --signal="SIGUSR1" {}'
 
         for addr, clist in self._new_api_info.items():
@@ -144,26 +144,26 @@ class ICRMQMain():
 def _issu_rmq_main():
     # Create Instance of cassandra info
     logging.basicConfig(level=logging.INFO,
-                        filename='/var/log/contrail/issu_contrail_run_sync.log',
+                        filename='/var/log/tungsten/issu_tungsten_run_sync.log',
                         format='%(asctime)s %(message)s')
-    args, remaining_args = issu_contrail_config.parse_args()
+    args, remaining_args = issu_tungsten_config.parse_args()
     new_cassandra_info = ICCassandraInfo(
         args.new_cassandra_address_list,
         args.new_cassandra_user,
         args.new_cassandra_password,
         args.ndb_prefix,
-        issu_contrail_config.issu_info_config_db_uuid,
-        issu_contrail_config.issu_keyspace_config_db_uuid,
-        issu_contrail_config.logger)
+        issu_tungsten_config.issu_info_config_db_uuid,
+        issu_tungsten_config.issu_keyspace_config_db_uuid,
+        issu_tungsten_config.logger)
 
     old_cassandra_info = ICCassandraInfo(
         args.old_cassandra_address_list,
         args.old_cassandra_user,
         args.old_cassandra_password,
         args.odb_prefix,
-        issu_contrail_config.issu_info_config_db_uuid,
-        issu_contrail_config.issu_keyspace_config_db_uuid,
-        issu_contrail_config.logger)
+        issu_tungsten_config.issu_info_config_db_uuid,
+        issu_tungsten_config.issu_keyspace_config_db_uuid,
+        issu_tungsten_config.logger)
     # Create instance of amqp
     new_amqp_info = ICAmqpInfo(
         args.new_rabbit_address_list,
@@ -184,7 +184,7 @@ def _issu_rmq_main():
 
     issu_rmq = ICRMQMain(
         old_cassandra_info, new_cassandra_info, old_amqp_info, new_amqp_info,
-        ast.literal_eval(args.new_api_info), issu_contrail_config.logger)
+        ast.literal_eval(args.new_api_info), issu_tungsten_config.logger)
     while (1):
         time.sleep(1)
 

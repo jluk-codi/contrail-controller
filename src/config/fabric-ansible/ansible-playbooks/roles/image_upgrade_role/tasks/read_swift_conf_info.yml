@@ -1,7 +1,7 @@
 - name: Read swift config from swift_conf.ini file
   block:
     - set_fact:
-        keystone_conf_path: "{{ lookup('ini', 'keystone_conf_path section=DEFAULT file=conf/swift_conf.ini default=/etc/contrail/contrail-keystone-auth.conf') }}"
+        keystone_conf_path: "{{ lookup('ini', 'keystone_conf_path section=DEFAULT file=conf/swift_conf.ini default=/etc/tungsten/tungsten-keystone-auth.conf') }}"
         temp_url_key: "{{ lookup('ini', 'temp_url_key section=DEFAULT file=conf/swift_conf.ini default=mykey') }}"
         temp_url_key_2: "{{ lookup('ini', 'temp_url_key_2 section=DEFAULT file=conf/swift_conf.ini default=mykey2') }}"
         chosen_temp_url_key: "{{ lookup('ini', 'chosen_temp_url_key section=DEFAULT file=conf/swift_conf.ini default=temp_url_key') }}"
@@ -18,7 +18,7 @@
           }
         jl_err_message: "Upgrade device {{pr_fqname}}, Image name {{filename}}. Error reading swift conf file: {{swift_info.msg}}"
 
-- name: Read keystone config from contrail-keystone-auth.conf file
+- name: Read keystone config from tungsten-keystone-auth.conf file
   block:
     - set_fact:
         auth_url: "{{ lookup('ini', 'auth_url section=KEYSTONE file='+keystone_conf_path) }}"

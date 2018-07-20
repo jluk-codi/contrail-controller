@@ -58,7 +58,7 @@ COMMAND_LIST = {
     'list-service-template': cmd_wrapper.CmdServiceTemplateList,
     'add-service-template': cmd_wrapper.CmdServiceTemplateAdd,
     'delete-service-template': cmd_wrapper.CmdServiceTemplateDel,
-    'check-contrail-version': cmd_wrapper.CmdContrailVersion,
+    'check-tungsten-version': cmd_wrapper.CmdTungstenVersion,
     'create-floating-ip-pool': cmd_wrapper.CmdCreateFloatingIPPool,
     'add-bgp-router': cmd_wrapper.CmdAddBgpRouter,
     'delete-bgp-router': cmd_wrapper.CmdDeleteBgpRouter,
@@ -81,7 +81,7 @@ class HelpAction(argparse.Action):
         max_len = 0
         app = self.default
         parser.print_help(app.stdout)
-        app.stdout.write('\nCommands for Contrail v%s:\n' % app.api_version)
+        app.stdout.write('\nCommands for Tungsten v%s:\n' % app.api_version)
         command_manager = app.command_manager
         for name, ep in sorted(command_manager):
             factory = ep.load()
@@ -94,13 +94,13 @@ class HelpAction(argparse.Action):
         sys.exit(0)
 
 
-class ContrailShell(app.App):
+class TungstenShell(app.App):
 
     def __init__(self, apiversion):
-        super(ContrailShell, self).__init__(
-            description='Contrail helper utility',
+        super(TungstenShell, self).__init__(
+            description='Tungsten helper utility',
             version=VERSION,
-            command_manager=commandmanager.CommandManager('contrail.cli'),)
+            command_manager=commandmanager.CommandManager('tungsten.cli'),)
         self.commands = COMMANDS
         self.api_version = apiversion
         for k, v in self.commands[apiversion].items():
@@ -209,8 +209,8 @@ class ContrailShell(app.App):
         return result
 
     def initialize_app(self, argv):
-        super(ContrailShell, self).initialize_app(argv)
-        self.api_version = {'contrail': self.api_version}
+        super(TungstenShell, self).initialize_app(argv)
+        self.api_version = {'tungsten': self.api_version}
         cmd_name = None
         if argv:
             cmd_info = self.command_manager.find_command(argv)
@@ -224,7 +224,7 @@ class ContrailShell(app.App):
 
 def main(argv=sys.argv[1:]):
     try:
-        return ContrailShell(CONTRAIL_API_VERSION).run(argv)
+        return TungstenShell(CONTRAIL_API_VERSION).run(argv)
     except Exception as e:
         print(unicode(e))
         return 1

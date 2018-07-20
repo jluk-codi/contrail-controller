@@ -95,8 +95,8 @@ private:
     ServerTest *test_;
 };
 
-#define XMPP_CONTROL_SERV   "bgp.contrail.com"
-#define XMPP_CONTROL_NODE   "bgp-node.contrail.com"
+#define XMPP_CONTROL_SERV   "bgp.tungsten.com"
+#define XMPP_CONTROL_NODE   "bgp-node.tungsten.com"
 #define XMPP_SERVER_PORT    5288
 
 ServerTest::ServerTest(XmppServer *server)

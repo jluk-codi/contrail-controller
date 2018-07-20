@@ -35,7 +35,7 @@ class QosmapProv(object):
 
     def _parse_agent_conf(self):
 
-        # Use agent config file /etc/contrail/contrail-vrouter-agent.conf
+        # Use agent config file /etc/tungsten/tungsten-vrouter-agent.conf
         self.ifname_list = []
         self.dcbx = "ieee"
         self.qos_scheduling_config = False
@@ -112,7 +112,7 @@ class QosmapProv(object):
         Eg. python qosmap.py --interface_list p1p1
         The --interface_list option can be ignored,
         Then interface is picked from file:
-        /etc/contrail/contrail-vrouter-agent.conf.
+        /etc/tungsten/tungsten-vrouter-agent.conf.
 
         '''
 
@@ -171,7 +171,7 @@ class QosmapProv(object):
 # end class QosmapProv
 
 def main(args_str=None):
-    conf_file = "/etc/contrail/contrail-vrouter-agent.conf"
+    conf_file = "/etc/tungsten/tungsten-vrouter-agent.conf"
     QosmapProv(conf_file, args_str)
 # end main
 

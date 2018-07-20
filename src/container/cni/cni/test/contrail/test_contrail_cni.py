@@ -11,18 +11,18 @@ from mock import patch
 from mock import Mock
 from StringIO import StringIO
 
-from cni.contrail import vrouter
-from cni.contrail.contrail_cni import ContrailCni, VRouter, CniVEthPair, CniMacVlan, Cni, Error
+from cni.tungsten import vrouter
+from cni.tungsten.tungsten_cni import TungstenCni, VRouter, CniVEthPair, CniMacVlan, Cni, Error
 
 
-class ContrailCniTest(unittest.TestCase):
+class TungstenCniTest(unittest.TestCase):
     @mock.patch('argparse.ArgumentParser.parse_args',
                 return_value=argparse.Namespace(command=None, version=Cni.CNI_VERSION,
                                                 file=None, uuid='123'))
     def setUp(self, _):
-        self._contrail_json = """
+        self._tungsten_json = """
 {
-    "contrail": {
+    "tungsten": {
         "log-file": "%s",
         "log-level": "%s",
         "mode": "%s",
@@ -31,26 +31,26 @@ class ContrailCniTest(unittest.TestCase):
     }
 }
 """
-        self.contrail_json = self._build_contrail_json('/tmp/cni.log',
+        self.tungsten_json = self._build_tungsten_json('/tmp/cni.log',
                                                        'WARNING',
                                                        'mesos',
                                                        'veth',
                                                        'eth0')
         old_stdin = sys.stdin
         sys.stdin = StringIO()
-        sys.stdin.write(self.contrail_json)
+        sys.stdin.write(self.tungsten_json)
         sys.stdin.seek(0)
         os.environ['CNI_COMMAND'] = 'version'
-        self.contrail_cni = ContrailCni()
+        self.tungsten_cni = TungstenCni()
         sys.stdin = old_stdin
 
 
     def tearDown(self):
         pass
 
-    def _build_contrail_json(self, log_file, log_level,
+    def _build_tungsten_json(self, log_file, log_level,
                              mode, vif_type, parent_iface):
-        return self._contrail_json % (log_file, log_level,
+        return self._tungsten_json % (log_file, log_level,
                                       mode, vif_type, parent_iface)
 
     def test_build_response(self):
@@ -64,7 +64,7 @@ class ContrailCniTest(unittest.TestCase):
         try:
             out = StringIO()
             sys.stdout = out
-            self.contrail_cni.build_response(vr_resp)
+            self.tungsten_cni.build_response(vr_resp)
             sys.stdout.seek(0)
             response = json.loads(sys.stdout.read())
             self.assertEqual(response, {
@@ -107,7 +107,7 @@ class ContrailCniTest(unittest.TestCase):
         try:
             out = StringIO()
             sys.stdout = out
-            self.contrail_cni.get_cmd()
+            self.tungsten_cni.get_cmd()
             mock_get_cmd.assert_called_once_with('123', None)
             sys.stdout.seek(0)
             response = json.loads(sys.stdout.read())
@@ -140,7 +140,7 @@ class ContrailCniTest(unittest.TestCase):
         try:
             out = StringIO()
             sys.stdout = out
-            self.contrail_cni.poll_cmd()
+            self.tungsten_cni.poll_cmd()
             mock_poll_cmd.assert_called_once_with('123', None)
             sys.stdout.seek(0)
             response = json.loads(sys.stdout.read())
@@ -161,8 +161,8 @@ class ContrailCniTest(unittest.TestCase):
         finally:
             sys.stdout = oldout
 
-    @patch("cni.contrail.contrail_cni.CniMacVlan")
-    @patch("cni.contrail.contrail_cni.CniVEthPair")
+    @patch("cni.tungsten.tungsten_cni.CniMacVlan")
+    @patch("cni.tungsten.tungsten_cni.CniVEthPair")
     @patch.object(VRouter, "add_cmd")
     @patch.object(VRouter, "poll_cfg_cmd")
     def test_add_cmd(self, mock_poll_cfg_cmd, mock_vrouter_add_cmd,
@@ -185,7 +185,7 @@ class ContrailCniTest(unittest.TestCase):
         try:
             out = StringIO()
             sys.stdout = out
-            self.contrail_cni.add_cmd()
+            self.tungsten_cni.add_cmd()
             sys.stdout.seek(0)
             response = json.loads(sys.stdout.read())
             self.assertEqual(response, {
@@ -208,8 +208,8 @@ class ContrailCniTest(unittest.TestCase):
             sys.stdout = oldout
 
 
-    @patch("cni.contrail.contrail_cni.CniMacVlan")
-    @patch("cni.contrail.contrail_cni.CniVEthPair")
+    @patch("cni.tungsten.tungsten_cni.CniMacVlan")
+    @patch("cni.tungsten.tungsten_cni.CniVEthPair")
     @patch.object(VRouter, "delete_cmd")
     def test_delete_cmd(self, mock_delete_cmd, mock_veth, mock_macvlan):
         intf = Mock()
@@ -218,7 +218,7 @@ class ContrailCniTest(unittest.TestCase):
         try:
             out = StringIO()
             sys.stdout = out
-            self.contrail_cni.delete_cmd()
+            self.tungsten_cni.delete_cmd()
             sys.stdout.seek(0)
             response = json.loads(sys.stdout.read())
             self.assertEqual(response, {
@@ -236,7 +236,7 @@ class ContrailCniTest(unittest.TestCase):
         try:
             out = StringIO()
             sys.stdout = out
-            self.contrail_cni.Version()
+            self.tungsten_cni.Version()
             sys.stdout.seek(0)
             response = json.loads(sys.stdout.read())
             self.assertEqual(response, {
@@ -249,45 +249,45 @@ class ContrailCniTest(unittest.TestCase):
     @mock.patch('argparse.ArgumentParser.parse_args',
                 return_value=argparse.Namespace(command=None, version=Cni.CNI_VERSION,
                                                 file=None, uuid='123'))
-    @patch.object(ContrailCni, "Version")
-    @patch.object(ContrailCni, "add_cmd")
-    @patch.object(ContrailCni, "delete_cmd")
-    @patch.object(ContrailCni, "get_cmd")
-    @patch.object(ContrailCni, "poll_cmd")
+    @patch.object(TungstenCni, "Version")
+    @patch.object(TungstenCni, "add_cmd")
+    @patch.object(TungstenCni, "delete_cmd")
+    @patch.object(TungstenCni, "get_cmd")
+    @patch.object(TungstenCni, "poll_cmd")
     def test_Run(self, mock_poll, mock_get, mock_delete, mock_add, mock_version, _):
-        self.contrail_json = self._build_contrail_json('/tmp/cni.log',
+        self.tungsten_json = self._build_tungsten_json('/tmp/cni.log',
                                                        'WARNING',
                                                        'mesos',
                                                        'veth',
                                                        'eth0')
         old_stdin = sys.stdin
         sys.stdin = StringIO()
-        sys.stdin.write(self.contrail_json)
+        sys.stdin.write(self.tungsten_json)
         sys.stdin.seek(0)
-        contrail_cni = ContrailCni()
+        tungsten_cni = TungstenCni()
         sys.stdin = old_stdin
-        mock_cni_contrail_cni = Mock()
-        contrail_cni.cni = mock_cni_contrail_cni
+        mock_cni_tungsten_cni = Mock()
+        tungsten_cni.cni = mock_cni_tungsten_cni
 
-        mock_cni_contrail_cni.command = Cni.CNI_CMD_VERSION
-        contrail_cni.Run()
+        mock_cni_tungsten_cni.command = Cni.CNI_CMD_VERSION
+        tungsten_cni.Run()
         mock_version.assert_called_once_with()
 
-        mock_cni_contrail_cni.command = Cni.CNI_CMD_ADD
-        contrail_cni.Run()
+        mock_cni_tungsten_cni.command = Cni.CNI_CMD_ADD
+        tungsten_cni.Run()
         mock_add.assert_called_once_with()
 
-        mock_cni_contrail_cni.command = Cni.CNI_CMD_DELETE
-        contrail_cni.Run()
+        mock_cni_tungsten_cni.command = Cni.CNI_CMD_DELETE
+        tungsten_cni.Run()
         mock_delete.assert_called_once_with()
 
-        mock_cni_contrail_cni.command = ContrailCni.CONTRAIL_CNI_CMD_GET
-        contrail_cni.Run()
+        mock_cni_tungsten_cni.command = TungstenCni.CONTRAIL_CNI_CMD_GET
+        tungsten_cni.Run()
         mock_get.assert_called_once_with()
 
-        mock_cni_contrail_cni.command = ContrailCni.CONTRAIL_CNI_CMD_POLL
-        contrail_cni.Run()
+        mock_cni_tungsten_cni.command = TungstenCni.CONTRAIL_CNI_CMD_POLL
+        tungsten_cni.Run()
         mock_poll.assert_called_once_with()
 
-        mock_cni_contrail_cni.command = "unknown"
-        self.assertRaises(Error, contrail_cni.Run)
+        mock_cni_tungsten_cni.command = "unknown"
+        self.assertRaises(Error, tungsten_cni.Run)

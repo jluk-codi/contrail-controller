@@ -8,8 +8,8 @@ import uuid
 def all(ip='10.84.9.45', port=8082, domain_name='my-domain',
         proj_name='admin', subnet1='192.168.1.0', subnet2='10.10.1.0',
         prefix1=30, prefix2=29, vn_name='vn1',
-        compute_node='a3s45.contrail.juniper.net'):
-    vnc_lib = VncApi(username='admin', password='contrail123',
+        compute_node='a3s45.tungsten.juniper.net'):
+    vnc_lib = VncApi(username='admin', password='tungsten123',
                      tenant_name='admin', api_server_host=ip,
                      api_server_port=port)
 

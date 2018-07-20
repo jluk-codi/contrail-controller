@@ -3,7 +3,7 @@
 #
 
 """
-This file contains implementation of database model for contrail config daemons
+This file contains implementation of database model for tungsten config daemons
 """
 from exceptions import NoIdError
 from vnc_api.gen.resource_client import *

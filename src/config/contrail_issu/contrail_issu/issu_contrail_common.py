@@ -54,7 +54,7 @@ class ICCassandraClient():
             }
 
         self._logger(
-            "Issu contrail cassandra initialized...",
+            "Issu tungsten cassandra initialized...",
             level=SandeshLevel.SYS_INFO,
         )
         self.issu_prepare()
@@ -62,7 +62,7 @@ class ICCassandraClient():
 
     def issu_prepare(self):
         self._logger(
-            "Issu contrail cassandra prepare...",
+            "Issu tungsten cassandra prepare...",
             level=SandeshLevel.SYS_INFO,
         )
         for issu_func, ks, cflist in self._issu_info:
@@ -106,7 +106,7 @@ class ICCassandraClient():
     def issu_merge_copy(self, keyspaces):
         for ks, cflist in keyspaces.items():
             self._logger(
-                "Issu contrail cassandra merge copy, keyspace: " +
+                "Issu tungsten cassandra merge copy, keyspace: " +
                 str(ks), level=SandeshLevel.SYS_INFO)
             issu_funct = self._fetch_issu_func(ks)
             for cf in cflist:

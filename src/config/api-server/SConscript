@@ -30,7 +30,7 @@ sandesh_trace_pkg = env.SandeshGenPy(
 
 sdist_depends = setup_sources_rules + sandesh_trace_pkg
 cd_cmd = 'cd ' + Dir('.').path + ' && '
-sdist_gen = env.Command('dist/contrail-api-server-0.1dev.tar.gz', 'setup.py',
+sdist_gen = env.Command('dist/tungsten-api-server-0.1dev.tar.gz', 'setup.py',
                         cd_cmd + 'python setup.py sdist')
 
 env.Depends(sdist_gen, sdist_depends)
@@ -48,18 +48,18 @@ if 'install' in BUILD_TARGETS:
     env.Depends(install_cmd, sdist_gen)
     env.Alias('install', install_cmd)
 
-env.Alias('install', env.Install(env['INSTALL_CONF'], 'contrail-api.conf'))
+env.Alias('install', env.Install(env['INSTALL_CONF'], 'tungsten-api.conf'))
 env.Alias('install', env.InstallAs(env['INSTALL_INITD'] +
-    '/contrail-api', 'contrail-api.initd.supervisord'))
+    '/tungsten-api', 'tungsten-api.initd.supervisord'))
 env.Alias('install', env.InstallAs(env['INSTALL_SYSTEMD'] +
-    '/contrail-api.service', 'systemd/contrail-api.service'))
+    '/tungsten-api.service', 'systemd/tungsten-api.service'))
 env.Alias('install', env.Install(env['INSTALL_CONF'],
     'supervisord_config.conf'))
 env.Alias('install', env.Install(env['INSTALL_CONF']+
-    '/supervisord_config_files', 'contrail-api.ini'))
+    '/supervisord_config_files', 'tungsten-api.ini'))
 env.Alias('install', env.Install(env['INSTALL_CONF']+
-    '/supervisord_config_files', 'contrail-config.rules'))
+    '/supervisord_config_files', 'tungsten-config.rules'))
 env.Alias('install', env.Install(
-    env['INSTALL_MESSAGE_DOC'] + '/contrail-api/', doc_files))
+    env['INSTALL_MESSAGE_DOC'] + '/tungsten-api/', doc_files))
 
 env.SetupPyTestSuite(sdist_gen, use_tox=True)

@@ -230,7 +230,7 @@ class EventManager(object):
         if self.curr_build_info is not None:
             return self.curr_build_info
 
-        command = "contrail-version contrail-nodemgr | grep contrail-nodemgr"
+        command = "tungsten-version tungsten-nodemgr | grep tungsten-nodemgr"
         version = os.popen(command).read()
         version_partials = version.split()
         if len(version_partials) < 3:
@@ -478,10 +478,10 @@ class EventManager(object):
     # end send_nodemgr_process_status
 
     def _get_package_version(self):
-        own_version = utils.get_package_version('contrail-nodemgr')
+        own_version = utils.get_package_version('tungsten-nodemgr')
         if own_version is None:
             self.msg_log('Error getting %s package version' % (
-                'contrail-nodemgr'), SandeshLevel.SYS_ERR)
+                'tungsten-nodemgr'), SandeshLevel.SYS_ERR)
             own_version = "package-version-unknown"
         return own_version
 

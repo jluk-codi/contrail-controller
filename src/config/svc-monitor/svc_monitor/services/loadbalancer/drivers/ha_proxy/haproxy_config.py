@@ -111,7 +111,7 @@ def set_globals(uuid, custom_attr_dict, custom_attrs):
             'ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:' \
             'RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS'
 
-    logger_socket = '/var/log/contrail/lbaas/haproxy.log.sock'
+    logger_socket = '/var/log/tungsten/lbaas/haproxy.log.sock'
 
     conf = [
         'global',
@@ -126,7 +126,7 @@ def set_globals(uuid, custom_attr_dict, custom_attrs):
         'maxconn %d' % maxconn
     ]
 
-    sock_path = '/var/lib/contrail/loadbalancer/haproxy/'
+    sock_path = '/var/lib/tungsten/loadbalancer/haproxy/'
     sock_path += uuid + '/haproxy.sock'
     conf.append('stats socket %s mode 0666 level user' % sock_path)
 

@@ -34,7 +34,7 @@ env = AgentEnv.RemoveExceptionFlag(env)
 env.AppendUnique(CCFLAGS='-Wno-reorder')
 env.AppendUnique(CCFLAGS='-Wno-return-type')
 
-contrail_tor_agent = env.Program(target = 'contrail-tor-agent',
+tungsten_tor_agent = env.Program(target = 'tungsten-tor-agent',
                         source = [
                                   'buildinfo.cc',
                                   'main.cc',
@@ -42,8 +42,8 @@ contrail_tor_agent = env.Program(target = 'contrail-tor-agent',
                                   'tor_agent_param.cc',
                                  ])
 
-env.Default(contrail_tor_agent)
-env.Alias('agent:contrail-tor-agent', contrail_tor_agent)
+env.Default(tungsten_tor_agent)
+env.Alias('agent:tungsten-tor-agent', tungsten_tor_agent)
 env.SConscript('ovsdb_client/SConscript', exports='AgentEnv', duplicate=0)
 
 # Documentation
@@ -51,9 +51,9 @@ doc_files = []
 doc_files += env['AGENT_COMMON_DOC_FILES']
 doc_files += env['AGENT_OVS_DOC_FILES']
 
-env.Alias('install', env.Install(env['INSTALL_BIN'], contrail_tor_agent))
+env.Alias('install', env.Install(env['INSTALL_BIN'], tungsten_tor_agent))
 env.Alias('install', env.Install(
-    env['INSTALL_MESSAGE_DOC'] + '/contrail-tor-agent/', doc_files))
+    env['INSTALL_MESSAGE_DOC'] + '/tungsten-tor-agent/', doc_files))
 
 # Local Variables:
 # mode: python

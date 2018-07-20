@@ -112,21 +112,21 @@ if 'install' in BUILD_TARGETS:
     env.Alias('install', install_cmd)
 
 env.SetupPyTestSuite(sdist_gen,
-                     '/config/api-server/dist/contrail-api-server-0.1dev.tar.gz',
+                     '/config/api-server/dist/tungsten-api-server-0.1dev.tar.gz',
                      '/../noarch/config/svc-monitor/dist/svc_monitor-0.1dev.tar.gz')
 
 env.Alias('install', env.Install(
-    env['INSTALL_MESSAGE_DOC'] + '/contrail-kube-manager/', doc_files))
+    env['INSTALL_MESSAGE_DOC'] + '/tungsten-kube-manager/', doc_files))
 
 env.Alias('install', env.Install(env['INSTALL_CONF'],
     'supervisord_kubernetes.conf'))
 env.Alias('install', env.Install(env['INSTALL_CONF'] +
-    '/supervisord_kubernetes_files', 'contrail-kube-manager.ini'))
+    '/supervisord_kubernetes_files', 'tungsten-kube-manager.ini'))
 env.Alias('install', env.InstallAs(env['INSTALL_INITD'] +
-    '/contrail-kube-manager', 'contrail-kube-manager.initd.supervisord'))
+    '/tungsten-kube-manager', 'tungsten-kube-manager.initd.supervisord'))
 
 env.Alias('install', env.InstallAs(env['INSTALL_SYSTEMD'] +
-          '/contrail-kube-manager.service', 'systemd/contrail-kube-manager.service'))
+          '/tungsten-kube-manager.service', 'systemd/tungsten-kube-manager.service'))
 
 # Local Variables:
 # mode: python

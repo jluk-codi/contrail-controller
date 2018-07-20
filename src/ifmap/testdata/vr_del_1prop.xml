@@ -4,10 +4,10 @@
       <pollResult>
         <deleteResult name="root">
           <resultItem>
-              <identity name="contrail:virtual-router:vr1" type="other" other-type-definition="extended" />
+              <identity name="tungsten:virtual-router:vr1" type="other" other-type-definition="extended" />
                   <metadata>
-                          <contrail:display-name>testVr1
-                          </contrail:display-name>
+                          <tungsten:display-name>testVr1
+                          </tungsten:display-name>
                   </metadata>
           </resultItem>
         </deleteResult>

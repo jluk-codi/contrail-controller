@@ -6,7 +6,7 @@
 #include "base/regex.h"
 #include "bfd/rest_api/bfd_json_config.h"
 
-typedef contrail::regex regex_t;
+typedef tungsten::regex regex_t;
 #include <testing/gunit.h>
 
 using namespace BFD;

@@ -28,8 +28,8 @@ def get_subnet_cidr(client, subnet_id):
     return kv_pair.split()[1]
 
 
-class OpencontrailF5LoadbalancerDriver(
-        abstract_driver.ContrailLoadBalancerAbstractDriver):
+class Tungsten FabricF5LoadbalancerDriver(
+        abstract_driver.TungstenLoadBalancerAbstractDriver):
 
     # BIG-IP containers
     __bigips = {}

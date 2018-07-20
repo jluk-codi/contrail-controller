@@ -1,7 +1,7 @@
 import mock
 import unittest
 import docker
-from opencontrail_vrouter_netns.vrouter_docker import VRouterDocker
+from Tungsten Fabric_vrouter_netns.vrouter_docker import VRouterDocker
 
 
 class DockerTest(unittest.TestCase):
@@ -92,8 +92,8 @@ class DockerTest(unittest.TestCase):
         cmd += " --instance-data " + self.INSTANCE_DATA
         return cmd
 
-    @mock.patch('opencontrail_vrouter_netns.vrouter_docker.NetnsManager')
-    @mock.patch('opencontrail_vrouter_netns.vrouter_docker.os')
+    @mock.patch('Tungsten Fabric_vrouter_netns.vrouter_docker.NetnsManager')
+    @mock.patch('Tungsten Fabric_vrouter_netns.vrouter_docker.os')
     def test_create(self, mock_os, mock_netns):
         cmd = self.make_create_command()
         app = self.mock_app(cmd)
@@ -111,8 +111,8 @@ class DockerTest(unittest.TestCase):
         mocked_netns.create.assert_called_with()
         mocked_netns.plug_namespace_interface.assert_called_with()
 
-    @mock.patch('opencontrail_vrouter_netns.vrouter_docker.NetnsManager')
-    @mock.patch('opencontrail_vrouter_netns.vrouter_docker.os')
+    @mock.patch('Tungsten Fabric_vrouter_netns.vrouter_docker.NetnsManager')
+    @mock.patch('Tungsten Fabric_vrouter_netns.vrouter_docker.os')
     def test_create_when_running(self, mock_os, mock_netns):
         cmd = self.make_create_command()
         app = self.mock_app(cmd)
@@ -136,8 +136,8 @@ class DockerTest(unittest.TestCase):
             side_effect = on_inspect_container_docker_server_error
         self.assertRaises(docker.errors.APIError, app.args.func)
 
-    @mock.patch('opencontrail_vrouter_netns.vrouter_docker.NetnsManager')
-    @mock.patch('opencontrail_vrouter_netns.vrouter_docker.os')
+    @mock.patch('Tungsten Fabric_vrouter_netns.vrouter_docker.NetnsManager')
+    @mock.patch('Tungsten Fabric_vrouter_netns.vrouter_docker.os')
     def test_delete(self, mock_os, mock_netns):
         cmd = "destroy"
         cmd += " " + self.VM_ID

@@ -46,7 +46,7 @@
 // DeviceType = VM_PHYSICAL_MAC, VmiType = INTANCE and
 //   This configuration is used in VmWare VCenter
 //   VCenter:
-//     Contrail uses distributed vswitch to support VCenter. Each VN is
+//     Tungsten uses distributed vswitch to support VCenter. Each VN is
 //     allocated a PVLAN. The port on compute node is member of primary-vlan
 //     and VMs are member of secondary-vlans. Packets from all VMs are
 //     received on primary-vlan on compute node, hence they are classified

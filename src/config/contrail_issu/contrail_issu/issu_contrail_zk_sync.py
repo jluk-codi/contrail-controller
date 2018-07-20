@@ -6,13 +6,13 @@
 import time
 import logging
 import logging.handlers
-import issu_contrail_config
+import issu_tungsten_config
 
 from pysandesh.gen_py.sandesh.ttypes import SandeshLevel
 from cfgm_common.zkclient import ZookeeperClient
 
 
-class ContrailZKIssu():
+class TungstenZKIssu():
 
     def __init__(self, Old_Version_Address, New_Version_Address,
                  Old_Prefix, New_Prefix, Znode_Issu_List, logger):
@@ -23,7 +23,7 @@ class ContrailZKIssu():
         self._Znode_Issu_List = list(Znode_Issu_List)
         self._logger = logger
         self._logger(
-            "Issu contrail zookeeper initialized...",
+            "Issu tungsten zookeeper initialized...",
             level=SandeshLevel.SYS_INFO,
         )
  
@@ -34,17 +34,17 @@ class ContrailZKIssu():
         children = self._zk_old.get_children(old_v_path)
         value = self._zk_old.read_node(old_v_path)
         self._logger(
-            "Issu contrail zookeeper, _zk_copy, old version path"
+            "Issu tungsten zookeeper, _zk_copy, old version path"
             + str(old_v_path), level=SandeshLevel.SYS_DEBUG,
         )
         self._logger(
-            "Issu contrail zookeeper, _zk_copy, new version path"
+            "Issu tungsten zookeeper, _zk_copy, new version path"
             + str(new_v_path), level=SandeshLevel.SYS_DEBUG,
         )
         self._zk_new.create_node(new_v_path, value)
         value = self._zk_new.read_node(new_v_path)
         self._logger(
-            "Issu contrail zookeeper ,_zk_copy, new value"
+            "Issu tungsten zookeeper ,_zk_copy, new value"
             + str(value), level=SandeshLevel.SYS_DEBUG,
         )
 
@@ -67,12 +67,12 @@ class ContrailZKIssu():
                 continue
             else:
                 self._logger(
-                    "Issu contrail zookeeper failed...",
+                    "Issu tungsten zookeeper failed...",
                     level=SandeshLevel.SYS_DEBUG,
                 )
                 break
         self._logger(
-            "Issu contrail zookeeper passed...",
+            "Issu tungsten zookeeper passed...",
             level=SandeshLevel.SYS_INFO,
         )
     # end issu_compare
@@ -99,7 +99,7 @@ class ContrailZKIssu():
             for _path in children:
                 if _path in self._Znode_Issu_List: 
                     self._logger(
-                        "Issu contrail zookeeper ,issu_zk_start, deleted paths"
+                        "Issu tungsten zookeeper ,issu_zk_start, deleted paths"
                         + str((new_prefix + str(_path))),
                         level=SandeshLevel.SYS_INFO,
                     )
@@ -131,7 +131,7 @@ class ContrailZKIssu():
     def issu_restart(self):
         # Call the ISSU start when connection to zk is lost in middle of ISSU
         self._logger(
-            "Issu contrail zookeeper restarted...",
+            "Issu tungsten zookeeper restarted...",
             level=SandeshLevel.SYS_INFO,
         )
         # drop the zookeeper connection
@@ -142,22 +142,22 @@ class ContrailZKIssu():
         self.issu_zk_start()
     # end issu_restart
 
-# end ContrailZKIssu
+# end TungstenZKIssu
 
 def _issu_zk_main():
 
     logging.basicConfig(
         level=logging.INFO,
-        filename='/var/log/issu_contrail_zk.log',
+        filename='/var/log/issu_tungsten_zk.log',
         format='%(asctime)s %(message)s')
 
-    args, remaining_args = issu_contrail_config.parse_args()
-    issu_handle = ContrailZKIssu(args.old_zookeeper_address_list,
+    args, remaining_args = issu_tungsten_config.parse_args()
+    issu_handle = TungstenZKIssu(args.old_zookeeper_address_list,
                                  args.new_zookeeper_address_list,
                                  args.odb_prefix,
                                  args.ndb_prefix,
-                                 issu_contrail_config.issu_znode_list,
-                                 issu_contrail_config.logger)
+                                 issu_tungsten_config.issu_znode_list,
+                                 issu_tungsten_config.logger)
     issu_handle.issu_zk_start()
 
 if __name__ == "__main__":

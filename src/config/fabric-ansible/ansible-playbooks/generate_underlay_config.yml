@@ -14,7 +14,7 @@
     - junos_read_prouter
     - junos_underlay_common
     - commit_config
-    - contrail_create_bgp_router
+    - tungsten_create_bgp_router
 
   tasks:
     - set_fact:

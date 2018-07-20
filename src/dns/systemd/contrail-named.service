@@ -1,15 +1,15 @@
 [Unit]
-Description="Contrail Named Service"
+Description="Tungsten Named Service"
 After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/authbind /usr/bin/contrail-named -f -c /etc/contrail/dns/contrail-named.conf
-PIDFile=/var/run/contrail/contrail-named.pid
+ExecStart=/usr/bin/authbind /usr/bin/tungsten-named -f -c /etc/tungsten/dns/tungsten-named.conf
+PIDFile=/var/run/tungsten/tungsten-named.pid
 TimeoutStopSec=0
 Restart=always
-User=contrail
-Group=contrail
+User=tungsten
+Group=tungsten
 ExecStop=/bin/kill -s TERM $MAINPID
 
 PrivateTmp=yes
@@ -17,8 +17,8 @@ PrivateDevices=yes
 ProtectHome=yes
 ReadOnlyDirectories=/
 ReadWriteDirectories=-/var/crashes
-ReadWriteDirectories=-/var/log/contrail
-ReadWriteDirectories=-/etc/contrail
+ReadWriteDirectories=-/var/log/tungsten
+ReadWriteDirectories=-/etc/tungsten
 
 [Install]
 WantedBy=multi-user.target

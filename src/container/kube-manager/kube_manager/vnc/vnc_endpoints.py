@@ -249,7 +249,7 @@ class VncEndpoints(VncCommon):
         return pods_in_event
 
     def vnc_endpoint_add(self, name, namespace, event):
-        # Does service exists in contrail-api server?
+        # Does service exists in tungsten-api server?
         # If No, log warning and return
         service_id = self._get_loadbalancer_id_or_none(name, namespace)
         if service_id is None:
@@ -277,7 +277,7 @@ class VncEndpoints(VncCommon):
             # If Pod present in both lists, do nothing
 
     def vnc_endpoint_delete(self, name, namespace, event):
-        # Does service exists in contrail-api server?
+        # Does service exists in tungsten-api server?
         # If No, log warning and return
         service_id = self._get_loadbalancer_id_or_none(name, namespace)
         if service_id is None:

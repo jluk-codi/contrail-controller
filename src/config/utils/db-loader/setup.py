@@ -12,9 +12,9 @@ install_requires = [
 ]
 
 setup(
-    name='contrail-db-loader',
+    name='tungsten-db-loader',
     version='0.1b1',
-    description="Script to load data in Contrail database for scaling tests",
+    description="Script to load data in Tungsten database for scaling tests",
     long_description=open('README.md').read(),
     author="Édouard Thuleau",
     author_email="ethuleau@juniper.net",
@@ -24,7 +24,7 @@ setup(
     license="Apache Software License",
     entry_points={
         'console_scripts': [
-            'contrail-db-loader = contrail_db_loader.main:main'
+            'tungsten-db-loader = tungsten_db_loader.main:main'
         ],
     },
     classifiers=[
@@ -34,5 +34,5 @@ setup(
         'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python :: 2.7',
     ],
-    keywords='contrail db loader',
+    keywords='tungsten db loader',
 )

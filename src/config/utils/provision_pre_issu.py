@@ -13,7 +13,7 @@ from provision_bgp import BgpProvisioner
 from vnc_api.vnc_api import *
 
 
-class ISSUContrailPreProvisioner(object):
+class ISSUTungstenPreProvisioner(object):
 
     def __init__(self, args_str=None):
         self._args = None
@@ -48,7 +48,7 @@ class ISSUContrailPreProvisioner(object):
 
     def _parse_args(self, args_str):
         '''
-        Eg. python provision_pre_issu.py --host_name a3s30.contrail.juniper.net
+        Eg. python provision_pre_issu.py --host_name a3s30.tungsten.juniper.net
                                         --host_ip 10.1.1.1
                                         --v1_api_server_ip 127.0.0.1
                                         --api_server_port 8082
@@ -151,7 +151,7 @@ class ISSUContrailPreProvisioner(object):
 
         for k,v in self._args.control_host_info.items():
             router_params = BgpRouterParams(router_type='control-node',
-                               vendor='contrail' , 
+                               vendor='tungsten' , 
                                autonomous_system=64512,
                                identifier=k,
                                address=k,
@@ -185,11 +185,11 @@ class ISSUContrailPreProvisioner(object):
 
     # end add_node
 
-# end class ISSUContrailPreProvisioner
+# end class ISSUTungstenPreProvisioner
 
 
 def main(args_str=None):
-    ISSUContrailPreProvisioner(args_str)
+    ISSUTungstenPreProvisioner(args_str)
 # end main
 
 if __name__ == "__main__":

@@ -7,7 +7,7 @@ import os
 
 def get_package_version(pkg):
     #retrieve current installed version of pkg
-    cmd = "contrail-version %s | grep %s" % (pkg, pkg)
+    cmd = "tungsten-version %s | grep %s" % (pkg, pkg)
     version_line = os.popen(cmd).read()
     try:
         version = version_line.split()[1]

@@ -2,7 +2,7 @@ options {
     directory "./";
     managed-keys-directory "./";
     empty-zones-enable no;
-    pid-file "./contrail-named.pid";
+    pid-file "./tungsten-named.pid";
     session-keyfile "./session.key";
     listen-on port 53 { any; };
     allow-query { any; };
@@ -154,9 +154,9 @@ view "new-DNS" {
 view "test-DNS" {
     rrset-order {order random;};
     virtual-forwarder "juniper.net";
-    zone "contrail.juniper.net" IN {
+    zone "tungsten.juniper.net" IN {
         type master;
-        file "./contrail.juniper.net.zone";
+        file "./tungsten.juniper.net.zone";
         allow-update {127.0.0.1;};
     };
 };

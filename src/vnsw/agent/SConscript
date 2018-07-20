@@ -210,9 +210,9 @@ env.AppendENVPath('LD_RUN_PATH', '#/build/lib')
 ##########################################################################
 AgentEnv = env.Clone()
 
-# Contrail agent libraries
+# Tungsten agent libraries
 AgentEnv.AppendUnique(CONTRAIL_LIBS = [
-    'contrail_init_common',
+    'tungsten_init_common',
     'agent_services',
     'gmp_map',
     'grpmgmt',
@@ -408,7 +408,7 @@ for dir in subdirs:
     env.SConscript(dir + '/SConscript', exports=['AgentEnv', 'BuildEnv'],
                    duplicate=0)
 
-env.SConscript('contrail/SConscript', exports=['AgentEnv', 'BuildEnv'],
+env.SConscript('tungsten/SConscript', exports=['AgentEnv', 'BuildEnv'],
                duplicate=0)
 
 # TODO(md): Currently not supported on FreeBSD

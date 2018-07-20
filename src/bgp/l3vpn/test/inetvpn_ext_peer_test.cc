@@ -52,7 +52,7 @@ class L3VPNExtPeerTest : public ::testing::Test {
 
 protected:
     L3VPNExtPeerTest()
-            : thread_(&evm_),  server_(&evm_, "Contrail") {
+            : thread_(&evm_),  server_(&evm_, "Tungsten") {
     }
 
     virtual void SetUp() {

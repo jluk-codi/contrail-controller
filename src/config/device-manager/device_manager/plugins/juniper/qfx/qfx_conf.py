@@ -189,7 +189,7 @@ class QfxConf(JuniperConf):
         interfaces = ri_conf.get("interfaces", [])
         vni = ri_conf.get("vni", None)
         network_id = ri_conf.get("network_id", None)
-        is_internal_vn = True if '_contrail_lr_internal_vn_' in vn.name else False
+        is_internal_vn = True if '_tungsten_lr_internal_vn_' in vn.name else False
 
         self.routing_instances[ri_name] = ri_conf
         ri_config = None
@@ -962,7 +962,7 @@ class QfxConf(JuniperConf):
                         ri_conf['network_id'] = vn_obj.vn_network_id
                         self.add_routing_instance(ri_conf)
 
-                    is_internal_vn = True if '_contrail_lr_internal_vn_' in vn_obj.name else False
+                    is_internal_vn = True if '_tungsten_lr_internal_vn_' in vn_obj.name else False
                     if vn_obj.get_forwarding_mode() in ['l3'] and self.is_l3_supported(vn_obj):
                         interfaces = []
                         lo0_ips = vn_irb_ip_map['lo0'].get(vn_id, [])

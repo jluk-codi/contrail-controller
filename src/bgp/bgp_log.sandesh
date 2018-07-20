@@ -690,7 +690,7 @@ trace sandesh BgpPeerTimerCriticalTrace {
  * @description: BGP Peer Timer related critical message
  * @severity: CRITICAL
  * @cause: Scheduled Timer operation did not operate correctly
- * @action: Check system logs for any additional insight into this issue. Peer clear or contrail-control restart might help as a work around.
+ * @action: Check system logs for any additional insight into this issue. Peer clear or tungsten-control restart might help as a work around.
  */
 systemlog sandesh BgpPeerTimerCriticalLog {
     1: "BGP Peer"
@@ -1182,7 +1182,7 @@ trace sandesh XmppPeerTimerCriticalTrace {
  * @description: Xmpp Peer Timer critical message
  * @severity: CRITICAL
  * @cause: Scheduled Timer operation did not operate correctly
- * @action: Check system logs for any additional insight into this issue. Peer clear or contrail-control restart might help as a work around.
+ * @action: Check system logs for any additional insight into this issue. Peer clear or tungsten-control restart might help as a work around.
  */
 systemlog sandesh XmppPeerTimerCriticalLog {
     1: "XMPP Peer"
@@ -1415,7 +1415,7 @@ trace sandesh XmppPeerMembershipWarningTrace {
 /**
  * @description: XMPP Peer specific routing table membership manager message
  * @severity: WARNING
- * @cause: contrail-vrouter-agent software has sent subscribe/unsubscribe messages at unexpected states
+ * @cause: tungsten-vrouter-agent software has sent subscribe/unsubscribe messages at unexpected states
  * @action: Check logs from the offending peers (xmpp agents) for the appropriated networks as reported in the message. Peer clear, agent restart and control-node restart might also help as work around.
  */
 systemlog sandesh XmppPeerMembershipWarningLog {

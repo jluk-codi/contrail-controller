@@ -10,7 +10,7 @@
 #include <boost/functional/hash.hpp>
 
 #include "control-node/buildinfo.h"
-#include "base/contrail_ports.h"
+#include "base/tungsten_ports.h"
 #include "base/logging.h"
 #include "base/misc_utils.h"
 #include "base/util.h"
@@ -44,7 +44,7 @@ bool Options::Parse(EventManager &evm, int argc, char *argv[]) {
 
 // Initialize control-node's command line option tags with appropriate default
 // values. Options can from a config file as well. By default, we read
-// options from /etc/contrail/contrail-control.conf
+// options from /etc/tungsten/tungsten-control.conf
 void Options::Initialize(EventManager &evm,
                          opt::options_description &cmdline_options) {
     boost::system::error_code error;
@@ -59,15 +59,15 @@ void Options::Initialize(EventManager &evm,
     // Command line only options.
     generic.add_options()
         ("conf_file", opt::value<string>()->default_value(
-                                            "/etc/contrail/contrail-control.conf"),
+                                            "/etc/tungsten/tungsten-control.conf"),
              "Configuration file")
          ("help", "help message")
         ("version", "Display version information")
     ;
 
-    uint16_t default_bgp_port = ContrailPorts::ControlBgp();
-    uint16_t default_http_server_port = ContrailPorts::HttpPortControl();
-    uint16_t default_xmpp_port = ContrailPorts::ControlXmpp();
+    uint16_t default_bgp_port = TungstenPorts::ControlBgp();
+    uint16_t default_http_server_port = TungstenPorts::HttpPortControl();
+    uint16_t default_xmpp_port = TungstenPorts::ControlXmpp();
 
     default_collector_server_list_.push_back("127.0.0.1:8086");
 
@@ -114,7 +114,7 @@ void Options::Initialize(EventManager &evm,
         ("DEFAULT.log_disable", opt::bool_switch(&log_disable_),
              "Disable sandesh logging")
         ("DEFAULT.log_file", opt::value<string>()->default_value(
-             "/var/log/contrail/contrail-control.log"),
+             "/var/log/tungsten/tungsten-control.log"),
              "Filename for the logs to be written to")
         ("DEFAULT.log_property_file", opt::value<string>()->default_value(""),
              "log4cplus property file name")
@@ -151,15 +151,15 @@ void Options::Initialize(EventManager &evm,
              "Enable authentication over Xmpp")
         ("DEFAULT.xmpp_server_cert",
              opt::value<string>()->default_value(
-             "/etc/contrail/ssl/certs/server.pem"),
+             "/etc/tungsten/ssl/certs/server.pem"),
              "XMPP Server ssl certificate")
         ("DEFAULT.xmpp_server_key",
              opt::value<string>()->default_value(
-             "/etc/contrail/ssl/private/server-privkey.pem"),
+             "/etc/tungsten/ssl/private/server-privkey.pem"),
              "XMPP Server ssl private key")
         ("DEFAULT.xmpp_ca_cert",
              opt::value<string>()->default_value(
-             "/etc/contrail/ssl/certs/ca-cert.pem"),
+             "/etc/tungsten/ssl/certs/ca-cert.pem"),
              "XMPP CA ssl certificate")
 
         ("CONFIGDB.config_db_server_list",

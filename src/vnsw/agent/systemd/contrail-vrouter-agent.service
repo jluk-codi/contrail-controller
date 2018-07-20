@@ -1,11 +1,11 @@
 [Unit]
-Description=Contrail vrouter agent service
+Description=Tungsten vrouter agent service
 After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/contrail-vrouter-agent
-PIDFile=/var/run/contrail/contrail-vrouter-agent.pid
+ExecStart=/usr/bin/tungsten-vrouter-agent
+PIDFile=/var/run/tungsten/tungsten-vrouter-agent.pid
 TimeoutStopSec=0
 Restart=always
 ExecStop=/bin/kill -s TERM $MAINPID
@@ -15,8 +15,8 @@ ReadOnlyDirectories=/
 ReadWriteDirectories=-/dev
 ReadWriteDirectories=-/run
 ReadWriteDirectories=-/var/crashes
-ReadWriteDirectories=-/var/lib/contrail
-ReadWriteDirectories=-/var/log/contrail
+ReadWriteDirectories=-/var/lib/tungsten
+ReadWriteDirectories=-/var/log/tungsten
 LimitCORE=infinity
 
 [Install]

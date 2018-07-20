@@ -2,7 +2,7 @@
  * Copyright (c) 2014 Juniper Networks, Inc. All rights reserved.
  */
 
-package net.juniper.contrail.vcenter;
+package net.juniper.tungsten.vcenter;
 
 import java.net.Inet4Address;
 import java.net.InetAddress;
@@ -51,9 +51,9 @@ import com.vmware.vim25.mo.VmwareDistributedVirtualSwitch;
 public class VCenterDB {
     private static final Logger s_logger =
             Logger.getLogger(VCenterDB.class);
-    private static final String contrailVRouterVmNamePrefix = "contrailVM";
-    private final String contrailDvSwitchName;
-    private final String contrailDataCenterName;
+    private static final String tungstenVRouterVmNamePrefix = "tungstenVM";
+    private final String tungstenDvSwitchName;
+    private final String tungstenDataCenterName;
     private final String vcenterUrl;
     private final String vcenterUsername;
     private final String vcenterPassword;
@@ -62,16 +62,16 @@ public class VCenterDB {
     private Folder rootFolder;
     private InventoryNavigator inventoryNavigator;
     private IpPoolManager ipPoolManager;
-    private Datacenter contrailDC;
+    private Datacenter tungstenDC;
     
     public VCenterDB(String vcenterUrl, String vcenterUsername,
-                     String vcenterPassword, String contrailDcName,
-                     String contrailDvsName) {
+                     String vcenterPassword, String tungstenDcName,
+                     String tungstenDvsName) {
         this.vcenterUrl             = vcenterUrl;
         this.vcenterUsername        = vcenterUsername;
         this.vcenterPassword        = vcenterPassword;
-        this.contrailDataCenterName = contrailDcName;
-        this.contrailDvSwitchName   = contrailDvsName;
+        this.tungstenDataCenterName = tungstenDcName;
+        this.tungstenDvSwitchName   = tungstenDvsName;
     }
     
     public void Initialize() throws Exception {
@@ -81,8 +81,8 @@ public class VCenterDB {
         rootFolder = serviceInstance.getRootFolder();
         inventoryNavigator = new InventoryNavigator(rootFolder);
         ipPoolManager = serviceInstance.getIpPoolManager();
-        contrailDC = (Datacenter) inventoryNavigator.  searchManagedEntity(
-                "Datacenter", contrailDataCenterName);
+        tungstenDC = (Datacenter) inventoryNavigator.  searchManagedEntity(
+                "Datacenter", tungstenDataCenterName);
     }
     
     private static IpPool getIpPool(
@@ -185,7 +185,7 @@ public class VCenterDB {
             }
             for (GuestNicInfo nicInfo : nicInfos) {
                 // Extract the IP address associated with simple port 
-                // group. Assumption here is that Contrail VRouter VM will
+                // group. Assumption here is that Tungsten VRouter VM will
                 // have only one standard port group
                 String networkName = nicInfo.getNetwork();
                 if (networkName == null) {
@@ -240,10 +240,10 @@ public class VCenterDB {
     }
     
     private static boolean doIgnoreVirtualMachine(String vmName) {
-        // Ignore contrailVRouterVMs since those should not be reflected in
-        // Contrail VNC
+        // Ignore tungstenVRouterVMs since those should not be reflected in
+        // Tungsten VNC
         if (vmName.toLowerCase().contains(
-                contrailVRouterVmNamePrefix.toLowerCase())) {
+                tungstenVRouterVmNamePrefix.toLowerCase())) {
             return true;
         }
         return false;
@@ -298,13 +298,13 @@ public class VCenterDB {
             HostSystem host = new HostSystem(
                 vm.getServerConnection(), hmor);
             String hostName = host.getName();
-            // Get Contrail VRouter virtual machine information from the host
+            // Get Tungsten VRouter virtual machine information from the host
             String vrouterIpAddress = getVirtualMachineIpAddress(dvPgName,
-                    hostName, host, contrailVRouterVmNamePrefix);
+                    hostName, host, tungstenVRouterVmNamePrefix);
             if (vrouterIpAddress == null) {
                 s_logger.error("dvPg: " + dvPgName + " vm: " + vmName + 
-                        " host: " + hostName + " Contrail VRouter VM: " + 
-                        contrailVRouterVmNamePrefix + " NOT found");
+                        " host: " + hostName + " Tungsten VRouter VM: " + 
+                        tungstenVRouterVmNamePrefix + " NOT found");
             }
             VmwareVirtualMachineInfo vmInfo = new 
                     VmwareVirtualMachineInfo(vmName, hostName, 
@@ -343,38 +343,38 @@ public class VCenterDB {
         DVPortgroupConfigInfo configInfo = dvPg.getConfig();
         DVPortSetting portSetting = configInfo.getDefaultPortConfig();
 
-        // Search contrailDvSwitch
-        VmwareDistributedVirtualSwitch contrailDvs = 
+        // Search tungstenDvSwitch
+        VmwareDistributedVirtualSwitch tungstenDvs = 
                 (VmwareDistributedVirtualSwitch) 
                 inventoryNavigator.searchManagedEntity(
                         "VmwareDistributedVirtualSwitch",
-                        contrailDvSwitchName);
-        if (contrailDvs == null) {
-            s_logger.error("dvSwitch: " + contrailDvSwitchName + 
+                        tungstenDvSwitchName);
+        if (tungstenDvs == null) {
+            s_logger.error("dvSwitch: " + tungstenDvSwitchName + 
                     " NOT configured");
             return null;
         }
 
         // Extract private vlan entries for the virtual switch
-        VMwareDVSConfigInfo dvsConfigInfo = (VMwareDVSConfigInfo) contrailDvs.getConfig();
+        VMwareDVSConfigInfo dvsConfigInfo = (VMwareDVSConfigInfo) tungstenDvs.getConfig();
         if (dvsConfigInfo == null) {
-            s_logger.error("dvSwitch: " + contrailDvSwitchName +
-                    " Datacenter: " + contrailDC.getName() + " ConfigInfo " +
+            s_logger.error("dvSwitch: " + tungstenDvSwitchName +
+                    " Datacenter: " + tungstenDC.getName() + " ConfigInfo " +
                     "is empty");
             return null;
         }
 
         if (!(dvsConfigInfo instanceof VMwareDVSConfigInfo)) {
-            s_logger.error("dvSwitch: " + contrailDvSwitchName +
-                    " Datacenter: " + contrailDC.getName() + " ConfigInfo " +
+            s_logger.error("dvSwitch: " + tungstenDvSwitchName +
+                    " Datacenter: " + tungstenDC.getName() + " ConfigInfo " +
                     "isn't instanceof VMwareDVSConfigInfo");
             return null;
         }
 
         VMwareDVSPvlanMapEntry[] pvlanMapArray = dvsConfigInfo.getPvlanConfig();
         if (pvlanMapArray == null) {
-            s_logger.error("dvSwitch: " + contrailDvSwitchName +
-                    " Datacenter: " + contrailDC.getName() + " Private VLAN NOT" +
+            s_logger.error("dvSwitch: " + tungstenDvSwitchName +
+                    " Datacenter: " + tungstenDC.getName() + " Private VLAN NOT" +
                     "configured");
             return null;
         }
@@ -423,57 +423,57 @@ public class VCenterDB {
     public SortedMap<String, VmwareVirtualNetworkInfo> 
         populateVirtualNetworkInfo() throws Exception {
 
-        // Search contrailDvSwitch
-        VmwareDistributedVirtualSwitch contrailDvs = 
+        // Search tungstenDvSwitch
+        VmwareDistributedVirtualSwitch tungstenDvs = 
                 (VmwareDistributedVirtualSwitch) 
                 inventoryNavigator.searchManagedEntity(
                         "VmwareDistributedVirtualSwitch",
-                        contrailDvSwitchName);
-        if (contrailDvs == null) {
-            s_logger.error("dvSwitch: " + contrailDvSwitchName + 
+                        tungstenDvSwitchName);
+        if (tungstenDvs == null) {
+            s_logger.error("dvSwitch: " + tungstenDvSwitchName + 
                     " NOT configured");
             return null;
         }
         // Extract distributed virtual port groups 
-        DistributedVirtualPortgroup[] dvPgs = contrailDvs.getPortgroup();
+        DistributedVirtualPortgroup[] dvPgs = tungstenDvs.getPortgroup();
         if (dvPgs == null || dvPgs.length == 0) {
-            s_logger.error("dvSwitch: " + contrailDvSwitchName + 
+            s_logger.error("dvSwitch: " + tungstenDvSwitchName + 
                     " Distributed portgroups NOT configured");
             return null;
         }
         // Extract IP Pools
-        Datacenter contrailDC = (Datacenter) inventoryNavigator.
+        Datacenter tungstenDC = (Datacenter) inventoryNavigator.
                 searchManagedEntity(
                 "Datacenter",
-                contrailDataCenterName);
-        IpPool[] ipPools = ipPoolManager.queryIpPools(contrailDC);
+                tungstenDataCenterName);
+        IpPool[] ipPools = ipPoolManager.queryIpPools(tungstenDC);
         if (ipPools == null || ipPools.length == 0) {
-            s_logger.error("dvSwitch: " + contrailDvSwitchName +
-                    " Datacenter: " + contrailDC.getName() + " IP Pools NOT " +
+            s_logger.error("dvSwitch: " + tungstenDvSwitchName +
+                    " Datacenter: " + tungstenDC.getName() + " IP Pools NOT " +
                     "configured");
             return null;
         }
 
         // Extract private vlan entries for the virtual switch
-        VMwareDVSConfigInfo dvsConfigInfo = (VMwareDVSConfigInfo) contrailDvs.getConfig();
+        VMwareDVSConfigInfo dvsConfigInfo = (VMwareDVSConfigInfo) tungstenDvs.getConfig();
         if (dvsConfigInfo == null) {
-            s_logger.error("dvSwitch: " + contrailDvSwitchName +
-                    " Datacenter: " + contrailDC.getName() + " ConfigInfo " +
+            s_logger.error("dvSwitch: " + tungstenDvSwitchName +
+                    " Datacenter: " + tungstenDC.getName() + " ConfigInfo " +
                     "is empty");
             return null;
         }
 
         if (!(dvsConfigInfo instanceof VMwareDVSConfigInfo)) {
-            s_logger.error("dvSwitch: " + contrailDvSwitchName +
-                    " Datacenter: " + contrailDC.getName() + " ConfigInfo " +
+            s_logger.error("dvSwitch: " + tungstenDvSwitchName +
+                    " Datacenter: " + tungstenDC.getName() + " ConfigInfo " +
                     "isn't instanceof VMwareDVSConfigInfo");
             return null;
         }
 
         VMwareDVSPvlanMapEntry[] pvlanMapArray = dvsConfigInfo.getPvlanConfig();
         if (pvlanMapArray == null) {
-            s_logger.error("dvSwitch: " + contrailDvSwitchName +
-                    " Datacenter: " + contrailDC.getName() + " Private VLAN NOT" +
+            s_logger.error("dvSwitch: " + tungstenDvSwitchName +
+                    " Datacenter: " + tungstenDC.getName() + " Private VLAN NOT" +
                     "configured");
             return null;
         }

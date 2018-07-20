@@ -10,9 +10,9 @@
 #include "bgp/bgp_table.h"
 #include "bgp/routing-instance/routing_instance.h"
 
-using contrail::regex;
-using contrail::regex_match;
-using contrail::regex_search;
+using tungsten::regex;
+using tungsten::regex_match;
+using tungsten::regex_search;
 using std::string;
 using std::vector;
 

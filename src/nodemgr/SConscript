@@ -94,9 +94,9 @@ for file in common_sources:
     common_sources_rules.append(OpEnv.Install(Dir("nodemgr/common"), file))
 
 supervisor_events_pkg = OpEnv.SandeshGenPy('#controller/src/nodemgr/sandesh/supervisor_events.sandesh', 'nodemgr/common/sandesh/', False)
-cpuinfo_pkg = OpEnv.SandeshGenPy('#src/contrail-common/base/sandesh/cpuinfo.sandesh', 'nodemgr/common/sandesh/nodeinfo/', False)
-process_info_pkg = OpEnv.SandeshGenPy('#src/contrail-common/base/sandesh/process_info.sandesh', 'nodemgr/common/sandesh/nodeinfo/', False)
-nodeinfo_pkg = OpEnv.SandeshGenPy('#src/contrail-common/base/sandesh/nodeinfo.sandesh', 'nodemgr/common/sandesh/', False)
+cpuinfo_pkg = OpEnv.SandeshGenPy('#src/tungsten-common/base/sandesh/cpuinfo.sandesh', 'nodemgr/common/sandesh/nodeinfo/', False)
+process_info_pkg = OpEnv.SandeshGenPy('#src/tungsten-common/base/sandesh/process_info.sandesh', 'nodemgr/common/sandesh/nodeinfo/', False)
+nodeinfo_pkg = OpEnv.SandeshGenPy('#src/tungsten-common/base/sandesh/nodeinfo.sandesh', 'nodemgr/common/sandesh/', False)
 
 
 rel_path = Dir('nodemgr/common').path
@@ -120,23 +120,23 @@ OpEnv.Depends(sdist_gen, sdist_depends)
 
 OpEnv.Default(sdist_gen)
 
-OpEnv.Alias('install', OpEnv.InstallAs(OpEnv['INSTALL_CONF'] + '/contrail-config-nodemgr.conf',
-            'config_nodemgr/contrail-config-nodemgr.conf'))
-OpEnv.Alias('install', OpEnv.InstallAs(OpEnv['INSTALL_CONF'] + '/contrail-config-database-nodemgr.conf',
-            'config_database_nodemgr/contrail-config-database-nodemgr.conf'))
-OpEnv.Alias('install', OpEnv.InstallAs(OpEnv['INSTALL_CONF'] + '/contrail-database-nodemgr.conf',
-            'analytics_database_nodemgr/contrail-database-nodemgr.conf'))
-OpEnv.Alias('install', OpEnv.InstallAs(OpEnv['INSTALL_CONF'] + '/contrail-analytics-nodemgr.conf',
-            'analytics_nodemgr/contrail-analytics-nodemgr.conf'))
-OpEnv.Alias('install', OpEnv.InstallAs(OpEnv['INSTALL_CONF'] + '/contrail-control-nodemgr.conf',
-            'control_nodemgr/contrail-control-nodemgr.conf'))
-OpEnv.Alias('install', OpEnv.InstallAs(OpEnv['INSTALL_CONF'] + '/contrail-vrouter-nodemgr.conf',
-            'vrouter_nodemgr/contrail-vrouter-nodemgr.conf'))
+OpEnv.Alias('install', OpEnv.InstallAs(OpEnv['INSTALL_CONF'] + '/tungsten-config-nodemgr.conf',
+            'config_nodemgr/tungsten-config-nodemgr.conf'))
+OpEnv.Alias('install', OpEnv.InstallAs(OpEnv['INSTALL_CONF'] + '/tungsten-config-database-nodemgr.conf',
+            'config_database_nodemgr/tungsten-config-database-nodemgr.conf'))
+OpEnv.Alias('install', OpEnv.InstallAs(OpEnv['INSTALL_CONF'] + '/tungsten-database-nodemgr.conf',
+            'analytics_database_nodemgr/tungsten-database-nodemgr.conf'))
+OpEnv.Alias('install', OpEnv.InstallAs(OpEnv['INSTALL_CONF'] + '/tungsten-analytics-nodemgr.conf',
+            'analytics_nodemgr/tungsten-analytics-nodemgr.conf'))
+OpEnv.Alias('install', OpEnv.InstallAs(OpEnv['INSTALL_CONF'] + '/tungsten-control-nodemgr.conf',
+            'control_nodemgr/tungsten-control-nodemgr.conf'))
+OpEnv.Alias('install', OpEnv.InstallAs(OpEnv['INSTALL_CONF'] + '/tungsten-vrouter-nodemgr.conf',
+            'vrouter_nodemgr/tungsten-vrouter-nodemgr.conf'))
 
 OpEnv.Alias("src:nodemgr", sdist_gen)
-OpEnv.Alias("contrail-nodemgr", sdist_gen)
+OpEnv.Alias("tungsten-nodemgr", sdist_gen)
 
 #dummy scons target for nodemgr test
 test_suite = [ ]
-test_cmd = OpEnv.TestSuite('contrail-nodemgr-test', test_suite)
-OpEnv.Alias('contrail-nodemgr:test', test_cmd)
+test_cmd = OpEnv.TestSuite('tungsten-nodemgr-test', test_suite)
+OpEnv.Alias('tungsten-nodemgr:test', test_cmd)

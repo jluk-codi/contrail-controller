@@ -4,7 +4,7 @@
 
 /**
  *  The flow stats module is responsible for flow sampling
- *  contrail-vrouter-agent exports flow records to contrail-collector
+ *  tungsten-vrouter-agent exports flow records to tungsten-collector
  *  upon flow creation and deletion, updates flow statistics at regular intervals
  *
  *  Each flow is subjected to a sampling algorithm at regular interval to decide

@@ -93,7 +93,7 @@ sas_del_info = {
             u'uuid': {u'uuid_lslong': 11604282682608356844L,
                 u'uuid_mslong': 11461005920023169084L}},
         u'parent_type': u'global-system-config',
-        u'service_appliance_driver': u'svc_monitor.tests.fake_lb_driver.OpencontrailFakeLoadbalancerDriver',
+        u'service_appliance_driver': u'svc_monitor.tests.fake_lb_driver.Tungsten FabricFakeLoadbalancerDriver',
         u'service_appliance_set_properties': {u'key_value_pair': [{u'key': u'sync_mode',
             u'value': u'replication'},
         {u'key': u'num_snat',
@@ -506,7 +506,7 @@ class SvcMonitorTest(unittest.TestCase):
 
     def add_sas(self, name, uuid):
         sas_obj = ServiceApplianceSet(name)
-        sas_obj.set_service_appliance_driver("svc_monitor.tests.fake_lb_driver.OpencontrailFakeLoadbalancerDriver")
+        sas_obj.set_service_appliance_driver("svc_monitor.tests.fake_lb_driver.Tungsten FabricFakeLoadbalancerDriver")
         kvp_array = []
         kvp = KeyValuePair("use_snat","True")
         kvp_array.append(kvp)

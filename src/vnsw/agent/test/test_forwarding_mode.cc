@@ -3,7 +3,7 @@
 //  vnsw/agent/test
 //
 //  Created by Praveen K V
-//  Copyright (c) 2015 Contrail Systems. All rights reserved.
+//  Copyright (c) 2015 Tungsten Systems. All rights reserved.
 //
 #include "base/os.h"
 #include <base/logging.h>

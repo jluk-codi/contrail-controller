@@ -62,7 +62,7 @@
         "b74f7f5b-e773-401e-b8d0-b3a3b18bbceb:b74f7f5b-e773-401e-b8d0-b3a3b18bbceb": "null"
       },
       "virtual_router": {
-        "default-global-system-config:a1s27.contrail.juniper.net:efbddb9d-e539-409c-a975-0762288708e9": "null"
+        "default-global-system-config:a1s27.tungsten.juniper.net:efbddb9d-e539-409c-a975-0762288708e9": "null"
       },
       "access_control_list": {
         "default-domain:demo:vn27-2:vn27-2:0a1c2ce1-fb48-4823-b326-f6efa47af8c7": "null",
@@ -188,7 +188,7 @@
         "parent:domain:b1a73e4a-1e66-489a-a20a-fdfd6a5881d6": "null"
       },
       "efbddb9d-e539-409c-a975-0762288708e9": {
-        "fq_name": "[\"default-global-system-config\",\"a1s27.contrail.juniper.net\"]",
+        "fq_name": "[\"default-global-system-config\",\"a1s27.tungsten.juniper.net\"]",
         "type": "\"virtual_router\"",
         "prop:id_perms": "{\"permissions\":{\"owner\":\"cloud-admin\",\"owner_access\":\"7\",\"group\":\"cloud-admin-group\",\"group_access\":\"7\",\"other_access\":\"7\"},\"uuid\":{\"uuid_mslong\":\"17275205216865173660\",\"uuid_lslong\":\"12210674082853095657\"},\"enable\":\"true\"}",
         "parent:global_system_config:94642a44-03f8-48a8-9240-4d3dd0beda38": "null"
@@ -197,7 +197,7 @@
         "fq_name": "[\"default-domain\",\"demo\",\"vn27-2\",\"vn27-2\"]",
         "type": "\"access_control_list\"",
         "prop:id_perms": "{\"permissions\":{\"owner\":\"cloud-admin\",\"owner_access\":\"7\",\"group\":\"cloud-admin-group\",\"group_access\":\"7\",\"other_access\":\"7\"},\"uuid\":{\"uuid_mslong\":\"728506588822259747\",\"uuid_lslong\":\"12909276891021244615\"},\"enable\":\"true\",\"created\":null,\"last_modified\":null}",
-        "prop:access_control_list_entries": "{\"xmlns:contrail\":\"http://www.contrailsystems.com/vnc_cfg.xsd\",\"ifmap_cardinality\":\"singleValue\",\"ifmap_publisher_id\":\"api-server-1--0000000001-1\",\"ifmap_timestamp\":\"2013-03-12T04:08:51-07:00\",\"acl_rule\":[{\"match_condition\":{\"protocol\":\"17\",\"src_address\":{\"virtual_network\":\"default-domain:demo:vn27-2\"},\"src_port\":{\"start_port\":\"-1\",\"end_port\":\"-1\"},\"dst_address\":{\"virtual_network\":\"default-domain:demo:vn27-1\"},\"dst_port\":{\"start_port\":\"-1\",\"end_port\":\"-1\"}},\"action_list\":{\"simple_action\":\"pass\"}},{\"match_condition\":{\"protocol\":\"any\",\"src_address\":{\"virtual_network\":\"default-domain:demo:vn27-2\"},\"src_port\":{\"start_port\":\"-1\",\"end_port\":\"-1\"},\"dst_address\":{\"virtual_network\":\"default-domain:demo:vn27-2\"},\"dst_port\":{\"start_port\":\"-1\",\"end_port\":\"-1\"}},\"action_list\":{\"simple_action\":\"pass\"}}]}",
+        "prop:access_control_list_entries": "{\"xmlns:tungsten\":\"http://www.tungstensystems.com/vnc_cfg.xsd\",\"ifmap_cardinality\":\"singleValue\",\"ifmap_publisher_id\":\"api-server-1--0000000001-1\",\"ifmap_timestamp\":\"2013-03-12T04:08:51-07:00\",\"acl_rule\":[{\"match_condition\":{\"protocol\":\"17\",\"src_address\":{\"virtual_network\":\"default-domain:demo:vn27-2\"},\"src_port\":{\"start_port\":\"-1\",\"end_port\":\"-1\"},\"dst_address\":{\"virtual_network\":\"default-domain:demo:vn27-1\"},\"dst_port\":{\"start_port\":\"-1\",\"end_port\":\"-1\"}},\"action_list\":{\"simple_action\":\"pass\"}},{\"match_condition\":{\"protocol\":\"any\",\"src_address\":{\"virtual_network\":\"default-domain:demo:vn27-2\"},\"src_port\":{\"start_port\":\"-1\",\"end_port\":\"-1\"},\"dst_address\":{\"virtual_network\":\"default-domain:demo:vn27-2\"},\"dst_port\":{\"start_port\":\"-1\",\"end_port\":\"-1\"}},\"action_list\":{\"simple_action\":\"pass\"}}]}",
         "parent:virtual_network:308c7052-41ee-482b-839f-f97850832f11": "null"
       },
       "a479440a-2a40-421e-8a97-3db7b7090022": {
@@ -235,7 +235,7 @@
         "fq_name": "[\"default-domain\",\"demo\",\"vn27-1\",\"vn27-1\"]",
         "type": "\"access_control_list\"",
         "prop:id_perms": "{\"permissions\":{\"owner\":\"cloud-admin\",\"owner_access\":\"7\",\"group\":\"cloud-admin-group\",\"group_access\":\"7\",\"other_access\":\"7\"},\"uuid\":{\"uuid_mslong\":\"13935178601269511746\",\"uuid_lslong\":\"11377206404689361865\"},\"enable\":\"true\",\"created\":null,\"last_modified\":null}",
-        "prop:access_control_list_entries": "{\"xmlns:contrail\":\"http://www.contrailsystems.com/vnc_cfg.xsd\",\"ifmap_cardinality\":\"singleValue\",\"ifmap_publisher_id\":\"api-server-1--0000000001-1\",\"ifmap_timestamp\":\"2013-03-12T04:08:44-07:00\",\"acl_rule\":[{\"match_condition\":{\"protocol\":\"6\",\"src_address\":{\"virtual_network\":\"default-domain:demo:vn27-1\"},\"src_port\":{\"start_port\":\"-1\",\"end_port\":\"-1\"},\"dst_address\":{\"virtual_network\":\"default-domain:demo:vn27-2\"},\"dst_port\":{\"start_port\":\"-1\",\"end_port\":\"-1\"}},\"action_list\":{\"simple_action\":\"pass\"}},{\"match_condition\":{\"protocol\":\"any\",\"src_address\":{\"virtual_network\":\"default-domain:demo:vn27-1\"},\"src_port\":{\"start_port\":\"-1\",\"end_port\":\"-1\"},\"dst_address\":{\"virtual_network\":\"default-domain:demo:vn27-1\"},\"dst_port\":{\"start_port\":\"-1\",\"end_port\":\"-1\"}},\"action_list\":{\"simple_action\":\"pass\"}}]}",
+        "prop:access_control_list_entries": "{\"xmlns:tungsten\":\"http://www.tungstensystems.com/vnc_cfg.xsd\",\"ifmap_cardinality\":\"singleValue\",\"ifmap_publisher_id\":\"api-server-1--0000000001-1\",\"ifmap_timestamp\":\"2013-03-12T04:08:44-07:00\",\"acl_rule\":[{\"match_condition\":{\"protocol\":\"6\",\"src_address\":{\"virtual_network\":\"default-domain:demo:vn27-1\"},\"src_port\":{\"start_port\":\"-1\",\"end_port\":\"-1\"},\"dst_address\":{\"virtual_network\":\"default-domain:demo:vn27-2\"},\"dst_port\":{\"start_port\":\"-1\",\"end_port\":\"-1\"}},\"action_list\":{\"simple_action\":\"pass\"}},{\"match_condition\":{\"protocol\":\"any\",\"src_address\":{\"virtual_network\":\"default-domain:demo:vn27-1\"},\"src_port\":{\"start_port\":\"-1\",\"end_port\":\"-1\"},\"dst_address\":{\"virtual_network\":\"default-domain:demo:vn27-1\"},\"dst_port\":{\"start_port\":\"-1\",\"end_port\":\"-1\"}},\"action_list\":{\"simple_action\":\"pass\"}}]}",
         "parent:virtual_network:989b07c8-6476-43eb-89e7-c9a9b0d2ebaa":  "null"
       },
       "ce8ded65-0f6f-43f6-8c0b-fe47cc54897a": {
@@ -252,7 +252,7 @@
       "82865c2d-5166-4619-b860-768255356b45": {
         "fq_name": "[\"default-domain\",\"demo\",\"vn27-1to2\"]",
         "type": "\"network_policy\"",
-        "prop:network_policy_entries": "{\"xmlns:contrail\":\"http://www.contrailsystems.com/vnc_cfg.xsd\",\"ifmap_cardinality\":\"singleValue\",\"ifmap_publisher_id\":\"api-server-1--0000000001-1\",\"ifmap_timestamp\":\"2013-03-12T04:07:49-07:00\",\"policy_rule\":[{\"src_addresses\":[{\"virtual_network\":\"default-domain:demo:vn27-1\"}],\"dst_addresses\":[{\"virtual_network\":\"default-domain:demo:vn27-2\"}]}]}",
+        "prop:network_policy_entries": "{\"xmlns:tungsten\":\"http://www.tungstensystems.com/vnc_cfg.xsd\",\"ifmap_cardinality\":\"singleValue\",\"ifmap_publisher_id\":\"api-server-1--0000000001-1\",\"ifmap_timestamp\":\"2013-03-12T04:07:49-07:00\",\"policy_rule\":[{\"src_addresses\":[{\"virtual_network\":\"default-domain:demo:vn27-1\"}],\"dst_addresses\":[{\"virtual_network\":\"default-domain:demo:vn27-2\"}]}]}",
         "prop:id_perms": "{\"permissions\":{\"owner\":\"cloud-admin\",\"owner_access\":\"7\",\"group\":\"cloud-admin-group\",\"group_access\":\"7\",\"other_access\":\"7\"},\"uuid\":{\"uuid_mslong\":\"9405306221518800409\",\"uuid_lslong\":\"13285749202890353477\"},\"enable\":\"true\"}",
         "parent:project:ee523edc-e957-41ab-b7b0-2d557e9573ff": "null"
       },
@@ -283,7 +283,7 @@
       "288026fc-60b0-4bdb-bd06-6f1b6697d96e": {
         "fq_name": "[\"default-domain\",\"demo\",\"vn27-2to1\"]",
         "type": "\"network_policy\"",
-        "prop:network_policy_entries": "{\"xmlns:contrail\":\"http://www.contrailsystems.com/vnc_cfg.xsd\",\"ifmap_cardinality\":\"singleValue\",\"ifmap_publisher_id\":\"api-server-1--0000000001-1\",\"ifmap_timestamp\":\"2013-03-12T04:08:28-07:00\",\"policy_rule\":[{\"src_addresses\":[{\"virtual_network\":\"default-domain:demo:vn27-2\"}],\"dst_addresses\":[{\"virtual_network\":\"default-domain:demo:vn27-1\"}]}]}",
+        "prop:network_policy_entries": "{\"xmlns:tungsten\":\"http://www.tungstensystems.com/vnc_cfg.xsd\",\"ifmap_cardinality\":\"singleValue\",\"ifmap_publisher_id\":\"api-server-1--0000000001-1\",\"ifmap_timestamp\":\"2013-03-12T04:08:28-07:00\",\"policy_rule\":[{\"src_addresses\":[{\"virtual_network\":\"default-domain:demo:vn27-2\"}],\"dst_addresses\":[{\"virtual_network\":\"default-domain:demo:vn27-1\"}]}]}",
         "prop:id_perms": "{\"permissions\":{\"owner\":\"cloud-admin\",\"owner_access\":\"7\",\"group\":\"cloud-admin-group\",\"group_access\":\"7\",\"other_access\":\"7\"},\"uuid\":{\"uuid_mslong\":\"2918375423931861979\",\"uuid_lslong\":\"13620696286504671598\"},\"enable\":\"true\"}",
         "parent:project:ee523edc-e957-41ab-b7b0-2d557e9573ff": "null"
       },
@@ -315,7 +315,7 @@
         "type": "\"virtual_machine_interface\"",
         "ref:virtual_network:308c7052-41ee-482b-839f-f97850832f11": "{\"attr\":{}}",
         "ref:virtual_machine:5f25dd5e-5442-4edf-89d1-6a318c0d213b": "{\"attr\":{}}",
-        "prop:virtual_machine_interface_mac_addresses": "{\"xmlns:contrail\":\"http://www.contrailsystems.com/vnc_cfg.xsd\",\"ifmap_cardinality\":\"singleValue\",\"ifmap_publisher_id\":\"api-server-1--0000000001-1\",\"ifmap_timestamp\":\"2013-03-12T04:11:28-07:00\",\"mac_address\":[\"02:60:6d:59:b7:c1\"]}",
+        "prop:virtual_machine_interface_mac_addresses": "{\"xmlns:tungsten\":\"http://www.tungstensystems.com/vnc_cfg.xsd\",\"ifmap_cardinality\":\"singleValue\",\"ifmap_publisher_id\":\"api-server-1--0000000001-1\",\"ifmap_timestamp\":\"2013-03-12T04:11:28-07:00\",\"mac_address\":[\"02:60:6d:59:b7:c1\"]}",
         "prop:id_perms": "{\"permissions\":{\"owner\":\"cloud-admin\",\"owner_access\":\"7\",\"group\":\"cloud-admin-group\",\"group_access\":\"7\",\"other_access\":\"7\"},\"uuid\":{\"uuid_mslong\":\"6948308445862512923\",\"uuid_lslong\":\"13042129518432109247\"},\"enable\":\"true\",\"created\":null,\"last_modified\":null}"
       },
       "94d6c83e-872a-4c52-851d-551c1b188368": {
@@ -430,7 +430,7 @@
         "type": "\"virtual_machine_interface\"",
         "ref:virtual_network:989b07c8-6476-43eb-89e7-c9a9b0d2ebaa": "{\"attr\":{}}",
         "ref:virtual_machine:695d391b-65e6-4091-bea5-78e5eae32e66": "{\"attr\":{}}",
-        "prop:virtual_machine_interface_mac_addresses": "{\"xmlns:contrail\":\"http://www.contrailsystems.com/vnc_cfg.xsd\",\"ifmap_cardinality\":\"singleValue\",\"ifmap_publisher_id\":\"api-server-1--0000000001-1\",\"ifmap_timestamp\":\"2013-03-12T04:10:59-07:00\",\"mac_address\":[\"02:4e:fc:1e:06:c7\"]}",
+        "prop:virtual_machine_interface_mac_addresses": "{\"xmlns:tungsten\":\"http://www.tungstensystems.com/vnc_cfg.xsd\",\"ifmap_cardinality\":\"singleValue\",\"ifmap_publisher_id\":\"api-server-1--0000000001-1\",\"ifmap_timestamp\":\"2013-03-12T04:10:59-07:00\",\"mac_address\":[\"02:4e:fc:1e:06:c7\"]}",
         "prop:id_perms": "{\"permissions\":{\"owner\":\"cloud-admin\",\"owner_access\":\"7\",\"group\":\"cloud-admin-group\",\"group_access\":\"7\",\"other_access\":\"7\"},\"uuid\":{\"uuid_mslong\":\"5691457043556814349\",\"uuid_lslong\":\"13336073479581171235\"},\"enable\":\"true\",\"created\":null,\"last_modified\":null}"
       },
       "4c28fec6-2c80-49e6-8838-fcbdc8bac8b0": {

@@ -4,8 +4,8 @@
 
 import svc_monitor.services.loadbalancer.drivers.abstract_driver as abstract_driver
 
-class OpencontrailFakeLoadbalancerDriver(
-        abstract_driver.ContrailLoadBalancerAbstractDriver):
+class Tungsten FabricFakeLoadbalancerDriver(
+        abstract_driver.TungstenLoadBalancerAbstractDriver):
     def __init__(self, name, manager, api, db, args=None):
         self._name = name
         self._api = api

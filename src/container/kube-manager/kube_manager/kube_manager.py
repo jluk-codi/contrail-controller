@@ -114,7 +114,7 @@ class KubeNetworkManager(object):
 
         if not self.args.kube_timer_interval.isdigit():
             self.logger.emergency("set seconds for kube_timer_interval "
-                                  "in contrail-kubernetes.conf. \
+                                  "in tungsten-kubernetes.conf. \
                                    example: kube_timer_interval=60")
             sys.exit()
         if int(self.args.kube_timer_interval) > 0:

@@ -41,7 +41,7 @@ class IFMapServerTest : public ::testing::Test {
     }
 
     virtual void SetUp() {
-        xmpp_server_ = new XmppServer(&evm_, "bgp.contrail.com");
+        xmpp_server_ = new XmppServer(&evm_, "bgp.tungsten.com");
         IFMapLinkTable_Init(&db_, &db_graph_);
         vnc_cfg_Server_ModuleInit(&db_, &db_graph_);
         server_.Initialize();

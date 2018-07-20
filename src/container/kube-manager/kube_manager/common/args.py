@@ -82,7 +82,7 @@ def parse_args(args_str=None):
         'disc_server_ip': 'localhost',
         'disc_server_port': DiscoveryServerPort,
         'log_level': SandeshLevel.SYS_DEBUG,
-        'log_file': '/var/log/contrail/contrail-kube-manager.log',
+        'log_file': '/var/log/tungsten/tungsten-kube-manager.log',
         'api_service_link_local' : 'True',
         'orchestrator' : 'kubernetes',
         'token' : '',

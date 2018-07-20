@@ -65,7 +65,7 @@ if 'install_stats_daemon' in BUILD_TARGETS:
                           cd_cmd + 'python setup.py install %s' %
                           env['PYTHON_INSTALL_OPT']))
     env.Alias('install', env.Install(
-        env['INSTALL_MESSAGE_DOC'] + '/contrail-storage/',
+        env['INSTALL_MESSAGE_DOC'] + '/tungsten-storage/',
         StorageDocFiles))
 env.Alias('install_stats_daemon', env.Install(env['INSTALL_CONF'], 'stats-daemon.conf'))
 

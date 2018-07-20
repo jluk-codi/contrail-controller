@@ -99,7 +99,7 @@ class ControlProvisioner(object):
 
     def _parse_args(self, args_str):
         '''
-        Eg. python provision_control.py --host_name a3s30.contrail.juniper.net
+        Eg. python provision_control.py --host_name a3s30.tungsten.juniper.net
                                         --host_ip 10.1.1.1
                                         --router_asn 64512
                                         --ibgp_auto_mesh|--no_ibgp_auto_mesh
@@ -177,7 +177,7 @@ class ControlProvisioner(object):
         parser.add_argument(
             "--bgp_server_port", help="BGP server port number (Default: 179)")
         parser.add_argument(
-            "--local_autonomous_system", help="Local autonomous-system number used to peer contrail-control bgp speakers across different geographic locations")
+            "--local_autonomous_system", help="Local autonomous-system number used to peer tungsten-control bgp speakers across different geographic locations")
         parser.add_argument(
             "--address_families", help="Address family list",
             choices=["route-target", "inet-vpn", "e-vpn", "erm-vpn", "inet6-vpn"],

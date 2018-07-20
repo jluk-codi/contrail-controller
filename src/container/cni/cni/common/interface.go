@@ -4,7 +4,7 @@
 //
 
 /****************************************************************************
- * Base class for interface managed by Contrail Cni
+ * Base class for interface managed by Tungsten Cni
  ****************************************************************************/
 package cniIntf
 
@@ -32,7 +32,7 @@ const CNI_ID_IFNAME_END_LEN = 5
 const CNI_MTU = 1500
 
 // Prefix for macvlan interface alias
-const INTF_ALIAS = "contrail-k8s-cni-vlan-"
+const INTF_ALIAS = "tungsten-k8s-cni-vlan-"
 
 // Common methods for all CniIntf
 type CniIntfMethods interface {

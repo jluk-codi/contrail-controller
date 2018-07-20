@@ -7,14 +7,14 @@ import sys
 import unittest
 from mock import patch
 
-from cni.contrail import vrouter
+from cni.tungsten import vrouter
 
 
-class ContrailVRouterTest(unittest.TestCase):
+class TungstenVRouterTest(unittest.TestCase):
     def setUp(self):
         self._vrouter_json = """
 {
-    "contrail": {
+    "tungsten": {
         "vrouter-ip": "%s",
         "vrouter-port": %s,
         "poll-timeout": %s,

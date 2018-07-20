@@ -1,7 +1,7 @@
 import abc
 
 
-class ContrailLoadBalancerAbstractDriver(object):
+class TungstenLoadBalancerAbstractDriver(object):
     """Abstract lbaas driver that expose ~same API as lbaas plugin.
 
     The configuration elements (Vip,Member,etc) are the dicts that

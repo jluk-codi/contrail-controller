@@ -235,7 +235,7 @@ class MxConf(JuniperConf):
      router_external: this indicates the routing instance configured is for
                       the public network
      interfaces: logical interfaces to be part of vrf
-     fip_map: contrail instance ip to floating-ip map, used for snat & floating ip support
+     fip_map: tungsten instance ip to floating-ip map, used for snat & floating ip support
      network_id : this is used for configuraing irb interfaces
      static_routes: this is used for add PNF vrf static routes
      no_vrf_table_label: if this is set to True will not generate vrf table label knob

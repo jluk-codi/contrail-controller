@@ -70,7 +70,7 @@ class XLabelCache(object):
     label_delete_cb = None
 
     class PredefinedTags(Enum):
-        # Tags that have special meaning to Contrail.
+        # Tags that have special meaning to Tungsten.
         APPLICATION = 'application'
         TIER = "tier"
 
@@ -268,7 +268,7 @@ class XLabelCache(object):
         return label
 
     def get_labels_dict(self, obj_guid, no_value=False):
-        """ Construct labels in Contrail format. """
+        """ Construct labels in Tungsten format. """
         labels_dict = {}
         predefined_values = [item.value for item in self.PredefinedTags]
         curr_labels = self.get_labels(obj_guid)
@@ -287,7 +287,7 @@ class XLabelCache(object):
         return labels_dict
 
     def get_delete_labels_dict(self, labels):
-        """ Construct labels for delete in Contrail format. """
+        """ Construct labels for delete in Tungsten format. """
         labels_dict = {}
         for k in labels.iterkeys():
             labels_dict[k] = None

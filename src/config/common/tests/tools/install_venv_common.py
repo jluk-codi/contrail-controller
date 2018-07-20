@@ -146,12 +146,12 @@ class InstallVenv(object):
         return requirements
 
     def pip_clear_cache(self, find_links):
-        contrail_reqs = []
+        tungsten_reqs = []
         cache_dir = os.path.expanduser('~/.cache/pip')
         for req in self.get_requirements():
             req_pattern = '*' + req + '*'
             for find_link in find_links:
-                for contrail_req in find_files(find_link, req_pattern):
+                for tungsten_req in find_files(find_link, req_pattern):
                     for cachefile in find_files(cache_dir, req_pattern):
                         os.remove(cachefile)
 

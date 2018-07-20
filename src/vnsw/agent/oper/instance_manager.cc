@@ -28,7 +28,7 @@ SandeshTraceBufferPtr InstanceManagerTraceBuf(
         SandeshTraceBufferCreate("InstanceManager", 1000));
 
 static const char loadbalancer_config_path_default[] =
-        "/var/lib/contrail/loadbalancer/";
+        "/var/lib/tungsten/loadbalancer/";
 static const char namespace_store_path_default[] =
         "/var/run/netns";
 static const char namespace_prefix[] = "vrouter-";

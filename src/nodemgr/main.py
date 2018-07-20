@@ -13,15 +13,15 @@ management functionality.
 Rules files looks like following:
 ====================
 { "Rules": [
-    {"process_name": "contrail-query-engine",
+    {"process_name": "tungsten-query-engine",
      "process_state": "PROCESS_STATE_FATAL",
      "action": "supervisorctl -s http://localhost:9002 """ + \
-    """\stop contrail-analytics-api"},
-    {"process_name": "contrail-query-engine",
+    """\stop tungsten-analytics-api"},
+    {"process_name": "tungsten-query-engine",
      "process_state": "PROCESS_STATE_STOPPED",
      "action": "supervisorctl -s http://localhost:9002 """ + \
-    """\stop contrail-analytics-api"},
-    {"processname": "contrail-collector",
+    """\stop tungsten-analytics-api"},
+    {"processname": "tungsten-collector",
      "process_state": "PROCESS_STATE_RUNNING",
      "action": "/usr/bin/echo collector is starting >> /tmp/log"},
     {"flag_name": "test", "flag_value":"true",
@@ -56,40 +56,40 @@ from vrouter_nodemgr.event_manager import VrouterEventManager
 
 
 unit_names_dict = {
-    'contrail-analytics': [
-        'contrail-collector',
-        'contrail-analytics-api',
-        'contrail-query-engine',
-        'contrail-alarm-gen',
-        'contrail-analytics-nodemgr'
+    'tungsten-analytics': [
+        'tungsten-collector',
+        'tungsten-analytics-api',
+        'tungsten-query-engine',
+        'tungsten-alarm-gen',
+        'tungsten-analytics-nodemgr'
     ],
-    'contrail-config': [
-        'contrail-api',
-        'contrail-schema',
-        'contrail-svc-monitor',
-        'contrail-device-manager',
-        'contrail-config-nodemgr'
+    'tungsten-config': [
+        'tungsten-api',
+        'tungsten-schema',
+        'tungsten-svc-monitor',
+        'tungsten-device-manager',
+        'tungsten-config-nodemgr'
     ],
-    'contrail-config-database': [
+    'tungsten-config-database': [
         'cassandra',
         'zookeeper',
-        'contrail-config-database-nodemgr'
+        'tungsten-config-database-nodemgr'
     ],
-    'contrail-control': [
-        'contrail-control',
-        'contrail-dns',
-        'contrail-named',
-        'contrail-control-nodemgr'
+    'tungsten-control': [
+        'tungsten-control',
+        'tungsten-dns',
+        'tungsten-named',
+        'tungsten-control-nodemgr'
     ],
-    'contrail-vrouter': [
-        'contrail-vrouter-agent',
-        'contrail-vrouter-nodemgr'
+    'tungsten-vrouter': [
+        'tungsten-vrouter-agent',
+        'tungsten-vrouter-nodemgr'
     ],
-    'contrail-database': [
+    'tungsten-database': [
         'cassandra',
         'zookeeper',
         'kafka',
-        'contrail-database-nodemgr'
+        'tungsten-database-nodemgr'
     ]
 }
 
@@ -103,7 +103,7 @@ def main(args_str=' '.join(sys.argv[1:])):
     # Parse Arguments
     node_parser = argparse.ArgumentParser(add_help=False)
     node_parser.add_argument("--nodetype",
-                             default='contrail-analytics',
+                             default='tungsten-analytics',
                              help='Type of node which nodemgr is managing')
     try:
         args, remaining_argv = node_parser.parse_known_args(args_str.split())
@@ -119,7 +119,7 @@ def main(args_str=' '.join(sys.argv[1:])):
                'minimum_diskgb': 256,
                'corefile_path': '/var/crashes',
                'cassandra_repair_interval': 24,
-               'cassandra_repair_logdir': '/var/log/contrail/',
+               'cassandra_repair_logdir': '/var/log/tungsten/',
                'log_local': False,
                'log_level': SandeshLevel.SYS_DEBUG,
                'log_category': '',
@@ -130,18 +130,18 @@ def main(args_str=' '.join(sys.argv[1:])):
     default.update(SandeshConfig.get_default_options(['DEFAULTS']))
     sandesh_opts = SandeshConfig.get_default_options()
     node_type = args.nodetype
-    if (node_type == 'contrail-analytics'):
-        config_file = '/etc/contrail/contrail-analytics-nodemgr.conf'
-    elif (node_type == 'contrail-config'):
-        config_file = '/etc/contrail/contrail-config-nodemgr.conf'
-    elif (node_type == 'contrail-config-database'):
-        config_file = '/etc/contrail/contrail-config-database-nodemgr.conf'
-    elif (node_type == 'contrail-control'):
-        config_file = '/etc/contrail/contrail-control-nodemgr.conf'
-    elif (node_type == 'contrail-vrouter'):
-        config_file = '/etc/contrail/contrail-vrouter-nodemgr.conf'
-    elif (node_type == 'contrail-database'):
-        config_file = '/etc/contrail/contrail-database-nodemgr.conf'
+    if (node_type == 'tungsten-analytics'):
+        config_file = '/etc/tungsten/tungsten-analytics-nodemgr.conf'
+    elif (node_type == 'tungsten-config'):
+        config_file = '/etc/tungsten/tungsten-config-nodemgr.conf'
+    elif (node_type == 'tungsten-config-database'):
+        config_file = '/etc/tungsten/tungsten-config-database-nodemgr.conf'
+    elif (node_type == 'tungsten-control'):
+        config_file = '/etc/tungsten/tungsten-control-nodemgr.conf'
+    elif (node_type == 'tungsten-vrouter'):
+        config_file = '/etc/tungsten/tungsten-vrouter-nodemgr.conf'
+    elif (node_type == 'tungsten-database'):
+        config_file = '/etc/tungsten/tungsten-database-nodemgr.conf'
     else:
         sys.stderr.write("Node type" + str(node_type) + "is incorrect\n")
         return
@@ -184,8 +184,8 @@ def main(args_str=' '.join(sys.argv[1:])):
     parser.add_argument("--corefile_path",
         help="Location where coredump files are stored")
     SandeshConfig.add_parser_arguments(parser, add_dscp=True)
-    if (node_type == 'contrail-database'
-            or node_type == 'contrail-config-database'):
+    if (node_type == 'tungsten-database'
+            or node_type == 'tungsten-config-database'):
         parser.add_argument("--minimum_diskGB",
                             type=int,
                             dest='minimum_diskgb',
@@ -223,17 +223,17 @@ def main(args_str=' '.join(sys.argv[1:])):
     #rule_file = _args.rules
 
     unit_names = unit_names_dict.get(node_type)
-    if node_type == 'contrail-analytics':
+    if node_type == 'tungsten-analytics':
         prog = AnalyticsEventManager(_args, unit_names)
-    elif node_type == 'contrail-config':
+    elif node_type == 'tungsten-config':
         prog = ConfigEventManager(_args, unit_names)
-    elif node_type == 'contrail-control':
+    elif node_type == 'tungsten-control':
         prog = ControlEventManager(_args, unit_names)
-    elif node_type == 'contrail-vrouter':
+    elif node_type == 'tungsten-vrouter':
         prog = VrouterEventManager(_args, unit_names)
-    elif node_type == 'contrail-database':
+    elif node_type == 'tungsten-database':
         prog = AnalyticsDatabaseEventManager(_args, unit_names)
-    elif node_type == 'contrail-config-database':
+    elif node_type == 'tungsten-config-database':
         prog = ConfigDatabaseEventManager(_args, unit_names)
     else:
         sys.stderr.write("Node type " + str(node_type) + " is incorrect\n")

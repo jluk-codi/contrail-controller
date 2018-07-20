@@ -15,9 +15,9 @@
 #include "bgp/bgp_xmpp_channel.h"
 #include "xmpp/xmpp_connection.h"
 
-using contrail::regex;
-using contrail::regex_match;
-using contrail::regex_search;
+using tungsten::regex;
+using tungsten::regex_match;
+using tungsten::regex_search;
 using std::string;
 using std::vector;
 

@@ -58,7 +58,7 @@ class SetupCephUtils(object):
     global APACHE_RGW_CONF
     APACHE_RGW_CONF = '/etc/apache2/conf-available/rgw.conf'
     global OBJECT_STORAGE_USER_FILE
-    OBJECT_STORAGE_USER_FILE = '/etc/contrail/object_storage_swift_s3_auth.txt'
+    OBJECT_STORAGE_USER_FILE = '/etc/tungsten/object_storage_swift_s3_auth.txt'
     global TRUE
     TRUE = 1
     global FALSE
@@ -2169,29 +2169,29 @@ def configure_object_storage(is_master, is_os_host, new_apache,
         ceph_utils.exec_local('sudo a2enconf rgw')
         ceph_utils.exec_local('service apache2 restart')
     if is_master == 1:
-        contrail_user = ceph_utils.exec_local('radosgw-admin --uid contrail user \
-                                              info 2>/dev/null | grep contrail | \
+        tungsten_user = ceph_utils.exec_local('radosgw-admin --uid tungsten user \
+                                              info 2>/dev/null | grep tungsten | \
                                               wc -l')
-        print contrail_user
-        if contrail_user == '0':
-            ceph_utils.exec_local('sudo radosgw-admin user create --uid="contrail" \
+        print tungsten_user
+        if tungsten_user == '0':
+            ceph_utils.exec_local('sudo radosgw-admin user create --uid="tungsten" \
                                    --display-name="Demo User"')
-            ceph_utils.exec_local('sudo radosgw-admin subuser create --uid=contrail \
-                                   --subuser=contrail:swift --access=full')
+            ceph_utils.exec_local('sudo radosgw-admin subuser create --uid=tungsten \
+                                   --subuser=tungsten:swift --access=full')
             ceph_utils.exec_local('sudo radosgw-admin key create \
-                                   --subuser=contrail:swift --key-type=swift \
+                                   --subuser=tungsten:swift --key-type=swift \
                                    --gen-secret')
-        access_key = ceph_utils.exec_locals('sudo radosgw-admin --uid contrail \
+        access_key = ceph_utils.exec_locals('sudo radosgw-admin --uid tungsten \
                                    user info | \
-                                   grep -A 2 \"\\\"user\\\": \\\"contrail\\\"\" | \
+                                   grep -A 2 \"\\\"user\\\": \\\"tungsten\\\"\" | \
                                    grep access_key | awk \'{print $2}\' | \
                                    cut -d \'\"\' -f 2')
-        secret_key = ceph_utils.exec_locals('sudo radosgw-admin --uid contrail \
+        secret_key = ceph_utils.exec_locals('sudo radosgw-admin --uid tungsten \
                                    user info | \
-                                   grep -A 2 \"\\\"user\\\": \\\"contrail\\\"\" | \
+                                   grep -A 2 \"\\\"user\\\": \\\"tungsten\\\"\" | \
                                    grep secret_key | awk \'{print $2}\' | \
                                    cut -d \'\"\' -f 2')
-        swift_key = ceph_utils.exec_locals('sudo radosgw-admin --uid contrail \
+        swift_key = ceph_utils.exec_locals('sudo radosgw-admin --uid tungsten \
                                    user info | \
                                    grep -A 3 swift_keys | \
                                    grep secret_key | awk \'{print $2}\' | \
@@ -2200,7 +2200,7 @@ def configure_object_storage(is_master, is_os_host, new_apache,
                                %(OBJECT_STORAGE_USER_FILE))
         ceph_utils.exec_locals('sudo echo ----------------- >> %s'
                                %(OBJECT_STORAGE_USER_FILE))
-        ceph_utils.exec_locals('sudo echo username: contrail >> %s'
+        ceph_utils.exec_locals('sudo echo username: tungsten >> %s'
                                %(OBJECT_STORAGE_USER_FILE))
         ceph_utils.exec_locals('sudo echo S3 access_key: %s >> %s'
                                %(access_key, OBJECT_STORAGE_USER_FILE))
@@ -2212,7 +2212,7 @@ def configure_object_storage(is_master, is_os_host, new_apache,
                                %(OBJECT_STORAGE_USER_FILE))
         ceph_utils.exec_locals('sudo echo -------------------- >> %s'
                                %(OBJECT_STORAGE_USER_FILE))
-        ceph_utils.exec_locals('sudo echo username: contrail:swift >> %s'
+        ceph_utils.exec_locals('sudo echo username: tungsten:swift >> %s'
                                %(OBJECT_STORAGE_USER_FILE))
         ceph_utils.exec_locals('sudo echo Swift secret_key = %s >> %s'
                                %(swift_key, OBJECT_STORAGE_USER_FILE))

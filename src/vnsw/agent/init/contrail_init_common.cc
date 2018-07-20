@@ -26,14 +26,14 @@
 #include <vgw/vgw.h>
 #include <vrouter/flow_stats/flow_stats_manager.h>
 
-#include "contrail_init_common.h"
+#include "tungsten_init_common.h"
 
-ContrailInitCommon::ContrailInitCommon() : AgentInit(), create_vhost_(true),
+TungstenInitCommon::TungstenInitCommon() : AgentInit(), create_vhost_(true),
     ksync_enable_(true), services_enable_(true), packet_enable_(true),
     uve_enable_(true), vgw_enable_(true), router_id_dep_enable_(true) {
 }
 
-ContrailInitCommon::~ContrailInitCommon() {
+TungstenInitCommon::~TungstenInitCommon() {
     vgw_.reset();
     ksync_.reset();
     uve_.reset();
@@ -44,19 +44,19 @@ ContrailInitCommon::~ContrailInitCommon() {
     mac_learning_module_.reset();
 }
 
-void ContrailInitCommon::ProcessOptions
+void TungstenInitCommon::ProcessOptions
     (const std::string &config_file, const std::string &program_name) {
     AgentInit::ProcessOptions(config_file, program_name);
 }
 
-int ContrailInitCommon::Start() {
+int TungstenInitCommon::Start() {
     return AgentInit::Start();
 }
 
 /****************************************************************************
  * Initialization routines
  ***************************************************************************/
-void ContrailInitCommon::CreateModules() {
+void TungstenInitCommon::CreateModules() {
     pkt_.reset(new PktModule(agent()));
     agent()->set_pkt(pkt_.get());
 
@@ -74,7 +74,7 @@ void ContrailInitCommon::CreateModules() {
     agent()->set_mac_learning_module(mac_learning_module_.get());
 }
 
-void ContrailInitCommon::RegisterDBClients() {
+void TungstenInitCommon::RegisterDBClients() {
     if (agent()->uve()) {
         agent()->uve()->RegisterDBClients();
     }
@@ -92,7 +92,7 @@ void ContrailInitCommon::RegisterDBClients() {
     }
 }
 
-void ContrailInitCommon::InitModules() {
+void TungstenInitCommon::InitModules() {
     if (agent()->pkt()) {
         agent()->pkt()->Init(ksync_enable());
     }
@@ -119,7 +119,7 @@ void ContrailInitCommon::InitModules() {
     }
 }
 
-void ContrailInitCommon::CreateVrf() {
+void TungstenInitCommon::CreateVrf() {
     VrfTable *vrf_table = agent()->vrf_table();
 
     if (agent()->isXenMode()) {
@@ -139,7 +139,7 @@ static PhysicalInterface::EncapType ComputeEncapType(const string &encap) {
     return PhysicalInterface::ETHERNET;
 }
 
-void ContrailInitCommon::ProcessComputeAddress(AgentParam *param) {
+void TungstenInitCommon::ProcessComputeAddress(AgentParam *param) {
     InetUnicastAgentRouteTable *rt_table =
         agent()->fabric_inet4_unicast_table();
 
@@ -168,7 +168,7 @@ void ContrailInitCommon::ProcessComputeAddress(AgentParam *param) {
     }
 }
 
-void ContrailInitCommon::CreateInterfaces() {
+void TungstenInitCommon::CreateInterfaces() {
     InterfaceTable *table = agent()->interface_table();
     PhysicalInterface::EncapType type;
 
@@ -275,7 +275,7 @@ void ContrailInitCommon::CreateInterfaces() {
     ProcessComputeAddress(agent_param());
 }
 
-void ContrailInitCommon::InitDone() {
+void TungstenInitCommon::InitDone() {
     //Open up mirror socket
     agent()->mirror_table()->MirrorSockInit();
 
@@ -319,7 +319,7 @@ void ContrailInitCommon::InitDone() {
 /****************************************************************************
  * Shutdown routines
  ***************************************************************************/
-void ContrailInitCommon::IoShutdown() {
+void TungstenInitCommon::IoShutdown() {
     if (agent()->pkt())
         agent()->pkt()->IoShutdown();
 
@@ -327,12 +327,12 @@ void ContrailInitCommon::IoShutdown() {
         agent()->services()->IoShutdown();
 }
 
-void ContrailInitCommon::FlushFlows() {
+void TungstenInitCommon::FlushFlows() {
     if (agent()->pkt())
         agent()->pkt()->FlushFlows();
 }
 
-void ContrailInitCommon::ServicesShutdown() {
+void TungstenInitCommon::ServicesShutdown() {
     if (agent()->services())
         agent()->services()->Shutdown();
 
@@ -341,13 +341,13 @@ void ContrailInitCommon::ServicesShutdown() {
     }
 }
 
-void ContrailInitCommon::PktShutdown() {
+void TungstenInitCommon::PktShutdown() {
     if (agent()->pkt()) {
         agent()->pkt()->Shutdown();
     }
 }
 
-void ContrailInitCommon::ModulesShutdown() {
+void TungstenInitCommon::ModulesShutdown() {
     if (agent()->diag_table()) {
         agent()->diag_table()->Shutdown();
     }

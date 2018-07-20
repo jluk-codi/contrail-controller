@@ -20,7 +20,7 @@ struct VncApiCommon {
     4: string url;             // The object URL
     /** The type of operation. e.g. get/post/put/delete etc.*/
     5: string operation;
-    /** which program is doing operation e.g. a3s10:/usr/bin/contrail-schema */
+    /** which program is doing operation e.g. a3s10:/usr/bin/tungsten-schema */
     6: string useragent;       // which program is doing operation
     /** which host is doing operation e.g. 10.84.16.10:8082 */
     7: string remote_ip;       // which host is doing operation
@@ -96,7 +96,7 @@ systemlog sandesh VncApiError {
     1: string api_msg;
 }
 
-struct ContrailConfig {
+struct TungstenConfig {
     /** fq_name string with joined by ':' */
     1: string name (key="none")
     /** notification message details */
@@ -105,9 +105,9 @@ struct ContrailConfig {
     3: bool deleted
 }
 
-dynamicuve sandesh ContrailConfigTrace {
+dynamicuve sandesh TungstenConfigTrace {
     /** container for notification/db-resync related message */
-    1: ContrailConfig data
+    1: TungstenConfig data
 }
 
 struct VncApiStats {
@@ -115,7 +115,7 @@ struct VncApiStats {
     1: string operation_type // (GET, PUT, POST, DELETE)
     /** user performing operation */
     2: string user
-    /** which program is doing operation e.g. a3s10:/usr/bin/contrail-schema */
+    /** which program is doing operation e.g. a3s10:/usr/bin/tungsten-schema */
     3: string useragent
     /** which host is doing operation e.g. 10.84.16.10:8082 */
     4: string remote_ip

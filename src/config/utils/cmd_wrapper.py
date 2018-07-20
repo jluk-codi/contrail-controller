@@ -305,13 +305,13 @@ class CmdServiceTemplateDel(Command):
         sp.delete_st()
 
 
-class CmdContrailVersion(Command):
+class CmdTungstenVersion(Command):
 
-    "Option to check contrail version"
+    "Option to check tungsten version"
 
     def take_action(self, parsed_args):
-        self.app.stdout.write('Option to check contrail version\n')
-        os.system("/usr/bin/contrail-version")
+        self.app.stdout.write('Option to check tungsten version\n')
+        os.system("/usr/bin/tungsten-version")
 
 
 class CmdCreateFloatingIPPool(Command):

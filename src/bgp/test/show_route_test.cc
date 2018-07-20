@@ -21,9 +21,9 @@ using namespace boost::assign;
 using namespace boost::asio;
 using namespace std;
 using boost::lexical_cast;
-using contrail::regex;
-using contrail::regex_match;
-using contrail::regex_search;
+using tungsten::regex;
+using tungsten::regex_match;
+using tungsten::regex_search;
 
 static const char config_template1[] = "\
 <config>\

@@ -16,8 +16,8 @@ testrepository
 mock
 kombu
 cfgm_common
-contrail-api-client
-contrail-api-server
+tungsten-api-client
+tungsten-api-server
 urllib3
 bitstring
 sandesh

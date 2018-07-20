@@ -76,7 +76,7 @@ class ServiceInstanceCmd(object):
         }
 
         if not args.conf_file:
-            args.conf_file = '/etc/contrail/contrail-svc-monitor.conf'
+            args.conf_file = '/etc/tungsten/tungsten-svc-monitor.conf'
 
         config = ConfigParser.SafeConfigParser()
         ret = config.read([args.conf_file])
@@ -135,7 +135,7 @@ class ServiceInstanceCmd(object):
     def _novaclient_init(self):
         self._nova = nc.Client(
             '2', username='admin',
-            project_id=self._args.proj_name, api_key='contrail123',
+            project_id=self._args.proj_name, api_key='tungsten123',
             auth_url='http://' + self._args.ifmap_server_ip + ':5000/v2.0')
     # end _novaclient_init
 

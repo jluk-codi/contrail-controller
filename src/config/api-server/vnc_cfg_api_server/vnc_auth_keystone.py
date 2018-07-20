@@ -210,7 +210,7 @@ class AuthServiceKeystone(object):
         if self._auth_method != 'keystone':
             raise UnknownAuthMethod()
 
-        # map keystone id to users. Needed for quantum plugin because contrail
+        # map keystone id to users. Needed for quantum plugin because tungsten
         # plugin doesn't have access to user token and ends up sending admin
         # admin token along with user-id and role
         self._ks_users = {}

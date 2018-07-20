@@ -4,7 +4,7 @@
 #
 
 """
-Contrail Kube Manager logger
+Tungsten Kube Manager logger
 """
 
 import socket

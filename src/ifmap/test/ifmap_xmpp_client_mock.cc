@@ -11,10 +11,10 @@
 using namespace std;
 
 const string IFMapXmppClientMock::kDefaultXmppLocalAddr = "127.0.0.1";
-const string IFMapXmppClientMock::kDefaultXmppServerName = "bgp.contrail.com";
+const string IFMapXmppClientMock::kDefaultXmppServerName = "bgp.tungsten.com";
 const string IFMapXmppClientMock::kDefaultXmppServerAddr = "127.0.0.1";
 const string IFMapXmppClientMock::kDefaultXmppServerConfigName =
-    "bgp.contrail.com/config";
+    "bgp.tungsten.com/config";
 const string IFMapXmppClientMock::kDefaultOutputFile = "/tmp/output.txt";
 
 IFMapXmppClientMock::IFMapXmppClientMock(EventManager *evm,

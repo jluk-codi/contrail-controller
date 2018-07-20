@@ -15,7 +15,7 @@ class Resync(object):
     def resync_domains_projects(self):
         """
         Method that implements auditing of projects between orchestration
-        system and OpenContrail VNC
+        system and Tungsten Fabric VNC
         """
         pass
     #end resync_projects

@@ -282,7 +282,7 @@ int EvpnPrefix::FromProtoPrefix(BgpServer *server,
         if (pmsi_tunnel &&
             (pmsi_tunnel->tunnel_type() == PmsiTunnelSpec::IngressReplication ||
              pmsi_tunnel->tunnel_type() ==
-             PmsiTunnelSpec::AssistedReplicationContrail)) {
+             PmsiTunnelSpec::AssistedReplicationTungsten)) {
             const ExtCommunity *extcomm = attr ? attr->ext_community() : NULL;
             if (extcomm && extcomm->ContainsTunnelEncapVxlan()) {
                 if (prefix->tag_ && prefix->tag_ <= kMaxVni) {
@@ -948,7 +948,7 @@ bool EvpnRoute::IsValid() const {
             }
             return false;
         }
-        if (tunnel_type == PmsiTunnelSpec::AssistedReplicationContrail &&
+        if (tunnel_type == PmsiTunnelSpec::AssistedReplicationTungsten &&
             ar_type == PmsiTunnelSpec::ARLeaf) {
             return true;
         }

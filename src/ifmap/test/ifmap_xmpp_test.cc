@@ -42,9 +42,9 @@
 #include <fstream>
 
 using namespace std;
-using contrail_rapidjson::Document;
-using contrail_rapidjson::SizeType;
-using contrail_rapidjson::Value;
+using tungsten_rapidjson::Document;
+using tungsten_rapidjson::SizeType;
+using tungsten_rapidjson::Value;
 
 class XmppIfmapTest : public ::testing::Test {
 protected:
@@ -358,9 +358,9 @@ protected:
 
 const string XmppIfmapTest::kDefaultClientName = "phys-host-1";
 const string XmppIfmapTest::kDefaultXmppServerAddress = "127.0.0.1";
-const string XmppIfmapTest::kDefaultXmppServerName = "bgp.contrail.com";
+const string XmppIfmapTest::kDefaultXmppServerName = "bgp.tungsten.com";
 const string XmppIfmapTest::kDefaultXmppServerConfigName =
-    "bgp.contrail.com/config";
+    "bgp.tungsten.com/config";
 
 namespace {
 
@@ -1438,7 +1438,7 @@ TEST_F(XmppIfmapTest, Cli1Vn1Vm3Add) {
 
     // create the mock client
     string client_name =
-        string("default-global-system-config:a1s27.contrail.juniper.net");
+        string("default-global-system-config:a1s27.tungsten.juniper.net");
     string filename("/tmp/" + GetUserName() + "_cli1_vn1_vm3_add.output");
     IFMapXmppClientMock *vnsw_client =
         new IFMapXmppClientMock(&evm_, xmpp_server_->GetPort(), client_name,
@@ -1518,7 +1518,7 @@ TEST_F(XmppIfmapTest, Cli1Vn2Np1Add) {
 
     // create the mock client
     string client_name =
-        string("default-global-system-config:a1s27.contrail.juniper.net");
+        string("default-global-system-config:a1s27.tungsten.juniper.net");
     string filename("/tmp/" + GetUserName() + "_cli1_vn2_np1_add.output");
     IFMapXmppClientMock *vnsw_client =
         new IFMapXmppClientMock(&evm_, xmpp_server_->GetPort(), client_name,
@@ -1595,7 +1595,7 @@ TEST_F(XmppIfmapTest, Cli1Vn2Np2Add) {
 
     // create the mock client
     string client_name =
-        string("default-global-system-config:a1s27.contrail.juniper.net");
+        string("default-global-system-config:a1s27.tungsten.juniper.net");
     string filename("/tmp/" + GetUserName() + "_cli1_vn2_np2_add.output");
     IFMapXmppClientMock *vnsw_client =
         new IFMapXmppClientMock(&evm_, xmpp_server_->GetPort(), client_name,
@@ -1672,7 +1672,7 @@ TEST_F(XmppIfmapTest, Cli2Vn2Np2Add) {
 
     // Establish client a1s27
     string cli_name1 =
-        string("default-global-system-config:a1s27.contrail.juniper.net");
+        string("default-global-system-config:a1s27.tungsten.juniper.net");
     string filename1("/tmp/" + GetUserName() + "_cli2_vn2_np2_add_s27.output");
     IFMapXmppClientMock *vnsw_cli1 =
         new IFMapXmppClientMock(&evm_, xmpp_server_->GetPort(), cli_name1,
@@ -1681,7 +1681,7 @@ TEST_F(XmppIfmapTest, Cli2Vn2Np2Add) {
 
     // Establish client a1s28
     string cli_name2 =
-        string("default-global-system-config:a1s28.contrail.juniper.net");
+        string("default-global-system-config:a1s28.tungsten.juniper.net");
     string filename2("/tmp/" + GetUserName() + "_cli2_vn2_np2_add_s28.output");
     IFMapXmppClientMock *vnsw_cli2 =
         new IFMapXmppClientMock(&evm_, xmpp_server_->GetPort(), cli_name2,
@@ -1790,7 +1790,7 @@ TEST_F(XmppIfmapTest, DISABLED_Cli2Vn2Vm2Add) {
 
     // Establish client a1s27
     string cli_name1 =
-        string("default-global-system-config:a1s27.contrail.juniper.net");
+        string("default-global-system-config:a1s27.tungsten.juniper.net");
     string filename1("/tmp/" + GetUserName() + "_cli2_vn2_vm2_add_s27.output");
     IFMapXmppClientMock *vnsw_cli1 =
         new IFMapXmppClientMock(&evm_, xmpp_server_->GetPort(), cli_name1,
@@ -1799,7 +1799,7 @@ TEST_F(XmppIfmapTest, DISABLED_Cli2Vn2Vm2Add) {
 
     // Establish client a1s28
     string cli_name2 =
-        string("default-global-system-config:a1s28.contrail.juniper.net");
+        string("default-global-system-config:a1s28.tungsten.juniper.net");
     string filename2("/tmp/" + GetUserName() + "_cli2_vn2_vm2_add_s28.output");
     IFMapXmppClientMock *vnsw_cli2 =
         new IFMapXmppClientMock(&evm_, xmpp_server_->GetPort(), cli_name2,
@@ -1908,7 +1908,7 @@ TEST_F(XmppIfmapTest, DISABLED_Cli2Vn3Vm6Np2Add) {
 
     // Establish client a1s27
     string cli_name1 =
-        string("default-global-system-config:a1s27.contrail.juniper.net");
+        string("default-global-system-config:a1s27.tungsten.juniper.net");
     string filename1("/tmp/" + GetUserName() +
                      "_cli2_vn3_vm6_np2_add_s27.output");
     IFMapXmppClientMock *vnsw_cli1 =
@@ -1918,7 +1918,7 @@ TEST_F(XmppIfmapTest, DISABLED_Cli2Vn3Vm6Np2Add) {
 
     // Establish client a1s28
     string cli_name2 =
-        string("default-global-system-config:a1s28.contrail.juniper.net");
+        string("default-global-system-config:a1s28.tungsten.juniper.net");
     string filename2("/tmp/" + GetUserName() +
                      "_cli2_vn3_vm6_np2_add_s28.output");
     IFMapXmppClientMock *vnsw_cli2 =
@@ -2045,7 +2045,7 @@ TEST_F(XmppIfmapTest, CfgSubUnsub) {
 
     // create the mock client
     string client_name =
-        string("default-global-system-config:a1s27.contrail.juniper.net");
+        string("default-global-system-config:a1s27.tungsten.juniper.net");
     string filename("/tmp/" + GetUserName() + "_cfg_reg_unreg.output");
     IFMapXmppClientMock *vnsw_client =
         new IFMapXmppClientMock(&evm_, xmpp_server_->GetPort(), client_name,
@@ -2197,7 +2197,7 @@ TEST_F(XmppIfmapTest, CfgAdd_Reg_CfgDel_Unreg) {
 
     // create the mock client
     string client_name =
-        string("default-global-system-config:a1s27.contrail.juniper.net");
+        string("default-global-system-config:a1s27.tungsten.juniper.net");
     string filename("/tmp/" + GetUserName() +
                     "_cfgadd_reg_cfgdel_unreg.output");
     IFMapXmppClientMock *vnsw_client =
@@ -2364,7 +2364,7 @@ TEST_F(XmppIfmapTest, Reg_CfgAdd_CfgDel_Unreg) {
 
     // create the mock client
     string client_name =
-        string("default-global-system-config:a1s27.contrail.juniper.net");
+        string("default-global-system-config:a1s27.tungsten.juniper.net");
     string filename("/tmp/" + GetUserName() +
                     "_reg_cfgadd_cfgdel_unreg.output");
     IFMapXmppClientMock *vnsw_client =
@@ -2547,7 +2547,7 @@ TEST_F(XmppIfmapTest, Reg_CfgAdd_Unreg_CfgDel) {
 
     // create the mock client
     string client_name =
-        string("default-global-system-config:a1s27.contrail.juniper.net");
+        string("default-global-system-config:a1s27.tungsten.juniper.net");
     string filename("/tmp/" + GetUserName() +
                     "_reg_cfgadd_unreg_cfgdel.output");
     IFMapXmppClientMock *vnsw_client =
@@ -2720,7 +2720,7 @@ TEST_F(XmppIfmapTest, Reg_CfgAdd_Unreg_Close) {
 
     // create the mock client
     string client_name =
-        string("default-global-system-config:a1s27.contrail.juniper.net");
+        string("default-global-system-config:a1s27.tungsten.juniper.net");
     string filename("/tmp/" + GetUserName() + "_reg_cfgadd_unreg_close.output");
     IFMapXmppClientMock *vnsw_client =
         new IFMapXmppClientMock(&evm_, xmpp_server_->GetPort(), client_name,
@@ -2911,7 +2911,7 @@ TEST_F(XmppIfmapTest, CheckIFMapObjectSeqInList) {
 
     // create the mock client
     string client_name =
-        string("default-global-system-config:a1s27.contrail.juniper.net");
+        string("default-global-system-config:a1s27.tungsten.juniper.net");
     string filename("/tmp/" + GetUserName() +
                     "_check_ifmap_object_seq_in_list.output");
     IFMapXmppClientMock *vnsw_client =
@@ -3145,7 +3145,7 @@ TEST_F(XmppIfmapTest, ReadyNotready) {
 
     // create the mock client
     string client_name =
-        string("default-global-system-config:a1s27.contrail.juniper.net");
+        string("default-global-system-config:a1s27.tungsten.juniper.net");
     string filename("/tmp/" + GetUserName() + "_ready_not_ready.output");
     IFMapXmppClientMock *vnsw_client =
         new IFMapXmppClientMock(&evm_, xmpp_server_->GetPort(), client_name,
@@ -3187,7 +3187,7 @@ TEST_F(XmppIfmapTest, Bug788) {
 
     // Create the mock client
     string client_name =
-        string("default-global-system-config:a1s27.contrail.juniper.net");
+        string("default-global-system-config:a1s27.tungsten.juniper.net");
     string filename("/tmp/" + GetUserName() + "_bug788.output");
     IFMapXmppClientMock *vnsw_client =
         new IFMapXmppClientMock(&evm_, xmpp_server_->GetPort(), client_name,
@@ -3827,7 +3827,7 @@ TEST_F(XmppIfmapTest, DeleteClientPendingVmregCleanup) {
 
     // create the mock client
     string client_name =
-        string("default-global-system-config:a1s27.contrail.juniper.net");
+        string("default-global-system-config:a1s27.tungsten.juniper.net");
     string filename("/tmp/" + GetUserName() +
                     "_cfgadd_reg_cfgdel_unreg.output");
     IFMapXmppClientMock *vnsw_client =

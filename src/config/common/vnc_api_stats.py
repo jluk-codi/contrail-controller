@@ -54,7 +54,7 @@ class VncApiStatistics(object):
             object_type=self.obj_type,
             operation_type=bottle.request.method,
             user=bottle.request.headers.get('X-User-Name', ''),
-            useragent=bottle.request.headers.get('X-Contrail-Useragent',
+            useragent=bottle.request.headers.get('X-Tungsten-Useragent',
                 bottle.request.headers.get('User-Agent')),
             remote_ip=bottle.request.remote_addr,
             domain_name=domain_name,

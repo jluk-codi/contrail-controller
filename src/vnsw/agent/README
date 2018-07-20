@@ -3,18 +3,18 @@ TODO: Work in-progress
 
 VNsw Agent
 ----------
-VNsw Agent (also called Agent) in Contrail solution is responsible to manage
+VNsw Agent (also called Agent) in Tungsten solution is responsible to manage
 the dataplane component. It is similar to any data-path agent that runs on line
 cards of a network node. Responsibilities of Agent includes,
-    - Interface with Contrail-Controller to get the configuration
+    - Interface with Tungsten-Controller to get the configuration
       Agent gets the configuration and translates it into a form that datapath
       can understand.
-    - Interface with Contrail-Controller to manage routes
+    - Interface with Tungsten-Controller to manage routes
     - Collect and export statistics from datapath
     - Translate the data model from IFMap to the data model used by datapath
 
-Refer to Contrail architecture document at
-http://opencontrail.org/opencontrail-architecture-documentation/ for more
+Refer to Tungsten architecture document at
+http://tungsten.io/Tungsten Fabric-architecture-documentation/ for more
 information.
 
 Agent contains following modules,
@@ -27,8 +27,8 @@ Agent contains following modules,
     - KSync
 
 Agent by itself is not a program or daemon. Based on the platform, daemons are
-built using the modules given above. The contrail-vxlan-agent is port of
-contrail-vrouter-agent on platforms supporting vxlan bridges.
+built using the modules given above. The tungsten-vxlan-agent is port of
+tungsten-vrouter-agent on platforms supporting vxlan bridges.
 
 The diagram below gives overview of different modules invovlved
 
@@ -92,9 +92,9 @@ type of configurations,
         - Virtual Network for the port
 
     Once Agent comes to know about creation of a port, it will send a
-    subscribe message to Contrail-Controller for the Virtual-Machine.
+    subscribe message to Tungsten-Controller for the Virtual-Machine.
 
-    When Contrail-Controller gets the subscribe message gor a virtual-machine,
+    When Tungsten-Controller gets the subscribe message gor a virtual-machine,
     it will walk through the IFMap Graph and send all configuration relavent
     for virtual-machine to the agent.
 
@@ -107,9 +107,9 @@ type of configurations,
     The MAP database is accessed using IF-MAP protcol.
 
     Agent does not access the MAP database directly. Instead, Agent opens an
-    XMPP connection to Contrail-Controller to get the MAP configuration.
+    XMPP connection to Tungsten-Controller to get the MAP configuration.
     Contrial-Controller works on a subscription model. Agent must subscribe
-    to the virtual-machines of interest and Contrail-Controller will download
+    to the virtual-machines of interest and Tungsten-Controller will download
     all the configuration relavent to the virtual-machine. This way, Agent
     gets only minimal configuration needed for it.
 
@@ -117,7 +117,7 @@ type of configurations,
     for a Virtual Machine Interface.
 
     Agent uses IFMap-Agent-Client library to parse the IFMap messages from XMPP
-    channel to Contrail-Controller. The IFMap-Agent-Client defines a DBTable
+    channel to Tungsten-Controller. The IFMap-Agent-Client defines a DBTable
     for every IFMap Node type. A special DBTable is defined to store the IFMap
     Links.
 
@@ -341,14 +341,14 @@ Some of the important tables in Oper-DB are,
 
 Controller :
 ------------
-This module manages the communication between Agent and Contrail-Controller.
-Agent connects to two Contrail-Controllers for redundancy.
+This module manages the communication between Agent and Tungsten-Controller.
+Agent connects to two Tungsten-Controllers for redundancy.
 
-2 XMPP channels are opened with each of the Contrail-Controllers
+2 XMPP channels are opened with each of the Tungsten-Controllers
 
     Configuration Channel
     ---------------------
-    Contrail-Controller uses this channel to send IFMap configuration to
+    Tungsten-Controller uses this channel to send IFMap configuration to
     agent.
 
     Agent subscribes to configuration from only one of the XMPP channels at
@@ -358,7 +358,7 @@ Agent connects to two Contrail-Controllers for redundancy.
     Route Channel
     -------------
     This channel is used to exchange routes between agent and
-    Contrail-Controller. Agent connects to two Contrail-Controller at a time
+    Tungsten-Controller. Agent connects to two Tungsten-Controller at a time
     and routes are exchanged between both the channels. Route from each
     channels is added with a different "Route Peer". When one of the channel
     goes down, it only deletes "Route Path" from channel that went down.
@@ -383,15 +383,15 @@ Agent connects to two Contrail-Controllers for redundancy.
         Route Import
         ------------
         Agent subscribes to all routing-instances for in the VRF table.
-        Contrail-Controller collects routes from all agents. Controller syncs
+        Tungsten-Controller collects routes from all agents. Controller syncs
         routes in a routing-instance if agent is subscribed to the
         routing-instance.
 
-        Routes are exchanged between Agent and Contrail-Controller over XMPP
+        Routes are exchanged between Agent and Tungsten-Controller over XMPP
         channel in XML format.
 
         The Controller module decodes the XMPP messages and adds/deletes
-        "Route Paths" into the routing-tables. Contrail-Controller gives
+        "Route Paths" into the routing-tables. Tungsten-Controller gives
         following information for every route,
           * Routing instance for the route
           * Destination Network for the route
@@ -403,7 +403,7 @@ Agent connects to two Contrail-Controllers for redundancy.
           * Security Group membership for the routes
           * Virtual-Network for the route
 
-    Contrail-Controller also reflects back the routes added by agent itself.
+    Tungsten-Controller also reflects back the routes added by agent itself.
     When route is received, agent looks at the Gateway IP-Address to identify
     if the route is hosted on local compute node or a remote compute node.
     If the route is hosted on remote compute node, the Controller module
@@ -412,19 +412,19 @@ Agent connects to two Contrail-Controllers for redundancy.
 
     Headless Mode
     -------------
-    When the XMPP channel from Agent to contrail-controller goes down, agent
+    When the XMPP channel from Agent to tungsten-controller goes down, agent
     will flush all the "Route Path" added by a controller. If connection to
-    both Contrail-Controller goes down, this can result in deleting of routes
+    both Tungsten-Controller goes down, this can result in deleting of routes
     distributed by controller.
 
-    Connection to Contrail-Controllers can go down for many reasons including,
-    network failure, Contrail-Controller node going down etc.. Deleting paths
+    Connection to Tungsten-Controllers can go down for many reasons including,
+    network failure, Tungsten-Controller node going down etc.. Deleting paths
     can result in connectivity loss between virtual-machines.
 
     Headless mode is introduced as a resilient mode of operation for Agent.
     When running in Headless mode, agent will retain the last "Route Path"
-    from Contrail-Controller. The "Route Path" are held till a new stable
-    connection is established to one of the Contrail-Controller. Once the
+    from Tungsten-Controller. The "Route Path" are held till a new stable
+    connection is established to one of the Tungsten-Controller. Once the
     XMPP connection is up and is stable for a pre-defined duration, the
     "Route Path" from old XMPP connection are flushed.
 
@@ -432,7 +432,7 @@ Agent KSync
 -----------
 The Oper-DB in Agent contains different tables and defines the data model used
 in the Agent. While the Agent data model was initially developed for
-Contrail-Vrouter-Agent, it is mostly independent of underlying forwarding
+Tungsten-Vrouter-Agent, it is mostly independent of underlying forwarding
 platform.
 
 The data model used by datapath can vary based on the platform being ports.
@@ -445,8 +445,8 @@ Functionality of Agent KSync includes,
         - Oper-DB defines datamodule of Agent
     - Keep the operational state of agent in-sync with the forwarding plane
     - Keep Agent platform independent
-      Ex: KSync in Contrail-Vrouter-Agent is only module which knows that
-      flow table is memory mapped into Contrail-Vrouter-Agent memory
+      Ex: KSync in Tungsten-Vrouter-Agent is only module which knows that
+      flow table is memory mapped into Tungsten-Vrouter-Agent memory
 
 We need to have different implementation of Agent KSync based on the platform.
 

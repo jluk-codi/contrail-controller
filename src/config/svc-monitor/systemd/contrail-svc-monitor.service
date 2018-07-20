@@ -1,15 +1,15 @@
 [Unit]
-Description="Contrail SVC Monitor"
+Description="Tungsten SVC Monitor"
 After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/contrail-svc-monitor --conf_file /etc/contrail/contrail-svc-monitor.conf --conf_file /etc/contrail/contrail-keystone-auth.conf
-PIDFile=/var/run/contrail/contrail-svc-monitor.pid
+ExecStart=/usr/bin/tungsten-svc-monitor --conf_file /etc/tungsten/tungsten-svc-monitor.conf --conf_file /etc/tungsten/tungsten-keystone-auth.conf
+PIDFile=/var/run/tungsten/tungsten-svc-monitor.pid
 TimeoutStopSec=0
 Restart=always
-User=contrail
-Group=contrail
+User=tungsten
+Group=tungsten
 ExecStop=/bin/kill -s TERM $MAINPID
 
 PrivateTmp=yes
@@ -17,8 +17,8 @@ PrivateDevices=yes
 ProtectHome=yes
 ReadOnlyDirectories=/
 ReadWriteDirectories=-/var/crashes
-ReadWriteDirectories=-/var/log/contrail
-ReadWriteDirectories=-/etc/contrail
+ReadWriteDirectories=-/var/log/tungsten
+ReadWriteDirectories=-/etc/tungsten
 
 [Install]
 WantedBy=multi-user.target

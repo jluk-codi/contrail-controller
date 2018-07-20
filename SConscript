@@ -8,11 +8,11 @@ env = DefaultEnvironment()
 
 SConscript(dirs=['lib', 'src'])
 
-env['api_repo_path'] = '#/src/contrail-api-client'
-SConscript(dirs=['../src/contrail-api-client'])
+env['api_repo_path'] = '#/src/tungsten-api-client'
+SConscript(dirs=['../src/tungsten-api-client'])
 
 if platform.system() != 'Windows':
-    SConscript(dirs=['../src/contrail-analytics'])
+    SConscript(dirs=['../src/tungsten-analytics'])
 
 env.Alias('controller/test', [
     'controller/src/agent:test',
@@ -24,16 +24,16 @@ env.Alias('controller/test', [
     'controller/src/ifmap:test',
     'controller/src/net:test',
     'controller/src/xmpp:test',
-    'src/contrail-api-client/api-lib:test',
+    'src/tungsten-api-client/api-lib:test',
     'controller/src/config/api-server:test',
     'controller/src/config/fabric-ansible:tests',
     'controller/src/config/schema-transformer:test',
     'controller/src/ksync:test',
-    'src/contrail-common/database/gendb:test',
-    'src/contrail-analytics/contrail-collector:test',
-    'src/contrail-analytics/contrail-opserver:test',
-    'src/contrail-analytics/contrail-query-engine:test',
-    'src/contrail-api-client/schema:test',
+    'src/tungsten-common/database/gendb:test',
+    'src/tungsten-analytics/tungsten-collector:test',
+    'src/tungsten-analytics/tungsten-opserver:test',
+    'src/tungsten-analytics/tungsten-query-engine:test',
+    'src/tungsten-api-client/schema:test',
 ])
 
 env.Alias('controller/flaky-test', [
@@ -46,8 +46,8 @@ env.Alias('controller/flaky-test', [
     'controller/src/ifmap:flaky-test',
     'controller/src/xmpp:flaky-test',
     'controller/src/config/device-manager:flaky-test',
-    'src/contrail-common/database/gendb:flaky-test',
-    'src/contrail-analytics/contrail-collector:flaky-test',
+    'src/tungsten-common/database/gendb:flaky-test',
+    'src/tungsten-analytics/tungsten-collector:flaky-test',
 ])
 
 

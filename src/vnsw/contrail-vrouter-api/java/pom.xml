@@ -1,20 +1,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>net.juniper.contrail</groupId>
-  <artifactId>juniper-contrail-vrouter-api</artifactId>
+  <groupId>net.juniper.tungsten</groupId>
+  <artifactId>juniper-tungsten-vrouter-api</artifactId>
   <packaging>jar</packaging>
   <version>1.0</version>
-  <name>juniper-contrail-vrouter-api</name>
+  <name>juniper-tungsten-vrouter-api</name>
   <url>http://maven.apache.org</url>
   <distributionManagement>
     <repository>
       <id>repo</id>
-      <url>https://github.com/Juniper/contrail-maven/raw/master/releases</url>
+      <url>https://github.com/Juniper/tungsten-maven/raw/master/releases</url>
     </repository>
     <snapshotRepository>
       <id>snapshot-repo</id>
-      <url>https://github.com/Juniper/contrail-maven/raw/master/snapshots</url>
+      <url>https://github.com/Juniper/tungsten-maven/raw/master/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
   <pluginRepositories>
@@ -60,7 +60,7 @@
   <build>
     <defaultGoal>package</defaultGoal>
     <sourceDirectory>${basedir}/src</sourceDirectory>
-    <directory>${basedir}/../../../../../build/debug/vnsw/contrail-vrouter-api/java/target</directory>
+    <directory>${basedir}/../../../../../build/debug/vnsw/tungsten-vrouter-api/java/target</directory>
     <testSourceDirectory>${basedir}/test</testSourceDirectory>
     <testResources>
       <testResource>

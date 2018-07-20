@@ -2,63 +2,63 @@
 // Copyright (c) 2016 Juniper Networks, Inc. All rights reserved.
 //
 
-// contrail-kube-manager.sandesh
+// tungsten-kube-manager.sandesh
 //
-// Sandesh messages for Contrail Kube Manager.
+// Sandesh messages for Tungsten Kube Manager.
 //
 
 /**
- * @description: Emergency log messages from Contrail Kube Manager.
+ * @description: Emergency log messages from Tungsten Kube Manager.
  * @severity: Emergency
  * @cause: Kube Manager has run into unrecoverable state.
- * @action: Restart Contrail Kube Manager.
+ * @action: Restart Tungsten Kube Manager.
  */
 systemlog sandesh KubeManagerEmergencyLog {
 1: string log_msg;
 }
 
 /**
- * @description: Alert log messages from Contrail Kube Manager.
+ * @description: Alert log messages from Tungsten Kube Manager.
  * @severity: Alert
  * @cause: Kube Manager has run into unrecoverable state.
- * @action: Restart Contrail Kube Manager.
+ * @action: Restart Tungsten Kube Manager.
  */
 systemlog sandesh KubeManagerAlertLog {
 1: string log_msg;
 }
 
 /**
- * @description: Critical log messages from Contrail Kube Manager.
+ * @description: Critical log messages from Tungsten Kube Manager.
  * @severity: Critical
  * @cause: Kube Manager has run into unrecoverable state.
- * @action: Restart Contrail Kube Manager.
+ * @action: Restart Tungsten Kube Manager.
  */
 systemlog sandesh KubeManagerCriticalLog {
 1: string log_msg;
 }
 
 /**
- * @description: Error log messages from Contrail Kube Manager.
+ * @description: Error log messages from Tungsten Kube Manager.
  * @severity: Error
  * @cause: Kube Manager has run into error state.
- * @action: Restart Contrail Kube Manager.
+ * @action: Restart Tungsten Kube Manager.
  */
 systemlog sandesh KubeManagerErrorLog {
 1: string log_msg;
 }
 
 /**
- * @description: Warning log messages from Contrail Kube Manager.
+ * @description: Warning log messages from Tungsten Kube Manager.
  * @severity: Warning
  * @cause: Kube manager detected an opeationally impacting condition.
- * @action: No action needed. Restart Contrail Kube Manager recommended.
+ * @action: No action needed. Restart Tungsten Kube Manager recommended.
  */
 systemlog sandesh KubeManagerWarningLog {
 1: string log_msg;
 }
 
 /**
- * @description: Notice log messages from Contrail Kube Manager.
+ * @description: Notice log messages from Tungsten Kube Manager.
  * @severity: Notice
  * @cause: A condition that operator should be aware of.
  * @action: No action needed.
@@ -68,7 +68,7 @@ systemlog sandesh KubeManagerNoticeLog {
 }
 
 /**
- * @description: Informational logs Contrail Kube Manager.
+ * @description: Informational logs Tungsten Kube Manager.
  * @severity: Info
  * @cause: Informational logs.
  * @action: No action needed.
@@ -78,7 +78,7 @@ systemlog sandesh KubeManagerInfoLog {
 }
 
 /**
- * @description: Debug logs Contrail Kube Manager.
+ * @description: Debug logs Tungsten Kube Manager.
  * @severity: Debug
  * @cause: Debug logs.
  * @action: No action needed.

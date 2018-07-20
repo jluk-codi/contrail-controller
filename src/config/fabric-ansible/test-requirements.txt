@@ -9,8 +9,8 @@ ncclient
 cfgm_common
 sandesh
 sandesh_common
-contrail-api-client
-contrail-api-server
+tungsten-api-client
+tungsten-api-server
 junitxml
 pyOpenSSL
 ansible

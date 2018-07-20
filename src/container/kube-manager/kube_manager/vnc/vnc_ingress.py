@@ -328,8 +328,8 @@ class VncIngress(VncCommon):
             if annotations and 'externalIP' in annotations:
                 external_ip = annotations['externalIP']
             specified_fip_pool_fq_name_str = None
-            if annotations and 'opencontrail.org/fip-pool' in annotations:
-                specified_fip_pool_fq_name_str = annotations['opencontrail.org/fip-pool']
+            if annotations and 'tungsten.io/fip-pool' in annotations:
+                specified_fip_pool_fq_name_str = annotations['tungsten.io/fip-pool']
             fip = self._update_floating_ip(name,
                             ns_name, external_ip, lb_obj, specified_fip_pool_fq_name_str)
             self._update_kube_api_server(name, ns_name, lb_obj, fip)
@@ -667,12 +667,12 @@ class VncIngress(VncCommon):
 
     def _create_lb(self, uid, name, ns_name, event):
         annotations = event['object']['metadata'].get('annotations')
-        ingress_controller = 'opencontrail'
+        ingress_controller = 'Tungsten Fabric'
         if annotations:
             if 'kubernetes.io/ingress.class' in annotations:
                 ingress_controller = annotations['kubernetes.io/ingress.class']
-        if ingress_controller != 'opencontrail':
-            self._logger.warning("%s - ingress controller is not opencontrail for ingress %s"
+        if ingress_controller != 'Tungsten Fabric':
+            self._logger.warning("%s - ingress controller is not Tungsten Fabric for ingress %s"
                 %(self._name, name))
             self._delete_ingress(uid)
             return
@@ -687,8 +687,8 @@ class VncIngress(VncCommon):
             if annotations and 'externalIP' in annotations:
                 external_ip = annotations['externalIP']
             specified_fip_pool_fq_name_str = None
-            if annotations and 'opencontrail.org/fip-pool' in annotations:
-                specified_fip_pool_fq_name_str = annotations['opencontrail.org/fip-pool']
+            if annotations and 'tungsten.io/fip-pool' in annotations:
+                specified_fip_pool_fq_name_str = annotations['tungsten.io/fip-pool']
             if external_ip != lb.external_ip:
                 self._deallocate_floating_ip(lb)
                 lb_obj = self._vnc_lib.loadbalancer_read(id=lb.uuid)

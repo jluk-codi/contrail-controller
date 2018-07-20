@@ -1,5 +1,5 @@
 cfgm_common
-contrail-api-client
+tungsten-api-client
 sandesh
 sandesh-common
 gevent==1.1a2

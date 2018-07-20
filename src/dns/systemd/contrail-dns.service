@@ -1,23 +1,23 @@
 [Unit]
-Description="Contrail DNS"
+Description="Tungsten DNS"
 After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/contrail-dns
-PIDFile=/var/run/contrail/contrail-dns
+ExecStart=/usr/bin/tungsten-dns
+PIDFile=/var/run/tungsten/tungsten-dns
 TimeoutStopSec=0
 Restart=always
-User=contrail
-Group=contrail
+User=tungsten
+Group=tungsten
 ExecStop=/bin/kill -s TERM $MAINPID
 PrivateTmp=yes
 PrivateDevices=yes
 ProtectHome=yes
 ReadOnlyDirectories=/
 ReadWriteDirectories=-/var/crashes
-ReadWriteDirectories=-/var/log/contrail
-ReadWriteDirectories=-/etc/contrail
+ReadWriteDirectories=-/var/log/tungsten
+ReadWriteDirectories=-/etc/tungsten
 
 [Install]
 WantedBy=multi-user.target

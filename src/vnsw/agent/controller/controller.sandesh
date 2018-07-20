@@ -5,12 +5,12 @@
 /**
  *  Message definitions for agent controller module.
  *
- * This module manages the communication between Agent and Contrail-Controller
- * Agent connects to two Contrail-Controllers for redundancy.
- * 2 XMPP channels are opened with each of the Contrail-Controllers.
+ * This module manages the communication between Agent and Tungsten-Controller
+ * Agent connects to two Tungsten-Controllers for redundancy.
+ * 2 XMPP channels are opened with each of the Tungsten-Controllers.
  *
  * A Configuration Channel to send IFMap configuration to agent.
- * A Route Channel to exchange routes between agent and Contrail-Controller.
+ * A Route Channel to exchange routes between agent and Tungsten-Controller.
  *
  */
 

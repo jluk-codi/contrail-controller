@@ -51,7 +51,7 @@ TEST_F(AgentParamTest, Agent_Conf_file_1) {
     EXPECT_EQ(param.mgmt_ip().to_ulong(), 0);
     EXPECT_STREQ(param.tunnel_type().c_str(), "MPLSoGRE");
     EXPECT_EQ(param.dhcp_relay_mode(), true);
-    EXPECT_STREQ(param.metadata_shared_secret().c_str(), "contrail");
+    EXPECT_STREQ(param.metadata_shared_secret().c_str(), "tungsten");
     EXPECT_EQ(param.metadata_proxy_port(), 8998);
     EXPECT_EQ(param.dns_client_port(), 8997);
     EXPECT_EQ(param.mirror_client_port(), 8999);
@@ -64,7 +64,7 @@ TEST_F(AgentParamTest, Agent_Conf_file_1) {
                  "controller/src/vnsw/agent/init/test/cfg.ini");
     EXPECT_STREQ(param.program_name().c_str(), "test-param");
     EXPECT_EQ(param.agent_mode(), AgentParam::VROUTER_AGENT);
-    EXPECT_STREQ(param.agent_base_dir().c_str(), "/var/lib/contrail");
+    EXPECT_STREQ(param.agent_base_dir().c_str(), "/var/lib/tungsten");
     EXPECT_EQ(param.subnet_hosts_resolvable(), true);
 
     const std::vector<uint16_t> &ports = param.bgp_as_a_service_port_range_value();
@@ -74,7 +74,7 @@ TEST_F(AgentParamTest, Agent_Conf_file_1) {
                  "controller/src/vnsw/agent/init/test/cfg.ini");
     EXPECT_STREQ(param.program_name().c_str(), "test-param");
     EXPECT_EQ(param.agent_mode(), AgentParam::VROUTER_AGENT);
-    EXPECT_STREQ(param.agent_base_dir().c_str(), "/var/lib/contrail");
+    EXPECT_STREQ(param.agent_base_dir().c_str(), "/var/lib/tungsten");
     EXPECT_EQ(param.subnet_hosts_resolvable(), true);
 
     const std::vector<uint16_t> &ports2 = param.bgp_as_a_service_port_range_value();
@@ -133,10 +133,10 @@ TEST_F(AgentParamTest, Agent_Conf_file_2) {
     EXPECT_EQ(param.services_queue_limit(), 1024);
     EXPECT_TRUE(param.sandesh_config().disable_object_logs);
 
-    EXPECT_EQ(param.huge_page_file_1G(0), "/var/lib/contrail/vrouter_flow_1G");
-    EXPECT_EQ(param.huge_page_file_1G(1), "/var/lib/contrail/vrouter_bridge_1G");
-    EXPECT_EQ(param.huge_page_file_2M(0), "/var/lib/contrail/vrouter_flow_2M");
-    EXPECT_EQ(param.huge_page_file_2M(1), "/var/lib/contrail/vrouter_bridge_2M");
+    EXPECT_EQ(param.huge_page_file_1G(0), "/var/lib/tungsten/vrouter_flow_1G");
+    EXPECT_EQ(param.huge_page_file_1G(1), "/var/lib/tungsten/vrouter_bridge_1G");
+    EXPECT_EQ(param.huge_page_file_2M(0), "/var/lib/tungsten/vrouter_flow_2M");
+    EXPECT_EQ(param.huge_page_file_2M(1), "/var/lib/tungsten/vrouter_bridge_2M");
 
     // Logging parameters
     EXPECT_EQ(param.log_files_count(), 5);
@@ -295,7 +295,7 @@ TEST_F(AgentParamTest, Agent_Param_1) {
         (char *) "--DEFAULT.http_server_port", (char *)"8000",
         (char *) "--DEFAULT.hostname",     (char *)"vhost-1",
         (char *) "--DEFAULT.dhcp_relay_mode",     (char *)"true",
-        (char *) "--DEFAULT.agent_base_directory",     (char *)"/var/run/contrail",
+        (char *) "--DEFAULT.agent_base_directory",     (char *)"/var/run/tungsten",
         (char *) "--DEFAULT.pkt0_tx_buffers",  (char *)"3000",
         (char *) "--SANDESH.disable_object_logs",
     };
@@ -321,7 +321,7 @@ TEST_F(AgentParamTest, Agent_Param_1) {
     EXPECT_EQ(param.http_server_port(), 8000);
     EXPECT_STREQ(param.host_name().c_str(), "vhost-1");
     EXPECT_EQ(param.dhcp_relay_mode(), true);
-    EXPECT_STREQ(param.agent_base_dir().c_str(), "/var/run/contrail");
+    EXPECT_STREQ(param.agent_base_dir().c_str(), "/var/run/tungsten");
     EXPECT_EQ(param.pkt0_tx_buffer_count(), 3000);
     EXPECT_TRUE(param.sandesh_config().disable_object_logs);
 }
@@ -397,7 +397,7 @@ TEST_F(AgentParamTest, Default_Cmdline_arg1) {
     EXPECT_EQ(param.stale_interface_cleanup_timeout(), 60);
     EXPECT_EQ(param.http_server_port(), 10001);
     EXPECT_STREQ(param.log_category().c_str(), "abc");
-    EXPECT_STREQ(param.log_file().c_str(), "/var/log/contrail/vrouter2.log");
+    EXPECT_STREQ(param.log_file().c_str(), "/var/log/tungsten/vrouter2.log");
     EXPECT_STREQ(param.log_level().c_str(), "SYS_ERR");
     EXPECT_TRUE(param.isXenMode());
     EXPECT_EQ(param.agent_mode(), AgentParam::TSN_AGENT);
@@ -412,7 +412,7 @@ TEST_F(AgentParamTest, Default_Cmdline_arg1) {
  * command line args, and has NOT specified values in config file, then
  * verify that default value from command line args is picked up */
 TEST_F(AgentParamTest, Default_Cmdline_arg2) {
-    uint16_t http_server_port = ContrailPorts::HttpPortAgent();
+    uint16_t http_server_port = TungstenPorts::HttpPortAgent();
     uint16_t flow_timeout = Agent::kDefaultFlowCacheTimeout;
     AgentParam param;
     param.Init("controller/src/vnsw/agent/init/test/cfg-default2.ini",

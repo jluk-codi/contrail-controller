@@ -116,7 +116,7 @@ class MyVncApi(VncApi):
         self._username = username
         self._tenant_name = tenant_name
         self.auth_token = None
-        self._kc = keystone.Client(username='admin', password='contrail123',
+        self._kc = keystone.Client(username='admin', password='tungsten123',
                        tenant_name='admin',
                        auth_url='http://127.0.0.1:5000/v2.0')
         VncApi.__init__(self, username = username, password = password,

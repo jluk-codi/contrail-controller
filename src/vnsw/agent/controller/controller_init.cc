@@ -6,7 +6,7 @@
 #include <base/string_util.h>
 #include <base/logging.h>
 #include <base/timer.h>
-#include <base/contrail_ports.h>
+#include <base/tungsten_ports.h>
 #include <base/connection_info.h>
 #include <net/tunnel_encap_type.h>
 #include <sandesh/sandesh_trace.h>
@@ -259,7 +259,7 @@ void VNController::DnsXmppServerConnect() {
             if (agent_->xmpp_dns_test_mode()) {
                 xmpp_cfg_dns->endpoint.port(agent_->dns_server_port(count));
             } else {
-                xmpp_cfg_dns->endpoint.port(ContrailPorts::DnsXmpp());
+                xmpp_cfg_dns->endpoint.port(TungstenPorts::DnsXmpp());
             }
             xmpp_cfg_dns->auth_enabled = agent_->dns_auth_enabled();
             if (xmpp_cfg_dns->auth_enabled) {

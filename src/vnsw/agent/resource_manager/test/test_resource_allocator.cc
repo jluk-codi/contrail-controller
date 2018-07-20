@@ -57,7 +57,7 @@ protected:
     // Restore the Data  from file and delete it.
    void SandeshReadProcess() {
         WAIT_FOR(200000, 1, BackUpResourceTable::FindFile("/tmp/backup",
-                "contrail_vrf_resource-").empty() != true);
+                "tungsten_vrf_resource-").empty() != true);
         agent->resource_manager()->backup_mgr()->Init();
         client->WaitForIdle();
         NextHopKey *nh_key = new VrfNHKey("vrf1", false, false);
@@ -123,10 +123,10 @@ TEST_F(SandeshReadWriteUnitTest, SandesMd5_verification) {
     size_t count = (2*NH_PER_VM) + 1 + 1;
     EXPECT_TRUE(Agent::GetInstance()->mpls_table()->Size() == count);
     WAIT_FOR(200000, 1, BackUpResourceTable::FindFile("/tmp/backup",
-             "contrail_interface_resource-").empty() != true);
+             "tungsten_interface_resource-").empty() != true);
     std::string file_name = "/tmp/backup/" +
         BackUpResourceTable::FindFile("/tmp/backup",
-                "contrail_interface_resource-");
+                "tungsten_interface_resource-");
     struct stat st;
     EXPECT_TRUE(stat(file_name.c_str(), &st) != -1);
     uint32_t size_with_port = (uint32_t)st.st_size;
@@ -145,10 +145,10 @@ TEST_F(SandeshReadWriteUnitTest, SandesMd5_verification) {
     WAIT_FOR(100, 1000,(Agent::GetInstance()->interface_table()->Find(&key, true)
                                 == NULL));
     WAIT_FOR(200000, 1, BackUpResourceTable::FindFile("/tmp/backup",
-             "contrail_interface_resource-").empty() != true);
+             "tungsten_interface_resource-").empty() != true);
     std::string file_name1 = "/tmp/backup/" +
         BackUpResourceTable::FindFile("/tmp/backup",
-                "contrail_interface_resource-");
+                "tungsten_interface_resource-");
     struct stat st1;
     EXPECT_TRUE(stat(file_name1.c_str(), &st1) != -1);
     // Make sure that MD5 sum changes after port delete.

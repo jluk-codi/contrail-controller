@@ -25,7 +25,7 @@ class HAProxyTest(unittest.TestCase):
         self.vnc_lib.service_instance_read = \
             mock.Mock(side_effect=no_id_side_effect)
         self.vnc_lib.kv_retrieve.return_value = "fake-pool-vn 40.1.1.0/24"
-        self.vnc_lib.service_appliance_set_create.return_value = "opencontrail"
+        self.vnc_lib.service_appliance_set_create.return_value = "Tungsten Fabric"
         self.vnc_lib.service_appliance_set_read = \
             mock.Mock(side_effect=no_id_side_effect)
 
@@ -100,9 +100,9 @@ class HAProxyTest(unittest.TestCase):
         def sas_read_side_effect(obj_type, uuids, **kwargs):
             if obj_type == 'service_appliance_set':
                 return (True, [{
-                 'fq_name': ['default-global-system-config', 'opencontrail'],
+                 'fq_name': ['default-global-system-config', 'Tungsten Fabric'],
                  'service_appliance_driver': 'svc_monitor.services.loadbalancer\
-.drivers.ha_proxy.driver.OpencontrailLoadbalancerDriver'
+.drivers.ha_proxy.driver.Tungsten FabricLoadbalancerDriver'
                    }])
             return (False, None)
         DBBase.init(self.svc, None, self.object_db)
@@ -112,12 +112,12 @@ class HAProxyTest(unittest.TestCase):
         self.lb_agent = loadbalancer_agent.LoadbalancerAgent(self.svc, self.vnc_lib,
                                                self.object_db, self._args)
         self.svc.loadbalancer_agent = self.lb_agent
-        sas = config_db.ServiceApplianceSetSM.get('opencontrail')
+        sas = config_db.ServiceApplianceSetSM.get('Tungsten Fabric')
         self.assertEqual(sas.driver,
 "svc_monitor.services.loadbalancer.drivers.ha_proxy.driver.\
-OpencontrailLoadbalancerDriver")
+Tungsten FabricLoadbalancerDriver")
         sas.add()
-        self.assertIsNotNone(self.lb_agent._loadbalancer_driver['opencontrail'])
+        self.assertIsNotNone(self.lb_agent._loadbalancer_driver['Tungsten Fabric'])
         mock_st_obj = self.create_lb_st()
     # end setUp
 
@@ -154,7 +154,7 @@ OpencontrailLoadbalancerDriver")
     # end
 
     def tearDown(self):
-        config_db.ServiceApplianceSetSM.delete("opencontrail")
+        config_db.ServiceApplianceSetSM.delete("Tungsten Fabric")
         config_db.ServiceTemplateSM.delete('haproxy-st')
         config_db.LoadbalancerPoolSM.reset()
         config_db.VirtualIpSM.reset()
@@ -173,7 +173,7 @@ OpencontrailLoadbalancerDriver")
         pool_obj['display_name'] = fq_name_str
         pool_obj['parent_uuid'] = 'parent_uuid'
         pool_obj['id_perms'] = {'enable': 'true', 'description': 'Test pool'}
-        pool_obj['loadbalancer_pool_provider'] = 'opencontrail'
+        pool_obj['loadbalancer_pool_provider'] = 'Tungsten Fabric'
         pool_obj['loadbalancer_pool_properties'] = \
             {'protocol': 'HTTP', 'subnet_id': 'subnet-id',
              'loadbalancer_method': 'ROUND_ROBIN', 'admin_state': 'true',

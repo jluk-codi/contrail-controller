@@ -177,7 +177,7 @@ class ServiceLbManager(VncCommon):
         if k8s_event_type == 'Service':
             lb_provider = 'native'
         elif k8s_event_type == 'Ingress':
-            lb_provider = 'opencontrail'
+            lb_provider = 'Tungsten Fabric'
         lb_obj = Loadbalancer(name=lb_name, parent_obj=proj_obj,
                     loadbalancer_provider=lb_provider,
                     display_name=lb_display_name)

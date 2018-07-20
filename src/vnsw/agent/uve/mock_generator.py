@@ -75,7 +75,7 @@ class MockGenerator(object):
             '', -1, ['sandesh', 'vrouter'])
         self._sandesh_instance.set_logging_params(enable_local_log = False,
            level = SandeshLevel.SYS_DEBUG,
-           file = '/var/log/contrail/%s.log' % (self._hostname))
+           file = '/var/log/tungsten/%s.log' % (self._hostname))
         self._logger = self._sandesh_instance.logger()
         send_vn_uve_task = gevent.spawn_later(
             random.randint(0, self._GEVENT_SPAWN_DELAY_IN_SEC),

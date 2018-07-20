@@ -15,7 +15,7 @@
             "playbook_info": [
               {
                 "device_family": "",
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/image_upgrade.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/image_upgrade.yml",
                 "vendor": "Juniper"
               }
             ]
@@ -35,7 +35,7 @@
             "playbook_info": [
               {
                 "device_family": "",
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/discover_device.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/discover_device.yml",
                 "vendor": ""
               }
             ]
@@ -55,7 +55,7 @@
             "playbook_info": [
               {
                 "device_family": "",
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/generate_underlay_config.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/generate_underlay_config.yml",
                 "vendor": "Juniper"
               }
             ]
@@ -75,7 +75,7 @@
             "playbook_info": [
               {
                 "device_family": "",
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/discover_role.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/discover_role.yml",
                 "vendor": "Juniper"
               }
             ]
@@ -95,7 +95,7 @@
             "playbook_info": [
               {
                 "device_family": "",
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/device_import.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/device_import.yml",
                 "vendor": "Juniper"
               }
             ]
@@ -114,7 +114,7 @@
           "job_template_playbooks": {
             "playbook_info": [
               {
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/fabric_config.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/fabric_config.yml",
                 "vendor": "Juniper",
                 "device_family": ""
               }
@@ -135,7 +135,7 @@
             "playbook_info": [
               {
                 "device_family": "",
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/ztp.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/ztp.yml",
                 "vendor": ""
               }
             ]
@@ -154,7 +154,7 @@
           "job_template_playbooks": {
             "playbook_info": [
               {
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/delete_fabric.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/delete_fabric.yml",
                 "vendor": "Juniper",
                 "device_family": ""
               }
@@ -174,7 +174,7 @@
           "job_template_playbooks": {
             "playbook_info": [
               {
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/delete_fabric_devices.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/delete_fabric_devices.yml",
                 "vendor": "Juniper",
                 "device_family": ""
               }
@@ -194,7 +194,7 @@
           "job_template_playbooks": {
             "playbook_info": [
               {
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/role_assignment.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/role_assignment.yml",
                 "vendor": "Juniper",
                 "device_family": ""
               }
@@ -215,7 +215,7 @@
             "playbook_info": [
               {
                 "device_family": "",
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/topo_discovery.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/topo_discovery.yml",
                 "vendor": "Juniper"
               }
             ]
@@ -234,37 +234,37 @@
           "job_template_playbooks": {
             "playbook_info": [
               {
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/fabric_onboard.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/fabric_onboard.yml",
                 "vendor": "Juniper",
                 "device_family": "",
                 "job_completion_weightage": 5
               },
               {
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/ztp.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/ztp.yml",
                 "vendor": "Juniper",
                 "device_family": "",
                 "job_completion_weightage": 20
               },
               {
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/discover_device.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/discover_device.yml",
                 "vendor": "Juniper",
                 "device_family": "",
                 "job_completion_weightage": 20
               },
               {
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/discover_role.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/discover_role.yml",
                 "vendor": "Juniper",
                 "device_family": "",
                 "job_completion_weightage": 5
               },
               {
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/device_import.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/device_import.yml",
                 "vendor": "Juniper",
                 "device_family": "",
                 "job_completion_weightage": 30
               },
               {
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/topo_discovery.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/topo_discovery.yml",
                 "vendor": "Juniper",
                 "device_family": "",
                 "job_completion_weightage": 20
@@ -285,31 +285,31 @@
           "job_template_playbooks": {
             "playbook_info": [
               {
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/existing_fabric_onboard.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/existing_fabric_onboard.yml",
                 "vendor": "Juniper",
                 "device_family": "",
                 "job_completion_weightage": 10
               },
               {
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/discover_device.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/discover_device.yml",
                 "vendor": "Juniper",
                 "device_family": "",
                 "job_completion_weightage": 20
               },
               {
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/discover_role.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/discover_role.yml",
                 "vendor": "Juniper",
                 "device_family": "",
                 "job_completion_weightage": 10
               },
               {
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/device_import.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/device_import.yml",
                 "vendor": "Juniper",
                 "device_family": "",
                 "job_completion_weightage": 40
               },
               {
-                "playbook_uri": "./opt/contrail/fabric_ansible_playbooks/topo_discovery.yml",
+                "playbook_uri": "./opt/tungsten/fabric_ansible_playbooks/topo_discovery.yml",
                 "vendor": "Juniper",
                 "device_family": "",
                 "job_completion_weightage": 20

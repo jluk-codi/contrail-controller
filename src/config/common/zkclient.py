@@ -22,7 +22,7 @@ import uuid
 import sys
 import socket
 
-LOG_DIR = '/var/log/contrail/'
+LOG_DIR = '/var/log/tungsten/'
 
 class IndexAllocator(object):
 

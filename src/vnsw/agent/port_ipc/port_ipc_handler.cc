@@ -31,12 +31,12 @@
 using namespace std;
 namespace fs = boost::filesystem;
 
-const std::string PortIpcHandler::kPortsDir = "/var/lib/contrail/ports";
+const std::string PortIpcHandler::kPortsDir = "/var/lib/tungsten/ports";
 
 /////////////////////////////////////////////////////////////////////////////
 // Utility methods
 /////////////////////////////////////////////////////////////////////////////
-static bool GetStringMember(const contrail_rapidjson::Value &d, const char *member,
+static bool GetStringMember(const tungsten_rapidjson::Value &d, const char *member,
                             std::string *data, std::string *err) {
     if (!d.HasMember(member) || !d[member].IsString()) {
         if (err) {
@@ -49,7 +49,7 @@ static bool GetStringMember(const contrail_rapidjson::Value &d, const char *memb
     return true;
 }
 
-static bool GetUint32Member(const contrail_rapidjson::Value &d, const char *member,
+static bool GetUint32Member(const tungsten_rapidjson::Value &d, const char *member,
                             uint32_t *data, std::string *err) {
     if (!d.HasMember(member) || !d[member].IsInt()) {
         if (err) {
@@ -62,7 +62,7 @@ static bool GetUint32Member(const contrail_rapidjson::Value &d, const char *memb
     return true;
 }
 
-static bool GetUuidMember(const contrail_rapidjson::Value &d, const char *member,
+static bool GetUuidMember(const tungsten_rapidjson::Value &d, const char *member,
                           boost::uuids::uuid *u, std::string *err) {
     if (!d.HasMember(member) || !d[member].IsString()) {
         if (err) {
@@ -165,13 +165,13 @@ void PortIpcHandler::ProcessFile(const string &file, bool check_port,
         AddVmVnPort(json, check_port, err_msg, false);
 }
 
-bool PortIpcHandler::AddPortArrayFromJson(const contrail_rapidjson::Value &d,
+bool PortIpcHandler::AddPortArrayFromJson(const tungsten_rapidjson::Value &d,
                                           const string &json,
                                           VmiSubscribeEntryPtrList &req_list,
                                           bool check_port,
                                           string &err_msg) {
     for (size_t i = 0; i < d.Size(); i++) {
-        const contrail_rapidjson::Value& elem = d[i];
+        const tungsten_rapidjson::Value& elem = d[i];
         if (elem.IsObject() == false) {
             err_msg = "Json Array has invalid element ==> " + json;
             CONFIG_TRACE(PortInfo, err_msg.c_str());
@@ -192,7 +192,7 @@ bool PortIpcHandler::AddPortArrayFromJson(const contrail_rapidjson::Value &d,
 
 bool PortIpcHandler::AddPortFromJson(const string &json, bool check_port,
                                      string &err_msg, bool write_file) {
-    contrail_rapidjson::Document d;
+    tungsten_rapidjson::Document d;
     if (d.Parse<0>(const_cast<char *>(json.c_str())).HasParseError()) {
         err_msg = "Invalid Json string ==> " + json;
         CONFIG_TRACE(PortInfo, err_msg.c_str());
@@ -231,7 +231,7 @@ bool PortIpcHandler::AddPortFromJson(const string &json, bool check_port,
 }
 
 VmiSubscribeEntry *PortIpcHandler::MakeAddVmiUuidRequest
-(const contrail_rapidjson::Value &d, const std::string &json, bool check_port,
+(const tungsten_rapidjson::Value &d, const std::string &json, bool check_port,
  std::string &err_msg) const {
     boost::uuids::uuid vmi_uuid;
     if (GetUuidMember(d, "id", &vmi_uuid, &err_msg) == false) {
@@ -355,7 +355,7 @@ VmiSubscribeEntry *PortIpcHandler::MakeAddVmiUuidRequest
 }
 
 bool PortIpcHandler::AddVmiUuidEntry(PortSubscribeEntryPtr entry_ref,
-                                     const contrail_rapidjson::Value &d,
+                                     const tungsten_rapidjson::Value &d,
                                      bool write_file, string &err_msg) const {
     VmiSubscribeEntry *entry =
         dynamic_cast<VmiSubscribeEntry *>(entry_ref.get());
@@ -538,18 +538,18 @@ bool PortIpcHandler::IsUUID(const string &uuid_str) const {
 }
 
 void PortIpcHandler::AddMember(const char *key, const char *value,
-        contrail_rapidjson::Document *doc) const {
-    contrail_rapidjson::Document::AllocatorType &a = doc->GetAllocator();
-    contrail_rapidjson::Value v;
-    contrail_rapidjson::Value vk;
+        tungsten_rapidjson::Document *doc) const {
+    tungsten_rapidjson::Document::AllocatorType &a = doc->GetAllocator();
+    tungsten_rapidjson::Value v;
+    tungsten_rapidjson::Value vk;
     doc->AddMember(vk.SetString(key, a), v.SetString(value, a), a);
 }
 
 void PortIpcHandler::MakeVmiUuidJson(const VmiSubscribeEntry *entry,
                                      string &info, bool meta_info) const {
-    contrail_rapidjson::Document doc;
+    tungsten_rapidjson::Document doc;
     doc.SetObject();
-    contrail_rapidjson::Document::AllocatorType &a = doc.GetAllocator();
+    tungsten_rapidjson::Document::AllocatorType &a = doc.GetAllocator();
 
     string str1 = UuidToString(entry->vmi_uuid());
     AddMember("id", str1.c_str(), &doc);
@@ -582,8 +582,8 @@ void PortIpcHandler::MakeVmiUuidJson(const VmiSubscribeEntry *entry,
         AddMember("time", now.c_str(), &doc);
     }
 
-    contrail_rapidjson::StringBuffer buffer;
-    contrail_rapidjson::PrettyWriter<contrail_rapidjson::StringBuffer> writer(buffer);
+    tungsten_rapidjson::StringBuffer buffer;
+    tungsten_rapidjson::PrettyWriter<tungsten_rapidjson::StringBuffer> writer(buffer);
     doc.Accept(writer);
     info = buffer.GetString();
     return;
@@ -622,7 +622,7 @@ void PortIpcHandler::Shutdown() {
 }
 
 bool PortIpcHandler::BuildGatewayArrayElement
-(const contrail_rapidjson::Value &d, VirtualGatewayConfig::Subnet *entry) const {
+(const tungsten_rapidjson::Value &d, VirtualGatewayConfig::Subnet *entry) const {
     if (!d.HasMember("ip-address") || !d["ip-address"].IsString()) {
         return false;
     }
@@ -640,9 +640,9 @@ bool PortIpcHandler::BuildGatewayArrayElement
 }
 
 bool PortIpcHandler::ValidGatewayJsonString
-(const contrail_rapidjson::Value &d, VirtualGatewayConfig::SubnetList *list) const {
+(const tungsten_rapidjson::Value &d, VirtualGatewayConfig::SubnetList *list) const {
     for (size_t i = 0; i < d.Size(); i++) {
-        const contrail_rapidjson::Value& elem = d[i];
+        const tungsten_rapidjson::Value& elem = d[i];
         if (!elem.IsObject()) {
             return false;
         }
@@ -655,7 +655,7 @@ bool PortIpcHandler::ValidGatewayJsonString
     return true;
 }
 
-bool PortIpcHandler::HasAllGatewayFields(const contrail_rapidjson::Value &d,
+bool PortIpcHandler::HasAllGatewayFields(const tungsten_rapidjson::Value &d,
                                          std::string &member_err,
                                          VirtualGatewayInfo *req) const {
     if (!d.HasMember("interface") || !d["interface"].IsString()) {
@@ -693,7 +693,7 @@ bool PortIpcHandler::HasAllGatewayFields(const contrail_rapidjson::Value &d,
     return true;
 }
 
-bool PortIpcHandler::BuildGateway(const contrail_rapidjson::Value &d,
+bool PortIpcHandler::BuildGateway(const tungsten_rapidjson::Value &d,
                                   const string &json, string &err_msg,
                                   VirtualGatewayInfo *req) const {
     string member_err;
@@ -708,7 +708,7 @@ bool PortIpcHandler::BuildGateway(const contrail_rapidjson::Value &d,
 }
 
 bool PortIpcHandler::AddVgwFromJson(const string &json, string &err_msg) const {
-    contrail_rapidjson::Document d;
+    tungsten_rapidjson::Document d;
     if (d.Parse<0>(const_cast<char *>(json.c_str())).HasParseError()) {
         err_msg = "Invalid Json string ==> " + json;
         CONFIG_TRACE(PortInfo, err_msg.c_str());
@@ -722,7 +722,7 @@ bool PortIpcHandler::AddVgwFromJson(const string &json, string &err_msg) const {
 
     std::vector<VirtualGatewayInfo> req_list;
     for (size_t i = 0; i < d.Size(); i++) {
-        const contrail_rapidjson::Value& elem = d[i];
+        const tungsten_rapidjson::Value& elem = d[i];
         if (elem.IsObject()) {
             VirtualGatewayInfo req("");
             if (!BuildGateway(elem, json, err_msg, &req)) {
@@ -747,7 +747,7 @@ bool PortIpcHandler::AddVgwFromJson(const string &json, string &err_msg) const {
 }
 
 bool PortIpcHandler::DelVgwFromJson(const string &json, string &err_msg) const {
-    contrail_rapidjson::Document d;
+    tungsten_rapidjson::Document d;
     if (d.Parse<0>(const_cast<char *>(json.c_str())).HasParseError()) {
         err_msg = "Invalid Json string ==> " + json;
         CONFIG_TRACE(PortInfo, err_msg.c_str());
@@ -761,7 +761,7 @@ bool PortIpcHandler::DelVgwFromJson(const string &json, string &err_msg) const {
 
     std::vector<VirtualGatewayInfo> req_list;
     for (size_t i = 0; i < d.Size(); i++) {
-        const contrail_rapidjson::Value& elem = d[i];
+        const tungsten_rapidjson::Value& elem = d[i];
         if (elem.IsObject()) {
             if (!elem.HasMember("interface") || !elem["interface"].IsString()) {
                 err_msg = "Json string does not have or has invalid value for "
@@ -793,7 +793,7 @@ bool PortIpcHandler::DelVgwFromJson(const string &json, string &err_msg) const {
 /////////////////////////////////////////////////////////////////////////////
 bool PortIpcHandler::AddVmVnPort(const string &json, bool check_port,
                                  string &err_msg, bool write_file) {
-    contrail_rapidjson::Document d;
+    tungsten_rapidjson::Document d;
     if (d.Parse<0>(const_cast<char *>(json.c_str())).HasParseError()) {
         err_msg = "Invalid Json string ==> " + json;
         CONFIG_TRACE(VmVnPortInfo, err_msg.c_str());
@@ -824,7 +824,7 @@ bool PortIpcHandler::AddVmVnPort(const string &json, bool check_port,
 }
 
 bool PortIpcHandler::AddVmVnPortEntry(PortSubscribeEntryPtr entry_ref,
-                                     const contrail_rapidjson::Value &d,
+                                     const tungsten_rapidjson::Value &d,
                                      bool write_file, string &err_msg) const {
     VmVnPortSubscribeEntry *entry =
         dynamic_cast<VmVnPortSubscribeEntry *>(entry_ref.get());
@@ -845,7 +845,7 @@ bool PortIpcHandler::AddVmVnPortEntry(PortSubscribeEntryPtr entry_ref,
 }
 
 VmVnPortSubscribeEntry *PortIpcHandler::MakeAddVmVnPortRequest
-(const contrail_rapidjson::Value &d, const std::string &json, bool check_port,
+(const tungsten_rapidjson::Value &d, const std::string &json, bool check_port,
  std::string &err_msg) const {
     PortSubscribeEntry::Type vmi_type = PortSubscribeEntry::VMPORT;
     boost::uuids::uuid vm_uuid;
@@ -890,7 +890,7 @@ VmVnPortSubscribeEntry *PortIpcHandler::MakeAddVmVnPortRequest
 
 void PortIpcHandler::MakeVmVnPortJson(const VmVnPortSubscribeEntry *entry,
                                       string &info, bool meta_info) const {
-    contrail_rapidjson::Document doc;
+    tungsten_rapidjson::Document doc;
     doc.SetObject();
 
     string str2 = UuidToString(entry->vm_uuid());
@@ -907,8 +907,8 @@ void PortIpcHandler::MakeVmVnPortJson(const VmVnPortSubscribeEntry *entry,
         AddMember("time", now.c_str(), &doc);
     }
 
-    contrail_rapidjson::StringBuffer buffer;
-    contrail_rapidjson::PrettyWriter<contrail_rapidjson::StringBuffer> writer(buffer);
+    tungsten_rapidjson::StringBuffer buffer;
+    tungsten_rapidjson::PrettyWriter<tungsten_rapidjson::StringBuffer> writer(buffer);
     doc.Accept(writer);
     info = buffer.GetString();
     return;
@@ -990,9 +990,9 @@ bool PortIpcHandler::MakeJsonFromVmiConfig(const uuid &vmi_uuid,
         return false;
     }
 
-    contrail_rapidjson::Document doc;
+    tungsten_rapidjson::Document doc;
     doc.SetObject();
-    contrail_rapidjson::Document::AllocatorType &a = doc.GetAllocator();
+    tungsten_rapidjson::Document::AllocatorType &a = doc.GetAllocator();
 
     string str1 = UuidToString(vmi_uuid);
     AddMember("id", str1.c_str(), &doc);
@@ -1007,8 +1007,8 @@ bool PortIpcHandler::MakeJsonFromVmiConfig(const uuid &vmi_uuid,
     doc.AddMember("sub-interface", (bool)vmi_entry->sub_interface_, a);
     doc.AddMember("vlan-id", (int)vmi_entry->vlan_tag_, a);
 
-    contrail_rapidjson::StringBuffer buffer;
-    contrail_rapidjson::PrettyWriter<contrail_rapidjson::StringBuffer> writer(buffer);
+    tungsten_rapidjson::StringBuffer buffer;
+    tungsten_rapidjson::PrettyWriter<tungsten_rapidjson::StringBuffer> writer(buffer);
     doc.Accept(writer);
     resp = buffer.GetString();
     return true;
@@ -1050,9 +1050,9 @@ bool PortIpcHandler::MakeJsonFromVmi(const uuid &vmi_uuid, string &resp) const {
         return false;
     }
 
-    contrail_rapidjson::Document doc;
+    tungsten_rapidjson::Document doc;
     doc.SetObject();
-    contrail_rapidjson::Document::AllocatorType &a = doc.GetAllocator();
+    tungsten_rapidjson::Document::AllocatorType &a = doc.GetAllocator();
 
     string str1 = UuidToString(vmi->GetUuid());
     AddMember("id", str1.c_str(), &doc);
@@ -1088,8 +1088,8 @@ bool PortIpcHandler::MakeJsonFromVmi(const uuid &vmi_uuid, string &resp) const {
     string now = duration_usecs_to_string(UTCTimestampUsec());
     AddMember("time", now.c_str(), &doc);
 
-    contrail_rapidjson::StringBuffer buffer;
-    contrail_rapidjson::PrettyWriter<contrail_rapidjson::StringBuffer> writer(buffer);
+    tungsten_rapidjson::StringBuffer buffer;
+    tungsten_rapidjson::PrettyWriter<tungsten_rapidjson::StringBuffer> writer(buffer);
     doc.Accept(writer);
     resp = buffer.GetString();
     return true;

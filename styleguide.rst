@@ -2,7 +2,7 @@
 Coding style
 ========
 
-The contrail source code includes modules writen in C, C++ and Python; there
+The tungsten source code includes modules writen in C, C++ and Python; there
 is also a Java API library, Lua scripts an analytics IDL and a code generator
 based on an mini-DSL. Each of these languages as its own coding style.
 

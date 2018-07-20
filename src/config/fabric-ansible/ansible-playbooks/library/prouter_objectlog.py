@@ -17,9 +17,9 @@ author: Juniper Networks
 short_description: private module to create device object log
 description:
     - This module invokes Sandesh API to append device object log in
-      Contrail analytics database
+      Tungsten analytics database
 requirements:
-    - Contrail analytics must be reachable from API server
+    - Tungsten analytics must be reachable from API server
 options:
     job_ctx:
         description:

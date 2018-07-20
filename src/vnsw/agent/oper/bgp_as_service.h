@@ -36,7 +36,7 @@
 //
 // 1) Reserves a set of BGP port which can potentially be used in
 // bgp-router object.
-// This is provided via contrail-vrouter-agent.conf and agents binds on
+// This is provided via tungsten-vrouter-agent.conf and agents binds on
 // to these ports, so that host does not use it.
 //
 // 2) Handles config changes. ProcessConfig is called from VM interfaces.

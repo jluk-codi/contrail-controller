@@ -1,6 +1,6 @@
 <iq type='set'
-       from='agent@vnsw.contrailsystems.com/other-peer'
-       to='bgp.contrail.com' 
+       from='agent@vnsw.tungstensystems.com/other-peer'
+       to='bgp.tungsten.com' 
        id='request1'>
     <pubsub xmlns='http://jabber.org/protocol/pubsub'>
       <publish node='01020304abcd:vpn-ip-address/32'>

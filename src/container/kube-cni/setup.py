@@ -37,10 +37,10 @@ setuptools.setup(
     package_data={'': ['*.html', '*.css', '*.xml', '*.yml']},
 
     # metadata
-    author="OpenContrail",
-    author_email="dev@lists.opencontrail.org",
+    author="Tungsten Fabric",
+    author_email="dev@lists.tungsten.io",
     license="Apache Software License",
-    url="http://www.opencontrail.org/",
+    url="http://www.tungsten.io/",
 
     long_description="Kubernetes CNI Plugin",
 
@@ -49,7 +49,7 @@ setuptools.setup(
     entry_points = {
         # Please update sandesh/common/vns.sandesh on process name change
         'console_scripts' : [
-            'contrail-kube-cni = kube_cni.kube_cni:main',
+            'tungsten-kube-cni = kube_cni.kube_cni:main',
         ],
     },
     cmdclass={

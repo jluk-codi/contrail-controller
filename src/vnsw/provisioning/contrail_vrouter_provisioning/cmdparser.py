@@ -11,20 +11,20 @@ import argparse
 import ConfigParser
 
 
-log = logging.getLogger('contrail_vrouter_provisioning.cmdparser')
+log = logging.getLogger('tungsten_vrouter_provisioning.cmdparser')
 
 
 class ComputeArgsParser(object):
     def __init__(self, args_str=None):
         self._args = None
 
-        conf_file = '/etc/contrailctl/agent.conf'
+        conf_file = '/etc/tungstenctl/agent.conf'
         if '--conf_file' in args_str:
             conf_file = args_str[args_str.index('--conf_file') + 1]
         self.parse_config_file(conf_file)
 
         self.global_defaults = {
-            'conf_file': '/etc/contrailctl/agent.conf',
+            'conf_file': '/etc/tungstenctl/agent.conf',
             'cfgm_ip': self.get_config('GLOBAL', 'cfgm_ip', '127.0.0.1'),
             'keystone_ip': self.get_config('KEYSTONE', 'ip', '127.0.0.1'),
             'keystone_admin_user': self.get_config(
@@ -32,7 +32,7 @@ class ComputeArgsParser(object):
             'keystone_admin_tenant_name': self.get_config(
                 'KEYSTONE', 'admin_tenant_name', 'admin'),
             'keystone_admin_password': self.get_config(
-                'KEYSTONE', 'admin_password', 'contrail123'),
+                'KEYSTONE', 'admin_password', 'tungsten123'),
             'keystone_auth_protocol': self.get_config(
                 'KEYSTONE', 'auth_protocol', 'http'),
             'keystone_auth_port': self.get_config(
@@ -226,7 +226,7 @@ class ComputeArgsParser(object):
                 "--external_vip",
                 help="External VIP Address of openstack nodes")
         parser.add_argument(
-                "--contrail_internal_vip", help="VIP Address of config  nodes")
+                "--tungsten_internal_vip", help="VIP Address of config  nodes")
         parser.add_argument(
                 "--cpu_mode",
                 help="VM cpu_mode, can be none|host-model|host-passthrough|"

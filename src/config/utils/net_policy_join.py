@@ -2,12 +2,12 @@
 """
 net_policy_join.py [options] net1_uuid net2_uuid
 
-Calls Contrail API server to create a network policy to allow all
+Calls Tungsten API server to create a network policy to allow all
 traffic between net1 and net2
 
 """
 
-# See contrail/build/debug/config/api-server/doc/build/html/tutorial_with_library.html
+# See tungsten/build/debug/config/api-server/doc/build/html/tutorial_with_library.html
 
 import argparse
 import os
@@ -46,7 +46,7 @@ parser.add_argument(
     "--auth_user", default='admin',
     help="Name of keystone admin user")
 parser.add_argument(
-    "--auth_password", default='contrail123',
+    "--auth_password", default='tungsten123',
     help="Password of keystone admin user")
 parser.add_argument(
     "--api_host", default='127.0.0.1',

@@ -7,31 +7,31 @@ import gevent
 sys.path.append("../common/tests")
 sys.path.append("../schema-transformer/test")
 sys.path.append("../schema-transformer")
-sys.path.append("contrail_issu")
+sys.path.append("tungsten_issu")
 from testtools.matchers import Equals, Contains, Not
 from test_utils import *
 import test_common
 import test_case
 from test_policy import VerifyPolicy
-from issu_contrail_common import ICCassandraClient
+from issu_tungsten_common import ICCassandraClient
 from pysandesh.gen_py.sandesh.ttypes import SandeshLevel
 import logging
 from flexmock import flexmock
 
 sys.modules['paramiko'] = flexmock()
 
-import issu_contrail_config
+import issu_tungsten_config
 
-import issu_contrail_pre_sync 
-from issu_contrail_pre_sync import _issu_cassandra_pre_sync_main
+import issu_tungsten_pre_sync 
+from issu_tungsten_pre_sync import _issu_cassandra_pre_sync_main
 
-import issu_contrail_run_sync
-from issu_contrail_run_sync import ICKombuClient, _issu_rmq_main
+import issu_tungsten_run_sync
+from issu_tungsten_run_sync import ICKombuClient, _issu_rmq_main
 
-import issu_contrail_post_sync
-from issu_contrail_post_sync import _issu_cassandra_post_sync_main
+import issu_tungsten_post_sync
+from issu_tungsten_post_sync import _issu_cassandra_post_sync_main
 
-from issu_contrail_zk_sync import _issu_zk_main
+from issu_tungsten_zk_sync import _issu_zk_main
 
 from vnc_api.vnc_api import *
 try:
@@ -51,8 +51,8 @@ ICKombuClient.should_receive('_reinit_control')
 flexmock(logging)
 logging.should_receive('basicConfig')
 
-flexmock(issu_contrail_config)
-issu_contrail_config.should_receive('issu_info_pre').and_return([
+flexmock(issu_tungsten_config)
+issu_tungsten_config.should_receive('issu_info_pre').and_return([
     (None, 'config_db_uuid', {
         'obj_uuid_table': {},
         'obj_fq_name_table': {},
@@ -64,7 +64,7 @@ issu_contrail_config.should_receive('issu_info_pre').and_return([
     (None, 'useragent', {'useragent_keyval_table': {}}),
     (None, 'svc_monitor_keyspace', {
         'pool_table': {}, 'service_instance_table': {}})]) 
-issu_contrail_config.should_receive('issu_info_post').and_return([
+issu_tungsten_config.should_receive('issu_info_post').and_return([
     (None, 'to_bgp_keyspace', {
         'route_target_table': {}, 'service_chain_table': {},
         'service_chain_ip_address_table': {},
@@ -72,7 +72,7 @@ issu_contrail_config.should_receive('issu_info_post').and_return([
     (None, 'useragent', {'useragent_keyval_table': {}}),
     (None, 'svc_monitor_keyspace', {
         'pool_table': {}, 'service_instance_table': {}})])
-issu_contrail_config.should_receive('issu_keyspace_dm_keyspace').and_return({})
+issu_tungsten_config.should_receive('issu_keyspace_dm_keyspace').and_return({})
 
 class TestIssu(test_case.STTestCase, VerifyPolicy):
 

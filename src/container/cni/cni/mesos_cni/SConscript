@@ -10,6 +10,6 @@ env = CfgmEnv.Clone()
 
 gobin = env.GoCniBuild('mesos_cni')
 
-env.Alias('contrail-mesos-cni', gobin)
-env.Alias('install', env.InstallAs(env['INSTALL_BIN'] + '/contrail-mesos-cni', gobin))
+env.Alias('tungsten-mesos-cni', gobin)
+env.Alias('install', env.InstallAs(env['INSTALL_BIN'] + '/tungsten-mesos-cni', gobin))
 env.Default(gobin)

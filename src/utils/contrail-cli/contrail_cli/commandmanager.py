@@ -44,7 +44,7 @@ class CommandManager(cliff.commandmanager.CommandManager):
         if command_class is not None:
             self.commands[name] = EntryPointWrapper(name, command_class)
             return
-        namespace = "ContrailCli"
+        namespace = "TungstenCli"
         for ep in pkg_resources.iter_entry_points(namespace):
             if ep.name != name:
                 continue

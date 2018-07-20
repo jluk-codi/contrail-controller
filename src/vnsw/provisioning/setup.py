@@ -5,21 +5,21 @@
 import setuptools
 
 setuptools.setup(
-    name='contrail-vrouter-provisioning',
+    name='tungsten-vrouter-provisioning',
     version='0.1dev',
     packages=setuptools.find_packages(),
 
     # metadata
-    author="OpenContrail",
-    author_email="dev@lists.opencontrail.org",
+    author="Tungsten Fabric",
+    author_email="dev@lists.tungsten.io",
     license="Apache Software License",
-    url="http://www.opencontrail.org/",
-    long_description="Contrail compute provisioning module",
+    url="http://www.tungsten.io/",
+    long_description="Tungsten compute provisioning module",
     entry_points={
         'console_scripts': [
-            'contrail-compute-setup = contrail_vrouter_provisioning.setup:main',
-            'contrail-toragent-setup = contrail_vrouter_provisioning.toragent.setup:main',
-            'contrail-toragent-cleanup = contrail_vrouter_provisioning.toragent.cleanup:main',
+            'tungsten-compute-setup = tungsten_vrouter_provisioning.setup:main',
+            'tungsten-toragent-setup = tungsten_vrouter_provisioning.toragent.setup:main',
+            'tungsten-toragent-cleanup = tungsten_vrouter_provisioning.toragent.cleanup:main',
             ],
     },
 )

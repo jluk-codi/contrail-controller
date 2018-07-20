@@ -8,14 +8,14 @@
 # repo name - if the package was installed/updated from an RPM repository
 # RPM name - if the package was intalled locally (rpm install or yum localinstall)
 # Example output
-# contrail-analytics                     1-1304082216        148                 
+# tungsten-analytics                     1-1304082216        148                 
 # openstack-dashboard.noarch             2012.1.3-1.fc17     updates             
-# contrail-agent                         1-1304091654        contrail-agent-1-1304091654.x86_64
+# tungsten-agent                         1-1304091654        tungsten-agent-1-1304091654.x86_64
 
 TMPFILE=/tmp/yl.${BASHPID}
-CONTRAILRPMS=/etc/contrail/rpm_list.txt
-VERSIONFILE=/opt/contrail/contrail_packages/VERSION
-CONTRAIL_INSTALLS="@contrail_install_repo"
+CONTRAILRPMS=/etc/tungsten/rpm_list.txt
+VERSIONFILE=/opt/tungsten/tungsten_packages/VERSION
+CONTRAIL_INSTALLS="@tungsten_install_repo"
 
 # Installs variable - BUILDID in the env
 if [ -f $VERSIONFILE ];
@@ -41,7 +41,7 @@ for i in $pkg_list; do
   read j v r <<< `grep -Pzo "^$i\.[^\s]+[\s|\n]+[^\s]+[\s|\n]+[^\s]+" $TMPFILE | tr "\n" " "`
   rr=`echo $r|cut -f2 -d/`
 
-  # Override if @contrail_install_repo
+  # Override if @tungsten_install_repo
   if [ "$rr" == "$CONTRAIL_INSTALLS" ] && [[ -n $BUILDID ]]; then
       rr=$BUILDID
   fi

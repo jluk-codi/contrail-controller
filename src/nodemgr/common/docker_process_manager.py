@@ -11,42 +11,42 @@ from sandesh_common.vns.ttypes import Module
 
 
 # code calculates name from labels and then translate it to unit_name
-# the unit_name is predefined and hardcoded through all Contrail's code
+# the unit_name is predefined and hardcoded through all Tungsten's code
 _docker_label_to_unit_name = {
     Module.ANALYTICS_NODE_MGR: {
-        'analytics-collector': 'contrail-collector',
-        'analytics-api': 'contrail-analytics-api',
-        'analytics-query-engine': 'contrail-query-engine',
-        'analytics-alarm-gen': 'contrail-alarm-gen',
-        'analytics-nodemgr': 'contrail-analytics-nodemgr'
+        'analytics-collector': 'tungsten-collector',
+        'analytics-api': 'tungsten-analytics-api',
+        'analytics-query-engine': 'tungsten-query-engine',
+        'analytics-alarm-gen': 'tungsten-alarm-gen',
+        'analytics-nodemgr': 'tungsten-analytics-nodemgr'
     },
     Module.CONFIG_NODE_MGR: {
-        'config-api': 'contrail-api',
-        'config-schema': 'contrail-schema',
-        'config-svc-monitor': 'contrail-svc-monitor',
-        'config-device-manager': 'contrail-device-manager',
-        'config-nodemgr': 'contrail-config-nodemgr'
+        'config-api': 'tungsten-api',
+        'config-schema': 'tungsten-schema',
+        'config-svc-monitor': 'tungsten-svc-monitor',
+        'config-device-manager': 'tungsten-device-manager',
+        'config-nodemgr': 'tungsten-config-nodemgr'
     },
     Module.CONFIG_DATABASE_NODE_MGR: {
         'config-database-cassandra': 'cassandra',
         'config-database-zookeeper': 'zookeeper',
-        'config-database-nodemgr': 'contrail-config-database-nodemgr'
+        'config-database-nodemgr': 'tungsten-config-database-nodemgr'
     },
     Module.CONTROL_NODE_MGR: {
-        'control-control': 'contrail-control',
-        'control-dns': 'contrail-dns',
-        'control-named': 'contrail-named',
-        'control-nodemgr': 'contrail-control-nodemgr'
+        'control-control': 'tungsten-control',
+        'control-dns': 'tungsten-dns',
+        'control-named': 'tungsten-named',
+        'control-nodemgr': 'tungsten-control-nodemgr'
     },
     Module.COMPUTE_NODE_MGR: {
-        'vrouter-agent': 'contrail-vrouter-agent',
-        'vrouter-nodemgr': 'contrail-vrouter-nodemgr'
+        'vrouter-agent': 'tungsten-vrouter-agent',
+        'vrouter-nodemgr': 'tungsten-vrouter-nodemgr'
     },
     Module.DATABASE_NODE_MGR: {
         'database-cassandra': 'cassandra',
         'database-zookeeper': 'zookeeper',
         'database-kafka': 'kafka',
-        'database-nodemgr': 'contrail-database-nodemgr'
+        'database-nodemgr': 'tungsten-database-nodemgr'
     },
 }
 
@@ -97,8 +97,8 @@ class DockerProcessInfoManager(object):
 
     def _get_name_from_labels(self, container):
         labels = container.get('Labels', dict())
-        pod = labels.get('net.juniper.contrail.pod')
-        service = labels.get('net.juniper.contrail.service')
+        pod = labels.get('net.juniper.tungsten.pod')
+        service = labels.get('net.juniper.tungsten.service')
 
         if not pod:
             # try to detect pod from Env.NODE_TYPE
@@ -118,7 +118,7 @@ class DockerProcessInfoManager(object):
         if pod and service:
             return pod + '-' + service
 
-        name = labels.get('net.juniper.contrail')
+        name = labels.get('net.juniper.tungsten')
         if not name:
             name = container.get('Name')
         return name

@@ -1,18 +1,18 @@
 {
-    "contrail-collector" : {
+    "tungsten-collector" : {
         "source_directories" : [
-            "src/contrail-analytics/contrail-collector",
-            "src/contrail-analytics/contrail-opserver",
-            "src/contrail-analytics/contrail-query-engine"
+            "src/tungsten-analytics/tungsten-collector",
+            "src/tungsten-analytics/tungsten-opserver",
+            "src/tungsten-analytics/tungsten-query-engine"
         ],
         "scons_test_targets" : [
-            "src/contrail-analytics/contrail-collector:test",
-            "src/contrail-analytics/contrail-opserver:test",
-            "src/contrail-analytics/contrail-query-engine:test"
+            "src/tungsten-analytics/tungsten-collector:test",
+            "src/tungsten-analytics/tungsten-opserver:test",
+            "src/tungsten-analytics/tungsten-query-engine:test"
         ],
         "misc_test_targets" : [ ]
     },
-    "contrail-config" : {
+    "tungsten-config" : {
         "source_directories" : [
             "controller/src/config"
         ],
@@ -20,29 +20,29 @@
             "controller/src/config/svc_monitor:test",
             "controller/src/config/schema-transformer:test",
             "controller/src/config/device-manager:test",
-            "src/contrail-api-client/api-lib:test",
+            "src/tungsten-api-client/api-lib:test",
             "controller/src/config/api-server:test",
             "controller/src/config/vnc_openstack:test"
         ],
         "misc_test_targets" : [ ]
     },
-    "contrail-api-client" : {
+    "tungsten-api-client" : {
         "source_directories" : [
-            "src/contrail-api-client/api-lib",
-            "src/contrail-api-client/schema"
+            "src/tungsten-api-client/api-lib",
+            "src/tungsten-api-client/schema"
         ],
         "scons_test_targets" : [
             "controller/src/config/svc_monitor:test",
             "controller/src/config/schema-transformer:test",
             "controller/src/config/device-manager:test",
-            "src/contrail-api-client/api-lib:test",
+            "src/tungsten-api-client/api-lib:test",
             "controller/src/config/api-server:test",
             "controller/src/config/vnc_openstack:test",
-            "src/contrail-api-client/schema:test"
+            "src/tungsten-api-client/schema:test"
         ],
         "misc_test_targets" : [ ]
     },
-    "contrail-control" : {
+    "tungsten-control" : {
         "source_directories" : [
             "controller/src/bgp",
             "controller/src/bfd",
@@ -50,7 +50,7 @@
             "controller/src/dns",
             "controller/src/ifmap",
             "controller/src/xmpp",
-            "src/contrail-common/config-client-mgr"
+            "src/tungsten-common/config-client-mgr"
         ],
         "scons_test_targets" : [
             "controller/src/bgp:test",
@@ -59,7 +59,7 @@
             "controller/src/dns:test",
             "controller/src/ifmap:test",
             "controller/src/xmpp:test",
-            "src/contrail-common/config-client-mgr:test"
+            "src/tungsten-common/config-client-mgr:test"
         ],
         "misc_test_targets" : [ ],
         "environment" : [
@@ -104,7 +104,7 @@
             }
         ]
     },
-    "contrail-vrouter" : {
+    "tungsten-vrouter" : {
         "source_directories" : [
             "controller/src/ksync",
             "controller/src/vnsw",
@@ -117,16 +117,16 @@
         ],
         "misc_test_targets" : [ ]
     },
-    "contrail-nodemgr" : {
+    "tungsten-nodemgr" : {
         "source_directories" : [
             "controller/src/nodemgr"
         ],
         "scons_test_targets" : [
-            "contrail-nodemgr:test"
+            "tungsten-nodemgr:test"
         ],
         "misc_test_targets" : [ ]
     },
-    "contrail-container" : {
+    "tungsten-container" : {
         "source_directories" : [
             "controller/src/container"
         ],
@@ -138,39 +138,39 @@
         ],
         "misc_test_targets" : [ ]
     },
-    "contrail-libs" : {
+    "tungsten-libs" : {
         "source_directories" : [
-            "src/contrail-common/base",
-            "src/contrail-common/io",
+            "src/tungsten-common/base",
+            "src/tungsten-common/io",
             "controller/src/db",
             "controller/src/discovery",
-            "src/contrail-common/database",
-            "src/contrail-common/zookeeper",
-            "src/contrail-common/http",
+            "src/tungsten-common/database",
+            "src/tungsten-common/zookeeper",
+            "src/tungsten-common/http",
             "controller/src/net",
             "controller/src/route",
             "controller/src/routing-policy",
             "controller/src/sandesh",
-            "src/contrail-api-client/schema",
+            "src/tungsten-api-client/schema",
             "controller/src/xml",
-            "src/contrail-api-client/generateds",
-            "src/contrail-common/sandesh"
+            "src/tungsten-api-client/generateds",
+            "src/tungsten-common/sandesh"
         ],
         "scons_test_targets" : [
-            "src/contrail-common/base:test",
-            "src/contrail-common/io:test",
+            "src/tungsten-common/base:test",
+            "src/tungsten-common/io:test",
             "controller/src/db:test",
-            "src/contrail-common/database/gendb:test",
-            "src/contrail-common/database/cassandra/cql:test",
-            "src/contrail-common/zookeeper:test",
+            "src/tungsten-common/database/gendb:test",
+            "src/tungsten-common/database/cassandra/cql:test",
+            "src/tungsten-common/zookeeper:test",
             "controller/src/net:test",
-            "src/contrail-api-client/schema:test",
+            "src/tungsten-api-client/schema:test",
             "sandesh:test"
         ],
         "misc_test_targets" : [
-            "contrail-collector",
-            "contrail-control",
-            "contrail-vrouter"
+            "tungsten-collector",
+            "tungsten-control",
+            "tungsten-vrouter"
          ]
     }
 }

@@ -2,16 +2,16 @@ Compute provisioning package.
 =============================
 
 ## Overview
-The package contains the code for provisioning contrail compute services. `contrail-compute-setup` is the entrypoint script used to provision contrail compute.
+The package contains the code for provisioning tungsten compute services. `tungsten-compute-setup` is the entrypoint script used to provision tungsten compute.
 
-This python package is packaged as part of `contrail-vrouter-agent` package, So in a compute where `contrail-vrouter-agent` package is installed one can issue the following command to get help about the `contrail-compute-setup` and supported arguments.
+This python package is packaged as part of `tungsten-vrouter-agent` package, So in a compute where `tungsten-vrouter-agent` package is installed one can issue the following command to get help about the `tungsten-compute-setup` and supported arguments.
 
 ```sh
-$ contrail-compute-setup --help
+$ tungsten-compute-setup --help
 ```
 
 ## Supported modes
-Following modes of contrail vrouter provisioning are supported.
+Following modes of tungsten vrouter provisioning are supported.
 
 * Kernel mode
 * DPDK mode
@@ -21,7 +21,7 @@ Following modes of contrail vrouter provisioning are supported.
 Commandline with mandatory argument to provision vrouter in kernel mode follows,
 
 ```sh
-$ contrail-compute-setup --self_ip 5.5.5.1\
+$ tungsten-compute-setup --self_ip 5.5.5.1\
                          --hypervisor libvirt\
                          --cfgm_ip 2.2.2.1\
                          --collectors 3.3.3.1 3.3.3.2 3.3.3.3\
@@ -30,7 +30,7 @@ $ contrail-compute-setup --self_ip 5.5.5.1\
                          --keystone_auth_protocol http\
                          --keystone_auth_port 35357\
                          --keystone_admin_user admin\
-                         --keystone_admin_password contrail123\
+                         --keystone_admin_password tungsten123\
                          --keystone_admin_tenant_name admin
 ```
 
@@ -40,10 +40,10 @@ The  script does the following,
 * Disable iptables
 * Configure coredump
 * Add's /dev/net/tun in cgroup device acl
-* Configure `contrail-vrouter-agent.conf`
+* Configure `tungsten-vrouter-agent.conf`
 * Configure vhost0 interface with the configs of the present in physical interface.
-* Configure `contrail-vrouter-nodemgr.conf`
-* Configure `contrail-lbaas-auth.conf`
+* Configure `tungsten-vrouter-nodemgr.conf`
+* Configure `tungsten-lbaas-auth.conf`
 * Enable agent services
 * Create virtual-router object for the compute in api-server (Optional based on the `--register` flag)
 
@@ -51,7 +51,7 @@ The  script does the following,
 Commandline with mandatory argument to provision vrouter in DPDK mode follows,
 
 ```sh
-$ contrail-compute-setup --self_ip 5.5.5.1\
+$ tungsten-compute-setup --self_ip 5.5.5.1\
                          --hypervisor libvirt\
                          --cfgm_ip 2.2.2.1\
                          --collectors 3.3.3.1 3.3.3.2 3.3.3.3\
@@ -60,7 +60,7 @@ $ contrail-compute-setup --self_ip 5.5.5.1\
                          --keystone_auth_protocol http\
                          --keystone_auth_port 35357\
                          --keystone_admin_user admin\
-                         --keystone_admin_password contrail123\
+                         --keystone_admin_password tungsten123\
                          --keystone_admin_tenant_name admin\
                          --dpdk coremask=0x3,huge_pages=50,uio_driver=uio_pci_generic
 ```
@@ -78,7 +78,7 @@ $ contrail-compute-setup --self_ip 5.5.5.1\
 Commandline with mandatory argument to provision vrouter in SRIOV mode follows,
 
 ```sh
-$ contrail-compute-setup --self_ip 5.5.5.1\
+$ tungsten-compute-setup --self_ip 5.5.5.1\
                          --hypervisor libvirt\
                          --cfgm_ip 2.2.2.1\
                          --collectors 3.3.3.1 3.3.3.2 3.3.3.3\
@@ -87,7 +87,7 @@ $ contrail-compute-setup --self_ip 5.5.5.1\
                          --keystone_auth_protocol http\
                          --keystone_auth_port 35357\
                          --keystone_admin_user admin\
-                         --keystone_admin_password contrail123\
+                         --keystone_admin_password tungsten123\
                          --keystone_admin_tenant_name admin\
                          --sriov "p6p1:7,p6p2:5"
 ```
@@ -99,12 +99,12 @@ $ contrail-compute-setup --self_ip 5.5.5.1\
 
 ### Filing Bugs
 Use http://bugs.launchpad.net/juniperopenstack
-It will be useful to include the log file in the bug, log files will be created at `/var/log/contrail/contrail_vrouter_provisioning.log` in the compute node.
+It will be useful to include the log file in the bug, log files will be created at `/var/log/tungsten/tungsten_vrouter_provisioning.log` in the compute node.
 
 ### Queries
 Mail to
-dev@lists.opencontrail.org,
-users@lists.opencontrail.org
+dev@lists.tungsten.io,
+users@lists.tungsten.io
 
 ### IRC
-opencontrail on freenode.net
+Tungsten Fabric on freenode.net

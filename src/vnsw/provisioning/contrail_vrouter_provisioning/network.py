@@ -11,10 +11,10 @@ import socket
 import logging
 import netifaces
 
-from contrail_vrouter_provisioning import local
+from tungsten_vrouter_provisioning import local
 
 
-log = logging.getLogger('contrail_vrouter_provisioning.network')
+log = logging.getLogger('tungsten_vrouter_provisioning.network')
 
 
 class ComputeNetworkSetup(object):
@@ -78,7 +78,7 @@ class ComputeNetworkSetup(object):
 
     def get_device_info(self, ip):
         reprov = False
-        cfg_file = "/etc/contrail/contrail-vrouter-agent.conf"
+        cfg_file = "/etc/tungsten/tungsten-vrouter-agent.conf"
         try:
             dev = self.get_device_by_ip(ip)
             if dev == "vhost0":
@@ -171,7 +171,7 @@ class ComputeNetworkSetup(object):
         if not os.path.isfile(ifcfg_file):
             ifcfg_file = temp_dir_name + 'ifcfg-' + dev
             with open(ifcfg_file, 'w') as f:
-                f.write('''#Contrail %s
+                f.write('''#Tungsten %s
 TYPE=Ethernet
 ONBOOT=yes
 DEVICE="%s"
@@ -190,10 +190,10 @@ HWADDR=%s
         new_f_lines = []
         remove_items = ['IPADDR', 'NETMASK', 'PREFIX', 'GATEWAY', 'HWADDR',
                         'DNS1', 'DNS2', 'BOOTPROTO', 'NM_CONTROLLED',
-                        '#Contrail']
+                        '#Tungsten']
 
         remove_items.append('DEVICE')
-        new_f_lines.append('#Contrail %s\n' % dev)
+        new_f_lines.append('#Tungsten %s\n' % dev)
         new_f_lines.append('DEVICE=%s\n' % dev)
 
         for line in f_lines:
@@ -464,7 +464,7 @@ HWADDR=%s
         local("sudo echo 'auto vhost0' >> %s" % (temp_intf_file))
         local("sudo echo 'iface vhost0 inet static' >> %s" % (temp_intf_file))
         local("sudo echo '    pre-up %s/if-vhost0' >> %s" %
-              (self.contrail_bin_dir, temp_intf_file))
+              (self.tungsten_bin_dir, temp_intf_file))
         local("sudo echo '    netmask %s' >> %s" % (netmask, temp_intf_file))
         local("sudo echo '    network_name application' >> %s" %
               temp_intf_file)

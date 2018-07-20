@@ -36,13 +36,13 @@ class CassandraManager(object):
         self.status_old.thread_pool_stats = []
 
     def status(self):
-        # TODO: here was a call to contrail-cassandra-status utility
+        # TODO: here was a call to tungsten-cassandra-status utility
         # it could stop cassandra's service but this tool is not present
         # and this is not allowed in micrioservices setup
         pass
 
     def repair(self):
-        # TODO: here was a call to contrail-cassandra-repair utility
+        # TODO: here was a call to tungsten-cassandra-repair utility
         # but this tool is not present in microservices
         pass
 
@@ -131,7 +131,7 @@ class CassandraManager(object):
                     data = self.exec_cmd("ls -1 {}/".format(data_dir))
                     all_analytics_dirs = [
                         n.strip() for n in data.split('\n')
-                                  if n.startswith("ContrailAnalyticsCql")]
+                                  if n.startswith("TungstenAnalyticsCql")]
                     if all_analytics_dirs:
                         # for now we assume the partition for all analytics
                         # clusters are the same

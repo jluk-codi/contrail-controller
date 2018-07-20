@@ -55,7 +55,7 @@ class TestVncKombuClient(unittest.TestCase):
             )
         self.port = 5672
         self.username = "guest"
-        self.password = "contrail123"
+        self.password = "tungsten123"
         self.vhost = "vhost0"
         self.db_client_mgr = flexmock(operational=True, _sandesh=None,
                        config_log=lambda *args, **kwargs: None,

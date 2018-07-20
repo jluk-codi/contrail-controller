@@ -37,8 +37,8 @@
 #include "xmpp/xmpp_connection.h"
 #include "xmpp/xmpp_factory.h"
 
-#define XMPP_CONTROL_SERV   "bgp.contrail.com"
-#define PUBSUB_NODE_ADDR "bgp-node.contrail.com"
+#define XMPP_CONTROL_SERV   "bgp.tungsten.com"
+#define PUBSUB_NODE_ADDR "bgp-node.tungsten.com"
 
 using namespace std;
 using namespace boost;
@@ -893,7 +893,7 @@ void GracefulRestartTest::CreateAgents() {
         // create an XMPP client in server A
         test::NetworkAgentMock *agent = new test::NetworkAgentMock(&evm_,
             "agent" + boost::lexical_cast<string>(i) +
-                "@vnsw.contrailsystems.com",
+                "@vnsw.tungstensystems.com",
             xmpp_server_->GetPort(), prefix.ip4_addr().to_string(),
             "127.0.0.1", xmpp_auth_enabled_);
         agent->set_id(i);
@@ -911,7 +911,7 @@ void GracefulRestartTest::CreateAgents() {
             // Create a dummy agent for other bgp speakers too.
             test::NetworkAgentMock *agent = new test::NetworkAgentMock(&evm_,
                 "dummy_agent" + boost::lexical_cast<string>(i) +
-                "@vnsw.contrailsystems.com",
+                "@vnsw.tungstensystems.com",
                 xmpp_servers_[j]->GetPort(), prefix.ip4_addr().to_string(),
                 "127.0.0.1", xmpp_auth_enabled_);
             xmpp_server_agents_[xmpp_servers_[j]].push_back(agent);

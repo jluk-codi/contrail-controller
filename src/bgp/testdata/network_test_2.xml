@@ -4,9 +4,9 @@
       <pollResult>
         <searchResult name="root">
           <resultItem>
-            <identity name="contrail:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2:vn2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -19,13 +19,13 @@
                   <uuid-lslong>13423238907381204328</uuid-lslong>
                 </uuid>
                 <enable>true</enable>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-virtual-network" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-virtual-network" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -40,21 +40,21 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:381ecc79-541e-48a3-b35a-d0d730883539" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine-interface:1e76467a-bb26-4479-8f4e-bb98a6309bef:29ea2fa9-66e5-42bd-aad1-9bfc035666e3" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:381ecc79-541e-48a3-b35a-d0d730883539" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:1e76467a-bb26-4479-8f4e-bb98a6309bef:29ea2fa9-66e5-42bd-aad1-9bfc035666e3" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-virtual-machine-interface xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00"/>
+              <tungsten:instance-ip-virtual-machine-interface xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:b48f6245-3579-41b0-a632-fd1b8467a9b3" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:b48f6245-3579-41b0-a632-fd1b8467a9b3" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-address xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:51:49-05:00">10.1.1.252</contrail:instance-ip-address>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:51:49-05:00">
+              <tungsten:instance-ip-address xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:51:49-05:00">10.1.1.252</tungsten:instance-ip-address>
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:51:49-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -69,27 +69,27 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:domain:default-domain" type="other" other-type-definition="extended"/>
-            <identity name="contrail:project:default-domain:default-project" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:domain:default-domain" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:project:default-domain:default-project" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:domain-project xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00"/>
+              <tungsten:domain-project xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:project:default-domain:default-project" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-network:default-domain:default-project:default-virtual-network" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:project:default-domain:default-project" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:default-project:default-virtual-network" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:project-virtual-network xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00"/>
+              <tungsten:project-virtual-network xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-router:user-X9SCL-X9SCM" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-router:user-X9SCL-X9SCM" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -102,14 +102,14 @@
                   <uuid-lslong>12761751219452268928</uuid-lslong>
                 </uuid>
                 <enable>true</enable>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:875dfeb0-1786-47bb-8b90-ca4202d94eea" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:875dfeb0-1786-47bb-8b90-ca4202d94eea" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-address xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:59:11-05:00">10.1.1.254</contrail:instance-ip-address>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:59:11-05:00">
+              <tungsten:instance-ip-address xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:59:11-05:00">10.1.1.254</tungsten:instance-ip-address>
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:59:11-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -124,13 +124,13 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:access-control-list:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1:vn1" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:access-control-list:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1:vn1" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -145,8 +145,8 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
-              <contrail:access-control-list-entries xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00">
+              </tungsten:id-perms>
+              <tungsten:access-control-list-entries xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00">
                 <acl-rule>
                   <match-condition>
                     <protocol>any</protocol>
@@ -191,44 +191,44 @@
                     <simple-action>pass</simple-action>
                   </action-list>
                 </acl-rule>
-              </contrail:access-control-list-entries>
+              </tungsten:access-control-list-entries>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:project:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:project:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:project-virtual-network xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00"/>
+              <tungsten:project-virtual-network xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:381ecc79-541e-48a3-b35a-d0d730883539" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:381ecc79-541e-48a3-b35a-d0d730883539" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-virtual-network xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00"/>
+              <tungsten:instance-ip-virtual-network xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine-interface:2e3e3aef-5641-4598-9425-2865b9279806:c27ee4b8-4e01-4827-894e-335e8ba53228" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:2e3e3aef-5641-4598-9425-2865b9279806:c27ee4b8-4e01-4827-894e-335e8ba53228" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-interface-virtual-network xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:01:43-05:00"/>
+              <tungsten:virtual-machine-interface-virtual-network xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:01:43-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
-            <identity name="contrail:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1:vn1" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1:vn1" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-network-routing-instance xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00"/>
+              <tungsten:virtual-network-routing-instance xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine-interface:c6df5615-c878-451a-b577-1ba2eda0b3ac:b9808985-c4b4-4436-af68-41903b08f993" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:c6df5615-c878-451a-b577-1ba2eda0b3ac:b9808985-c4b4-4436-af68-41903b08f993" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-interface-mac-addresses xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:59:11-05:00">
+              <tungsten:virtual-machine-interface-mac-addresses xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:59:11-05:00">
                 <mac-address>02:b9:80:89:85:c4</mac-address>
-              </contrail:virtual-machine-interface-mac-addresses>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:59:11-05:00">
+              </tungsten:virtual-machine-interface-mac-addresses>
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:59:11-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -243,20 +243,20 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine:2e3e3aef-5641-4598-9425-2865b9279806" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine-interface:2e3e3aef-5641-4598-9425-2865b9279806:c27ee4b8-4e01-4827-894e-335e8ba53228" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:2e3e3aef-5641-4598-9425-2865b9279806" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:2e3e3aef-5641-4598-9425-2865b9279806:c27ee4b8-4e01-4827-894e-335e8ba53228" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-virtual-machine-interface xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:01:42-05:00"/>
+              <tungsten:virtual-machine-virtual-machine-interface xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:01:42-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-virtual-network:default-virtual-network" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-virtual-network:default-virtual-network" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -271,20 +271,20 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:config-root:root" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-router:user-X9SCL-X9SCM" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:config-root:root" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-router:user-X9SCL-X9SCM" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:config-root-virtual-router xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00"/>
+              <tungsten:config-root-virtual-router xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:project:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:project:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -299,27 +299,27 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:b484d703-943e-4472-90fb-eb80f63912d2" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine-interface:2e3e3aef-5641-4598-9425-2865b9279806:c27ee4b8-4e01-4827-894e-335e8ba53228" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:b484d703-943e-4472-90fb-eb80f63912d2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:2e3e3aef-5641-4598-9425-2865b9279806:c27ee4b8-4e01-4827-894e-335e8ba53228" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-virtual-machine-interface xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:01:43-05:00"/>
+              <tungsten:instance-ip-virtual-machine-interface xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:01:43-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:project:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133" type="other" other-type-definition="extended"/>
-            <identity name="contrail:network-ipam:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-network-ipam" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:project:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:network-ipam:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-network-ipam" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:project-network-ipam xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00"/>
+              <tungsten:project-network-ipam xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:network-policy:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:pol1" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:network-policy:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:pol1" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:network-policy-entries xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:40-05:00">
+              <tungsten:network-policy-entries xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:40-05:00">
                 <policy-rule>
                   <direction>&lt;&gt;</direction>
                   <simple-action>pass</simple-action>
@@ -339,8 +339,8 @@
                     <end-port>-1</end-port>
                   </dst-ports>
                 </policy-rule>
-              </contrail:network-policy-entries>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:40-05:00">
+              </tungsten:network-policy-entries>
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:40-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -355,27 +355,27 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine-interface:6f515cf1-8ca0-4353-82fc-1e25dbc78208:42363487-cbe6-4fb3-a23c-9add7e01f92b" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:6f515cf1-8ca0-4353-82fc-1e25dbc78208:42363487-cbe6-4fb3-a23c-9add7e01f92b" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-interface-virtual-network xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:14:57-05:00"/>
+              <tungsten:virtual-machine-interface-virtual-network xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:14:57-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:project:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133" type="other" other-type-definition="extended"/>
-            <identity name="contrail:network-policy:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:pol2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:project:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:network-policy:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:pol2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:project-network-policy xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:40-05:00"/>
+              <tungsten:project-network-policy xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:40-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine:6f515cf1-8ca0-4353-82fc-1e25dbc78208" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:6f515cf1-8ca0-4353-82fc-1e25dbc78208" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:14:57-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:14:57-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -390,48 +390,48 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-router:host-187" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine:4900a94f-435d-4671-ad3e-ce834ccdd543" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-router:host-187" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:4900a94f-435d-4671-ad3e-ce834ccdd543" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-router-virtual-machine xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00"/>
+              <tungsten:virtual-router-virtual-machine xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-router:host-187" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine:a7c5d9b8-91de-4a3b-83d9-2037103a21b2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-router:host-187" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:a7c5d9b8-91de-4a3b-83d9-2037103a21b2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-router-virtual-machine xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00"/>
+              <tungsten:virtual-router-virtual-machine xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-network:default-domain:default-project:default-virtual-network" type="other" other-type-definition="extended"/>
-            <identity name="contrail:routing-instance:default-domain:default-project:default-virtual-network:default-virtual-network" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:default-project:default-virtual-network" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:routing-instance:default-domain:default-project:default-virtual-network:default-virtual-network" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-network-routing-instance xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:36-05:00"/>
+              <tungsten:virtual-network-routing-instance xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:36-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-router:user-X9SCL-X9SCM" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine:0b735351-8225-46be-bd88-42b39b75bab4" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-router:user-X9SCL-X9SCM" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:0b735351-8225-46be-bd88-42b39b75bab4" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-router-virtual-machine xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00"/>
+              <tungsten:virtual-router-virtual-machine xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:config-root:root" type="other" other-type-definition="extended"/>
-            <identity name="contrail:domain:default-domain" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:config-root:root" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:domain:default-domain" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:config-root-domain xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00"/>
+              <tungsten:config-root-domain xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:network-ipam:default-domain:default-project:default-network-ipam" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:network-ipam:default-domain:default-project:default-network-ipam" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -446,23 +446,23 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-router:user-X9SCL-X9SCM" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine:1e76467a-bb26-4479-8f4e-bb98a6309bef" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-router:user-X9SCL-X9SCM" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:1e76467a-bb26-4479-8f4e-bb98a6309bef" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-router-virtual-machine xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00"/>
+              <tungsten:virtual-router-virtual-machine xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine-interface:0b735351-8225-46be-bd88-42b39b75bab4:ffa5c490-ccfe-4794-8fd3-f33af61b784b" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:0b735351-8225-46be-bd88-42b39b75bab4:ffa5c490-ccfe-4794-8fd3-f33af61b784b" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-interface-mac-addresses xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:11:36-05:00">
+              <tungsten:virtual-machine-interface-mac-addresses xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:11:36-05:00">
                 <mac-address>02:ff:a5:c4:90:cc</mac-address>
-              </contrail:virtual-machine-interface-mac-addresses>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:11:36-05:00">
+              </tungsten:virtual-machine-interface-mac-addresses>
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:11:36-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -477,16 +477,16 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine-interface:1e76467a-bb26-4479-8f4e-bb98a6309bef:29ea2fa9-66e5-42bd-aad1-9bfc035666e3" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:1e76467a-bb26-4479-8f4e-bb98a6309bef:29ea2fa9-66e5-42bd-aad1-9bfc035666e3" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-interface-mac-addresses xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00">
+              <tungsten:virtual-machine-interface-mac-addresses xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00">
                 <mac-address>02:29:ea:2f:a9:66</mac-address>
-              </contrail:virtual-machine-interface-mac-addresses>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00">
+              </tungsten:virtual-machine-interface-mac-addresses>
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -501,13 +501,13 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -520,23 +520,23 @@
                   <uuid-lslong>13750443618448115088</uuid-lslong>
                 </uuid>
                 <enable>true</enable>
-              </contrail:id-perms>
+              </tungsten:id-perms>
               <virtual-network-properties>
                 <network-id>1</network-id>
               </virtual-network-properties>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:338fa631-eb34-42a8-8c1b-57e5e5c3af89" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine-interface:a7c5d9b8-91de-4a3b-83d9-2037103a21b2:89fc65fb-1620-496d-ae24-7d59c59efb65" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:338fa631-eb34-42a8-8c1b-57e5e5c3af89" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:a7c5d9b8-91de-4a3b-83d9-2037103a21b2:89fc65fb-1620-496d-ae24-7d59c59efb65" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-virtual-machine-interface xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:05:28-05:00"/>
+              <tungsten:instance-ip-virtual-machine-interface xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:05:28-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:access-control-list:default-domain:default-project:default-virtual-network:default-virtual-network" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:access-control-list:default-domain:default-project:default-virtual-network:default-virtual-network" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:36-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:36-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -551,16 +551,16 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine-interface:2e3e3aef-5641-4598-9425-2865b9279806:c27ee4b8-4e01-4827-894e-335e8ba53228" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:2e3e3aef-5641-4598-9425-2865b9279806:c27ee4b8-4e01-4827-894e-335e8ba53228" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-interface-mac-addresses xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:01:42-05:00">
+              <tungsten:virtual-machine-interface-mac-addresses xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:01:42-05:00">
                 <mac-address>02:c2:7e:e4:b8:4e</mac-address>
-              </contrail:virtual-machine-interface-mac-addresses>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:01:42-05:00">
+              </tungsten:virtual-machine-interface-mac-addresses>
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:01:42-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -575,41 +575,41 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:project:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133" type="other" other-type-definition="extended"/>
-            <identity name="contrail:security-group:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-security-group" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:project:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:security-group:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-security-group" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:project-security-group xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00"/>
+              <tungsten:project-security-group xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:domain:default-domain" type="other" other-type-definition="extended"/>
-            <identity name="contrail:namespace:default-domain:default-namespace" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:domain:default-domain" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:namespace:default-domain:default-namespace" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:domain-namespace xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00"/>
+              <tungsten:domain-namespace xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-virtual-network" type="other" other-type-definition="extended"/>
-            <identity name="contrail:access-control-list:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-virtual-network:default-virtual-network" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-virtual-network" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:access-control-list:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-virtual-network:default-virtual-network" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-network-access-control-list xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00"/>
+              <tungsten:virtual-network-access-control-list xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:project:default-domain:default-project" type="other" other-type-definition="extended"/>
-            <identity name="contrail:network-ipam:default-domain:default-project:default-network-ipam" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:project:default-domain:default-project" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:network-ipam:default-domain:default-project:default-network-ipam" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:project-network-ipam xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00"/>
+              <tungsten:project-network-ipam xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:route-target:target:1:4" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:route-target:target:1:4" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:36-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:36-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -624,14 +624,14 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:b484d703-943e-4472-90fb-eb80f63912d2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:b484d703-943e-4472-90fb-eb80f63912d2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-address xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:01:43-05:00">10.1.1.253</contrail:instance-ip-address>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:01:43-05:00">
+              <tungsten:instance-ip-address xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:01:43-05:00">10.1.1.253</tungsten:instance-ip-address>
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:01:43-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -646,51 +646,51 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:c8a5ef9e-421f-4ba4-9556-0ce024453248" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine-interface:0b735351-8225-46be-bd88-42b39b75bab4:ffa5c490-ccfe-4794-8fd3-f33af61b784b" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:c8a5ef9e-421f-4ba4-9556-0ce024453248" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:0b735351-8225-46be-bd88-42b39b75bab4:ffa5c490-ccfe-4794-8fd3-f33af61b784b" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-virtual-machine-interface xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:11:36-05:00"/>
+              <tungsten:instance-ip-virtual-machine-interface xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:11:36-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-router:host-187" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine:6f515cf1-8ca0-4353-82fc-1e25dbc78208" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-router:host-187" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:6f515cf1-8ca0-4353-82fc-1e25dbc78208" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-router-virtual-machine xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00"/>
+              <tungsten:virtual-router-virtual-machine xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2:vn2" type="other" other-type-definition="extended"/>
-            <identity name="contrail:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1:vn1" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1:vn1" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:connection xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00"/>
+              <tungsten:connection xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
-            <identity name="contrail:network-policy:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:pol2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:network-policy:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:pol2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-network-network-policy xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00">
+              <tungsten:virtual-network-network-policy xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00">
                 <major>0</major>
                 <minor>0</minor>
-              </contrail:virtual-network-network-policy>
+              </tungsten:virtual-network-network-policy>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:b484d703-943e-4472-90fb-eb80f63912d2" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:b484d703-943e-4472-90fb-eb80f63912d2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-virtual-network xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:01:43-05:00"/>
+              <tungsten:instance-ip-virtual-network xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:01:43-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-router:host-187" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-router:host-187" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -703,49 +703,49 @@
                   <uuid-lslong>13783131256574668837</uuid-lslong>
                 </uuid>
                 <enable>true</enable>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
-            <identity name="contrail:network-ipam:default-domain:default-project:default-network-ipam" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:network-ipam:default-domain:default-project:default-network-ipam" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-network-network-ipam xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00">
+              <tungsten:virtual-network-network-ipam xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00">
                 <subnet>
                   <ip-prefix>20.1.1.0</ip-prefix>
                   <ip-prefix-len>24</ip-prefix-len>
                 </subnet>
-              </contrail:virtual-network-network-ipam>
+              </tungsten:virtual-network-network-ipam>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-network:default-domain:default-project:default-virtual-network" type="other" other-type-definition="extended"/>
-            <identity name="contrail:access-control-list:default-domain:default-project:default-virtual-network:default-virtual-network" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:default-project:default-virtual-network" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:access-control-list:default-domain:default-project:default-virtual-network:default-virtual-network" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-network-access-control-list xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:36-05:00"/>
+              <tungsten:virtual-network-access-control-list xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:36-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:project:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-virtual-network" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:project:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-virtual-network" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:project-virtual-network xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00"/>
+              <tungsten:project-virtual-network xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:config-root:root" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-router:host-187" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:config-root:root" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-router:host-187" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:config-root-virtual-router xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00"/>
+              <tungsten:config-root-virtual-router xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine-interface:a7c5d9b8-91de-4a3b-83d9-2037103a21b2:89fc65fb-1620-496d-ae24-7d59c59efb65" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:a7c5d9b8-91de-4a3b-83d9-2037103a21b2:89fc65fb-1620-496d-ae24-7d59c59efb65" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-interface-mac-addresses xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:05:28-05:00">
+              <tungsten:virtual-machine-interface-mac-addresses xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:05:28-05:00">
                 <mac-address>02:89:fc:65:fb:16</mac-address>
-              </contrail:virtual-machine-interface-mac-addresses>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:05:28-05:00">
+              </tungsten:virtual-machine-interface-mac-addresses>
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:05:28-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -760,20 +760,20 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine-interface:c6df5615-c878-451a-b577-1ba2eda0b3ac:b9808985-c4b4-4436-af68-41903b08f993" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:c6df5615-c878-451a-b577-1ba2eda0b3ac:b9808985-c4b4-4436-af68-41903b08f993" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-interface-virtual-network xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:59:11-05:00"/>
+              <tungsten:virtual-machine-interface-virtual-network xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:59:11-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine:a7c5d9b8-91de-4a3b-83d9-2037103a21b2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:a7c5d9b8-91de-4a3b-83d9-2037103a21b2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:05:28-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:05:28-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -788,13 +788,13 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:route-target:target:1:7" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:route-target:target:1:7" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:39-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:39-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -809,28 +809,28 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-virtual-network:default-virtual-network" type="other" other-type-definition="extended"/>
-            <identity name="contrail:route-target:target:1:5" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-virtual-network:default-virtual-network" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:route-target:target:1:5" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-target xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00"/>
+              <tungsten:instance-target xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
-            <identity name="contrail:access-control-list:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1:vn1" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:access-control-list:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1:vn1" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-network-access-control-list xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00"/>
+              <tungsten:virtual-network-access-control-list xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:d8d71afd-ccc7-4b86-b297-bb49a7bf2c0c" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:d8d71afd-ccc7-4b86-b297-bb49a7bf2c0c" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-address xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:14:57-05:00">20.1.1.253</contrail:instance-ip-address>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:14:57-05:00">
+              <tungsten:instance-ip-address xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:14:57-05:00">20.1.1.253</tungsten:instance-ip-address>
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:14:57-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -845,13 +845,13 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:project:default-domain:default-project" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:project:default-domain:default-project" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -866,27 +866,27 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-router:user-X9SCL-X9SCM" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine:2e3e3aef-5641-4598-9425-2865b9279806" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-router:user-X9SCL-X9SCM" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:2e3e3aef-5641-4598-9425-2865b9279806" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-router-virtual-machine xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00"/>
+              <tungsten:virtual-router-virtual-machine xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:project:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:project:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:project-virtual-network xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00"/>
+              <tungsten:project-virtual-network xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine:0b735351-8225-46be-bd88-42b39b75bab4" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:0b735351-8225-46be-bd88-42b39b75bab4" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:11:36-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:11:36-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -901,13 +901,13 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:route-target:target:1:5" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:route-target:target:1:5" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -922,23 +922,23 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
-            <identity name="contrail:network-policy:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:pol1" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:network-policy:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:pol1" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-network-network-policy xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00">
+              <tungsten:virtual-network-network-policy xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00">
                 <major>0</major>
                 <minor>0</minor>
-              </contrail:virtual-network-network-policy>
+              </tungsten:virtual-network-network-policy>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine:c6df5615-c878-451a-b577-1ba2eda0b3ac" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:c6df5615-c878-451a-b577-1ba2eda0b3ac" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:59:11-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:59:11-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -953,76 +953,76 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine:43ede39b-a382-4ac2-bed8-7da30747ce58" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine-interface:43ede39b-a382-4ac2-bed8-7da30747ce58:f2c748cd-cc6b-4c73-b3ea-d210fdd3d1c4" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:43ede39b-a382-4ac2-bed8-7da30747ce58" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:43ede39b-a382-4ac2-bed8-7da30747ce58:f2c748cd-cc6b-4c73-b3ea-d210fdd3d1c4" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-virtual-machine-interface xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:51:49-05:00"/>
+              <tungsten:virtual-machine-virtual-machine-interface xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:51:49-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:routing-instance:default-domain:default-project:default-virtual-network:default-virtual-network" type="other" other-type-definition="extended"/>
-            <identity name="contrail:route-target:target:1:4" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:routing-instance:default-domain:default-project:default-virtual-network:default-virtual-network" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:route-target:target:1:4" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-target xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:36-05:00"/>
+              <tungsten:instance-target xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:36-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:875dfeb0-1786-47bb-8b90-ca4202d94eea" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine-interface:c6df5615-c878-451a-b577-1ba2eda0b3ac:b9808985-c4b4-4436-af68-41903b08f993" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:875dfeb0-1786-47bb-8b90-ca4202d94eea" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:c6df5615-c878-451a-b577-1ba2eda0b3ac:b9808985-c4b4-4436-af68-41903b08f993" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-virtual-machine-interface xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:59:11-05:00"/>
+              <tungsten:instance-ip-virtual-machine-interface xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:59:11-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:project:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133" type="other" other-type-definition="extended"/>
-            <identity name="contrail:network-policy:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-network-policy" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:project:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:network-policy:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-network-policy" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:project-network-policy xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00"/>
+              <tungsten:project-network-policy xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-virtual-network" type="other" other-type-definition="extended"/>
-            <identity name="contrail:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-virtual-network:default-virtual-network" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-virtual-network" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-virtual-network:default-virtual-network" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-network-routing-instance xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00"/>
+              <tungsten:virtual-network-routing-instance xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:5e6f4486-fa6b-4e8a-bdc3-0d80a5843594" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine-interface:4900a94f-435d-4671-ad3e-ce834ccdd543:3c562b6d-83de-416f-b4a7-9d873c93c514" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:5e6f4486-fa6b-4e8a-bdc3-0d80a5843594" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:4900a94f-435d-4671-ad3e-ce834ccdd543:3c562b6d-83de-416f-b4a7-9d873c93c514" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-virtual-machine-interface xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00"/>
+              <tungsten:instance-ip-virtual-machine-interface xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-router:user-X9SCL-X9SCM" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine:43ede39b-a382-4ac2-bed8-7da30747ce58" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-router:user-X9SCL-X9SCM" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:43ede39b-a382-4ac2-bed8-7da30747ce58" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-router-virtual-machine xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00"/>
+              <tungsten:virtual-router-virtual-machine xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine:6f515cf1-8ca0-4353-82fc-1e25dbc78208" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine-interface:6f515cf1-8ca0-4353-82fc-1e25dbc78208:42363487-cbe6-4fb3-a23c-9add7e01f92b" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:6f515cf1-8ca0-4353-82fc-1e25dbc78208" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:6f515cf1-8ca0-4353-82fc-1e25dbc78208:42363487-cbe6-4fb3-a23c-9add7e01f92b" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-virtual-machine-interface xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:14:57-05:00"/>
+              <tungsten:virtual-machine-virtual-machine-interface xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:14:57-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
-            <identity name="contrail:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2:vn2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-network-routing-instance xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00"/>
+              <tungsten:virtual-network-routing-instance xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:security-group:default-domain:default-project:default-security-group" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:security-group:default-domain:default-project:default-security-group" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1037,13 +1037,13 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1:vn1" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1:vn1" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1058,16 +1058,16 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine-interface:4900a94f-435d-4671-ad3e-ce834ccdd543:3c562b6d-83de-416f-b4a7-9d873c93c514" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:4900a94f-435d-4671-ad3e-ce834ccdd543:3c562b6d-83de-416f-b4a7-9d873c93c514" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-interface-mac-addresses xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00">
+              <tungsten:virtual-machine-interface-mac-addresses xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00">
                 <mac-address>02:3c:56:2b:6d:83</mac-address>
-              </contrail:virtual-machine-interface-mac-addresses>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00">
+              </tungsten:virtual-machine-interface-mac-addresses>
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1082,23 +1082,23 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:project:default-domain:default-project" type="other" other-type-definition="extended"/>
-            <identity name="contrail:security-group:default-domain:default-project:default-security-group" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:project:default-domain:default-project" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:security-group:default-domain:default-project:default-security-group" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:project-security-group xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00"/>
+              <tungsten:project-security-group xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine-interface:43ede39b-a382-4ac2-bed8-7da30747ce58:f2c748cd-cc6b-4c73-b3ea-d210fdd3d1c4" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:43ede39b-a382-4ac2-bed8-7da30747ce58:f2c748cd-cc6b-4c73-b3ea-d210fdd3d1c4" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-interface-mac-addresses xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:51:49-05:00">
+              <tungsten:virtual-machine-interface-mac-addresses xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:51:49-05:00">
                 <mac-address>02:f2:c7:48:cd:cc</mac-address>
-              </contrail:virtual-machine-interface-mac-addresses>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:51:49-05:00">
+              </tungsten:virtual-machine-interface-mac-addresses>
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:51:49-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1113,20 +1113,20 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine-interface:1e76467a-bb26-4479-8f4e-bb98a6309bef:29ea2fa9-66e5-42bd-aad1-9bfc035666e3" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:1e76467a-bb26-4479-8f4e-bb98a6309bef:29ea2fa9-66e5-42bd-aad1-9bfc035666e3" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-interface-virtual-network xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00"/>
+              <tungsten:virtual-machine-interface-virtual-network xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine:1e76467a-bb26-4479-8f4e-bb98a6309bef" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:1e76467a-bb26-4479-8f4e-bb98a6309bef" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1141,13 +1141,13 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:network-policy:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-network-policy" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:network-policy:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-network-policy" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1162,23 +1162,23 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine-interface:a7c5d9b8-91de-4a3b-83d9-2037103a21b2:89fc65fb-1620-496d-ae24-7d59c59efb65" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:a7c5d9b8-91de-4a3b-83d9-2037103a21b2:89fc65fb-1620-496d-ae24-7d59c59efb65" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-interface-virtual-network xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:05:28-05:00"/>
+              <tungsten:virtual-machine-interface-virtual-network xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:05:28-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine-interface:6f515cf1-8ca0-4353-82fc-1e25dbc78208:42363487-cbe6-4fb3-a23c-9add7e01f92b" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:6f515cf1-8ca0-4353-82fc-1e25dbc78208:42363487-cbe6-4fb3-a23c-9add7e01f92b" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-interface-mac-addresses xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:14:57-05:00">
+              <tungsten:virtual-machine-interface-mac-addresses xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:14:57-05:00">
                 <mac-address>02:42:36:34:87:cb</mac-address>
-              </contrail:virtual-machine-interface-mac-addresses>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:14:57-05:00">
+              </tungsten:virtual-machine-interface-mac-addresses>
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:14:57-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1193,25 +1193,25 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
-            <identity name="contrail:network-ipam:default-domain:default-project:default-network-ipam" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:network-ipam:default-domain:default-project:default-network-ipam" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-network-network-ipam xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00">
+              <tungsten:virtual-network-network-ipam xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00">
                 <subnet>
                   <ip-prefix>10.1.1.0</ip-prefix>
                   <ip-prefix-len>24</ip-prefix-len>
                 </subnet>
-              </contrail:virtual-network-network-ipam>
+              </tungsten:virtual-network-network-ipam>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine:4900a94f-435d-4671-ad3e-ce834ccdd543" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:4900a94f-435d-4671-ad3e-ce834ccdd543" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1226,27 +1226,27 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine:a7c5d9b8-91de-4a3b-83d9-2037103a21b2" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine-interface:a7c5d9b8-91de-4a3b-83d9-2037103a21b2:89fc65fb-1620-496d-ae24-7d59c59efb65" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:a7c5d9b8-91de-4a3b-83d9-2037103a21b2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:a7c5d9b8-91de-4a3b-83d9-2037103a21b2:89fc65fb-1620-496d-ae24-7d59c59efb65" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-virtual-machine-interface xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:05:28-05:00"/>
+              <tungsten:virtual-machine-virtual-machine-interface xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:05:28-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-router:user-X9SCL-X9SCM" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine:c6df5615-c878-451a-b577-1ba2eda0b3ac" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-router:user-X9SCL-X9SCM" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:c6df5615-c878-451a-b577-1ba2eda0b3ac" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-router-virtual-machine xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00"/>
+              <tungsten:virtual-router-virtual-machine xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine:43ede39b-a382-4ac2-bed8-7da30747ce58" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:43ede39b-a382-4ac2-bed8-7da30747ce58" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:51:49-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:51:49-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1261,13 +1261,13 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:config-root:root" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:config-root:root" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:28-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:28-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1278,14 +1278,14 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:381ecc79-541e-48a3-b35a-d0d730883539" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:381ecc79-541e-48a3-b35a-d0d730883539" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-address xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00">20.1.1.250</contrail:instance-ip-address>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00">
+              <tungsten:instance-ip-address xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00">20.1.1.250</tungsten:instance-ip-address>
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1300,13 +1300,13 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:access-control-list:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-virtual-network:default-virtual-network" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:access-control-list:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-virtual-network:default-virtual-network" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1321,13 +1321,13 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:access-control-list:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:access-control-list:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2:vn2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:39-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:39-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1342,8 +1342,8 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
-              <contrail:access-control-list-entries xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00">
+              </tungsten:id-perms>
+              <tungsten:access-control-list-entries xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00">
                 <acl-rule>
                   <match-condition>
                     <protocol>any</protocol>
@@ -1388,27 +1388,27 @@
                     <simple-action>pass</simple-action>
                   </action-list>
                 </acl-rule>
-              </contrail:access-control-list-entries>
+              </tungsten:access-control-list-entries>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine-interface:43ede39b-a382-4ac2-bed8-7da30747ce58:f2c748cd-cc6b-4c73-b3ea-d210fdd3d1c4" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:43ede39b-a382-4ac2-bed8-7da30747ce58:f2c748cd-cc6b-4c73-b3ea-d210fdd3d1c4" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-interface-virtual-network xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:51:49-05:00"/>
+              <tungsten:virtual-machine-interface-virtual-network xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:51:49-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
-            <identity name="contrail:access-control-list:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:access-control-list:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2:vn2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-network-access-control-list xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00"/>
+              <tungsten:virtual-network-access-control-list xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:routing-instance:default-domain:default-project:default-virtual-network:default-virtual-network" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:routing-instance:default-domain:default-project:default-virtual-network:default-virtual-network" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:36-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:36-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1423,41 +1423,41 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:c8a5ef9e-421f-4ba4-9556-0ce024453248" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:c8a5ef9e-421f-4ba4-9556-0ce024453248" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-virtual-network xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:11:36-05:00"/>
+              <tungsten:instance-ip-virtual-network xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:11:36-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:d8d71afd-ccc7-4b86-b297-bb49a7bf2c0c" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:d8d71afd-ccc7-4b86-b297-bb49a7bf2c0c" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-virtual-network xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:14:57-05:00"/>
+              <tungsten:instance-ip-virtual-network xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:14:57-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine:4900a94f-435d-4671-ad3e-ce834ccdd543" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine-interface:4900a94f-435d-4671-ad3e-ce834ccdd543:3c562b6d-83de-416f-b4a7-9d873c93c514" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:4900a94f-435d-4671-ad3e-ce834ccdd543" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:4900a94f-435d-4671-ad3e-ce834ccdd543:3c562b6d-83de-416f-b4a7-9d873c93c514" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-virtual-machine-interface xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00"/>
+              <tungsten:virtual-machine-virtual-machine-interface xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:b48f6245-3579-41b0-a632-fd1b8467a9b3" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine-interface:43ede39b-a382-4ac2-bed8-7da30747ce58:f2c748cd-cc6b-4c73-b3ea-d210fdd3d1c4" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:b48f6245-3579-41b0-a632-fd1b8467a9b3" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:43ede39b-a382-4ac2-bed8-7da30747ce58:f2c748cd-cc6b-4c73-b3ea-d210fdd3d1c4" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-virtual-machine-interface xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:51:49-05:00"/>
+              <tungsten:instance-ip-virtual-machine-interface xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:51:49-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:domain:default-domain" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:domain:default-domain" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1472,21 +1472,21 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine-interface:4900a94f-435d-4671-ad3e-ce834ccdd543:3c562b6d-83de-416f-b4a7-9d873c93c514" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:4900a94f-435d-4671-ad3e-ce834ccdd543:3c562b6d-83de-416f-b4a7-9d873c93c514" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-interface-virtual-network xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00"/>
+              <tungsten:virtual-machine-interface-virtual-network xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:5e6f4486-fa6b-4e8a-bdc3-0d80a5843594" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:5e6f4486-fa6b-4e8a-bdc3-0d80a5843594" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-address xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00">20.1.1.252</contrail:instance-ip-address>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00">
+              <tungsten:instance-ip-address xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00">20.1.1.252</tungsten:instance-ip-address>
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1501,20 +1501,20 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:d8d71afd-ccc7-4b86-b297-bb49a7bf2c0c" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine-interface:6f515cf1-8ca0-4353-82fc-1e25dbc78208:42363487-cbe6-4fb3-a23c-9add7e01f92b" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:d8d71afd-ccc7-4b86-b297-bb49a7bf2c0c" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:6f515cf1-8ca0-4353-82fc-1e25dbc78208:42363487-cbe6-4fb3-a23c-9add7e01f92b" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-virtual-machine-interface xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:14:57-05:00"/>
+              <tungsten:instance-ip-virtual-machine-interface xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:14:57-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine:2e3e3aef-5641-4598-9425-2865b9279806" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:2e3e3aef-5641-4598-9425-2865b9279806" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:01:42-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:01:42-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1529,13 +1529,13 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:network-ipam:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-network-ipam" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:network-ipam:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-network-ipam" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1550,13 +1550,13 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:network-policy:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:pol2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:network-policy:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:pol2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:network-policy-entries xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:40-05:00">
+              <tungsten:network-policy-entries xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:40-05:00">
                 <policy-rule>
                   <direction>&lt;&gt;</direction>
                   <simple-action>pass</simple-action>
@@ -1576,8 +1576,8 @@
                     <end-port>-1</end-port>
                   </dst-ports>
                 </policy-rule>
-              </contrail:network-policy-entries>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:40-05:00">
+              </tungsten:network-policy-entries>
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:40-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1592,28 +1592,28 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine-interface:0b735351-8225-46be-bd88-42b39b75bab4:ffa5c490-ccfe-4794-8fd3-f33af61b784b" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:0b735351-8225-46be-bd88-42b39b75bab4:ffa5c490-ccfe-4794-8fd3-f33af61b784b" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-interface-virtual-network xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:11:36-05:00"/>
+              <tungsten:virtual-machine-interface-virtual-network xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:11:36-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1:vn1" type="other" other-type-definition="extended"/>
-            <identity name="contrail:route-target:target:1:6" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1:vn1" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:route-target:target:1:6" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-target xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00"/>
+              <tungsten:instance-target xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:338fa631-eb34-42a8-8c1b-57e5e5c3af89" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:338fa631-eb34-42a8-8c1b-57e5e5c3af89" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-address xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:05:28-05:00">20.1.1.254</contrail:instance-ip-address>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:05:28-05:00">
+              <tungsten:instance-ip-address xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:05:28-05:00">20.1.1.254</tungsten:instance-ip-address>
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:05:28-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1628,34 +1628,34 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:domain:default-domain" type="other" other-type-definition="extended"/>
-            <identity name="contrail:project:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:domain:default-domain" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:project:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:domain-project xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00"/>
+              <tungsten:domain-project xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine:1e76467a-bb26-4479-8f4e-bb98a6309bef" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine-interface:1e76467a-bb26-4479-8f4e-bb98a6309bef:29ea2fa9-66e5-42bd-aad1-9bfc035666e3" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:1e76467a-bb26-4479-8f4e-bb98a6309bef" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:1e76467a-bb26-4479-8f4e-bb98a6309bef:29ea2fa9-66e5-42bd-aad1-9bfc035666e3" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-virtual-machine-interface xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00"/>
+              <tungsten:virtual-machine-virtual-machine-interface xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:14:01-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:338fa631-eb34-42a8-8c1b-57e5e5c3af89" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:338fa631-eb34-42a8-8c1b-57e5e5c3af89" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-virtual-network xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:05:28-05:00"/>
+              <tungsten:instance-ip-virtual-network xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:05:28-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1668,23 +1668,23 @@
                   <uuid-lslong>10130274245605597643</uuid-lslong>
                 </uuid>
                 <enable>true</enable>
-              </contrail:id-perms>
+              </tungsten:id-perms>
               <virtual-network-properties>
                 <network-id>2</network-id>
               </virtual-network-properties>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:5e6f4486-fa6b-4e8a-bdc3-0d80a5843594" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:5e6f4486-fa6b-4e8a-bdc3-0d80a5843594" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-virtual-network xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00"/>
+              <tungsten:instance-ip-virtual-network xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:20:54-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:namespace:default-domain:default-namespace" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:namespace:default-domain:default-namespace" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1699,34 +1699,34 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:project:default-domain:default-project" type="other" other-type-definition="extended"/>
-            <identity name="contrail:network-policy:default-domain:default-project:default-network-policy" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:project:default-domain:default-project" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:network-policy:default-domain:default-project:default-network-policy" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:project-network-policy xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00"/>
+              <tungsten:project-network-policy xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2:vn2" type="other" other-type-definition="extended"/>
-            <identity name="contrail:route-target:target:1:7" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:routing-instance:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn2:vn2" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:route-target:target:1:7" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-target xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00"/>
+              <tungsten:instance-target xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:41-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine:c6df5615-c878-451a-b577-1ba2eda0b3ac" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine-interface:c6df5615-c878-451a-b577-1ba2eda0b3ac:b9808985-c4b4-4436-af68-41903b08f993" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:c6df5615-c878-451a-b577-1ba2eda0b3ac" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:c6df5615-c878-451a-b577-1ba2eda0b3ac:b9808985-c4b4-4436-af68-41903b08f993" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-virtual-machine-interface xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:59:11-05:00"/>
+              <tungsten:virtual-machine-virtual-machine-interface xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:59:11-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:route-target:target:1:6" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:route-target:target:1:6" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1741,13 +1741,13 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-network:default-domain:default-project:default-virtual-network" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:default-project:default-virtual-network" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1762,21 +1762,21 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:project:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133" type="other" other-type-definition="extended"/>
-            <identity name="contrail:network-policy:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:pol1" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:project:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:network-policy:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:pol1" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:project-network-policy xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:40-05:00"/>
+              <tungsten:project-network-policy xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:40-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:c8a5ef9e-421f-4ba4-9556-0ce024453248" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:c8a5ef9e-421f-4ba4-9556-0ce024453248" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-address xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:11:36-05:00">20.1.1.251</contrail:instance-ip-address>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:11:36-05:00">
+              <tungsten:instance-ip-address xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:11:36-05:00">20.1.1.251</tungsten:instance-ip-address>
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:11:36-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1791,20 +1791,20 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:875dfeb0-1786-47bb-8b90-ca4202d94eea" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:875dfeb0-1786-47bb-8b90-ca4202d94eea" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-virtual-network xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:59:11-05:00"/>
+              <tungsten:instance-ip-virtual-network xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:59:11-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:network-policy:default-domain:default-project:default-network-policy" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:network-policy:default-domain:default-project:default-network-policy" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:34-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1819,13 +1819,13 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:security-group:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-security-group" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:security-group:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:default-security-group" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:id-perms xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
+              <tungsten:id-perms xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T18:53:38-05:00">
                 <permissions>
                   <owner>cloud-admin</owner>
                   <owner-access>7</owner-access>
@@ -1840,21 +1840,21 @@
                 <enable>true</enable>
                 <created/>
                 <last-modified/>
-              </contrail:id-perms>
+              </tungsten:id-perms>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:virtual-machine:0b735351-8225-46be-bd88-42b39b75bab4" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-machine-interface:0b735351-8225-46be-bd88-42b39b75bab4:ffa5c490-ccfe-4794-8fd3-f33af61b784b" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine:0b735351-8225-46be-bd88-42b39b75bab4" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-machine-interface:0b735351-8225-46be-bd88-42b39b75bab4:ffa5c490-ccfe-4794-8fd3-f33af61b784b" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:virtual-machine-virtual-machine-interface xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:11:36-05:00"/>
+              <tungsten:virtual-machine-virtual-machine-interface xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T20:11:36-05:00"/>
             </metadata>
           </resultItem>
           <resultItem>
-            <identity name="contrail:instance-ip:b48f6245-3579-41b0-a632-fd1b8467a9b3" type="other" other-type-definition="extended"/>
-            <identity name="contrail:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:instance-ip:b48f6245-3579-41b0-a632-fd1b8467a9b3" type="other" other-type-definition="extended"/>
+            <identity name="tungsten:virtual-network:default-domain:b47d0eacc9c446eabc9b4eea3d6f6133:vn1" type="other" other-type-definition="extended"/>
             <metadata>
-              <contrail:instance-ip-virtual-network xmlns:contrail="http://www.contrailsystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:51:49-05:00"/>
+              <tungsten:instance-ip-virtual-network xmlns:tungsten="http://www.tungstensystems.com/vnc_cfg.xsd" ifmap-cardinality="singleValue" ifmap-publisher-id="test--1870931913-1" ifmap-timestamp="2012-11-10T19:51:49-05:00"/>
             </metadata>
           </resultItem>
         </searchResult>

@@ -24,7 +24,7 @@ class TestSwiftFileUtilModule(TestFabricModule):
         flexmock(fake_logger).should_receive('debug')
         flexmock(fabric_utils).should_receive('fabric_ansible_logger').and_return(fake_logger)
 
-        self.args_dict = dict(authtoken="4242", authurl="auth_url", user="admin", key="contrail", tenant_name="project",
+        self.args_dict = dict(authtoken="4242", authurl="auth_url", user="admin", key="tungsten", tenant_name="project",
                               auth_version="3.0", temp_url_key="temp_url_key1",
                               temp_url_key_2="temp_url_key2", chosen_temp_url_key="temp_url_key",
                               container_name="container", filename="sample.txt", expirytime=3600)

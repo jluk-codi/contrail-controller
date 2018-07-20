@@ -51,7 +51,7 @@ class NetnsManager(object):
     PORT_TYPE = 'NameSpacePort'
     BASE_URL = "http://localhost:9091/port"
     HEADERS = {'content-type': 'application/json'}
-    LBAAS_DIR = "/var/lib/contrail/loadbalancer"
+    LBAAS_DIR = "/var/lib/tungsten/loadbalancer"
 
     def __init__(self, vm_uuid, nic_left, nic_right, other_nics=None,
                  root_helper='sudo', cfg_file=None, update=False,

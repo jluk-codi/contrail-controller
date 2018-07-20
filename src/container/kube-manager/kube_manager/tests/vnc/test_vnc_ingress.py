@@ -578,7 +578,7 @@ class VncIngressTest(KMTestCase):
         namespace_name = 'namespace_name'
         ns_add_event = self.create_add_namespace_event(namespace_name, ns_uuid)
         if isolated:
-            annotations = {'opencontrail.org/isolation': 'true'}
+            annotations = {'tungsten.io/isolation': 'true'}
             ns_add_event['object']['metadata']['annotations'] = annotations
         NamespaceKM.locate(ns_uuid, ns_add_event['object'])
         self.enqueue_event(ns_add_event)
@@ -595,7 +595,7 @@ class VncIngressTest(KMTestCase):
         ns_uuid = str(uuid.uuid4())
         namespace_name = 'custom_isolated_namespace'
         ns_add_event = self.create_add_namespace_event(namespace_name, ns_uuid)
-        annotations = {'opencontrail.org/network':
+        annotations = {'tungsten.io/network':
                            str({'domain': 'default-domain',
                                 'project': project,
                                 'name': network})}

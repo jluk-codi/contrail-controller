@@ -1,17 +1,17 @@
 VNsw Agent
 ----------
-VNsw Agent (also called Agent) in Contrail solution is responsible to manage
+VNsw Agent (also called Agent) in Tungsten solution is responsible to manage
 the dataplane component. It is similar to any data-path agent that runs on line
 cards of a network node. Responsibilities of Agent includes,
-    - Interface with Contrail-Controller to get and process the configuration
+    - Interface with Tungsten-Controller to get and process the configuration
     - Translate the data model from IFMap to the Agent data model
-    - Interface with Contrail-Controller to manage routes
+    - Interface with Tungsten-Controller to manage routes
     - Collect and export statistics from datapath
     - Translate & Program the Agent data model to the data model used by
        datapath
 
-Refer to Contrail architecture document at
-http://opencontrail.org/opencontrail-architecture-documentation/ for more
+Refer to Tungsten architecture document at
+http://tungsten.io/Tungsten Fabric-architecture-documentation/ for more
 information.
 
 Agent contains following modules,
@@ -30,17 +30,17 @@ Agent code is designed to be portable on different platforms. Based on the
 platforms and feature requirements, Agent can be built by including only a
 subset of modules given above.
 
-Contrail-Vrouter-Agent is one such implementation of Agent for platfroms using
+Tungsten-Vrouter-Agent is one such implementation of Agent for platfroms using
 vRouter for datapath.
 
-Contrail-Vxlan-Agent is another implementation of Agent for platforms using
+Tungsten-Vxlan-Agent is another implementation of Agent for platforms using
 VxLan based datapath for forwarding.
 
 Agent KSync
 -----------
 The Oper-DB in Agent contains different tables and defines the datamodel used
 in the Agent. While the Agent datamodel was initially developed for
-Contrail-Vrouter-Agent, it is mostly independent of specific platforms.
+Tungsten-Vrouter-Agent, it is mostly independent of specific platforms.
 
 The datamodel used by a platform can vary based on design of it datapath.
 Agent KSync module is resposible to do the translation between the datamodels
@@ -52,8 +52,8 @@ Functionality of Agent KSync includes,
         - Oper-DB defines datamodule of Agent
     - Keep the operational state of agent in-sync with the forwarding plane
     - Keep Agent platform independent
-      Ex: KSync in Contrail-Vrouter-Agent is only module which knows that
-      flow table is memory mapped into Contrail-Vrouter-Agent memory
+      Ex: KSync in Tungsten-Vrouter-Agent is only module which knows that
+      flow table is memory mapped into Tungsten-Vrouter-Agent memory
 
 We need to have different implementation of Agent KSync based on the platform.
 
@@ -85,17 +85,17 @@ File src/ksync/README contains more detailed notes on KSync.
 Any port of Agent to different platforms can optionally make use of
 this library to keep VNsw agent state and datapath in-sync.
 
-Contrail-Vxlan-Agent
+Tungsten-Vxlan-Agent
 --------------------
-The contrail-vxlan-agent is a reference port of Agent for platforms
+The tungsten-vxlan-agent is a reference port of Agent for platforms
 supporting Vxlan bridges as defined in Linux. It assumes that the underlying
 datapath uses Linux Vxlan Bridge like datamodel. The document
 https://www.kernel.org/doc/Documentation/networking/vxlan.txt gives details
 on Linux Vxlan Bridge interfaces
 
-The diagram below gives overview of different modules in contrail-vxlan-agent.
-Contrail-Vxlan-Agent does not make few of the modules from
-Contrail-Vrouter-Agent
+The diagram below gives overview of different modules in tungsten-vxlan-agent.
+Tungsten-Vxlan-Agent does not make few of the modules from
+Tungsten-Vrouter-Agent
 
 +-----------------------------------------------------------+
 |                                                           |
@@ -130,13 +130,13 @@ Contrail-Vrouter-Agent
 
 Refer to src/vnsw/agent/README for notes on the different modules.
 
-Contrail-Vxlan-Agent is split into two layers.
+Tungsten-Vxlan-Agent is split into two layers.
 
     Vxlan KSync
     -----------
-    This layer defines datamodel for Contrail-Vxlan-Agent in the form of
+    This layer defines datamodel for Tungsten-Vxlan-Agent in the form of
     different tables. It also uses the KSync Library to keep the states in
-    Contrail-Vxlan-Agent in-sync with the datapath.
+    Tungsten-Vxlan-Agent in-sync with the datapath.
 
     This layer only maintains the tables needed to program the datapath. Each
     table defines three pure-virtual functions to program the datapath.
@@ -167,7 +167,7 @@ Contrail-Vxlan-Agent is split into two layers.
           Each route entry contains reference to KSyncVxlanBridgeEntry it is
           member of and KSyncVxlanPortEntry.
 
-          In Contrail, each Virtual-Network defines a broadcast domain. Each
+          In Tungsten, each Virtual-Network defines a broadcast domain. Each
           Virtual-Network has a VRF associated with it. The FDB Table for a
           Virtual-Network is got from the VRF for it.
 

@@ -1,23 +1,23 @@
 [Unit]
-Description="Contrail Control"
+Description="Tungsten Control"
 After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/authbind /usr/bin/contrail-control
-PIDFile=/var/run/contrail/contrail-control.pid
+ExecStart=/usr/bin/authbind /usr/bin/tungsten-control
+PIDFile=/var/run/tungsten/tungsten-control.pid
 TimeoutStopSec=0
 Restart=always
-User=contrail
-Group=contrail
+User=tungsten
+Group=tungsten
 ExecStop=/bin/kill -s TERM $MAINPID
 PrivateTmp=yes
 PrivateDevices=yes
 ProtectHome=yes
 ReadOnlyDirectories=/
 ReadWriteDirectories=-/var/crashes
-ReadWriteDirectories=-/var/log/contrail
-ReadWriteDirectories=-/etc/contrail
+ReadWriteDirectories=-/var/log/tungsten
+ReadWriteDirectories=-/etc/tungsten
 
 [Install]
 WantedBy=multi-user.target

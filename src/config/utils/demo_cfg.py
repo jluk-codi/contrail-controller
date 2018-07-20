@@ -41,7 +41,7 @@ class DemoCfg(object):
         self._parse_args(args_str)
 
         httpclient = HTTPClient(
-            username='admin', tenant_name='demo', password='contrail123',
+            username='admin', tenant_name='demo', password='tungsten123',
             # region_name=self._region_name,
             auth_url='http://%s:5000/v2.0' % (self._args.api_server_ip))
         httpclient.authenticate()

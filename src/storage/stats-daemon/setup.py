@@ -22,7 +22,7 @@ setup(
     tests_require=requirements('test-requirements.txt'),
     entry_points = {
         'console_scripts' : [
-            'contrail-storage-stats = stats_daemon.storage_nodemgr:main',
+            'tungsten-storage-stats = stats_daemon.storage_nodemgr:main',
         ],
     },
 

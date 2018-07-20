@@ -1,5 +1,5 @@
-<message to='agent@vnsw.contrailsystems.com'
-         from='bgp.contrail.com/bgp-peer'>
+<message to='agent@vnsw.tungstensystems.com'
+         from='bgp.tungsten.com/bgp-peer'>
     <event xmlns='http://jabber.org/protocol/pubsub#event'>
         <items node='vpn-customer-name'>
             <item id='ae890ac52d0df67ed7cfdf51b644e901'> <!-- TODO id -->

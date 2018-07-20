@@ -1,5 +1,5 @@
 <domain type='kvm'>
-  <name>contrail-libvirt</name>
+  <name>tungsten-libvirt</name>
   <memory>131072</memory>
   <vcpu>1</vcpu>
   <os>

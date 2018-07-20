@@ -158,7 +158,7 @@ class AnsibleRoleCommon(AnsibleConf):
         vni = ri_conf.get("vni", None)
         fip_map = ri_conf.get("fip_map", None)
         network_id = ri_conf.get("network_id", None)
-        is_internal_vn = True if '_contrail_lr_internal_vn_' in vn.name else False
+        is_internal_vn = True if '_tungsten_lr_internal_vn_' in vn.name else False
         highest_encapsulation_priority = \
             ri_conf.get("highest_encapsulation_priority") or "MPLSoGRE"
 

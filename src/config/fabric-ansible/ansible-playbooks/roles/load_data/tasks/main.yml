@@ -9,7 +9,7 @@
     cp ansible.cfg /etc/ansible/
 
 
-- name: get Keystone Token for contrail server
+- name: get Keystone Token for tungsten server
   uri:
     url: http://{{server_ip}}:5000/v3/auth/tokens
     method: POST

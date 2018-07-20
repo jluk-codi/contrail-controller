@@ -66,7 +66,7 @@ public:
 private:
     const ShowRouteReq *req_;
     int inst_id_;
-    contrail::regex prefix_expr_;
+    tungsten::regex prefix_expr_;
 };
 
 #endif  // SRC_BGP_BGP_SHOW_HANDLER_H__

@@ -1,16 +1,16 @@
 #
 # Copyright (c) 2013 Juniper Networks, Inc. All rights reserved.
 #
-# OpenContrail Code Review System
+# Tungsten Fabric Code Review System
 #
-# Please visit opencontrail.org additional information.
+# Please visit tungsten.io additional information.
 #
 # e.g. After changes are complete and commited to a local branch, do
-# 'git review' to submit changeset to review.opencontrail.org Code Review
+# 'git review' to submit changeset to review.tungsten.io Code Review
 # (gerrit) System.
 #
 [gerrit]
-host=review.opencontrail.org
+host=review.tungsten.io
 port=29418
-project=Juniper/contrail-controller.git
+project=Juniper/tungsten-controller.git
 defaultbranch=master

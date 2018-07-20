@@ -445,7 +445,7 @@ def parse_args(args_str):
         'log_level': SandeshLevel.SYS_DEBUG,
         'log_category': '',
         'log_file': Sandesh._DEFAULT_LOG_FILE,
-        'trace_file': '/var/log/contrail/schema.err',
+        'trace_file': '/var/log/tungsten/schema.err',
         'use_syslog': False,
         'syslog_facility': Sandesh._DEFAULT_SYSLOG_FACILITY,
         'cluster_id': '',

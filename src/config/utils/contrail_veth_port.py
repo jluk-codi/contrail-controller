@@ -2,27 +2,27 @@
 """
 NAME
 
-contrail_veth_port - create a veth interface to a Contrail virtual
+tungsten_veth_port - create a veth interface to a Tungsten virtual
                      network
 
 DESCRIPTION
 
 Usually VMs are connected to virtual network ports.  This creates a
-veth interface on the local host that's connected to a Contrail
+veth interface on the local host that's connected to a Tungsten
 virtual network.  Local programs (like ssh) can connect directly to
 VMs, and VMs can connect to local servers (like mysql).
 
 USAGE
 
-  contrail_veth_port [options] vm_name network_name
+  tungsten_veth_port [options] vm_name network_name
 
-  contrail_veth_port --delete vm_name
+  tungsten_veth_port --delete vm_name
 
 Or, from python:
 
-  from contrail_veth_port import ContrailVethPort
-  ret = ContrailVethPort(net_name="mynet", vm_name="myvm").create()
-  ret = ContrailVethPort(vm_name="myvm").delete()
+  from tungsten_veth_port import TungstenVethPort
+  ret = TungstenVethPort(net_name="mynet", vm_name="myvm").create()
+  ret = TungstenVethPort(vm_name="myvm").delete()
 
 OUTPUT
 
@@ -55,11 +55,11 @@ EXAMPLES
 
 * create a veth port
   
-  contrail_veth_port my_instance my_net
+  tungsten_veth_port my_instance my_net
 
 * delete the veth port
 
-  contrail_veth_port --delete my_instance
+  tungsten_veth_port --delete my_instance
 
 * use the veth to ssh into a VM
 
@@ -89,20 +89,20 @@ import netaddr
 import argparse
 
 # KLUDGE - should be in PYTHONPATH
-sys.path.append('/opt/stack/nova/plugins/contrail')
+sys.path.append('/opt/stack/nova/plugins/tungsten')
 
-# api for talking to contrail system-global API server
+# api for talking to tungsten system-global API server
 from vnc_api import vnc_api
 
-# api for talking to local host's contrail vrouter
+# api for talking to local host's tungsten vrouter
 import instance_service.ttypes
-from contrail_utils import vrouter_rpc, \
+from tungsten_utils import vrouter_rpc, \
      uuid_from_string, uuid_array_to_str, \
      new_interface_name, sudo, link_exists_func, ProcessExecutionError, \
      format_dict
 
-class ContrailVethPort(object):
-    """Create a veth port connected to a Contrail virtual network"""
+class TungstenVethPort(object):
+    """Create a veth port connected to a Tungsten virtual network"""
     
     def __init__(self, *argv, **args):
         """Set arguments dict.  If args is not a dict, then parse it
@@ -169,7 +169,7 @@ class ContrailVethPort(object):
         return parser
 
     def vnc_connect(self):
-        """open a connection to the Contrail API server"""
+        """open a connection to the Tungsten API server"""
         if not self.vnc_client:
             self.vnc_client = vnc_api.VncApi(
                 api_server_host=self.args['api_server'],
@@ -353,7 +353,7 @@ class ContrailVethPort(object):
             sudo("mkdir -p %s", (os.path.dirname(resolv_conf),))
             sudo("tee %s", (resolv_conf,), process_input=resolv_conf_body)
 
-            # finally, create the Contrail port
+            # finally, create the Tungsten port
             port = instance_service.ttypes.Port(
                 uuid_from_string(vmi.uuid),
                 uuid_from_string(vm.uuid), 
@@ -438,5 +438,5 @@ class ContrailVethPort(object):
             print format_dict(ret, self.args.get('format'))
 
 if __name__ == '__main__':
-    ContrailVethPort().main()
+    TungstenVethPort().main()
 

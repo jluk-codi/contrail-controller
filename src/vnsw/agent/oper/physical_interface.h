@@ -18,7 +18,7 @@ class PhysicalInterface : public Interface {
 public:
     enum SubType {
         FABRIC,     // Physical port connecting to fabric network
-        VMWARE,     // For vmware, port connecting to contrail-vm-portgroup
+        VMWARE,     // For vmware, port connecting to tungsten-vm-portgroup
         CONFIG,     // Interface created from config
         INVALID
     };

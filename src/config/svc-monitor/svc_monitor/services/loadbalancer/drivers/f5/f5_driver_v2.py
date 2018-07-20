@@ -6,8 +6,8 @@ from f5_openstack_agent.lbaasv2.drivers.bigip import agent_manager
 from svc_monitor.services.loadbalancer.drivers import abstract_driver
 from svc_monitor.config_db import *
 
-class OpencontrailF5LoadbalancerDriver(
-        abstract_driver.ContrailLoadBalancerAbstractDriver):
+class Tungsten FabricF5LoadbalancerDriver(
+        abstract_driver.TungstenLoadBalancerAbstractDriver):
 
     def __init__(self, name, manager, api, db, args=None):
         self._name = name

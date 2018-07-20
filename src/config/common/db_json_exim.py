@@ -1,6 +1,6 @@
 # USAGE STEPS:
 # To upload db
-# Stop all contrail services including zookeeper.
+# Stop all tungsten services including zookeeper.
 # Remove/rename /var/lib/zookeeper/version-2
 # Remove/rename /var/lib/cassandra/data
 # Start Cassandra-database and zookeeper
@@ -68,9 +68,9 @@ class DatabaseExim(object):
     def _parse_args(self, args_str):
         parser = argparse.ArgumentParser()
   
-        help="Path to contrail-api conf file, default /etc/contrail-api.conf"
+        help="Path to tungsten-api conf file, default /etc/tungsten-api.conf"
         parser.add_argument(
-            "--api-conf", help=help, default="/etc/contrail/contrail-api.conf")
+            "--api-conf", help=help, default="/etc/tungsten/tungsten-api.conf")
         parser.add_argument(
             "--verbose", help="Run in verbose/INFO mode, default False",
             action='store_true', default=False)
@@ -156,7 +156,7 @@ class DatabaseExim(object):
                           'isr_change_notification', 'admin', 'brokers',
                           'zookeeper', 'controller_epoch',
                           'api-server-election', 'schema-transformer',
-                          'device-manager', 'svc-monitor', 'contrail_cs',
+                          'device-manager', 'svc-monitor', 'tungsten_cs',
                           'lockpath']
         # seed zookeeper
         for path_value_ts in json.loads(self.import_data['zookeeper'] or "{}"):

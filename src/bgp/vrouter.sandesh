@@ -16,7 +16,7 @@ struct VrouterCtrl {  // Control plane view of the vrouter
 }
 
 /**
- * @description: contrail-vrouter-agent state information as seen in contrail-control
+ * @description: tungsten-vrouter-agent state information as seen in tungsten-control
  * @severity: DEBUG
  * @cause: Normal operation
  */

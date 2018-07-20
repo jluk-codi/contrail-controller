@@ -69,9 +69,9 @@ using autogen::TagListType;
 using boost::assign::list_of;
 using boost::smatch;
 using boost::system::error_code;
-using contrail::regex;
-using contrail::regex_match;
-using contrail::regex_search;
+using tungsten::regex;
+using tungsten::regex_match;
+using tungsten::regex_search;
 using pugi::xml_node;
 using std::auto_ptr;
 using std::make_pair;
@@ -1959,7 +1959,7 @@ bool BgpXmppChannel::ProcessEnetItem(string vrf_name,
                     return false;
                 }
                 pmsi_spec.tunnel_type =
-                    PmsiTunnelSpec::AssistedReplicationContrail;
+                    PmsiTunnelSpec::AssistedReplicationTungsten;
                 pmsi_spec.tunnel_flags = PmsiTunnelSpec::ARLeaf;
                 pmsi_spec.SetIdentifier(replicator_address.to_v4());
             } else {

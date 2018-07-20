@@ -553,9 +553,9 @@ class PhysicalRouterDM(DBBaseDM):
 
     def get_pnf_vrf_name(self, si_obj, interface_type, first_tag):
         if not first_tag:
-            return '_contrail-' + si_obj.name + '-' + interface_type
+            return '_tungsten-' + si_obj.name + '-' + interface_type
         else:
-            return ('_contrail-' + si_obj.name + '-' + interface_type
+            return ('_tungsten-' + si_obj.name + '-' + interface_type
                     + '-sc-entry-point')
 
     def allocate_pnf_resources(self, vmi):
@@ -1194,7 +1194,7 @@ class LogicalRouterDM(DBBaseDM):
     # end update
 
     def get_internal_vn_name(self):
-        return '__contrail_' + self.uuid + '_lr_internal_vn__'
+        return '__tungsten_' + self.uuid + '_lr_internal_vn__'
     # end get_internal_vn_name
 
     def get_connected_networks(self, include_internal=True):

@@ -26,7 +26,7 @@ using namespace boost::assign;
 using namespace boost::asio;
 using namespace std;
 
-#define SUB_ADDR "agent@vnsw.contrailsystems.com"
+#define SUB_ADDR "agent@vnsw.tungstensystems.com"
 
 class BgpXmppChannelMock;
 

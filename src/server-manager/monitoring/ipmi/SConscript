@@ -15,17 +15,17 @@ for file in sources:
 
 sources += env.SandeshGenPy(
     'monitoring.sandesh',
-    'contrail_sm_monitoring/', False)
+    'tungsten_sm_monitoring/', False)
 
 MonitoringDocFiles = []
 MonitoringDocFiles += env.SandeshGenDoc('monitoring.sandesh')
 
 cd_cmd = 'cd ' + Dir('.').path + ' && '
-if 'install_contrail_sm_monitoring' in BUILD_TARGETS:
+if 'install_tungsten_sm_monitoring' in BUILD_TARGETS:
     install_cmd = env.Command(None, sources,
                               cd_cmd + 'python setup.py install %s' %
                               env['PYTHON_INSTALL_OPT'])
-    env.Alias('install_contrail_sm_monitoring', install_cmd)
+    env.Alias('install_tungsten_sm_monitoring', install_cmd)
     env.Alias('install', env.Install(
-        env['INSTALL_MESSAGE_DOC'] + '/contrail-sm-monitoring/',
+        env['INSTALL_MESSAGE_DOC'] + '/tungsten-sm-monitoring/',
         MonitoringDocFiles))

@@ -33,9 +33,9 @@
 
 using namespace boost::asio;
 using namespace std;
-using contrail_rapidjson::Document;
-using contrail_rapidjson::SizeType;
-using contrail_rapidjson::Value;
+using tungsten_rapidjson::Document;
+using tungsten_rapidjson::SizeType;
+using tungsten_rapidjson::Value;
 
 class TestClient : public IFMapClient {
 public:

@@ -74,7 +74,7 @@ class SetDefaultGlobalQos(object):
             'api_server_ip' : '127.0.0.1',
             'api_server_port' : '8082',
             'admin_user': 'admin',
-            'admin_password': 'contrail123',
+            'admin_password': 'tungsten123',
             'admin_tenant_name': 'admin'
         }
 

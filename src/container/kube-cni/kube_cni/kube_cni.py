@@ -6,7 +6,7 @@
 #
 
 """
-Contrail CNI plugin
+Tungsten CNI plugin
 Support Kubernetes for now
 """
 
@@ -48,7 +48,7 @@ def parse_args():
     parser.add_argument('-c', '--command',
                         help='CNI command add/del/version/get/poll')
     parser.add_argument('-v', '--version', action='version', version='0.1')
-    parser.add_argument('-f', '--file', help='Contrail CNI config file')
+    parser.add_argument('-f', '--file', help='Tungsten CNI config file')
     parser.add_argument('-u', '--uuid', help='Container UUID')
     parser.add_argument('-p', '--pid', type=int, help='Container PID')
     args = parser.parse_args()
@@ -63,8 +63,8 @@ def main():
     # Read logging parameters first and then create logger
     params.get_loggin_params(input_json)
     global logger
-    logger = Logger.Logger('opencontrail', params.contrail_params.log_file,
-                           params.contrail_params.log_level)
+    logger = Logger.Logger('Tungsten Fabric', params.tungsten_params.log_file,
+                           params.tungsten_params.log_level)
 
     try:
         # Set command from argument if specified
@@ -89,14 +89,14 @@ def main():
     # Log params for debugging
     params.log()
     try:
-        contrail_params = params.contrail_params
-        vrouter = VRouter.VRouter(contrail_params.vrouter_ip,
-                                  contrail_params.vrouter_port,
-                                  contrail_params.poll_timeout,
-                                  contrail_params.poll_retries,
-                                  contrail_params.directory,
-                                  contrail_params.log_file,
-                                  contrail_params.log_level)
+        tungsten_params = params.tungsten_params
+        vrouter = VRouter.VRouter(tungsten_params.vrouter_ip,
+                                  tungsten_params.vrouter_port,
+                                  tungsten_params.poll_timeout,
+                                  tungsten_params.poll_retries,
+                                  tungsten_params.directory,
+                                  tungsten_params.log_file,
+                                  tungsten_params.log_level)
         cni = Cni.Cni(vrouter, params)
         # Run CNI
         cni.Run(vrouter, params)

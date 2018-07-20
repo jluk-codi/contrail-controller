@@ -26,8 +26,8 @@
 
 
 
-#define XMPP_CONTROL_SERV   "bgp.contrail.com"
-#define PUBSUB_NODE_ADDR "bgp-node.contrail.com"
+#define XMPP_CONTROL_SERV   "bgp.tungsten.com"
+#define PUBSUB_NODE_ADDR "bgp-node.tungsten.com"
 
 using namespace std;
 using namespace boost;
@@ -605,7 +605,7 @@ void BgpPeerCloseTest::CreateAgents() {
         // create an XMPP client in server A
         xmpp_agents_.push_back(new test::NetworkAgentMock(&evm_,
             "agent" + boost::lexical_cast<string>(i) +
-                "@vnsw.contrailsystems.com",
+                "@vnsw.tungstensystems.com",
             xmpp_server_->GetPort(),
             prefix.ip4_addr().to_string()));
         WaitForIdle();

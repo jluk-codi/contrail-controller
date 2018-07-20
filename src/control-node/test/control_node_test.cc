@@ -25,7 +25,7 @@ using boost::asio::ip::address;
 
 namespace test {
 
-const char *ControlNodeTest::kNodeJID = "network-control@contrailsystems.com";
+const char *ControlNodeTest::kNodeJID = "network-control@tungstensystems.com";
 int ControlNodeTest::node_count_ = 0;
 
 ControlNodeTest::ControlNodeTest(EventManager *evm, const std::string &hostname)

@@ -30,19 +30,19 @@ class RunTestsCommand(Command):
                 os._exit(1)
 
 setup(
-    name='contrail_issu',
+    name='tungsten_issu',
     version='0.1dev',
     packages=find_packages(),
     package_data={'': ['*.html', '*.css', '*.xml']},
     zip_safe=False,
-    long_description="VNC Contrail ISSU",
+    long_description="VNC Tungsten ISSU",
     entry_points = {
          # Please update sandesh/common/vns.sandesh on process name change
          'console_scripts' : [
-             'contrail-issu-pre-sync = contrail_issu.issu_contrail_pre_sync:_issu_cassandra_pre_sync_main',
-             'contrail-issu-run-sync = contrail_issu.issu_contrail_run_sync:_issu_rmq_main',
-             'contrail-issu-post-sync = contrail_issu.issu_contrail_post_sync:_issu_cassandra_post_sync_main',
-             'contrail-issu-zk-sync = contrail_issu.issu_contrail_zk_sync:_issu_zk_main',
+             'tungsten-issu-pre-sync = tungsten_issu.issu_tungsten_pre_sync:_issu_cassandra_pre_sync_main',
+             'tungsten-issu-run-sync = tungsten_issu.issu_tungsten_run_sync:_issu_rmq_main',
+             'tungsten-issu-post-sync = tungsten_issu.issu_tungsten_post_sync:_issu_cassandra_post_sync_main',
+             'tungsten-issu-zk-sync = tungsten_issu.issu_tungsten_zk_sync:_issu_zk_main',
          ],
     },
     install_requires=[

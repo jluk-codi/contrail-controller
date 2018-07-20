@@ -1603,7 +1603,7 @@ class VncApiServer(object):
             b_req = bottle.BaseRequest(
                 {'PATH_INFO': '/%ss' %(resource_type),
                  'bottle.app': orig_request.environ['bottle.app'],
-                 'HTTP_X_USER': 'contrail-api',
+                 'HTTP_X_USER': 'tungsten-api',
                  'HTTP_X_ROLE': self.cloud_admin_role})
             json_as_dict = {'%s' %(resource_type): obj_json}
             i_req = context.ApiInternalRequest(
@@ -1624,7 +1624,7 @@ class VncApiServer(object):
             b_req = bottle.BaseRequest(
                 {'PATH_INFO': '/%ss' %(resource_type),
                  'bottle.app': orig_request.environ['bottle.app'],
-                 'HTTP_X_USER': 'contrail-api',
+                 'HTTP_X_USER': 'tungsten-api',
                  'HTTP_X_ROLE': self.cloud_admin_role})
             json_as_dict = {'%s' %(resource_type): obj_json}
             i_req = context.ApiInternalRequest(
@@ -1645,7 +1645,7 @@ class VncApiServer(object):
             b_req = bottle.BaseRequest(
                 {'PATH_INFO': '/%s/%s' %(resource_type, obj_uuid),
                  'bottle.app': orig_request.environ['bottle.app'],
-                 'HTTP_X_USER': 'contrail-api',
+                 'HTTP_X_USER': 'tungsten-api',
                  'HTTP_X_ROLE': self.cloud_admin_role})
             i_req = context.ApiInternalRequest(
                 b_req.url, b_req.urlparts, b_req.environ, b_req.headers,
@@ -1675,7 +1675,7 @@ class VncApiServer(object):
             b_req = bottle.BaseRequest(
                 {'PATH_INFO': '/ref-update',
                  'bottle.app': orig_request.environ['bottle.app'],
-                 'HTTP_X_USER': 'contrail-api',
+                 'HTTP_X_USER': 'tungsten-api',
                  'HTTP_X_ROLE': self.cloud_admin_role})
             i_req = context.ApiInternalRequest(
                 b_req.url, b_req.urlparts, b_req.environ, b_req.headers,
@@ -1698,7 +1698,7 @@ class VncApiServer(object):
             b_req = bottle.BaseRequest(
                 {'PATH_INFO': '/ref-update',
                  'bottle.app': orig_request.environ['bottle.app'],
-                 'HTTP_X_USER': 'contrail-api',
+                 'HTTP_X_USER': 'tungsten-api',
                  'HTTP_X_ROLE': self.cloud_admin_role})
             i_req = context.ApiInternalRequest(
                 b_req.url, b_req.urlparts, b_req.environ, b_req.headers,
@@ -2037,12 +2037,12 @@ class VncApiServer(object):
         if self.is_auth_needed():
             self._generate_obj_view_links()
 
-        if os.path.exists('/usr/bin/contrail-version'):
+        if os.path.exists('/usr/bin/tungsten-version'):
             cfgm_cpu_uve = ModuleCpuState()
             cfgm_cpu_uve.name = socket.gethostname()
             cfgm_cpu_uve.config_node_ip = self.get_server_ip()
 
-            command = "contrail-version contrail-config | grep 'contrail-config'"
+            command = "tungsten-version tungsten-config | grep 'tungsten-config'"
             version = os.popen(command).read()
             _, rpm_version, build_num = version.split()
             cfgm_cpu_uve.build_info = build_info + '"build-id" : "' + \
@@ -2327,7 +2327,7 @@ class VncApiServer(object):
 
     def documentation_http_get(self, filename):
         # ubuntu packaged path
-        doc_root = '/usr/share/doc/contrail-config/doc/contrail-config/html/'
+        doc_root = '/usr/share/doc/tungsten-config/doc/tungsten-config/html/'
         if not os.path.exists(doc_root):
             # centos packaged path
             doc_root='/usr/share/doc/python-vnc_cfg_api_server/contrial-config/html/'
@@ -3062,7 +3062,7 @@ class VncApiServer(object):
                                          --logging_conf <logger-conf-file>
                                          --log_category test
                                          --log_file <stdout>
-                                         --trace_file /var/log/contrail/vnc_openstack.err
+                                         --trace_file /var/log/tungsten/vnc_openstack.err
                                          --use_syslog
                                          --syslog_facility LOG_USER
                                          --worker_id 1
@@ -3331,8 +3331,8 @@ class VncApiServer(object):
                    (shared, gaccess))
             # NOTE(ethuleau): ignore exception for the moment as it breaks the
             # Neutron use case where external network have global access but
-            # is property 'is_shared' is False https://review.opencontrail.org/#/q/Id6a0c1a509d7663da8e5bc86f2c7c91c73d420a2
-            # Before patch https://review.opencontrail.org/#q,I9f53c0f21983bf191b4c51318745eb348d48dd86,n,z
+            # is property 'is_shared' is False https://review.tungsten.io/#/q/Id6a0c1a509d7663da8e5bc86f2c7c91c73d420a2
+            # Before patch https://review.tungsten.io/#q,I9f53c0f21983bf191b4c51318745eb348d48dd86,n,z
             # error was also ignored as all retruned errors of that method were
             # not took in account
             # raise cfgm_common.exceptions.HttpError(400, msg)
@@ -3388,7 +3388,7 @@ class VncApiServer(object):
             RoutingInstance('__link_local__', link_local_vn,
                             routing_instance_is_default=True))
 
-        # specifying alarm kwargs like contrail_alarm.py
+        # specifying alarm kwargs like tungsten_alarm.py
         alarm_kwargs = {"alarm_rules":
                         {"or_list" : [
                          {"and_list": [
@@ -3990,7 +3990,7 @@ class VncApiServer(object):
     def _set_api_audit_info(self, apiConfig):
         apiConfig.url = get_request().url
         apiConfig.remote_ip = get_request().headers.get('Host')
-        useragent = get_request().headers.get('X-Contrail-Useragent')
+        useragent = get_request().headers.get('X-Tungsten-Useragent')
         if not useragent:
             useragent = get_request().headers.get('User-Agent')
         apiConfig.useragent = useragent

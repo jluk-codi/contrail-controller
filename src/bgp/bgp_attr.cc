@@ -317,7 +317,7 @@ string PmsiTunnelSpec::GetTunnelTypeString() const {
         return "IngressReplication";
     case MldpMp2mpLsp:
         return "MldpMp2mpLsp";
-    case AssistedReplicationContrail:
+    case AssistedReplicationTungsten:
         return "AssistedReplication";
     default:
         break;

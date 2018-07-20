@@ -64,7 +64,7 @@ class VrouterProvisioner(object):
                                                 --api_server_use_ssl False
                                                 --oper <add | del>
                                                 --admin_user admin 
-                                                --admin_password contrail123 
+                                                --admin_password tungsten123 
                                                 --admin_tenant_name admin  
                                                 --openstack_ip 10.204.221.34
                                                 --snmp_monitor

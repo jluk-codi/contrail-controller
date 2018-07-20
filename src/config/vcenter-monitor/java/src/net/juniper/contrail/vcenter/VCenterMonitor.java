@@ -2,7 +2,7 @@
  * Copyright (c) 2014 Juniper Networks, Inc. All rights reserved.
  */
 
-package net.juniper.contrail.vcenter;
+package net.juniper.tungsten.vcenter;
 
 import java.io.IOException;
 import java.io.File;
@@ -21,8 +21,8 @@ import java.util.UUID;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
-import net.juniper.contrail.api.types.VirtualMachine;
-import net.juniper.contrail.api.types.VirtualMachineInterface;
+import net.juniper.tungsten.api.types.VirtualMachine;
+import net.juniper.tungsten.api.types.VirtualMachineInterface;
 
 class VmwareVirtualMachineInfo {
     private String hostName;
@@ -450,10 +450,10 @@ public class VCenterMonitor {
     private static ScheduledExecutorService scheduledTaskExecutor = 
             Executors.newScheduledThreadPool(1);
     private static Logger s_logger = Logger.getLogger(VCenterMonitor.class);
-    private static String _configurationFile = "/etc/contrail/contrail-vcenter-plugin.conf";
+    private static String _configurationFile = "/etc/tungsten/tungsten-vcenter-plugin.conf";
     private static String _vcenterURL        = "https://10.84.24.111/sdk";
     private static String _vcenterUsername   = "admin";
-    private static String _vcenterPassword   = "Contrail123!";
+    private static String _vcenterPassword   = "Tungsten123!";
     private static String _vcenterDcName     = "Datacenter";
     private static String _vcenterDvsName    = "dvSwitch";
     private static String _apiServerAddress  = "10.84.13.23";

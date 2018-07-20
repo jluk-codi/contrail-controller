@@ -34,7 +34,7 @@ import schema_transformer.db
 __version__ = "1.5"
 """
 NOTE: As that script is not self contained in a python package and as it
-supports multiple Contrail releases, it brings its own version that needs to be
+supports multiple Tungsten releases, it brings its own version that needs to be
 manually updated each time it is modified. We also maintain a change log list
 in that header:
 * 1.5:
@@ -43,7 +43,7 @@ in that header:
 * 1.4:
   - add timestamp into script output headers
   - remove verbose option and set default logging level to INFO
-  - log output to local file (default: /var/log/contrail/db_manage.log) in
+  - log output to local file (default: /var/log/tungsten/db_manage.log) in
     addition to stdout
 * 1.3:
   - Fix issue in the VN/subnet/IP address zookeeper lock clean method
@@ -262,7 +262,7 @@ def format_description():
 
     wiki = format_line("WIKI:", 0, 1)
     wiki += format_line(
-            "https://github.com/Juniper/contrail-controller/wiki/Database-"
+            "https://github.com/Juniper/tungsten-controller/wiki/Database-"
             "management-tool-to-check-and-fix-inconsistencies.", 2, 1)
     description = [examples, help, note, doc, wiki]
 
@@ -277,9 +277,9 @@ def _parse_args(args_str):
     parser.add_argument('-v', '--version', action='version',
                         version='%(prog)s ' + __version__)
     parser.add_argument('operation', help=format_help())
-    help = "Path to contrail-api conf file, default /etc/contrail-api.conf"
+    help = "Path to tungsten-api conf file, default /etc/tungsten-api.conf"
     parser.add_argument(
-        "--api-conf", help=help, default="/etc/contrail/contrail-api.conf")
+        "--api-conf", help=help, default="/etc/tungsten/tungsten-api.conf")
     parser.add_argument(
         "--execute", help="Apply database modifications",
         action='store_true', default=False)
@@ -287,11 +287,11 @@ def _parse_args(args_str):
         "--debug", help="Run in debug mode, default False",
         action='store_true', default=False)
 
-    if os.path.isdir("/var/log/contrail"):
-        default_log = "/var/log/contrail/db_manage.log"
+    if os.path.isdir("/var/log/tungsten"):
+        default_log = "/var/log/tungsten/db_manage.log"
     else:
         import tempfile
-        default_log = '%s/contrail-db-manage.log' % tempfile.gettempdir()
+        default_log = '%s/tungsten-db-manage.log' % tempfile.gettempdir()
 
     parser.add_argument(
         "--log_file", help="Log file to save output, default '%(default)s'",

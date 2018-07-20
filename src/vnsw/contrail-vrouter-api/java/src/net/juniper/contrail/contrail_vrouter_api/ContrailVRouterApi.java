@@ -2,7 +2,7 @@
  * Copyright (c) 2014 Juniper Networks, Inc. All rights reserved.
  */
 
-package net.juniper.contrail.contrail_vrouter_api;
+package net.juniper.tungsten.tungsten_vrouter_api;
 
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -22,13 +22,13 @@ import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.transport.TFramedTransport;
 import org.apache.thrift.transport.TTransportException;
 
-import net.juniper.contrail.contrail_vrouter_api.InstanceService;
-import net.juniper.contrail.contrail_vrouter_api.Port;
-import net.juniper.contrail.contrail_vrouter_api.ReconnectingThriftClient;
+import net.juniper.tungsten.tungsten_vrouter_api.InstanceService;
+import net.juniper.tungsten.tungsten_vrouter_api.Port;
+import net.juniper.tungsten.tungsten_vrouter_api.ReconnectingThriftClient;
 
-public class ContrailVRouterApi {
+public class TungstenVRouterApi {
     private static final Logger s_logger =
-            Logger.getLogger(ContrailVRouterApi.class);
+            Logger.getLogger(TungstenVRouterApi.class);
 
     private final InetAddress rpc_address;
     private final int rpc_port;
@@ -36,7 +36,7 @@ public class ContrailVRouterApi {
     private InstanceService.Iface client;
     private boolean oneShot;
 
-    public ContrailVRouterApi(InetAddress ip, int port, boolean oneShot) {
+    public TungstenVRouterApi(InetAddress ip, int port, boolean oneShot) {
         this.rpc_address = ip;
         this.rpc_port = port;
         this.ports = new HashMap<UUID, Port>();

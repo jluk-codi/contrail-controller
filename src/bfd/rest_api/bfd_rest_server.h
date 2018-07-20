@@ -58,14 +58,14 @@ class RESTServer {
      public:
         typedef void (RESTServer::*HandlerFunc)(const struct RESTData&);
 
-        HandlerSpecifier(const contrail::regex& request_regex,
+        HandlerSpecifier(const tungsten::regex& request_regex,
                          enum http_method method,
                          HandlerFunc handler_func)
             : request_regex(request_regex),
               method(method),
               handler_func(handler_func) {}
 
-        contrail::regex request_regex;
+        tungsten::regex request_regex;
         enum http_method method;
         HandlerFunc handler_func;
     };

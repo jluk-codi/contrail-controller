@@ -30,7 +30,7 @@
  * whether the next hop has been added or deleted.
  *
  * One can test a sample client by running:
- *     sudo socat -s - UNIX-CONNECT:/var/run/contrail-nhserv.socket
+ *     sudo socat -s - UNIX-CONNECT:/var/run/tungsten-nhserv.socket
  */
 #ifndef __AGENT_NHS_NEXTHOP_MANAGER_H__
 #define __AGENT_NHS_NEXTHOP_MANAGER_H__

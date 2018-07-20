@@ -802,7 +802,7 @@ class VncDbClient(object):
 
             self._zk_db.master_election("/api-server-election", db_client_init)
         else:
-            msg = ("Contrail API server does not support database backend "
+            msg = ("Tungsten API server does not support database backend "
                    "'%s'" % db_engine)
             raise NotImplementedError(msg)
 
@@ -977,7 +977,7 @@ class VncDbClient(object):
         router_params = obj_dict['bgp_router_parameters']
         if 'router_type' not in router_params:
             router_type = 'router'
-            if router_params['vendor'] == 'contrail':
+            if router_params['vendor'] == 'tungsten':
                 router_type = 'control-node'
             router_params.update({'router_type': router_type})
             obj_uuid = obj_dict.get('uuid')
@@ -1236,14 +1236,14 @@ class VncDbClient(object):
             uve_name = obj_dict['fq_name'][-1]
         else:
             uve_name = ':'.join(obj_dict['fq_name'])
-        contrail_config = ContrailConfig(name=uve_name,
+        tungsten_config = TungstenConfig(name=uve_name,
                                          elements=obj_json,
                                          deleted=oper=='DELETE')
-        contrail_config_msg = ContrailConfigTrace(data=contrail_config,
+        tungsten_config_msg = TungstenConfigTrace(data=tungsten_config,
                                                   table=uve_table,
                                                   sandesh=self._sandesh)
 
-        contrail_config_msg.send(sandesh=self._sandesh)
+        tungsten_config_msg.send(sandesh=self._sandesh)
         trace_msg([db_trace], 'DBUVERequestTraceBuf', self._sandesh)
 
     def dbe_trace(oper):

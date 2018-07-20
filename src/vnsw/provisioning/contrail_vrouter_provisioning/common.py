@@ -10,13 +10,13 @@ import logging
 import netifaces
 import tempfile
 
-from contrail_vrouter_provisioning import local
+from tungsten_vrouter_provisioning import local
 
-from contrail_vrouter_provisioning.base import ContrailSetup
-from contrail_vrouter_provisioning.network import ComputeNetworkSetup
+from tungsten_vrouter_provisioning.base import TungstenSetup
+from tungsten_vrouter_provisioning.network import ComputeNetworkSetup
 
 
-log = logging.getLogger('contrail_vrouter_provisioning.common')
+log = logging.getLogger('tungsten_vrouter_provisioning.common')
 
 
 def insert_line_to_file(line, file_name, pattern=None):
@@ -25,7 +25,7 @@ def insert_line_to_file(line, file_name, pattern=None):
     local('printf "%s\n" >> %s' % (line, file_name))
 
 
-class CommonComputeSetup(ContrailSetup, ComputeNetworkSetup):
+class CommonComputeSetup(TungstenSetup, ComputeNetworkSetup):
     def __init__(self, args):
         super(CommonComputeSetup, self).__init__()
         self._args = args
@@ -63,10 +63,10 @@ class CommonComputeSetup(ContrailSetup, ComputeNetworkSetup):
 
     def fixup_config_files(self):
         self.add_dev_tun_in_cgroup_device_acl()
-        self.fixup_contrail_vrouter_agent()
+        self.fixup_tungsten_vrouter_agent()
         self.add_qos_config()
-        self.fixup_contrail_vrouter_nodemgr()
-        self.fixup_contrail_lbaas()
+        self.fixup_tungsten_vrouter_nodemgr()
+        self.fixup_tungsten_lbaas()
 
     def setup_lbaas_prereq(self):
         if self.pdist in ['centos', 'redhat']:
@@ -106,9 +106,9 @@ class CommonComputeSetup(ContrailSetup, ComputeNetworkSetup):
             local('sudo echo "alias bridge off" > /etc/modprobe.conf',
                   warn_only=True)
 
-    def fixup_contrail_vrouter_nodemgr(self):
+    def fixup_tungsten_vrouter_nodemgr(self):
         # Workaround https://bugs.launchpad.net/juniperopenstack/+bug/1681172
-        cfgfile = '/etc/contrail/contrail-vrouter-nodemgr.conf'
+        cfgfile = '/etc/tungsten/tungsten-vrouter-nodemgr.conf'
         if not os.path.isfile(cfgfile):
             local('sudo touch %s' % cfgfile)
         collector_list = ' '.join('%s:%s' % (server, '8086')
@@ -356,7 +356,7 @@ class CommonComputeSetup(ContrailSetup, ComputeNetworkSetup):
         """Setup UIO driver to use for DPDK
         (igb_uio, uio_pci_generic or vfio-pci)
         """
-        vrouter_agent_file = '/etc/contrail/contrail-vrouter-agent.conf'
+        vrouter_agent_file = '/etc/tungsten/tungsten-vrouter-agent.conf'
 
         if 'uio_driver' in dpdk_args:
             uio_driver = dpdk_args['uio_driver']
@@ -369,7 +369,7 @@ class CommonComputeSetup(ContrailSetup, ComputeNetworkSetup):
         if local('sudo modprobe %s'
                  % (uio_driver), capture=True, warn_only=False).succeeded:
             log.info("Setting UIO driver to %s for host..." % uio_driver)
-            local('sudo contrail-config --set %s DEFAULT '\
+            local('sudo tungsten-config --set %s DEFAULT '\
                   'physical_uio_driver %s' % (vrouter_agent_file, uio_driver))
         else:
             raise RuntimeError("Error: invalid UIO driver %s for host"
@@ -403,7 +403,7 @@ class CommonComputeSetup(ContrailSetup, ComputeNetworkSetup):
             self.search_and_replace(self.command_key, param,
                                     "End", self.vrouter_file)
 
-    def fixup_contrail_vrouter_agent(self):
+    def fixup_tungsten_vrouter_agent(self):
         compute_ip = self._args.self_ip
         non_mgmt_gw = self._args.non_mgmt_gw
         vgw_public_subnet = self._args.vgw_public_subnet
@@ -431,7 +431,7 @@ class CommonComputeSetup(ContrailSetup, ComputeNetworkSetup):
                                                      self.netmask))
         elif self.dev:
             # Reprovision
-            cfg_file = "/etc/contrail/contrail-vrouter-agent.conf"
+            cfg_file = "/etc/tungsten/tungsten-vrouter-agent.conf"
             section = "DEFAULT"
             key = "physical_interface_mac"
             self.mac = self.get_config(cfg_file, section, key).strip()
@@ -462,15 +462,15 @@ class CommonComputeSetup(ContrailSetup, ComputeNetworkSetup):
                         "s@vgw_subnet_ip=.*@vgw_subnet_ip=%s@g;" %
                         vgw_public_subnet_str,
                         "s@vgw_intf=.*@vgw_intf=%s@g'" % vgw_intf_list_str,
-                        " /etc/contrail/agent_param.tmpl > agent_param.new"]
+                        " /etc/tungsten/agent_param.tmpl > agent_param.new"]
                 local(' '.join(cmds))
-                local("sudo mv agent_param.new /etc/contrail/agent_param")
+                local("sudo mv agent_param.new /etc/tungsten/agent_param")
             else:
                 os.chdir(self._temp_dir_name)
                 cmds = ["sudo sed 's/dev=.*/dev=%s/g' " % self.dev,
-                        "/etc/contrail/agent_param.tmpl > agent_param.new"]
+                        "/etc/tungsten/agent_param.tmpl > agent_param.new"]
                 local(''.join(cmds))
-                local("sudo mv agent_param.new /etc/contrail/agent_param")
+                local("sudo mv agent_param.new /etc/tungsten/agent_param")
 
             vmware_dev = None
             gateway_mode = None
@@ -489,11 +489,11 @@ class CommonComputeSetup(ContrailSetup, ComputeNetworkSetup):
                 log.info(dpdk_args)
                 platform_mode = "dpdk"
 
-                supervisor_vrouter_file = ('/etc/contrail/' +
+                supervisor_vrouter_file = ('/etc/tungsten/' +
                                            'supervisord_vrouter_files/' +
-                                           'contrail-vrouter-dpdk.ini')
+                                           'tungsten-vrouter-dpdk.ini')
                 systemd_vrouter_file = ('/lib/systemd/system/' +
-                                        'contrail-vrouter-dpdk.service')
+                                        'tungsten-vrouter-dpdk.service')
 
                 if os.path.isfile(supervisor_vrouter_file):
                     self.vrouter_file = supervisor_vrouter_file
@@ -513,8 +513,8 @@ class CommonComputeSetup(ContrailSetup, ComputeNetworkSetup):
                 iface = self.dev
                 if self.is_interface_vlan(self.dev):
                     iface = self.get_physical_interface_of_vlan(self.dev)
-                local("ls /opt/contrail/bin/dpdk_nic_bind.py", warn_only=False)
-                cmd = "sudo /opt/contrail/bin/dpdk_nic_bind.py --status | "
+                local("ls /opt/tungsten/bin/dpdk_nic_bind.py", warn_only=False)
+                cmd = "sudo /opt/tungsten/bin/dpdk_nic_bind.py --status | "
                 cmd += "sudo grep -w %s | cut -d' ' -f 1" % iface.strip()
                 pci_dev = local(cmd, capture=True, warn_only=False)
                 # If there is no PCI address, the device is a bond.
@@ -522,7 +522,7 @@ class CommonComputeSetup(ContrailSetup, ComputeNetworkSetup):
                 if not pci_dev:
                     pci_dev = "0000:00:00.0"
             elif self._args.dpdk and self.reprov:
-                cfg_file = "/etc/contrail/contrail-vrouter-agent.conf"
+                cfg_file = "/etc/tungsten/tungsten-vrouter-agent.conf"
                 section = "DEFAULT"
                 key = "physical_interface_address"
                 pci_dev = self.get_config(cfg_file, section, key).strip()
@@ -603,18 +603,18 @@ class CommonComputeSetup(ContrailSetup, ComputeNetworkSetup):
                 'METADATA': {
                     'metadata_proxy_secret': self._args.metadata_secret,
                     'metadata_use_ssl': self._args.metadata_use_ssl,
-                    'metadata_client_cert': ('/etc/contrail/ssl/certs/server.pem'
+                    'metadata_client_cert': ('/etc/tungsten/ssl/certs/server.pem'
                                              if self._args.metadata_use_ssl else ''),
                     'metdata_client_cert_type': ('PEM' if self._args.metadata_use_ssl
                                                  else ''),
-                    'metadata_client_key': ('/etc/contrail/ssl/private/server-privkey.pem'
+                    'metadata_client_key': ('/etc/tungsten/ssl/private/server-privkey.pem'
                                             if self._args.metadata_use_ssl else '')},
                 'RESTART': {
                     'huge_page_2M': vrouter_kmod_2M_page,
                     'huge_page_1G': vrouter_kmod_1G_page,
                     'backup_enable': (True
                                     if self._args.resource_backup_restore else False),
-                    'backup_dir': ('/var/lib/contrail/backup'),
+                    'backup_dir': ('/var/lib/tungsten/backup'),
                     'backup_file_count': (self._args.backup_file_count),
                     'backup_idle_timeout': (self._args.backup_idle_timeout),
                     'restore_enable': (True
@@ -655,7 +655,7 @@ class CommonComputeSetup(ContrailSetup, ComputeNetworkSetup):
             for section, key_vals in configs.items():
                 for key, val in key_vals.items():
                     self.set_config(
-                        '/etc/contrail/contrail-vrouter-agent.conf',
+                        '/etc/tungsten/tungsten-vrouter-agent.conf',
                         section, key, val)
 
             if self.running_in_container:
@@ -668,7 +668,7 @@ class CommonComputeSetup(ContrailSetup, ComputeNetworkSetup):
             log.info("vhost0 configuration already present")
             return
         # Insert vrouter and setup vrouter vifs
-        insert_cmd = "source /opt/contrail/bin/vrouter-functions.sh && "
+        insert_cmd = "source /opt/tungsten/bin/vrouter-functions.sh && "
         insert_cmd += "insert_vrouter"
         local(insert_cmd, executable='/bin/bash')
         # Move ip address from vrouter physical device to vhost
@@ -686,7 +686,7 @@ class CommonComputeSetup(ContrailSetup, ComputeNetworkSetup):
             # Add default gateway to vhost
             local("ip route add default via %s dev vhost0" % self.gateway)
 
-    def fixup_contrail_lbaas(self):
+    def fixup_tungsten_lbaas(self):
         auth_url = self._args.keystone_auth_protocol + '://'
         auth_url += self._args.keystone_ip
         auth_url += ':' + self._args.keystone_auth_port
@@ -700,7 +700,7 @@ class CommonComputeSetup(ContrailSetup, ComputeNetworkSetup):
                 'region': 'RegionOne'}
         }
         # Workaround https://bugs.launchpad.net/juniperopenstack/+bug/1681172
-        cfgfile = '/etc/contrail/contrail-lbaas-auth.conf'
+        cfgfile = '/etc/tungsten/tungsten-lbaas-auth.conf'
         if not os.path.isfile(cfgfile):
             local('sudo touch %s' % cfgfile)
         for section, key_vals in configs.items():
@@ -715,7 +715,7 @@ class CommonComputeSetup(ContrailSetup, ComputeNetworkSetup):
         if self.pdist in ['centos', 'fedora', 'redhat']:
             # make ifcfg-vhost0
             with open('%s/ifcfg-vhost0' % self._temp_dir_name, 'w') as f:
-                f.write('''#Contrail vhost0
+                f.write('''#Tungsten vhost0
 DEVICE=vhost0
 ONBOOT=yes
 BOOTPROTO=none
@@ -762,7 +762,7 @@ SUBCHANNELS=1,2,3
                 if self.multi_net:
                     self.migrate_routes(self.dev)
 
-                local("sudo mv %s /etc/contrail/" % ifcfg_tmp, warn_only=True)
+                local("sudo mv %s /etc/tungsten/" % ifcfg_tmp, warn_only=True)
 
                 if self.pdist not in ['Ubuntu']:
                     local("sudo chkconfig network on", warn_only=True)
@@ -785,7 +785,7 @@ SUBCHANNELS=1,2,3
             for svc in ['supervisor-vrouter']:
                 local('sudo chkconfig %s on' % svc)
         if self.running_in_container:
-            for svc in ['contrail-vrouter-agent', 'contrail-vrouter-nodemgr']:
+            for svc in ['tungsten-vrouter-agent', 'tungsten-vrouter-nodemgr']:
                 local('sudo service %s restart' % svc)
 
     def add_vnc_config(self):
@@ -806,7 +806,7 @@ SUBCHANNELS=1,2,3
                        use_ssl)
         if self._args.dpdk:
             prov_args += " --dpdk_enabled"
-        cmd = "sudo python /opt/contrail/utils/provision_vrouter.py "
+        cmd = "sudo python /opt/tungsten/utils/provision_vrouter.py "
         local(cmd + prov_args)
 
     def add_qos_config(self):
@@ -817,8 +817,8 @@ SUBCHANNELS=1,2,3
         priority_id_list = self._args.priority_id
         priority_scheduling = self._args.priority_scheduling
         priority_bandwidth = self._args.priority_bandwidth
-        agent_conf = "/etc/contrail/contrail-vrouter-agent.conf"
-        conf_file = "contrail-vrouter-agent.conf"
+        agent_conf = "/etc/tungsten/tungsten-vrouter-agent.conf"
+        conf_file = "tungsten-vrouter-agent.conf"
         configs = {}
 
         # Clean existing qos config
@@ -834,7 +834,7 @@ SUBCHANNELS=1,2,3
         local('sudo rm -rf %s' % (ltemp_dir))
         # Set qos_enabled in agent_param to false
         self.set_config(
-            '/etc/contrail/agent_param',
+            '/etc/tungsten/agent_param',
             sec="''",
             var='qos_enabled',
             val='false')
@@ -876,7 +876,7 @@ SUBCHANNELS=1,2,3
         if priority_id_list is not None:
 
             local(
-                'sudo contrail-config --set /etc/contrail/contrail-vrouter-agent.conf  QOS-NIANTIC')
+                'sudo tungsten-config --set /etc/tungsten/tungsten-vrouter-agent.conf  QOS-NIANTIC')
             for i in range(len(priority_id_list)):
                 configs['PG-%s' % priority_id_list[i]] = {
                     'scheduling': priority_scheduling[i],
@@ -891,7 +891,7 @@ SUBCHANNELS=1,2,3
         if (qos_queue_id_list or priority_id_list):
             # Set qos_enabled in agent_param
             self.set_config(
-                '/etc/contrail/agent_param',
+                '/etc/tungsten/agent_param',
                 sec="''",
                 var='qos_enabled',
                 val='true')
@@ -899,7 +899,7 @@ SUBCHANNELS=1,2,3
             # Run qosmap script on physical interface (on all members for bond
             # interface)
             physical_interface = local(
-                "sudo openstack-config --get /etc/contrail/contrail-vrouter-agent.conf VIRTUAL-HOST-INTERFACE physical_interface")
+                "sudo openstack-config --get /etc/tungsten/tungsten-vrouter-agent.conf VIRTUAL-HOST-INTERFACE physical_interface")
             if os.path.isdir('/sys/class/net/%s/bonding' % physical_interface):
                 physical_interfaces_str = local(
                     "sudo cat /sys/class/net/%s/bonding/slaves | tr ' ' '\n' | sort | tr '\n' ' '" %
@@ -907,7 +907,7 @@ SUBCHANNELS=1,2,3
             else:
                 physical_interfaces_str = physical_interface
             local(
-                "cd /opt/contrail/utils; python qosmap.py --interface_list %s " %
+                "cd /opt/tungsten/utils; python qosmap.py --interface_list %s " %
                 physical_interfaces_str)
 
     def disable_nova_compute(self):
@@ -934,11 +934,11 @@ SUBCHANNELS=1,2,3
         if self._args.apiserver_auth_protocol == 'https':
             prov_args += " --api_server_use_ssl True"
         local(
-            "python /opt/contrail/utils/provision_vrouter.py %s" %
+            "python /opt/tungsten/utils/provision_vrouter.py %s" %
             (prov_args))
 
     def start_tsn_service(self):
-        nova_conf_file = '/etc/contrail/contrail-vrouter-agent.conf'
+        nova_conf_file = '/etc/tungsten/tungsten-vrouter-agent.conf'
         mode = 'tsn'
         if self._args.tsn_evpn_mode:
             mode = 'tsn-no-forwarding'
@@ -1008,7 +1008,7 @@ SUBCHANNELS=1,2,3
         pattern = "vrouter_kmod_1G_hugepages"
         line = "vrouter_kmod_1G_hugepages=0"
         insert_line_to_file(pattern=pattern, line=line,
-                            file_name='/etc/contrail/agent_param')
+                            file_name='/etc/tungsten/agent_param')
 
         # Delete vrouter kernel mode 2M hugepage config
         if os.path.isfile('/etc/fstab'):
@@ -1020,7 +1020,7 @@ SUBCHANNELS=1,2,3
         pattern = "vrouter_kmod_2M_hugepages"
         line = "vrouter_kmod_2M_hugepages=0"
         insert_line_to_file(pattern=pattern, line=line,
-                            file_name='/etc/contrail/agent_param')
+                            file_name='/etc/tungsten/agent_param')
 
         # Configure vrouter kernel mode 1G hugepages
         if self._args.vrouter_1G_hugepages != '0':
@@ -1044,7 +1044,7 @@ SUBCHANNELS=1,2,3
             pattern = "vrouter_kmod_1G_hugepages"
             line = "vrouter_kmod_1G_hugepages=%s" % no_of_pages
             insert_line_to_file(pattern=pattern, line=line,
-                                file_name='/etc/contrail/agent_param')
+                                file_name='/etc/tungsten/agent_param')
 
         # Configure vrouter kernel mode 2M hugepages
         if self._args.vrouter_2M_hugepages != '0' and self._args.vrouter_1G_hugepages != '0':
@@ -1068,7 +1068,7 @@ SUBCHANNELS=1,2,3
             pattern = "vrouter_kmod_2M_hugepages"
             line = "vrouter_kmod_2M_hugepages=%s" % no_of_pages
             insert_line_to_file(pattern=pattern, line=line,
-                                file_name='/etc/contrail/agent_param')
+                                file_name='/etc/tungsten/agent_param')
 
     def setup(self):
         self.disable_selinux()

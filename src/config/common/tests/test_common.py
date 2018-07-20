@@ -223,7 +223,7 @@ def create_api_server_instance(test_id, config_knobs, db='cassandra'):
             ret_server_info['introspect_port'], ret_server_info['admin_port'],
             config_knobs)
     else:
-        msg = ("Contrail API server does not support database backend "
+        msg = ("Tungsten API server does not support database backend "
                "'%s'" % db)
         raise NotImplementedError(msg)
     block_till_port_listened(ret_server_info['ip'],

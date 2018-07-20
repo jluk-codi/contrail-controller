@@ -1806,7 +1806,7 @@ TEST_F(BgpAttrTest, PmsiTunnelSpecCompareTo2b) {
     PmsiTunnelSpec pmsi_spec1;
     PmsiTunnelSpec pmsi_spec2;
     pmsi_spec1.tunnel_type = PmsiTunnelSpec::IngressReplication;
-    pmsi_spec2.tunnel_type = PmsiTunnelSpec::AssistedReplicationContrail;
+    pmsi_spec2.tunnel_type = PmsiTunnelSpec::AssistedReplicationTungsten;
     EXPECT_NE(0, pmsi_spec1.CompareTo(pmsi_spec2));
     EXPECT_NE(0, pmsi_spec2.CompareTo(pmsi_spec1));
 }
@@ -1873,7 +1873,7 @@ TEST_F(BgpAttrTest, PmsiTunnelSpecTunnelTypeString) {
     EXPECT_EQ("IngressReplication", pmsi_spec.GetTunnelTypeString());
     pmsi_spec.tunnel_type = PmsiTunnelSpec::MldpMp2mpLsp;
     EXPECT_EQ("MldpMp2mpLsp", pmsi_spec.GetTunnelTypeString());
-    pmsi_spec.tunnel_type = PmsiTunnelSpec::AssistedReplicationContrail;
+    pmsi_spec.tunnel_type = PmsiTunnelSpec::AssistedReplicationTungsten;
     EXPECT_EQ("AssistedReplication", pmsi_spec.GetTunnelTypeString());
     pmsi_spec.tunnel_type = PmsiTunnelSpec::NoTunnelInfo;
     EXPECT_EQ("Unknown(0)", pmsi_spec.GetTunnelTypeString());
@@ -2115,7 +2115,7 @@ TEST_F(BgpAttrTest, PmsiTunnel9b) {
     pmsi_spec1.SetIdentifier(Ip4Address::from_string("10.1.1.1", ec));
     PmsiTunnelPtr pmsi_tunnel1 = pmsi_tunnel_db_->Locate(pmsi_spec1);
     PmsiTunnelSpec pmsi_spec2 = pmsi_spec1;
-    pmsi_spec2.tunnel_type = PmsiTunnelSpec::AssistedReplicationContrail;
+    pmsi_spec2.tunnel_type = PmsiTunnelSpec::AssistedReplicationTungsten;
     PmsiTunnelPtr pmsi_tunnel2 = pmsi_tunnel_db_->Locate(pmsi_spec2);
 
     EXPECT_NE(pmsi_tunnel1, pmsi_tunnel2);
@@ -2642,7 +2642,7 @@ TEST_F(BgpAttrTest, BgpOList3d) {
     for (int idx = 1; idx < 3; ++idx) {
         error_code ec;
         std::string addr_str = "10.1.1." + integerToString(idx);
-        std::vector<std::string> encap = list_of("gre")("udp-contrail");
+        std::vector<std::string> encap = list_of("gre")("udp-tungsten");
         BgpOListElem elem(
             Ip4Address::from_string(addr_str, ec), 1000 * idx, encap);
         olist_spec2.elements.push_back(elem);

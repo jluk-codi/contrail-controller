@@ -4,12 +4,12 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/ironic-notification-manager --conf_file /etc/contrail/ironic-notification-manager.conf --conf_file /etc/contrail/contrail-keystone-auth.conf
-PIDFile=/var/run/contrail/ironic-notification-manager.pid
+ExecStart=/usr/bin/ironic-notification-manager --conf_file /etc/tungsten/ironic-notification-manager.conf --conf_file /etc/tungsten/tungsten-keystone-auth.conf
+PIDFile=/var/run/tungsten/ironic-notification-manager.pid
 TimeoutStopSec=0
 Restart=always
-User=contrail
-Group=contrail
+User=tungsten
+Group=tungsten
 ExecStop=/bin/kill -s TERM $MAINPID
 
 PrivateTmp=yes
@@ -17,8 +17,8 @@ PrivateDevices=yes
 ProtectHome=yes
 ReadOnlyDirectories=/
 ReadWriteDirectories=-/var/crashes
-ReadWriteDirectories=-/var/log/contrail
-ReadWriteDirectories=-/etc/contrail
+ReadWriteDirectories=-/var/log/tungsten
+ReadWriteDirectories=-/etc/tungsten
 
 [Install]
 WantedBy=multi-user.target

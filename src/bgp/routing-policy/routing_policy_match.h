@@ -49,7 +49,7 @@ class MatchCommunity: public RoutingPolicyMatch {
 public:
     typedef std::set<uint32_t> CommunityList;
     typedef std::vector<std::string> CommunityRegexStringList;
-    typedef std::vector<contrail::regex> CommunityRegexList;
+    typedef std::vector<tungsten::regex> CommunityRegexList;
 
     MatchCommunity(const std::vector<std::string> &communities, bool match_all);
     virtual ~MatchCommunity();
@@ -77,7 +77,7 @@ private:
 class MatchExtCommunity: public RoutingPolicyMatch {
 public:
     typedef std::vector<std::string> CommunityRegexStringList;
-    typedef std::vector<contrail::regex> CommunityRegexList;
+    typedef std::vector<tungsten::regex> CommunityRegexList;
 
     MatchExtCommunity(const std::vector<std::string> &communities,
                       bool match_all);

@@ -232,7 +232,7 @@
    fun:_ZN9FlowTable4InitEv
    fun:_ZN9FlowProto4InitEv
    fun:_ZN9PktModule4InitEb
-   fun:_ZN18ContrailInitCommon11InitModulesEv
+   fun:_ZN18TungstenInitCommon11InitModulesEv
    fun:_ZN9AgentInit15InitModulesBaseEv
    fun:_ZN9AgentInit8InitBaseEv
    fun:_ZNK5boost4_mfi3mf0Ib9AgentInitEclEPS2_

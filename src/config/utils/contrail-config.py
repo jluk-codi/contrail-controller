@@ -15,13 +15,13 @@ from pprint import pprint
 sys.path.insert(0, os.path.realpath('/usr/lib/python2.7/site-packages'))
 sys.path.insert(
     0,
-    os.path.realpath('/opt/contrail/api-venv/lib/python2.7/site-packages/vnc_cfg_api_server/'))
+    os.path.realpath('/opt/tungsten/api-venv/lib/python2.7/site-packages/vnc_cfg_api_server/'))
 
 from vnc_api.vnc_api import *
 import vnc_cfg_api_server
 
 
-class ContrailConfigCmd(object):
+class TungstenConfigCmd(object):
     def __init__(self, args_str=None):
         self._args = None
         if not args_str:
@@ -49,7 +49,7 @@ class ContrailConfigCmd(object):
 
         global_defaults = {}
 
-        args.conf_file = '/etc/contrail/api_server.conf'
+        args.conf_file = '/etc/tungsten/api_server.conf'
         if args.conf_file:
             config = ConfigParser.SafeConfigParser()
             config.read([args.conf_file])
@@ -72,12 +72,12 @@ class ContrailConfigCmd(object):
         restore_parser = subparsers.add_parser('restore')
         restore_parser.add_argument("filename",
                                     help="file name to save config")
-        restore_parser.set_defaults(func=self.restore_contrail_config)
+        restore_parser.set_defaults(func=self.restore_tungsten_config)
 
         backup_parser = subparsers.add_parser('backup')
         backup_parser.add_argument("name",
                                    help="name to backup config database")
-        backup_parser.set_defaults(func=self.backup_contrail_config)
+        backup_parser.set_defaults(func=self.backup_tungsten_config)
 
         self._args = parser.parse_args(remaining_argv)
     #end _parse_args
@@ -172,7 +172,7 @@ class ContrailConfigCmd(object):
     #end _bfs
 
     #restore config from a file - overwrite old config with the same uuid
-    def restore_contrail_config(self):
+    def restore_tungsten_config(self):
         print "Restoring config from %s" % (self._args.filename)
         objs = {}
 
@@ -245,10 +245,10 @@ class ContrailConfigCmd(object):
             print("%-64s -- done" % '')
 
         print "Config restore complete %s" % (self._args.filename)
-    #restore_contrail_config
+    #restore_tungsten_config
 
     #backup config
-    def backup_contrail_config(self):
+    def backup_tungsten_config(self):
         print "Snapshot config database to %s" % (self._args.name)
         f = open(self._args.name, 'w')
         records = self._vnc_lib.fetch_records()
@@ -260,13 +260,13 @@ class ContrailConfigCmd(object):
 
         f.close()
         print "Snapshot config database to %s done" % (self._args.name)
-    #backup_contrail_config
+    #backup_tungsten_config
 
-#end class ContrailConfigCmd
+#end class TungstenConfigCmd
 
 
 def main(args_str=None):
-    cfg = ContrailConfigCmd(args_str)
+    cfg = TungstenConfigCmd(args_str)
     cfg._args.func()
 #end main
 

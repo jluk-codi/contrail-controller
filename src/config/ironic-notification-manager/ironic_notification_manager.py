@@ -317,7 +317,7 @@ def parse_args(args_str):
     '''
     Eg. python ironic_notification_manager.py \
         -c ironic-notification-manager.conf \
-        -c contrail-keystone-auth.conf
+        -c tungsten-keystone-auth.conf
     '''
 
     # Source any specified config/ini file

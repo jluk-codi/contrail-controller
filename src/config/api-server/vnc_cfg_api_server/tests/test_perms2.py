@@ -289,17 +289,17 @@ class TestPermissions(test_case.ApiServerTestCase):
         ip = self._api_server_ip
         port = self._api_server_port
         # kc = test_utils.get_keystone_client()
-        kc = keystone.Client(username='admin', password='contrail123',
+        kc = keystone.Client(username='admin', password='tungsten123',
                        tenant_name='admin',
                        auth_url='http://127.0.0.1:5000/v2.0')
 
         # prepare token before vnc api invokes keystone
         self.alice = User(ip, port, kc, 'alice', 'alice123', 'alice-role', 'alice-proj-%s' % self.id())
         self.bob =   User(ip, port, kc, 'bob', 'bob123', 'bob-role', 'bob-proj-%s' % self.id())
-        self.admin = User(ip, port, kc, 'admin', 'contrail123', 'cloud-admin', 'admin-%s' % self.id())
-        self.admin1 = User(ip, port, kc, 'admin1', 'contrail123', 'admin', 'admin1-%s' % self.id())
-        self.admin2 = User(ip, port, kc, 'admin2', 'contrail123', 'admin', 'admin2-%s' % self.id())
-        self.adminr = User(ip, port, kc, 'adminr', 'contrail123', 'read-only-role', 'adminr-%s' % self.id())
+        self.admin = User(ip, port, kc, 'admin', 'tungsten123', 'cloud-admin', 'admin-%s' % self.id())
+        self.admin1 = User(ip, port, kc, 'admin1', 'tungsten123', 'admin', 'admin1-%s' % self.id())
+        self.admin2 = User(ip, port, kc, 'admin2', 'tungsten123', 'admin', 'admin2-%s' % self.id())
+        self.adminr = User(ip, port, kc, 'adminr', 'tungsten123', 'read-only-role', 'adminr-%s' % self.id())
 
         self.users = [self.alice, self.bob, self.admin, self.admin1, self.admin2, self.adminr]
 

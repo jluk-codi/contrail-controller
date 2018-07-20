@@ -91,8 +91,8 @@ do {                                                             \
 
 #endif
 
-#define XMPP_CONTROL_SERV "bgp.contrail.com"
-#define PUBSUB_NODE_ADDR  "bgp-node.contrail.com"
+#define XMPP_CONTROL_SERV "bgp.tungsten.com"
+#define PUBSUB_NODE_ADDR  "bgp-node.tungsten.com"
 
 using namespace std;
 using namespace boost::asio;
@@ -1889,7 +1889,7 @@ string BgpStressTest::GetAgentVmUuid(int agent_id, int vm_id) {
 
 string BgpStressTest::GetAgentName(int agent_id) {
     return "agent" + boost::lexical_cast<string>(d_test_id_) + "." +
-        boost::lexical_cast<string>(agent_id + 1) + "@vnsw.contrailsystems.com";
+        boost::lexical_cast<string>(agent_id + 1) + "@vnsw.tungstensystems.com";
 }
 
 bool BgpStressTest::XmppClientIsEstablished(const string &client_name) {

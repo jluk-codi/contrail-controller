@@ -49,7 +49,7 @@ interfaces.add_interface(interface)
 
 #Groups Config
 groups = Groups()
-groups.name = "_contrail"
+groups.name = "_tungsten"
 groups.set_interfaces(interfaces)
 config = configuration()
 config.set_groups(groups)

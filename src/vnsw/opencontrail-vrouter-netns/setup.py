@@ -11,28 +11,28 @@ def requirements(filename):
     return lines
 
 setuptools.setup(
-    name='opencontrail-vrouter-netns',
+    name='Tungsten Fabric-vrouter-netns',
     version='0.1',
     packages=setuptools.find_packages(),
 
     # metadata
-    author="OpenContrail",
-    author_email="dev@lists.opencontrail.org",
+    author="Tungsten Fabric",
+    author_email="dev@lists.tungsten.io",
     license="Apache Software License",
-    url="http://www.opencontrail.org/",
+    url="http://www.tungsten.io/",
     long_description="Script to manage Linux network namespaces",
 
     install_requires=requirements('requirements.txt'),
 
-    test_suite='opencontrail_vrouter_netns.tests',
+    test_suite='Tungsten Fabric_vrouter_netns.tests',
     tests_require=requirements('test-requirements.txt'),
 
     entry_points = {
         'console_scripts': [
-            'opencontrail-vrouter-netns = opencontrail_vrouter_netns.vrouter_netns:main',
-            'opencontrail-vrouter-docker = opencontrail_vrouter_netns.vrouter_docker:main',
-            'netns-daemon-start = opencontrail_vrouter_netns.daemon_start:daemon_start',
-            'netns-daemon-stop = opencontrail_vrouter_netns.daemon_stop:daemon_stop'
+            'Tungsten Fabric-vrouter-netns = Tungsten Fabric_vrouter_netns.vrouter_netns:main',
+            'Tungsten Fabric-vrouter-docker = Tungsten Fabric_vrouter_netns.vrouter_docker:main',
+            'netns-daemon-start = Tungsten Fabric_vrouter_netns.daemon_start:daemon_start',
+            'netns-daemon-stop = Tungsten Fabric_vrouter_netns.daemon_stop:daemon_stop'
         ],
     },
 )

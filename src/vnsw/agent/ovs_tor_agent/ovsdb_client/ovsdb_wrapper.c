@@ -11,7 +11,7 @@
 
 #include <ovsdb_wrapper.h>
 
-#define CONTRAIL_LOGICAL_SWITCH_NAME "Contrail-"
+#define CONTRAIL_LOGICAL_SWITCH_NAME "Tungsten-"
 #define CONTRAIL_LS_NAME_LENGTH 9
 
 void ovsdb_idl_set_callback(struct ovsdb_idl *idl, void *idl_base,
@@ -272,10 +272,10 @@ ovsdb_wrapper_logical_switch_name(struct ovsdb_idl_row *row)
         row ? CONTAINER_OF(row, struct vteprec_logical_switch, header_) : NULL;
     if (strncmp(ls->name, CONTRAIL_LOGICAL_SWITCH_NAME,
                 CONTRAIL_LS_NAME_LENGTH) == 0) {
-        /* Skip "Contrail-" from logical-switch name */
+        /* Skip "Tungsten-" from logical-switch name */
         return &(ls->name[CONTRAIL_LS_NAME_LENGTH]);
     }
-    /* return the complete name for non-contrail logical-switch */
+    /* return the complete name for non-tungsten logical-switch */
     return ls->name;
 }
 
@@ -298,11 +298,11 @@ ovsdb_wrapper_add_logical_switch(struct ovsdb_idl_txn *txn,
         row ? CONTAINER_OF(row, struct vteprec_logical_switch, header_) : NULL;
     if (ls == NULL)
         ls = vteprec_logical_switch_insert(txn);
-    /* prepend "Contrail-" in the logical-switch name */
-    char contrail_name[256];
-    strcpy(contrail_name, CONTRAIL_LOGICAL_SWITCH_NAME);
-    strncat(contrail_name, name, 256 - CONTRAIL_LS_NAME_LENGTH);
-    vteprec_logical_switch_set_name(ls, contrail_name);
+    /* prepend "Tungsten-" in the logical-switch name */
+    char tungsten_name[256];
+    strcpy(tungsten_name, CONTRAIL_LOGICAL_SWITCH_NAME);
+    strncat(tungsten_name, name, 256 - CONTRAIL_LS_NAME_LENGTH);
+    vteprec_logical_switch_set_name(ls, tungsten_name);
     vteprec_logical_switch_set_tunnel_key(ls, &vxlan, 1);
     return &(ls->header_);
 }

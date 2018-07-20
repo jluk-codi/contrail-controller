@@ -6,4 +6,4 @@
 Import('BuildEnv')
 env = BuildEnv.Clone()
 
-env.SConscript('contrail-cli/SConscript', exports='BuildEnv', duplicate = 0)
+env.SConscript('tungsten-cli/SConscript', exports='BuildEnv', duplicate = 0)

@@ -1,6 +1,6 @@
 <iq type='set'
-    from='agent@vnsw.contrailsystems.com'
-    to='bgp.contrail.com/other-peer' 
+    from='agent@vnsw.tungstensystems.com'
+    to='bgp.tungsten.com/other-peer' 
     id='request1'>
     <pubsub xmlns='http://jabber.org/protocol/pubsub'>
         <publish node='01020304abcd:vpn-ip-address/32'>
@@ -22,8 +22,8 @@
     </pubsub>
 </iq>
 <iq type='set'
-    from='agent@vnsw.contrailsystems.com'
-    to='bgp.contrail.com/other-peer'
+    from='agent@vnsw.tungstensystems.com'
+    to='bgp.tungsten.com/other-peer'
     id='request2'>
     <pubsub xmlns='http://jabber.org/protocol/pubsub'>
         <collection node='vrf-table-name'>   <!-- vpn-customer-name --->

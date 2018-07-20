@@ -6,7 +6,7 @@
 #
 
 """
-Contrail CNI plugin for MESOS
+Tungsten CNI plugin for MESOS
 """
 
 import inspect
@@ -19,10 +19,10 @@ import traceback
 # set parent directory in sys.path
 current_file = os.path.abspath(inspect.getfile(inspect.currentframe()))  # nopep8
 sys.path.append(os.path.dirname(os.path.dirname(current_file)))  # nopep8
-from contrail.contrail_cni import ContrailCni as ContrailCni
+from tungsten.tungsten_cni import TungstenCni as TungstenCni
 from common.cni import Cni as Cni
 from common.cni import Error as CniError
-from contrail.contrail_cni import Error as ContrailError
+from tungsten.tungsten_cni import Error as TungstenError
 
 
 # Mesos-manager IP/Port
@@ -63,11 +63,11 @@ def send_params_to_mesos_mgr(c_cni):
 
 def main():
     try:
-        cni = ContrailCni()
+        cni = TungstenCni()
 
         # set logging
         global logger
-        logger = logging.getLogger('contrail-mesos-cni')
+        logger = logging.getLogger('tungsten-mesos-cni')
 
         # Mesos passes container_uuid in container_id
         cni.cni.update(cni.cni.container_id, None, None)
@@ -77,7 +77,7 @@ def main():
     except CniError as err:
         err.log()
         Cni.error_exit(err.code, err.msg)
-    except ContrailError as err:
+    except TungstenError as err:
         err.log()
         Cni.error_exit(err.code, err.msg)
     except Exception as e:

@@ -17,15 +17,15 @@ if sys.platform.startswith('freebsd'):
     config_opts += ' --without-gssapi'
     cmd = ('(cd ' + Dir('.').abspath + '; ' + str(Dir(vpath)) +
            '/configure' + ' ' + config_opts + '; gmake clean; gmake; gmake install; ' +
-           'mv ' + build_dir + '/sbin/named ' + build_dir + '/sbin/contrail-named; ' +
-           'mv ' + build_dir + '/sbin/rndc ' + build_dir + '/sbin/contrail-rndc; ' +
-           'mv ' + build_dir + '/sbin/rndc-confgen ' + build_dir + '/sbin/contrail-rndc-confgen;)')
+           'mv ' + build_dir + '/sbin/named ' + build_dir + '/sbin/tungsten-named; ' +
+           'mv ' + build_dir + '/sbin/rndc ' + build_dir + '/sbin/tungsten-rndc; ' +
+           'mv ' + build_dir + '/sbin/rndc-confgen ' + build_dir + '/sbin/tungsten-rndc-confgen;)')
 else:
     cmd = ('(cd ' + Dir('.').abspath + '; ' + str(Dir(vpath)) +
            '/configure' + ' ' + config_opts + '; make clean; make; make install; ' +
-           'mv ' + build_dir + '/sbin/named ' + build_dir + '/sbin/contrail-named; ' +
-           'mv ' + build_dir + '/sbin/rndc ' + build_dir + '/sbin/contrail-rndc; ' +
-           'mv ' + build_dir + '/sbin/rndc-confgen ' + build_dir + '/sbin/contrail-rndc-confgen;)')
+           'mv ' + build_dir + '/sbin/named ' + build_dir + '/sbin/tungsten-named; ' +
+           'mv ' + build_dir + '/sbin/rndc ' + build_dir + '/sbin/tungsten-rndc; ' +
+           'mv ' + build_dir + '/sbin/rndc-confgen ' + build_dir + '/sbin/tungsten-rndc-confgen;)')
 
 include_products = [
     '#build/include/isc/hmacmd5.h',
@@ -64,11 +64,11 @@ products = [ str(File('#/build/lib/librndc' + env['LIBSUFFIX'])),
              str(File('#/build/lib/libisccfg' + env['LIBSUFFIX'])),
              str(File('#/build/lib/libbind9' + env['LIBSUFFIX'])),
              str(File('#/build/lib/libdns' + env['LIBSUFFIX'])),]
-binproducts = [ str(File('#/build/sbin/contrail-named')),
-                str(File('#/build/sbin/contrail-rndc')),
-                str(File('#/build/sbin/contrail-rndc-confgen')) ]
+binproducts = [ str(File('#/build/sbin/tungsten-named')),
+                str(File('#/build/sbin/tungsten-rndc')),
+                str(File('#/build/sbin/tungsten-rndc-confgen')) ]
 
-confs = [ 'contrail-rndc.conf', 'contrail-named.conf', 'COPYRIGHT' ]
+confs = [ 'tungsten-rndc.conf', 'tungsten-named.conf', 'COPYRIGHT' ]
 
 bind_cfg = env.Command([products + binproducts + include_products], str(Dir(vpath)), cmd)
 

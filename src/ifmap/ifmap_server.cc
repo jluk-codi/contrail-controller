@@ -35,9 +35,9 @@
 
 #include "control-node/sandesh/control_node_types.h"
 
-using contrail::regex;
-using contrail::regex_match;
-using contrail::regex_search;
+using tungsten::regex;
+using tungsten::regex_match;
+using tungsten::regex_search;
 using std::make_pair;
 
 class IFMapServer::IFMapStaleEntriesCleaner : public Task {

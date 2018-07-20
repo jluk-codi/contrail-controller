@@ -3,7 +3,7 @@ set -eu
 
 function usage {
   echo "Usage: $0 [OPTION]..."
-  echo "Run Contrail's test suite(s)"
+  echo "Run Tungsten's test suite(s)"
   echo ""
   echo "  -b, --build-top             Top of scons build variant dir. e.g. SB_TOP/build/debug"
   echo "  -V, --virtual-env           Always use virtualenv.  Install automatically if not present"

@@ -81,8 +81,8 @@ private:
     Timer *timer_;
 };
 
-#define XMPP_CONTROL_SERV   "bgp.contrail.com"
-#define SUB_ADDR            "agent@vnsw.contrailsystems.com"
+#define XMPP_CONTROL_SERV   "bgp.tungsten.com"
+#define SUB_ADDR            "agent@vnsw.tungstensystems.com"
 #define XMPP_SERVER_PORT    5288
 
 bool ClientTest::SendTimerExpire() {

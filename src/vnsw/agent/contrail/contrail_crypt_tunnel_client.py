@@ -22,11 +22,11 @@ _ADMIN = 'admin'
 _PASSWD = 'c0ntrailIPSEC'
 # It is assumed that the server always listens
 # on loopback interface on the compute host
-_URL='http://127.0.0.1:10080/contrailipsec/connection'
+_URL='http://127.0.0.1:10080/tungstenipsec/connection'
 _SUCCESS='success'
 _EXISTS='exists'
 
-class ContrailCryptTunnelClient(object):
+class TungstenCryptTunnelClient(object):
     def __init__(self, leftIP, rightIP):
         self._conn=leftIP + '_' + rightIP
         self._jsonStr='{\"leftTunnelIP\":\"%s\", \"rightTunnelIP\":\"%s\"}' % (leftIP, rightIP)
@@ -101,7 +101,7 @@ class ContrailCryptTunnelClient(object):
                 return err
 
 def initialize(oper, leftIP, rightIP):
-    cryptTunnel = ContrailCryptTunnelClient(leftIP, rightIP)
+    cryptTunnel = TungstenCryptTunnelClient(leftIP, rightIP)
     if oper == "create":
        cryptTunnel.createCryptTunnel()
     if oper == "delete":
@@ -111,7 +111,7 @@ def initialize(oper, leftIP, rightIP):
 
 def parse_args(args_str):
     '''
-    Eg. contrail_crypt_tunnel_client.py --oper create / delete / status --source_ip 1.1.1.3 --remote_ip 1.1.1.4
+    Eg. tungsten_crypt_tunnel_client.py --oper create / delete / status --source_ip 1.1.1.3 --remote_ip 1.1.1.4
     '''
     conf_parser = argparse.ArgumentParser(add_help=False)
     args, remaining_argv = conf_parser.parse_known_args(args_str.split())
@@ -135,13 +135,13 @@ def parse_args(args_str):
        if not (args.source_ip and args.remote_ip):
           parser.error('Missing API server credentials and / or the route parameters')
     else:
-        print "Unsupported operaton on ContrailCryptTunnelClient object. Supported operations are create / delete / status"
+        print "Unsupported operaton on TungstenCryptTunnelClient object. Supported operations are create / delete / status"
         exit(1)
     return args
 
 def main(args_str=None):
     logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p',
-                        filename='/var/log/contrail_crypt_tunnel_client.log',
+                        filename='/var/log/tungsten_crypt_tunnel_client.log',
                         level=logging.DEBUG)
     logging.debug(' '.join(sys.argv))
     if not args_str:

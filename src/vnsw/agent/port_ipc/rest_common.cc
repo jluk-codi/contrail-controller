@@ -25,14 +25,14 @@ void SendResponse(HttpSession *session,
 
 void SendErrorResponse(HttpSession *session,
                         const std::string &error_msg, int status_code) {
-    contrail_rapidjson::Document document;
+    tungsten_rapidjson::Document document;
     document.SetObject();
-    contrail_rapidjson::Value v;
+    tungsten_rapidjson::Value v;
     document.AddMember("error",
                        v.SetString(error_msg.c_str(), document.GetAllocator()),
                        document.GetAllocator());
-    contrail_rapidjson::StringBuffer strbuf;
-    contrail_rapidjson::Writer<contrail_rapidjson::StringBuffer> writer(strbuf);
+    tungsten_rapidjson::StringBuffer strbuf;
+    tungsten_rapidjson::Writer<tungsten_rapidjson::StringBuffer> writer(strbuf);
     document.Accept(writer);
     SendResponse(session, strbuf.GetString(), status_code);
 }

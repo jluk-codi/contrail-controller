@@ -46,7 +46,7 @@ function print_usage()
 	echo "	--skip_keyspaces, -k"
 	echo "		Comma seperated list of keyspaces to be skipped"
 	echo "EXAMPLE"
-	echo "	$me -b /var/lib/cassandra/data -s /root/data.ss -n 1403068337967 -k DISCOVERY_SERVER,ContrailAnalyticsCql"
+	echo "	$me -b /var/lib/cassandra/data -s /root/data.ss -n 1403068337967 -k DISCOVERY_SERVER,TungstenAnalyticsCql"
 	exit
 }
 if [ $# -eq  0 ]

@@ -28,9 +28,9 @@ using namespace boost::asio;
 using namespace std;
 
 #define PUBSUB_NODE_ADDR "bgp-node.contrai.com"
-#define SUB_ADDR "agent@vnsw.contrailsystems.com"
-#define SUB_ADDR2 "agentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentvvagentagentagentagentagentagentagentagentagentagentagentagentvagentagentagentagent@vnsw.contrailsystems.com"
-#define XMPP_CONTROL_SERV   "bgp.contrail.com"
+#define SUB_ADDR "agent@vnsw.tungstensystems.com"
+#define SUB_ADDR2 "agentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentagentvvagentagentagentagentagentagentagentagentagentagentagentagentvagentagentagentagent@vnsw.tungstensystems.com"
+#define XMPP_CONTROL_SERV   "bgp.tungsten.com"
 
 #define sXMPP_STREAM_RESP_BAD     "<?xml version='1.0'?><extra/><stream:stream from='dummyserver' to='dummycl' id='++123' version='1.0' xml:lang='en' xmlns:stream='http://etherx.jabber.org/streams'/>"
 #define sXMPP_STREAM_RESP_GOOD    "<?xml version='1.0'?><stream:stream from='dummyserver' to='dummycl' id='++123' version='1.0' xml:lang='en' xmlns:stream='http://etherx.jabber.org/streams'/>"

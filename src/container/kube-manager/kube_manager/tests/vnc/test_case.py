@@ -65,7 +65,7 @@ class KMTestCase(test_common.TestCase):
     @classmethod
     def spawn_kube_manager(cls, extra_args=()):
         kube_config = [
-            ('DEFAULTS', 'log_file', 'contrail-kube-manager.log'),
+            ('DEFAULTS', 'log_file', 'tungsten-kube-manager.log'),
             ('DEFAULTS', 'logger_class',
              test_common.ErrorInterceptingLogger.get_qualified_name()),
             ('DEFAULTS', 'nested_mode', '0'),
@@ -143,7 +143,7 @@ class KMTestCase(test_common.TestCase):
 
     def generate_kube_args(self):
         kube_config = [
-            ('DEFAULTS', 'log_file', 'contrail-kube-manager.log'),
+            ('DEFAULTS', 'log_file', 'tungsten-kube-manager.log'),
             ('VNC', 'vnc_endpoint_ip', self._api_server_ip),
             ('VNC', 'vnc_endpoint_port', self._api_server_port),
             ('VNC', 'cassandra_server_list', '10.0.0.0:9160'),

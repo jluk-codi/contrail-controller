@@ -2,7 +2,7 @@ ResourceManager
 ---------------
 This module mainly responsible for storing the Config data to file using Sandesh encoding.
 Please refer for more details.
-https://github.com/Juniper/contrail-controller/wiki/Agent-Resource-Manager
+https://github.com/Juniper/tungsten-controller/wiki/Agent-Resource-Manager
 Functionality:
 -------------
     1) Resotore, Backup and Allocate the resources for config data.

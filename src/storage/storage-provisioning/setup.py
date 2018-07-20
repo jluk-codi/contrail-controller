@@ -20,7 +20,7 @@ setup(
     install_requires=requirements('requirements.txt'),
     entry_points = {
         'console_scripts' : [
-            'contrail-storage-provisioning = contrail_storage_provisioning.ceph_provision:main',
+            'tungsten-storage-provisioning = tungsten_storage_provisioning.ceph_provision:main',
         ],
     },
 

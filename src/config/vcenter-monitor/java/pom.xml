@@ -1,20 +1,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>net.juniper.contrail.vcenter</groupId>
-  <artifactId>juniper-contrail-vcenter</artifactId>
+  <groupId>net.juniper.tungsten.vcenter</groupId>
+  <artifactId>juniper-tungsten-vcenter</artifactId>
   <packaging>jar</packaging>
   <version>1.0</version>
-  <name>juniper-contrail-vcenter</name>
+  <name>juniper-tungsten-vcenter</name>
   <url>http://maven.apache.org</url>
   <distributionManagement>
     <repository>
       <id>repo</id>
-      <url>https://github.com/Juniper/contrail-maven/raw/master/releases</url>
+      <url>https://github.com/Juniper/tungsten-maven/raw/master/releases</url>
     </repository>
     <snapshotRepository>
       <id>snapshot-repo</id>
-      <url>https://github.com/Juniper/contrail-maven/raw/master/snapshots</url>
+      <url>https://github.com/Juniper/tungsten-maven/raw/master/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
   <dependencies>
@@ -29,18 +29,18 @@
       <version>1.2.16</version>
     </dependency>
     <dependency>
-      <groupId>net.juniper.contrail</groupId>
-      <artifactId>juniper-contrail-api</artifactId>
+      <groupId>net.juniper.tungsten</groupId>
+      <artifactId>juniper-tungsten-api</artifactId>
       <version>1.0</version>
     </dependency>
     <dependency>
-      <groupId>net.juniper.contrail</groupId>
-      <artifactId>juniper-contrail-vrouter-api</artifactId>
+      <groupId>net.juniper.tungsten</groupId>
+      <artifactId>juniper-tungsten-vrouter-api</artifactId>
       <version>1.0</version>
     </dependency>
     <dependency>
-      <groupId>net.juniper.contrail.vijava</groupId>
-      <artifactId>juniper-contrail-vijava</artifactId>
+      <groupId>net.juniper.tungsten.vijava</groupId>
+      <artifactId>juniper-tungsten-vijava</artifactId>
       <version>1.0</version>
     </dependency>
     <dependency>

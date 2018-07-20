@@ -6,10 +6,10 @@
 """
 CNI plugin parameters processing module
 Parameters are defined in 3 different classes
-- ContrailParams : Contains contrain specific parameters
+- TungstenParams : Contains contrain specific parameters
 - K8SParams : Contains kubernetes specific parameters
 - CniParams : Contains CNI defined parameters
-              Also holds ContrailParams + K8SParams
+              Also holds TungstenParams + K8SParams
 """
 
 import inspect
@@ -39,16 +39,16 @@ VROUTER_POLL_RETRIES = 20
 
 # Container mode. Can only be k8s
 CONTRAIL_CNI_MODE_K8S = "k8s"
-CONTRAIL_CNI_MODE_CONTRAIL_K8S = "contrail-k8s"
+CONTRAIL_CNI_MODE_CONTRAIL_K8S = "tungsten-k8s"
 CONTRAIL_PARENT_INTERFACE = "eth0"
 CONTRAIL_CONTAINER_MTU = 1500
-CONTRAIL_CONFIG_DIR = '/var/lib/contrail/ports/vm'
+CONTRAIL_CONFIG_DIR = '/var/lib/tungsten/ports/vm'
 
 # Default K8S Pod related values
 POD_DEFAULT_MTU = 1500
 
 # Logging parameters
-LOG_FILE = '/var/log/contrail/cni/opencontrail.log'
+LOG_FILE = '/var/log/tungsten/cni/Tungsten Fabric.log'
 LOG_LEVEL = 'WARNING'
 
 
@@ -78,9 +78,9 @@ class ParamsError(RuntimeError):
         return
 
 
-class ContrailParams():
+class TungstenParams():
     '''
-    Contrail specific parameters
+    Tungsten specific parameters
     - mode      : CNI mode. Can take following values,
                   - k8s : Kubernetes running on baremetal
                   - nested-k8s : Kubernetes running on a VM. The container
@@ -253,7 +253,7 @@ class Params():
     Top level class holding all arguments relavent to CNI
     - command          : CNI command for the operation
     - k8s_params       : Contains kubernetes specific arguements
-    - contrail_params  : Contains contrail specific arguments needed for CNI
+    - tungsten_params  : Contains tungsten specific arguments needed for CNI
     - container_id     : Identifier for the container
     - container_ifname : Name of interface inside the container
     - container_netns  : Network namespace for the container
@@ -262,17 +262,17 @@ class Params():
     def __init__(self):
         self.command = None
         self.k8s_params = K8SParams()
-        self.contrail_params = ContrailParams()
+        self.tungsten_params = TungstenParams()
         self.container_id = None
         self.container_ifname = None
         self.container_netns = None
         return
 
     def get_loggin_params(self, json_input):
-        self.contrail_params.get_loggin_params(json_input.get('contrail'))
+        self.tungsten_params.get_loggin_params(json_input.get('tungsten'))
         global logger
-        logger = Logger.Logger('params', self.contrail_params.log_file,
-                               self.contrail_params.log_level)
+        logger = Logger.Logger('params', self.tungsten_params.log_file,
+                               self.tungsten_params.log_level)
 
     def get_params(self, json_input=None):
         self.command = get_env('CNI_COMMAND')
@@ -285,7 +285,7 @@ class Params():
             self.container_id = get_env('CNI_CONTAINERID')
             self.container_netns = get_env('CNI_NETNS')
             self.container_ifname = get_env('CNI_IFNAME')
-            self.contrail_params.get_params(json_input.get('contrail'))
+            self.tungsten_params.get_params(json_input.get('tungsten'))
             self.k8s_params.get_params(self.container_id, json_input.get('k8s'))
             return
         else:
@@ -298,5 +298,5 @@ class Params():
                      ' container-ifname = ' + str(self.container_ifname) +
                      ' continer-netns = ' + str(self.container_netns))
         self.k8s_params.log()
-        self.contrail_params.log()
+        self.tungsten_params.log()
         return

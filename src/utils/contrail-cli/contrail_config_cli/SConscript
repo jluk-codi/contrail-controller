@@ -13,7 +13,7 @@ cli_setup_sources = [
 cli_setup_sources_rules = []
 for file in cli_setup_sources:
     cli_setup_sources_rules.append(
-        env.Install(Dir("."), '#controller/src/utils/contrail-cli/contrail_config_cli/' + file))
+        env.Install(Dir("."), '#controller/src/utils/tungsten-cli/tungsten_config_cli/' + file))
 
 local_sources = [
                 '__init__.py',
@@ -23,12 +23,12 @@ local_sources = [
 
 local_sources_rules = []
 for file in local_sources:
-    local_sources_rules.append(env.Install(Dir("ContrailConfigCli"), file))
+    local_sources_rules.append(env.Install(Dir("TungstenConfigCli"), file))
 
 cli_sdist_depends = [cli_setup_sources_rules, local_sources_rules]
 
 cd_cmd = 'cd ' + Dir('.').path + ' && '
-cli_sdist_gen = env.Command('dist/contrail_config_cli-0.1dev.tar.gz',
+cli_sdist_gen = env.Command('dist/tungsten_config_cli-0.1dev.tar.gz',
                                 'setup.py',
                                 cd_cmd + 'python setup.py sdist')
 # install everything before building distribution

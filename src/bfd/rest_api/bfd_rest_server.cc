@@ -23,9 +23,9 @@
 #include "bfd/rest_api/bfd_json_config.h"
 #include "bfd/rest_api/bfd_rest_common.h"
 
-using contrail::regex;
-using contrail::regex_match;
-using contrail::regex_search;
+using tungsten::regex;
+using tungsten::regex_match;
+using tungsten::regex_search;
 
 namespace BFD {
 
@@ -119,11 +119,11 @@ void RESTServer::CreateRESTClientSession(HttpSession* session,
         new RESTClientSession(bfd_server_, client_id);
     client_sessions_[client_id] = client_session;
 
-    contrail_rapidjson::Document document;
+    tungsten_rapidjson::Document document;
     document.SetObject();
     document.AddMember("client-id", client_id, document.GetAllocator());
-    contrail_rapidjson::StringBuffer strbuf;
-    contrail_rapidjson::Writer<contrail_rapidjson::StringBuffer> writer(strbuf);
+    tungsten_rapidjson::StringBuffer strbuf;
+    tungsten_rapidjson::Writer<tungsten_rapidjson::StringBuffer> writer(strbuf);
     document.Accept(writer);
     REST::SendResponse(session, strbuf.GetString());
 }

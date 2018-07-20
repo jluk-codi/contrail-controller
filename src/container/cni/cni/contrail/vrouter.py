@@ -58,7 +58,7 @@ class VRouter():
     VROUTER_POLL_RETRIES = 20
 
     # Directory containing configuration for the container
-    VROUTER_CONFIG_DIR = '/var/lib/contrail/ports/vm'
+    VROUTER_CONFIG_DIR = '/var/lib/tungsten/ports/vm'
 
     def __init__(self, stdin_string):
         self.ip = VRouter.VROUTER_AGENT_IP
@@ -75,20 +75,20 @@ class VRouter():
         return
 
     def _get_params_from_stdin(self):
-        contrail_json = self.stdin_json.get('contrail')
-        if contrail_json is None:
+        tungsten_json = self.stdin_json.get('tungsten')
+        if tungsten_json is None:
             return
 
-        if contrail_json.get('config-dir') is not None:
-            self.directory = contrail_json['config-dir']
-        if contrail_json.get('vrouter-ip') is not None:
-            self.ip = contrail_json['vrouter-ip']
-        if contrail_json.get('vrouter-port') is not None:
-            self.port = contrail_json['vrouter-port']
-        if contrail_json.get('poll-timeout') is not None:
-            self.poll_timeout = contrail_json['poll-timeout']
-        if contrail_json.get('poll-retries') is not None:
-            self.poll_retries = contrail_json['poll-retries']
+        if tungsten_json.get('config-dir') is not None:
+            self.directory = tungsten_json['config-dir']
+        if tungsten_json.get('vrouter-ip') is not None:
+            self.ip = tungsten_json['vrouter-ip']
+        if tungsten_json.get('vrouter-port') is not None:
+            self.port = tungsten_json['vrouter-port']
+        if tungsten_json.get('poll-timeout') is not None:
+            self.poll_timeout = tungsten_json['poll-timeout']
+        if tungsten_json.get('poll-retries') is not None:
+            self.poll_retries = tungsten_json['poll-retries']
         return
 
     def make_filename(self, vm, nw):

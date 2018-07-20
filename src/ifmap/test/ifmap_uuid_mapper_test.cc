@@ -35,9 +35,9 @@
 
 using namespace std;
 using boost::assign::list_of;
-using contrail_rapidjson::Document;
-using contrail_rapidjson::SizeType;
-using contrail_rapidjson::Value;
+using tungsten_rapidjson::Document;
+using tungsten_rapidjson::SizeType;
+using tungsten_rapidjson::Value;
 
 class IFMapVmUuidMapperTest : public ::testing::Test {
 public:
@@ -273,16 +273,16 @@ TEST_P(IFMapVmUuidMapperTestWithParam1, ConfigThenSubscribe) {
 
     // VM Subscribe
     IFMapClientMock
-        c1("default-global-system-config:a1s27.contrail.juniper.net");
+        c1("default-global-system-config:a1s27.tungsten.juniper.net");
     server_->AddClient(&c1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "2d308482-c7b3-4e05-af14-e732b7b50117", true, 1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", true, 2);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "43d086ab-52c4-4a1f-8c3d-63b321e36e8a", true, 3);
     task_util::WaitForIdle();
 
@@ -291,7 +291,7 @@ TEST_P(IFMapVmUuidMapperTestWithParam1, ConfigThenSubscribe) {
     TASK_UTIL_EXPECT_NE(0, c1.link_count());
     TASK_UTIL_EXPECT_TRUE(
         c1.NodeExists("virtual-router",
-        "default-global-system-config:a1s27.contrail.juniper.net"));
+        "default-global-system-config:a1s27.tungsten.juniper.net"));
     TASK_UTIL_EXPECT_FALSE(c1.NodeExists("virtual-network",
                                          "default-domain:demo:vn28"));
     EXPECT_EQ(3, vm_uuid_mapper_->UuidMapperCount());
@@ -322,7 +322,7 @@ TEST_F(IFMapVmUuidMapperTest , ShowIFMapUuidToNodeMappingReq) {
     EXPECT_EQ(0, vm_uuid_mapper_->PendingVmRegCount());
 
     IFMapClientMock
-        c1("default-global-system-config:a1s27.contrail.juniper.net");
+        c1("default-global-system-config:a1s27.tungsten.juniper.net");
     server_->AddClient(&c1);
     task_util::WaitForIdle();
     string uuid_list[] = { "2d308482-c7b3-4e05-af14-e732b7b50117",
@@ -378,7 +378,7 @@ TEST_F(IFMapVmUuidMapperTest , ShowIFMapUuidToNodeMappingIterate) {
     EXPECT_EQ(0, vm_uuid_mapper_->PendingVmRegCount());
 
     IFMapClientMock
-        c1("default-global-system-config:a1s27.contrail.juniper.net");
+        c1("default-global-system-config:a1s27.tungsten.juniper.net");
     server_->AddClient(&c1);
     task_util::WaitForIdle();
 
@@ -434,7 +434,7 @@ TEST_P(IFMapVmUuidMapperTestWithParam1, VmSubUnsubWithDeletedNode) {
     EXPECT_EQ(0, vm_uuid_mapper_->PendingVmRegCount());
 
     IFMapClientMock
-        c1("default-global-system-config:a1s27.contrail.juniper.net");
+        c1("default-global-system-config:a1s27.tungsten.juniper.net");
     server_->AddClient(&c1);
 
     IFMapNode *vm = vm_uuid_mapper_->GetVmNodeByUuid(
@@ -446,7 +446,7 @@ TEST_P(IFMapVmUuidMapperTestWithParam1, VmSubUnsubWithDeletedNode) {
     // vm-subscribe for the first VM
     EXPECT_EQ(0, vm_uuid_mapper_->PendingVmRegCount());
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "2d308482-c7b3-4e05-af14-e732b7b50117", true, 1);
     task_util::WaitForIdle();
     EXPECT_EQ(0, vm_uuid_mapper_->PendingVmRegCount());
@@ -462,7 +462,7 @@ TEST_P(IFMapVmUuidMapperTestWithParam1, VmSubUnsubWithDeletedNode) {
     EXPECT_EQ(0, vm_uuid_mapper_->PendingVmRegCount());
     vm->MarkDelete();
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", true, 2);
     task_util::WaitForIdle();
     TASK_UTIL_EXPECT_EQ(1, vm_uuid_mapper_->PendingVmRegCount());
@@ -477,7 +477,7 @@ TEST_P(IFMapVmUuidMapperTestWithParam1, VmSubUnsubWithDeletedNode) {
     // Send a vm-unsubscribe while the node is deleted. The pending vm-reg
     // should be removed.
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", false, 2);
     task_util::WaitForIdle();
     TASK_UTIL_EXPECT_EQ(0, vm_uuid_mapper_->PendingVmRegCount());
@@ -507,7 +507,7 @@ TEST_F(IFMapVmUuidMapperTest , ShowIFMapNodeToUuidReq) {
     EXPECT_EQ(3, vm_uuid_mapper_->NodeUuidMapCount());
 
     IFMapClientMock
-        c1("default-global-system-config:a1s27.contrail.juniper.net");
+        c1("default-global-system-config:a1s27.tungsten.juniper.net");
     server_->AddClient(&c1);
     task_util::WaitForIdle();
 
@@ -521,7 +521,7 @@ TEST_F(IFMapVmUuidMapperTest , ShowIFMapNodeToUuidReq) {
     EXPECT_EQ(0, vm_uuid_mapper_->PendingVmRegCount());
     vm->MarkDelete();
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", true, 2);
     task_util::WaitForIdle();
     EXPECT_EQ(3, vm_uuid_mapper_->UuidMapperCount());
@@ -673,13 +673,13 @@ TEST_P(IFMapVmUuidMapperTestWithParam1, ConfigDeleteClientSubscribe) {
     // client to simulate the condition where the client is deleted before the
     // subscribe is processed.
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "2d308482-c7b3-4e05-af14-e732b7b50117", true, 1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", true, 2);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "43d086ab-52c4-4a1f-8c3d-63b321e36e8a", true, 3);
     task_util::WaitForIdle();
 
@@ -719,17 +719,17 @@ TEST_F(IFMapVmUuidMapperTest , ShowIFMapPendingVmRegOneShot) {
 
     // VM Subscribe
     IFMapClientMock
-        c1("default-global-system-config:a1s27.contrail.juniper.net");
+        c1("default-global-system-config:a1s27.tungsten.juniper.net");
     server_->AddClient(&c1);
     task_util::WaitForIdle();
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "2d308482-c7b3-4e05-af14-e732b7b50117", true, 1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", true, 2);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "43d086ab-52c4-4a1f-8c3d-63b321e36e8a", true, 3);
     task_util::WaitForIdle();
 
@@ -748,11 +748,11 @@ TEST_F(IFMapVmUuidMapperTest , ShowIFMapPendingVmRegOneShot) {
     EXPECT_EQ(3, vm_uuid_mapper_->PendingVmRegCount());
 
     vector<string> pending_vm_reg_expected_entries = list_of(
-        "default-global-system-config:a1s27.contrail."
+        "default-global-system-config:a1s27.tungsten."
         "juniper.net:2d308482-c7b3-4e05-af14-e732b7b50117")
-        ("default-global-system-config:a1s27.contrail."
+        ("default-global-system-config:a1s27.tungsten."
          "juniper.net:43d086ab-52c4-4a1f-8c3d-63b321e36e8a")
-        ("default-global-system-config:a1s27.contrail."
+        ("default-global-system-config:a1s27.tungsten."
          "juniper.net:93e76278-1990-4905-a472-8e9188f41b2c");
     validate_done_ = false;
     ifmap_sandesh_context_->set_page_limit(3);
@@ -789,16 +789,16 @@ TEST_F(IFMapVmUuidMapperTest, ShowIFMapPendingVmRegTwoStepResponse) {
 
     // VM Subscribe
     IFMapClientMock
-        c1("default-global-system-config:a1s27.contrail.juniper.net");
+        c1("default-global-system-config:a1s27.tungsten.juniper.net");
     server_->AddClient(&c1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "2d308482-c7b3-4e05-af14-e732b7b50117", true, 1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", true, 2);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "43d086ab-52c4-4a1f-8c3d-63b321e36e8a", true, 3);
     task_util::WaitForIdle();
 
@@ -817,7 +817,7 @@ TEST_F(IFMapVmUuidMapperTest, ShowIFMapPendingVmRegTwoStepResponse) {
     EXPECT_EQ(3, vm_uuid_mapper_->PendingVmRegCount());
 
     vector<string> pending_vm_reg_expected_entries = list_of(
-        "default-global-system-config:a1s27.contrail.juniper.net"
+        "default-global-system-config:a1s27.tungsten.juniper.net"
         ":93e76278-1990-4905-a472-8e9188f41b2c");
     validate_done_ = false;
     validate_subsequent_and_final_response_ = true;
@@ -855,16 +855,16 @@ TEST_P(IFMapVmUuidMapperTestWithParam1, SubscribeThenConfig) {
 
     // VM Subscribe
     IFMapClientMock
-        c1("default-global-system-config:a1s27.contrail.juniper.net");
+        c1("default-global-system-config:a1s27.tungsten.juniper.net");
     server_->AddClient(&c1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "2d308482-c7b3-4e05-af14-e732b7b50117", true, 1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", true, 2);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "43d086ab-52c4-4a1f-8c3d-63b321e36e8a", true, 3);
     task_util::WaitForIdle();
 
@@ -911,13 +911,13 @@ TEST_P(IFMapVmUuidMapperTestWithParam1, SubscribeDeleteClientThenConfig) {
     // client to simulate the condition where the client is deleted before the
     // subscribe is processed.
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "2d308482-c7b3-4e05-af14-e732b7b50117", true, 1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", true, 2);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "43d086ab-52c4-4a1f-8c3d-63b321e36e8a", true, 3);
     task_util::WaitForIdle();
 
@@ -967,16 +967,16 @@ TEST_P(IFMapVmUuidMapperTestWithParam1, CfgSubUnsub) {
 
     // VM Subscribe
     IFMapClientMock
-        c1("default-global-system-config:a1s27.contrail.juniper.net");
+        c1("default-global-system-config:a1s27.tungsten.juniper.net");
     server_->AddClient(&c1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "2d308482-c7b3-4e05-af14-e732b7b50117", true, 1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", true, 2);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "43d086ab-52c4-4a1f-8c3d-63b321e36e8a", true, 3);
     task_util::WaitForIdle();
 
@@ -989,7 +989,7 @@ TEST_P(IFMapVmUuidMapperTestWithParam1, CfgSubUnsub) {
     TASK_UTIL_EXPECT_TRUE(
         c1.NodeExists("virtual-router",
                       "default-global-system-config:a1s27."
-                      "contrail.juniper.net"));
+                      "tungsten.juniper.net"));
     TASK_UTIL_EXPECT_EQ(3, c1.NodeKeyCount("virtual-machine"));
     TASK_UTIL_EXPECT_TRUE(c1.NodeExists("virtual-network",
                                         "default-domain:demo:vn27"));
@@ -1001,7 +1001,7 @@ TEST_P(IFMapVmUuidMapperTestWithParam1, CfgSubUnsub) {
 
     // VM Unsubscribe
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "2d308482-c7b3-4e05-af14-e732b7b50117", false, 1);
     TASK_UTIL_EXPECT_EQ(2, c1.NodeKeyCount("virtual-machine"));
 
@@ -1009,13 +1009,13 @@ TEST_P(IFMapVmUuidMapperTestWithParam1, CfgSubUnsub) {
     TASK_UTIL_EXPECT_EQ(2, c1.NodeKeyCount("virtual-machine-interface"));
 
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", false, 2);
     TASK_UTIL_EXPECT_EQ(1, c1.NodeKeyCount("virtual-machine"));
     TASK_UTIL_EXPECT_EQ(1, c1.NodeKeyCount("virtual-network"));
     TASK_UTIL_EXPECT_EQ(1, c1.NodeKeyCount("virtual-machine-interface"));
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "43d086ab-52c4-4a1f-8c3d-63b321e36e8a", false, 3);
     task_util::WaitForIdle();
     TASK_UTIL_EXPECT_EQ(0, c1.NodeKeyCount("virtual-network"));
@@ -1037,16 +1037,16 @@ TEST_P(IFMapVmUuidMapperTestWithParam1, SubscribeConfigUnsub) {
 
     // VM Subscribe
     IFMapClientMock
-        c1("default-global-system-config:a1s27.contrail.juniper.net");
+        c1("default-global-system-config:a1s27.tungsten.juniper.net");
     server_->AddClient(&c1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "2d308482-c7b3-4e05-af14-e732b7b50117", true, 1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", true, 2);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "43d086ab-52c4-4a1f-8c3d-63b321e36e8a", true, 3);
     task_util::WaitForIdle();
 
@@ -1079,7 +1079,7 @@ TEST_P(IFMapVmUuidMapperTestWithParam1, SubscribeConfigUnsub) {
 
     // VM Unsubscribe
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "2d308482-c7b3-4e05-af14-e732b7b50117", false, 1);
     TASK_UTIL_EXPECT_EQ(2, c1.NodeKeyCount("virtual-machine"));
 
@@ -1087,7 +1087,7 @@ TEST_P(IFMapVmUuidMapperTestWithParam1, SubscribeConfigUnsub) {
     TASK_UTIL_EXPECT_EQ(2, c1.NodeKeyCount("virtual-machine-interface"));
 
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", false, 2);
     TASK_UTIL_EXPECT_EQ(1, c1.NodeKeyCount("virtual-machine"));
 
@@ -1095,7 +1095,7 @@ TEST_P(IFMapVmUuidMapperTestWithParam1, SubscribeConfigUnsub) {
     TASK_UTIL_EXPECT_EQ(1, c1.NodeKeyCount("virtual-machine-interface"));
 
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "43d086ab-52c4-4a1f-8c3d-63b321e36e8a", false, 3);
     task_util::WaitForIdle();
     TASK_UTIL_EXPECT_EQ(0, c1.NodeKeyCount("virtual-network"));
@@ -1112,16 +1112,16 @@ TEST_P(IFMapVmUuidMapperTestWithParam1, SubUnsub) {
     // and src/ifmap/testdata/cli1_vn1_vm3_add_vmname.xml
     // VM Subscribe
     IFMapClientMock
-        c1("default-global-system-config:a1s27.contrail.juniper.net");
+        c1("default-global-system-config:a1s27.tungsten.juniper.net");
     server_->AddClient(&c1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "2d308482-c7b3-4e05-af14-e732b7b50117", true, 1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", true, 2);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "43d086ab-52c4-4a1f-8c3d-63b321e36e8a", true, 3);
     task_util::WaitForIdle();
 
@@ -1134,13 +1134,13 @@ TEST_P(IFMapVmUuidMapperTestWithParam1, SubUnsub) {
 
     // VM Unsubscribe
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "2d308482-c7b3-4e05-af14-e732b7b50117", false, 2);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", false, 1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "43d086ab-52c4-4a1f-8c3d-63b321e36e8a", false, 0);
     task_util::WaitForIdle();
 
@@ -1185,7 +1185,7 @@ TEST_P(IFMapVmUuidMapperTestWithParam2, CfgaddCfgdel) {
     EXPECT_EQ(3, vm_uuid_mapper_->NodeUuidMapCount());
 
     IFMapClientMock
-        c1("default-global-system-config:a1s27.contrail.juniper.net");
+        c1("default-global-system-config:a1s27.tungsten.juniper.net");
     server_->AddClient(&c1);
     task_util::WaitForIdle();
 
@@ -1215,16 +1215,16 @@ TEST_P(IFMapVmUuidMapperTestWithParam2, CfgaddCfgdel) {
 
 TEST_P(IFMapVmUuidMapperTestWithParam2, SubCfgaddCfgdelUnsub) {
     IFMapClientMock
-        c1("default-global-system-config:a1s27.contrail.juniper.net");
+        c1("default-global-system-config:a1s27.tungsten.juniper.net");
     server_->AddClient(&c1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "2d308482-c7b3-4e05-af14-e732b7b50117", true, 1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", true, 2);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "43d086ab-52c4-4a1f-8c3d-63b321e36e8a", true, 3);
     task_util::WaitForIdle();
 
@@ -1278,13 +1278,13 @@ TEST_P(IFMapVmUuidMapperTestWithParam2, SubCfgaddCfgdelUnsub) {
 
     // VM Unsubscribe
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "2d308482-c7b3-4e05-af14-e732b7b50117", false, 2);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", false, 1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "43d086ab-52c4-4a1f-8c3d-63b321e36e8a", false, 0);
     task_util::WaitForIdle();
     usleep(10000);
@@ -1306,7 +1306,7 @@ TEST_P(IFMapVmUuidMapperTestWithParam2, SubCfgaddCfgdelUnsub) {
 
 TEST_P(IFMapVmUuidMapperTestWithParam2, CfgaddSubUnsubCfgdel) {
     IFMapClientMock
-        c1("default-global-system-config:a1s27.contrail.juniper.net");
+        c1("default-global-system-config:a1s27.tungsten.juniper.net");
     server_->AddClient(&c1);
 
     // Config adds
@@ -1331,13 +1331,13 @@ TEST_P(IFMapVmUuidMapperTestWithParam2, CfgaddSubUnsubCfgdel) {
 
     // Subscribes
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "2d308482-c7b3-4e05-af14-e732b7b50117", true, 1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", true, 2);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "43d086ab-52c4-4a1f-8c3d-63b321e36e8a", true, 3);
     task_util::WaitForIdle();
 
@@ -1376,13 +1376,13 @@ TEST_P(IFMapVmUuidMapperTestWithParam2, CfgaddSubUnsubCfgdel) {
 
     // VM Unsubscribe
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "2d308482-c7b3-4e05-af14-e732b7b50117", false, 2);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", false, 1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "43d086ab-52c4-4a1f-8c3d-63b321e36e8a", false, 0);
     task_util::WaitForIdle();
     usleep(10000);
@@ -1449,7 +1449,7 @@ TEST_P(IFMapVmUuidMapperTestWithParam2, CfgaddSubUnsubCfgdel) {
 
 TEST_P(IFMapVmUuidMapperTestWithParam2, CfgaddSubCfgdelUnsub) {
     IFMapClientMock
-        c1("default-global-system-config:a1s27.contrail.juniper.net");
+        c1("default-global-system-config:a1s27.tungsten.juniper.net");
     server_->AddClient(&c1);
 
     // Config adds
@@ -1473,13 +1473,13 @@ TEST_P(IFMapVmUuidMapperTestWithParam2, CfgaddSubCfgdelUnsub) {
 
     // Subscribes
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "2d308482-c7b3-4e05-af14-e732b7b50117", true, 1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", true, 2);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "43d086ab-52c4-4a1f-8c3d-63b321e36e8a", true, 3);
     task_util::WaitForIdle();
 
@@ -1555,13 +1555,13 @@ TEST_P(IFMapVmUuidMapperTestWithParam2, CfgaddSubCfgdelUnsub) {
 
     // VM Unsubscribe
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "2d308482-c7b3-4e05-af14-e732b7b50117", false, 2);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "93e76278-1990-4905-a472-8e9188f41b2c", false, 1);
     server_->ProcessVmSubscribe(
-        "default-global-system-config:a1s27.contrail.juniper.net",
+        "default-global-system-config:a1s27.tungsten.juniper.net",
         "43d086ab-52c4-4a1f-8c3d-63b321e36e8a", false, 0);
     task_util::WaitForIdle();
     usleep(10000);

@@ -1463,7 +1463,7 @@ AgentParam::AgentParam(bool enable_flow_options,
         ("DEFAULT.agent_name", opt::value<string>(),
          "Agent Name")
         ("DEFAULT.http_server_port",
-         opt::value<uint16_t>()->default_value(ContrailPorts::HttpPortAgent()),
+         opt::value<uint16_t>()->default_value(TungstenPorts::HttpPortAgent()),
          "Sandesh HTTP listener port")
         ("DEFAULT.tunnel_type", opt::value<string>()->default_value("MPLSoGRE"),
          "Tunnel Encapsulation type <MPLSoGRE|MPLSoUDP|VXLAN>")
@@ -1471,7 +1471,7 @@ AgentParam::AgentParam(bool enable_flow_options,
          "Run agent in vrouter / tsn / tor mode")
         ("DEFAULT.gateway_mode", opt::value<string>(),
           "Set gateway mode to server/ vcpe")
-        ("DEFAULT.agent_base_directory", opt::value<string>()->default_value("/var/lib/contrail"),
+        ("DEFAULT.agent_base_directory", opt::value<string>()->default_value("/var/lib/tungsten"),
          "Base directory used by the agent")
         ("DNS.servers",
          opt::value<vector<string> >()->multitoken(),
@@ -1491,26 +1491,26 @@ AgentParam::AgentParam(bool enable_flow_options,
         ("DNS.dns_max_retries", opt::value<uint32_t>()->default_value(2),
          "Dns Max Retries")
         ("DNS.dns_client_port",
-         opt::value<uint16_t>()->default_value(ContrailPorts::VrouterAgentDnsClientUdpPort()),
+         opt::value<uint16_t>()->default_value(TungstenPorts::VrouterAgentDnsClientUdpPort()),
          "Dns client port")
         ("DEFAULT.xmpp_server_cert",
           opt::value<string>()->default_value(
-          "/etc/contrail/ssl/certs/server.pem"),
+          "/etc/tungsten/ssl/certs/server.pem"),
           "XMPP Server ssl certificate")
         ("DEFAULT.xmpp_server_key",
           opt::value<string>()->default_value(
-          "/etc/contrail/ssl/private/server-privkey.pem"),
+          "/etc/tungsten/ssl/private/server-privkey.pem"),
           "XMPP Server ssl private key")
         ("DEFAULT.xmpp_ca_cert",
           opt::value<string>()->default_value(
-          "/etc/contrail/ssl/certs/ca-cert.pem"),
+          "/etc/tungsten/ssl/certs/ca-cert.pem"),
           "XMPP CA ssl certificate")
         ("DEFAULT.xmpp_dns_auth_enable", opt::bool_switch(&xmpp_dns_auth_enable_),
          "Enable Xmpp over TLS for DNS")
         ("METADATA.metadata_proxy_secret", opt::value<string>(),
          "Shared secret for metadata proxy service")
         ("METADATA.metadata_proxy_port",
-         opt::value<uint16_t>()->default_value(ContrailPorts::MetadataProxyVrouterAgentPort()),
+         opt::value<uint16_t>()->default_value(TungstenPorts::MetadataProxyVrouterAgentPort()),
         "Metadata proxy port ")
         ("METADATA.metadata_use_ssl", opt::bool_switch(&metadata_use_ssl_),
          "Enable SSL for Metadata proxy service")
@@ -1537,7 +1537,7 @@ AgentParam::AgentParam(bool enable_flow_options,
         ("HYPERVISOR.vmware_physical_interface",
           opt::value<string>()->default_value(""))
         ("DEFAULT.mirror_client_port",
-         opt::value<uint16_t>()->default_value(ContrailPorts::VrouterAgentMirrorClientUdpPort()),
+         opt::value<uint16_t>()->default_value(TungstenPorts::VrouterAgentMirrorClientUdpPort()),
          "Mirror client Port")
         ("DEFAULT.simulate_evpn_tor", opt::bool_switch(&simulate_evpn_tor_),
          "Simulate Evpn Tor")

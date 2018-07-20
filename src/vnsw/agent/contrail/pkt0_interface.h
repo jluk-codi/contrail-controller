@@ -2,8 +2,8 @@
  * Copyright (c) 2014 Juniper Networks, Inc. All rights reserved.
  */
 
-#ifndef vnsw_agent_contrail_pkt0_interface_hpp
-#define vnsw_agent_contrail_pkt0_interface_hpp
+#ifndef vnsw_agent_tungsten_pkt0_interface_hpp
+#define vnsw_agent_tungsten_pkt0_interface_hpp
 
 #include <string>
 #include <boost/bind.hpp>
@@ -99,4 +99,4 @@ private:
     std::string name_;
     DISALLOW_COPY_AND_ASSIGN(Pkt0Socket);
 };
-#endif // vnsw_agent_contrail_pkt0_interface_hpp
+#endif // vnsw_agent_tungsten_pkt0_interface_hpp

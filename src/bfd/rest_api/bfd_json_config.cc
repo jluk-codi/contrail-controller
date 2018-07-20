@@ -22,22 +22,22 @@ static bool IsIPAddressValid(const char* addr) {
 }
 
 bool JsonData::ParseFromJsonString(const std::string& json) {
-    contrail_rapidjson::Document document;
+    tungsten_rapidjson::Document document;
     document.Parse<0>(json.c_str());
     return ParseFromJsonDocument(document);
 }
 
 void JsonData::EncodeJsonString(std::string* json) {
-    contrail_rapidjson::Document document;
+    tungsten_rapidjson::Document document;
     EncodeJsonDocument(&document, &document.GetAllocator());
-    contrail_rapidjson::StringBuffer strbuf;
-    contrail_rapidjson::Writer<contrail_rapidjson::StringBuffer> writer(strbuf);
+    tungsten_rapidjson::StringBuffer strbuf;
+    tungsten_rapidjson::Writer<tungsten_rapidjson::StringBuffer> writer(strbuf);
     document.Accept(writer);
     *json = strbuf.GetString();
 }
 
 bool JsonData::AreConstraintsMet(const std::vector<Constraint>& constraints,
-                                const contrail_rapidjson::Value& document) {
+                                const tungsten_rapidjson::Value& document) {
     if (!document.IsObject())
         return false;
 
@@ -62,17 +62,17 @@ JsonConfig::JsonConfig(boost::asio::ip::address address,
                          detection_time_multiplier(detection_time_multiplier)
                        {}
 
-bool JsonConfig::ValidateJsonDocument(const contrail_rapidjson::Value& document) {
+bool JsonConfig::ValidateJsonDocument(const tungsten_rapidjson::Value& document) {
     static const std::vector<Constraint> constraints = boost::assign::list_of
-        (Constraint("Address", &contrail_rapidjson::Value::IsString) )
-        (Constraint("DesiredMinTxInterval", &contrail_rapidjson::Value::IsInt))
-        (Constraint("RequiredMinRxInterval", &contrail_rapidjson::Value::IsInt))
-        (Constraint("DetectionMultiplier", &contrail_rapidjson::Value::IsInt));
+        (Constraint("Address", &tungsten_rapidjson::Value::IsString) )
+        (Constraint("DesiredMinTxInterval", &tungsten_rapidjson::Value::IsInt))
+        (Constraint("RequiredMinRxInterval", &tungsten_rapidjson::Value::IsInt))
+        (Constraint("DetectionMultiplier", &tungsten_rapidjson::Value::IsInt));
     return AreConstraintsMet(constraints, document) &&
             IsIPAddressValid(document["Address"].GetString());
 }
 
-bool JsonConfig::ParseFromJsonDocument(const contrail_rapidjson::Value& document) {
+bool JsonConfig::ParseFromJsonDocument(const tungsten_rapidjson::Value& document) {
     if (ValidateJsonDocument(document)) {
         using boost::posix_time::microseconds;
 
@@ -90,11 +90,11 @@ bool JsonConfig::ParseFromJsonDocument(const contrail_rapidjson::Value& document
     return false;
 }
 
-void JsonConfig::EncodeJsonDocument(contrail_rapidjson::Value* document,
-                                contrail_rapidjson::Value::AllocatorType *allocator) {
+void JsonConfig::EncodeJsonDocument(tungsten_rapidjson::Value* document,
+                                tungsten_rapidjson::Value::AllocatorType *allocator) {
     document->SetObject();
     std::string address_str = address.to_string();
-    contrail_rapidjson::Value address_val(address_str.c_str(), *allocator);
+    tungsten_rapidjson::Value address_val(address_str.c_str(), *allocator);
     document->AddMember("Address", address_val, *allocator);
 
     document->AddMember("DesiredMinTxInterval",
@@ -105,20 +105,20 @@ void JsonConfig::EncodeJsonDocument(contrail_rapidjson::Value* document,
         detection_time_multiplier, *allocator);
 }
 
-bool JsonState::ValidateJsonDocument(const contrail_rapidjson::Value& document) {
+bool JsonState::ValidateJsonDocument(const tungsten_rapidjson::Value& document) {
     const std::vector<Constraint> constraints = boost::assign::list_of
-        (Constraint("LocalSessionState", &contrail_rapidjson::Value::IsString))
-        (Constraint("RemoteSessionState", &contrail_rapidjson::Value::IsString))
-        (Constraint("RemoteMinRxInterval", &contrail_rapidjson::Value::IsInt))
-        (Constraint("LocalDiscriminator", &contrail_rapidjson::Value::IsInt))
-        (Constraint("RemoteDiscriminator", &contrail_rapidjson::Value::IsInt));
+        (Constraint("LocalSessionState", &tungsten_rapidjson::Value::IsString))
+        (Constraint("RemoteSessionState", &tungsten_rapidjson::Value::IsString))
+        (Constraint("RemoteMinRxInterval", &tungsten_rapidjson::Value::IsInt))
+        (Constraint("LocalDiscriminator", &tungsten_rapidjson::Value::IsInt))
+        (Constraint("RemoteDiscriminator", &tungsten_rapidjson::Value::IsInt));
     return AreConstraintsMet(constraints, document) &&
         // Check whether these strings are convertible to BFD states.
         BFDStateFromString(document["LocalSessionState"].GetString()) &&
         BFDStateFromString(document["RemoteSessionState"].GetString());
 }
 
-bool JsonState::ParseFromJsonDocument(const contrail_rapidjson::Value& document) {
+bool JsonState::ParseFromJsonDocument(const tungsten_rapidjson::Value& document) {
     if (!session_config.ParseFromJsonDocument(document))
         return false;
 
@@ -140,21 +140,21 @@ bool JsonState::ParseFromJsonDocument(const contrail_rapidjson::Value& document)
     return false;
 }
 
-void JsonState::EncodeJsonDocument(contrail_rapidjson::Value* document,
-    contrail_rapidjson::Value::AllocatorType *allocator) {
+void JsonState::EncodeJsonDocument(tungsten_rapidjson::Value* document,
+    tungsten_rapidjson::Value::AllocatorType *allocator) {
     document->SetObject();
     session_config.EncodeJsonDocument(document, allocator);
 
     std::string local_session_state_str
         = boost::lexical_cast<std::string>(bfd_local_state);
-    contrail_rapidjson::Value local_session_state_val(local_session_state_str.c_str(),
+    tungsten_rapidjson::Value local_session_state_val(local_session_state_str.c_str(),
                                                 *allocator);
     document->AddMember("LocalSessionState", local_session_state_val,
                         *allocator);
 
     std::string remote_session_state_str =
         boost::lexical_cast<std::string>(bfd_remote_state);
-    contrail_rapidjson::Value remote_session_state_val(remote_session_state_str.c_str(),
+    tungsten_rapidjson::Value remote_session_state_val(remote_session_state_str.c_str(),
                                                 *allocator);
     document->AddMember("RemoteSessionState", remote_session_state_val,
                         *allocator);
@@ -168,16 +168,16 @@ void JsonState::EncodeJsonDocument(contrail_rapidjson::Value* document,
 }
 
 bool JsonStateNotification::ValidateJsonDocument(
-                                    const contrail_rapidjson::Value& document) {
+                                    const tungsten_rapidjson::Value& document) {
     const std::vector<Constraint> constraints = boost::assign::list_of
-        (Constraint("Address", &contrail_rapidjson::Value::IsString))
-        (Constraint("SessionState", &contrail_rapidjson::Value::IsString));
+        (Constraint("Address", &tungsten_rapidjson::Value::IsString))
+        (Constraint("SessionState", &tungsten_rapidjson::Value::IsString));
     return AreConstraintsMet(constraints, document) &&
             IsIPAddressValid(document["Address"].GetString()) &&
             BFDStateFromString(document["SessionState"].GetString());
 }
 
-bool JsonStateNotification::ParseFromJsonDocument(const contrail_rapidjson::Value
+bool JsonStateNotification::ParseFromJsonDocument(const tungsten_rapidjson::Value
                                                         &document) {
     if (ValidateJsonDocument(document)) {
 
@@ -191,61 +191,61 @@ bool JsonStateNotification::ParseFromJsonDocument(const contrail_rapidjson::Valu
     return false;
 }
 
-void JsonStateNotification::EncodeJsonDocument(contrail_rapidjson::Value* document,
-        contrail_rapidjson::Value::AllocatorType *allocator) {
+void JsonStateNotification::EncodeJsonDocument(tungsten_rapidjson::Value* document,
+        tungsten_rapidjson::Value::AllocatorType *allocator) {
     document->SetObject();
     std::string address_str = address.to_string();
-    contrail_rapidjson::Value address_val(address_str.c_str(), *allocator);
+    tungsten_rapidjson::Value address_val(address_str.c_str(), *allocator);
     document->AddMember("Address", address_val, *allocator);
 
     std::string session_state_str = boost::lexical_cast<std::string>(state);
-    contrail_rapidjson::Value session_state_val(session_state_str.c_str(), *allocator);
+    tungsten_rapidjson::Value session_state_val(session_state_str.c_str(), *allocator);
     document->AddMember("SessionState", session_state_val, *allocator);
 }
 
-void JsonStateNotificationList::EncodeJsonDocument(contrail_rapidjson::Value* document,
-        contrail_rapidjson::Value::AllocatorType *allocator) {
+void JsonStateNotificationList::EncodeJsonDocument(tungsten_rapidjson::Value* document,
+        tungsten_rapidjson::Value::AllocatorType *allocator) {
     document->SetArray();
     for (std::vector<JsonStateNotification>::iterator it =
             notifications.begin(); it != notifications.end(); ++it) {
-        contrail_rapidjson::Value notification;
+        tungsten_rapidjson::Value notification;
         it->EncodeJsonDocument(&notification, allocator);
         document->PushBack(notification, *allocator);
     }
 }
 
 bool JsonStateNotificationList::ValidateJsonDocument(
-                    const contrail_rapidjson::Value& document) {
+                    const tungsten_rapidjson::Value& document) {
     return true;
 }
 
 bool JsonStateNotificationList::ParseFromJsonDocument(
-                    const contrail_rapidjson::Value& document) {
+                    const tungsten_rapidjson::Value& document) {
     return false;
 }
 
-void JsonStateMap::EncodeJsonDocument(contrail_rapidjson::Value* document,
-    contrail_rapidjson::Value::AllocatorType* allocator) {
+void JsonStateMap::EncodeJsonDocument(tungsten_rapidjson::Value* document,
+    tungsten_rapidjson::Value::AllocatorType* allocator) {
     document->SetObject();
 
     for (StateMap::iterator it = states.begin(); it != states.end(); ++it) {
         std::string address_str = it->first.to_string();
-        contrail_rapidjson::Value address_val(address_str.c_str(), *allocator);
+        tungsten_rapidjson::Value address_val(address_str.c_str(), *allocator);
 
         std::string session_state_str =
             boost::lexical_cast<std::string>(it->second);
-        contrail_rapidjson::Value session_state_val(session_state_str.c_str(),
+        tungsten_rapidjson::Value session_state_val(session_state_str.c_str(),
                                             *allocator);
 
         document->AddMember(address_val, session_state_val, *allocator);
     }
 }
 
-bool JsonStateMap::ValidateJsonDocument(const contrail_rapidjson::Value& document) {
+bool JsonStateMap::ValidateJsonDocument(const tungsten_rapidjson::Value& document) {
     if (!document.IsObject())
         return false;
 
-    for (contrail_rapidjson::Value::ConstMemberIterator it = document.MemberBegin();
+    for (tungsten_rapidjson::Value::ConstMemberIterator it = document.MemberBegin();
             it != document.MemberEnd(); ++it) {
         using boost::system::error_code;
 
@@ -262,13 +262,13 @@ bool JsonStateMap::ValidateJsonDocument(const contrail_rapidjson::Value& documen
 }
 
 bool JsonStateMap::ParseFromJsonDocument(
-        const contrail_rapidjson::Value& document) {
+        const tungsten_rapidjson::Value& document) {
     if (!ValidateJsonDocument(document))
         return false;
 
     states.clear();
 
-    for (contrail_rapidjson::Value::ConstMemberIterator
+    for (tungsten_rapidjson::Value::ConstMemberIterator
             it = document.MemberBegin(); it != document.MemberEnd(); ++it) {
         boost::asio::ip::address address =
             boost::asio::ip::address::from_string(it->name.GetString());

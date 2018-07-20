@@ -10,7 +10,7 @@ alarm_list = [
                 {
                     "and_list": [
                         {
-                            "operand1": "ContrailConfig.elements.virtual_router_ip_address",
+                            "operand1": "TungstenConfig.elements.virtual_router_ip_address",
                             "operation": "!=",
                             "operand2": {
                                 "uve_attribute": "VrouterAgent.control_ip"
@@ -41,7 +41,7 @@ alarm_list = [
                 {
                     "and_list": [
                         {
-                            "operand1": "ContrailConfig.elements.bgp_router_parameters.address",
+                            "operand1": "TungstenConfig.elements.bgp_router_parameters.address",
                             "operation": "not in",
                             "operand2": {
                                 "uve_attribute":
@@ -115,7 +115,7 @@ alarm_list = [
                 {
                     "and_list": [
                         {
-                            "operand1": "ContrailConfig",
+                            "operand1": "TungstenConfig",
                             "operation": "==",
                             "operand2": {
                                 "json_value": "null"
@@ -131,7 +131,7 @@ alarm_list = [
             "system-defined-conf-incorrect"
         ],
         "id_perms": {
-            "description": "ContrailConfig missing or incorrect. Configuration pushed to Ifmap as ContrailConfig is missing/incorrect."
+            "description": "TungstenConfig missing or incorrect. Configuration pushed to Ifmap as TungstenConfig is missing/incorrect."
         },
         "parent_type": "global-system-config",
         "uve_keys": {
@@ -389,7 +389,7 @@ alarm_list = [
                 {
                     "and_list": [
                         {
-                            "operand1": "ContrailConfig.elements.virtual_router_refs",
+                            "operand1": "TungstenConfig.elements.virtual_router_refs",
                             "operation": "!=",
                             "operand2": {
                                 "json_value": "null"
@@ -427,7 +427,7 @@ alarm_list = [
                 {
                     "and_list": [
                         {
-                            "operand1": "ContrailConfig.elements.virtual_router_refs",
+                            "operand1": "TungstenConfig.elements.virtual_router_refs",
                             "operation": "!=",
                             "operand2": {
                                 "json_value": "null"
@@ -452,7 +452,7 @@ alarm_list = [
                 {
                     "and_list": [
                         {
-                            "operand1": "ContrailConfig.elements.virtual_router_refs",
+                            "operand1": "TungstenConfig.elements.virtual_router_refs",
                             "operation": "!=",
                             "operand2": {
                                 "json_value": "null"

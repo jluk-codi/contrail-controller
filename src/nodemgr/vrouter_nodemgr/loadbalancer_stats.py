@@ -7,7 +7,7 @@ from vrouter.loadbalancer.ttypes import \
 from pysandesh.sandesh_logger import SandeshLogger
 from pysandesh.gen_py.sandesh.ttypes import SandeshLevel
 
-LB_BASE_DIR = '/var/lib/contrail/loadbalancer/'
+LB_BASE_DIR = '/var/lib/tungsten/loadbalancer/'
 
 class LoadbalancerStatsUVE(object):
     def __init__(self, logger):

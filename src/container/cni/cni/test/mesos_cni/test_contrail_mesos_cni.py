@@ -6,10 +6,10 @@ import types
 import requests
 from mock import patch, Mock
 
-from cni.mesos_cni.contrail_mesos_cni import *
+from cni.mesos_cni.tungsten_mesos_cni import *
 from cni.common.cni import Cni
 
-class ContrailMesosCniTest(unittest.TestCase):
+class TungstenMesosCniTest(unittest.TestCase):
     def setUp(self):
         pass
 

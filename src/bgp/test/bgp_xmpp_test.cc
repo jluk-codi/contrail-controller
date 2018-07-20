@@ -28,10 +28,10 @@ using namespace boost::asio;
 using namespace boost::assign;
 using namespace std;
 
-#define SUB_ADDR "agent@vnsw.contrailsystems.com"
-#define PUB_ADDR "bgp@bgp-client.contrailsystems.com"
-#define XMPP_CONTROL_SERV   "bgp.contrail.com"
-#define PUBSUB_NODE_ADDR "bgp-node.contrail.com"
+#define SUB_ADDR "agent@vnsw.tungstensystems.com"
+#define PUB_ADDR "bgp@bgp-client.tungstensystems.com"
+#define XMPP_CONTROL_SERV   "bgp.tungsten.com"
+#define PUBSUB_NODE_ADDR "bgp-node.tungsten.com"
 
 class BgpXmppChannelMock : public BgpXmppChannel {
 public:

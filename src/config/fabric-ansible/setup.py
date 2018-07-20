@@ -41,7 +41,7 @@ setup(
     entry_points = {
          # Please update sandesh/common/vns.sandesh on process name change
          'console_scripts' : [
-             'contrail-fabric-ansible = job_manager.job_manager:main',
+             'tungsten-fabric-ansible = job_manager.job_manager:main',
          ],
     },
     cmdclass={

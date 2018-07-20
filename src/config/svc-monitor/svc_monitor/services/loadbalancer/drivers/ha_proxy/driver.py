@@ -21,8 +21,8 @@ LOADBALANCER_SERVICE_TEMPLATE = [
 ]
 
 
-class OpencontrailLoadbalancerDriver(
-        abstract_driver.ContrailLoadBalancerAbstractDriver):
+class Tungsten FabricLoadbalancerDriver(
+        abstract_driver.TungstenLoadBalancerAbstractDriver):
     def __init__(self, name, manager, api, db, args=None):
         self._name = name
         self._api = api
@@ -436,7 +436,7 @@ class OpencontrailLoadbalancerDriver(
             try:
                 vmi_obj = self._api.virtual_machine_interface_read(id=vmi.uuid)
                 ffp = FatFlowProtocols()
-                ''' since contrail flow is based on tcp or udp and
+                ''' since tungsten flow is based on tcp or udp and
                 haproxy does not support udp, tcp is hardcoded. '''
                 for port in port_list:
                     ffp.add_fat_flow_protocol(ProtocolType(port=port, protocol='tcp'))

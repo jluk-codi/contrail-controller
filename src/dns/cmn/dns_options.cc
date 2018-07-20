@@ -7,7 +7,7 @@
 #include <fstream>
 #include <iostream>
 
-#include "base/contrail_ports.h"
+#include "base/tungsten_ports.h"
 #include "base/logging.h"
 #include "base/misc_utils.h"
 #include "base/util.h"
@@ -36,7 +36,7 @@ bool Options::Parse(EventManager &evm, int argc, char *argv[]) {
 
 // Initialize dns's command line option tags with appropriate default
 // values. Options can from a config file as well. By default, we read
-// options from /etc/contrail/contrail-dns.conf
+// options from /etc/tungsten/tungsten-dns.conf
 void Options::Initialize(EventManager &evm,
                          opt::options_description &cmdline_options) {
     boost::system::error_code error;
@@ -53,14 +53,14 @@ void Options::Initialize(EventManager &evm,
     // Command line only options.
     generic.add_options()
         ("conf_file", opt::value<string>()->default_value(
-                                                    "/etc/contrail/contrail-dns.conf"),
+                                                    "/etc/tungsten/tungsten-dns.conf"),
              "Configuration file")
          ("help", "help message")
         ("version", "Display version information")
     ;
 
-    uint16_t default_dns_server_port = ContrailPorts::DnsServerPort();
-    uint16_t default_http_server_port = ContrailPorts::HttpPortDns();
+    uint16_t default_dns_server_port = TungstenPorts::DnsServerPort();
+    uint16_t default_http_server_port = TungstenPorts::HttpPortDns();
 
     default_collector_server_list_.push_back("127.0.0.1:8086");
 
@@ -84,23 +84,23 @@ void Options::Initialize(EventManager &evm,
              "DNS Configuration file")
 
         ("DEFAULT.named_config_file",
-             opt::value<string>()->default_value("contrail-named.conf"),
+             opt::value<string>()->default_value("tungsten-named.conf"),
              "Named Configuration file")
         ("DEFAULT.named_config_directory",
-             opt::value<string>()->default_value("/etc/contrail/dns"),
+             opt::value<string>()->default_value("/etc/tungsten/dns"),
              "Named Configuration directory")
         ("DEFAULT.named_log_file",
-             opt::value<string>()->default_value("/var/log/contrail/contrail-named.log"),
+             opt::value<string>()->default_value("/var/log/tungsten/tungsten-named.log"),
              "Named log file")
         ("DEFAULT.rndc_config_file",
-             opt::value<string>()->default_value("contrail-rndc.conf"),
+             opt::value<string>()->default_value("tungsten-rndc.conf"),
              "Rndc Configuration file")
         ("DEFAULT.rndc_secret",
              opt::value<string>()->default_value("xvysmOR8lnUQRBcunkC6vg=="),
              "RNDC secret")
         ("DEFAULT.named_max_cache_size",
              opt::value<string>()->default_value("32M"),
-             "Maximum cache size, in bytes, used by contrail-named (per view)")
+             "Maximum cache size, in bytes, used by tungsten-named (per view)")
         ("DEFAULT.named_max_retransmissions",
              opt::value<uint16_t>()->default_value(12),
              "Maximum number of retries to named")
@@ -188,15 +188,15 @@ void Options::Initialize(EventManager &evm,
              "Enable authentication over Xmpp")
         ("DEFAULT.xmpp_server_cert",
              opt::value<string>()->default_value(
-             "/etc/contrail/ssl/certs/server.pem"),
+             "/etc/tungsten/ssl/certs/server.pem"),
              "XMPP Server ssl certificate")
         ("DEFAULT.xmpp_server_key",
              opt::value<string>()->default_value(
-             "/etc/contrail/ssl/private/server-privkey.pem"),
+             "/etc/tungsten/ssl/private/server-privkey.pem"),
              "XMPP Server ssl private key")
         ("DEFAULT.xmpp_ca_cert",
              opt::value<string>()->default_value(
-             "/etc/contrail/ssl/certs/ca-cert.pem"),
+             "/etc/tungsten/ssl/certs/ca-cert.pem"),
              "XMPP CA ssl certificate")
         ;
 

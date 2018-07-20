@@ -24,27 +24,27 @@
 #include <port_ipc/rest_server.h>
 #include <port_ipc/port_ipc_handler.h>
 
-#include "contrail_agent_init.h"
+#include "tungsten_agent_init.h"
 
-ContrailAgentInit::ContrailAgentInit() : ContrailInitCommon() {
+TungstenAgentInit::TungstenAgentInit() : TungstenInitCommon() {
 }
 
-ContrailAgentInit::~ContrailAgentInit() {
+TungstenAgentInit::~TungstenAgentInit() {
     ksync_.reset();
     uve_.reset();
     stats_collector_.reset();
     flow_stats_manager_.reset();
 }
 
-void ContrailAgentInit::ProcessOptions
+void TungstenAgentInit::ProcessOptions
     (const std::string &config_file, const std::string &program_name) {
-    ContrailInitCommon::ProcessOptions(config_file, program_name);
+    TungstenInitCommon::ProcessOptions(config_file, program_name);
 }
 
 /****************************************************************************
  * Initialization routines
 ****************************************************************************/
-void ContrailAgentInit::FactoryInit() {
+void TungstenAgentInit::FactoryInit() {
     if (agent()->tsn_enabled() == false) {
         AgentObjectFactory::Register<AgentUveBase>
             (boost::forward_adapter<boost::factory<AgentUveStats *> >
@@ -78,8 +78,8 @@ void ContrailAgentInit::FactoryInit() {
             (boost::factory<SessionStatsCollector *>()));
 }
 
-void ContrailAgentInit::CreateModules() {
-    ContrailInitCommon::CreateModules();
+void TungstenAgentInit::CreateModules() {
+    TungstenInitCommon::CreateModules();
 
     if (agent_param()->vrouter_on_host_dpdk()) {
 #ifdef _WIN32
@@ -127,36 +127,36 @@ void ContrailAgentInit::CreateModules() {
 /****************************************************************************
  * Shutdown routines
  ***************************************************************************/
-void ContrailAgentInit::KSyncShutdown() {
+void TungstenAgentInit::KSyncShutdown() {
     if (agent()->ksync()) {
         agent()->ksync()->Shutdown();
     }
 }
 
-void ContrailAgentInit::UveShutdown() {
+void TungstenAgentInit::UveShutdown() {
     if (agent()->uve()) {
         agent()->uve()->Shutdown();
     }
 }
 
-void ContrailAgentInit::StatsCollectorShutdown() {
+void TungstenAgentInit::StatsCollectorShutdown() {
     if (agent()->stats_collector()) {
         agent()->stats_collector()->Shutdown();
     }
 }
 
-void ContrailAgentInit::FlowStatsCollectorShutdown() {
+void TungstenAgentInit::FlowStatsCollectorShutdown() {
     if (agent()->flow_stats_manager()) {
         agent()->flow_stats_manager()->Shutdown();
     }
 }
 
-void ContrailAgentInit::WaitForIdle() {
+void TungstenAgentInit::WaitForIdle() {
     sleep(5);
 }
 
-void ContrailAgentInit::InitDone() {
-    ContrailInitCommon::InitDone();
+void TungstenAgentInit::InitDone() {
+    TungstenInitCommon::InitDone();
 
     if (agent()->port_ipc_handler()) {
         agent()->port_ipc_handler()->InitDone();
@@ -173,8 +173,8 @@ void ContrailAgentInit::InitDone() {
     }
 }
 
-void ContrailAgentInit::ModulesShutdown() {
-    ContrailInitCommon::ModulesShutdown();
+void TungstenAgentInit::ModulesShutdown() {
+    TungstenInitCommon::ModulesShutdown();
 
     if (agent()->rest_server()) {
         agent()->rest_server()->Shutdown();

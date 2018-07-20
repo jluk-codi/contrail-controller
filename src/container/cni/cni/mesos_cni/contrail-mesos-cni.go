@@ -8,7 +8,7 @@
 package main
 
 import (
-	"../contrail"
+	"../tungsten"
 	log "../logging"
 	"github.com/containernetworking/cni/pkg/skel"
 	cniSpecVersion "github.com/containernetworking/cni/pkg/version"
@@ -21,8 +21,8 @@ func getPodInfo(skelArgs *skel.CmdArgs) (string, string, error) {
 
 // Add command
 func CmdAdd(skelArgs *skel.CmdArgs) error {
-	// Initialize ContrailCni module
-	cni, err := contrailCni.Init(skelArgs)
+	// Initialize TungstenCni module
+	cni, err := tungstenCni.Init(skelArgs)
 	if err != nil {
 		return err
 	}
@@ -51,8 +51,8 @@ func CmdAdd(skelArgs *skel.CmdArgs) error {
 
 // Del command
 func CmdDel(skelArgs *skel.CmdArgs) error {
-	// Initialize ContrailCni module
-	cni, err := contrailCni.Init(skelArgs)
+	// Initialize TungstenCni module
+	cni, err := tungstenCni.Init(skelArgs)
 	if err != nil {
 		return err
 	}

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# description: Juniper Network Contrail Ironic Notification Manager
+# description: Juniper Network Tungsten Ironic Notification Manager
 
 if [ -e /tmp/supervisord_config.sock ]; then
     supervisorctl -s unix:///tmp/supervisord_config.sock ${1} `basename ${0}`

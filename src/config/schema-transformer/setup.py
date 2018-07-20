@@ -39,7 +39,7 @@ setup(
     entry_points = {
          # Please update sandesh/common/vns.sandesh on process name change
          'console_scripts' : [
-             'contrail-schema = schema_transformer.to_bgp:server_main',
+             'tungsten-schema = schema_transformer.to_bgp:server_main',
          ],
     },
     install_requires=[

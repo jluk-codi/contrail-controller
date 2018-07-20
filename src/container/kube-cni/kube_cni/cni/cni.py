@@ -513,7 +513,7 @@ class Cni():
         '''
         cni_params = self.params
         k8s_params = cni_params.k8s_params
-        contrail_params = cni_params.contrail_params
+        tungsten_params = cni_params.tungsten_params
 
         # Pre-fetch initial configuration for the interface
         # This will give MAC address for the interface and in case of
@@ -522,8 +522,8 @@ class Cni():
 
         # Create the interface object
         intf = None
-        if contrail_params.mode == Params.CONTRAIL_CNI_MODE_CONTRAIL_K8S:
-            host_ifname = contrail_params.parent_interface
+        if tungsten_params.mode == Params.CONTRAIL_CNI_MODE_CONTRAIL_K8S:
+            host_ifname = tungsten_params.parent_interface
             intf = CniMacVlan(host_ifname, cni_params.container_ifname,
                               cfg['mac-address'], cfg['vlan-id'],
                               cni_params.container_netns, k8s_params.pod_pid)
@@ -559,12 +559,12 @@ class Cni():
         '''
         cni_params = self.params
         k8s_params = cni_params.k8s_params
-        contrail_params = cni_params.contrail_params
+        tungsten_params = cni_params.tungsten_params
 
         intf = None
         # create local interface structure
-        if contrail_params.mode == Params.CONTRAIL_CNI_MODE_CONTRAIL_K8S:
-            host_ifname = contrail_params.parent_interface
+        if tungsten_params.mode == Params.CONTRAIL_CNI_MODE_CONTRAIL_K8S:
+            host_ifname = tungsten_params.parent_interface
             intf = CniMacVlan(host_ifname, cni_params.container_ifname,
                               None, None, cni_params.container_netns,
                               k8s_params.pod_pid)
@@ -599,8 +599,8 @@ class Cni():
         main method for CNI plugin
         '''
         global logger
-        logger = Logger.Logger('cni', cni_params.contrail_params.log_file,
-                               cni_params.contrail_params.log_level)
+        logger = Logger.Logger('cni', cni_params.tungsten_params.log_file,
+                               cni_params.tungsten_params.log_level)
 
         self.params = cni_params
         self.vrouter = vrouter

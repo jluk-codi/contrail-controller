@@ -811,7 +811,7 @@ void FlowEntry::InitAuditFlow(uint32_t flow_idx, uint8_t gen_id) {
 // - Ping to vhost
 // - Introspect to vhost
 // - Port-IPC connection to vhost
-// - Contrail-Status UVE
+// - Tungsten-Status UVE
 // TODO : Review this
 bool FlowEntry::IsFabricControlFlow() const {
     if (key_.dst_addr.is_v4() == false) {
@@ -838,7 +838,7 @@ bool FlowEntry::IsFabricControlFlow() const {
                 if (key_.dst_addr.to_string() !=
                         agent->dns_server(i))
                     continue;
-                if (key_.dst_port == ContrailPorts::DnsXmpp()) {
+                if (key_.dst_port == TungstenPorts::DnsXmpp()) {
                     return true;
                 }
 
@@ -849,7 +849,7 @@ bool FlowEntry::IsFabricControlFlow() const {
 
             std::ostringstream collector;
             collector << key_.dst_addr.to_string() << ":" <<
-                         ContrailPorts::CollectorPort();
+                         TungstenPorts::CollectorPort();
             std::vector<string>::const_iterator it =
                 agent->GetCollectorlist().begin();
             for(; it != agent->GetCollectorlist().end(); it++) {

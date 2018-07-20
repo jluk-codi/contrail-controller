@@ -609,7 +609,7 @@ def timer_callback(monitor):
 def launch_timer(monitor):
     if not monitor._args.check_service_interval.isdigit():
         monitor.logger.emergency("set seconds for check_service_interval "
-                                     "in contrail-svc-monitor.conf. \
+                                     "in tungsten-svc-monitor.conf. \
                                         example: check_service_interval=60")
         sys.exit()
     monitor.logger.notice("check_service_interval set to %s seconds" %
@@ -647,7 +647,7 @@ def parse_args(args_str):
                          --log_level SYS_DEBUG
                          --log_category test
                          --log_file <stdout>
-                         --trace_file /var/log/contrail/svc-monitor.err
+                         --trace_file /var/log/tungsten/svc-monitor.err
                          --use_syslog
                          --syslog_facility LOG_USER
                          --cluster_id <testbed-name>
@@ -683,7 +683,7 @@ def parse_args(args_str):
         'log_level': SandeshLevel.SYS_DEBUG,
         'log_category': '',
         'log_file': Sandesh._DEFAULT_LOG_FILE,
-        'trace_file': '/var/log/contrail/svc-monitor.err',
+        'trace_file': '/var/log/tungsten/svc-monitor.err',
         'use_syslog': False,
         'syslog_facility': Sandesh._DEFAULT_SYSLOG_FACILITY,
         'region_name': None,

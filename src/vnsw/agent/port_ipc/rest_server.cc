@@ -13,15 +13,15 @@
 #include "http/http_server.h"
 #include "http/http_request.h"
 #include "http/http_session.h"
-#include "base/contrail_ports.h"
+#include "base/tungsten_ports.h"
 #include "port_ipc/port_ipc_handler.h"
 #include "cmn/agent.h"
 #include "rest_server.h"
 #include "rest_common.h"
 
-using contrail::regex;
-using contrail::regex_match;
-using contrail::regex_search;
+using tungsten::regex;
+using tungsten::regex_match;
+using tungsten::regex_search;
 
 void RESTServer::VmPortPostHandler(const struct RESTData& data) {
     PortIpcHandler *pih = agent_->port_ipc_handler();
@@ -260,7 +260,7 @@ RESTServer::RESTServer(Agent *agent)
 }
 
 void RESTServer::InitDone() {
-    http_server_->Initialize(ContrailPorts::PortIpcVrouterAgentPort());
+    http_server_->Initialize(TungstenPorts::PortIpcVrouterAgentPort());
 }
 
 void RESTServer::HandleRequest(HttpSession* session,

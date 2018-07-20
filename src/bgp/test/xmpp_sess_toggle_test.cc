@@ -20,7 +20,7 @@ using namespace boost::assign;
 using namespace std;
 using namespace autogen;
 
-#define SUB_ADDR "agent@vnsw.contrailsystems.com"  //agent host-name
+#define SUB_ADDR "agent@vnsw.tungstensystems.com"  //agent host-name
 
 class BgpXmppChannelMock : public BgpXmppChannel {
 public:

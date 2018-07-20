@@ -9,7 +9,7 @@
   tasks:
     - set_fact:
         device_abstract_config: {
-          "comment": "/* Contrail Generated Group Config */",
+          "comment": "/* Tungsten Generated Group Config */",
           "bgp": [{
             "comment": "ip_clos",
             "peers": [{

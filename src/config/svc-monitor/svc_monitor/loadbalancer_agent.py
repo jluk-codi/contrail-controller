@@ -29,15 +29,15 @@ class LoadbalancerAgent(Agent):
         self._loadbalancer_driver = {}
         # create default service appliance set
         self._create_default_service_appliance_set(
-            "opencontrail",
-            "svc_monitor.services.loadbalancer.drivers.ha_proxy.driver.OpencontrailLoadbalancerDriver"
+            "Tungsten Fabric",
+            "svc_monitor.services.loadbalancer.drivers.ha_proxy.driver.Tungsten FabricLoadbalancerDriver"
         )
         # create native service appliance set
         self._create_default_service_appliance_set(
             "native",
-            "svc_monitor.services.loadbalancer.drivers.native.driver.OpencontrailLoadbalancerDriver"
+            "svc_monitor.services.loadbalancer.drivers.native.driver.Tungsten FabricLoadbalancerDriver"
         )
-        self._default_provider = "opencontrail"
+        self._default_provider = "Tungsten Fabric"
     # end __init__
 
     def handle_service_type(self):

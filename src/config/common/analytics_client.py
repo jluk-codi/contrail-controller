@@ -22,12 +22,12 @@ import six
 from six.moves.urllib import parse as urlparse
 
 
-class OpenContrailAPIFailed(Exception):
+class Tungsten FabricAPIFailed(Exception):
     pass
 
 
 class Client(object):
-    """Opencontrail Base Statistics REST API Client."""
+    """Tungsten Fabric Base Statistics REST API Client."""
     #TODO: use a pool of servers
 
     def __init__(self, endpoint, data={}):
@@ -46,8 +46,8 @@ class Client(object):
         resp = requests.get(url, **req_params)
 
         if resp.status_code != 200:
-            raise OpenContrailAPIFailed(
-                ('Opencontrail API returned %(status)s %(reason)s') %
+            raise Tungsten FabricAPIFailed(
+                ('Tungsten Fabric API returned %(status)s %(reason)s') %
                 {'status': resp.status_code, 'reason': resp.reason})
 
         return resp.json()

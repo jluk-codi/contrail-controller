@@ -51,9 +51,9 @@ if sys.platform not in ['win32', 'darwin']:
                       '-lcpuinfo', '-lprocess_info', '-lnodeinfo',
                       '-Wl,--no-whole-archive'])
 
-contrail_dns = env.Program(target = 'contrail-dns', source = ['main.cc'])
-env.Alias('contrail-dns', contrail_dns)
-env.Default(contrail_dns)
+tungsten_dns = env.Program(target = 'tungsten-dns', source = ['main.cc'])
+env.Alias('tungsten-dns', tungsten_dns)
+env.Default(tungsten_dns)
 
 # Documentation
 doc_files = []
@@ -67,24 +67,24 @@ doc_files += env.SandeshGenDoc('uve/uve.sandesh')
 doc_files += env.SandeshGenDoc('bind/bind.sandesh')
 
 # Please update sandesh/common/vns.sandesh on process name change
-env.Alias('install', env.Install(env['INSTALL_BIN'], contrail_dns))
-env.Alias('install', env.Install(env['INSTALL_CONF'], 'contrail-dns.conf'))
+env.Alias('install', env.Install(env['INSTALL_BIN'], tungsten_dns))
+env.Alias('install', env.Install(env['INSTALL_CONF'], 'tungsten-dns.conf'))
 env.Alias('install', env.Install(env['INSTALL_CONF'] + 
     '/dns', 'applynamedconfig.py'))
 env.Alias('install', env.Install(env['INSTALL_CONF'] +
-    '/supervisord_control_files/', 'contrail-dns.ini'))
+    '/supervisord_control_files/', 'tungsten-dns.ini'))
 env.Alias('install', env.Install(env['INSTALL_CONF'] + 
-    '/supervisord_control_files/', 'contrail-named.ini'))
+    '/supervisord_control_files/', 'tungsten-named.ini'))
 env.Alias('install', env.InstallAs(env['INSTALL_INITD'] + 
-    '/contrail-dns', 'contrail-dns.initd.supervisord'))
+    '/tungsten-dns', 'tungsten-dns.initd.supervisord'))
 env.Alias('install', env.InstallAs(env['INSTALL_INITD'] + 
-    '/contrail-named', 'contrail-named.initd.supervisord'))
+    '/tungsten-named', 'tungsten-named.initd.supervisord'))
 env.Alias('install', env.InstallAs(env['INSTALL_SYSTEMD'] +
-    '/contrail-dns.service', 'systemd/contrail-dns.service'))
+    '/tungsten-dns.service', 'systemd/tungsten-dns.service'))
 env.Alias('install', env.InstallAs(env['INSTALL_SYSTEMD'] +
-    '/contrail-named.service', 'systemd/contrail-named.service'))
+    '/tungsten-named.service', 'systemd/tungsten-named.service'))
 env.Alias('install', env.Install(env['INSTALL_MESSAGE_DOC'] +
-    '/contrail-dns/', doc_files))
+    '/tungsten-dns/', doc_files))
 
 DnsEnv = env.Clone()
 DnsEnv.CppDisableExceptions()

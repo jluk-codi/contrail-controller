@@ -2,7 +2,7 @@
 #
 # Copyright (c) 2013 Juniper Networks, Inc. All rights reserved.
 #
-"""Base Contrail Provisioning module."""
+"""Base Tungsten Provisioning module."""
 
 import os
 import re
@@ -16,13 +16,13 @@ import argparse
 from distutils.version import LooseVersion
 
 
-from contrail_vrouter_provisioning import local, ExtList
+from tungsten_vrouter_provisioning import local, ExtList
 
 
-log = logging.getLogger('contrail_vrouter_provisioning.base')
+log = logging.getLogger('tungsten_vrouter_provisioning.base')
 
 
-class ContrailSetup(object):
+class TungstenSetup(object):
     def __init__(self):
         (self.pdist, self.pdistversion, self.pdistrelease) = platform.dist()
         self.hostname = socket.gethostname()
@@ -31,15 +31,15 @@ class ContrailSetup(object):
             self.running_in_container = True
 
         self._temp_dir_name = tempfile.mkdtemp()
-        self.contrail_bin_dir = '/opt/contrail/bin'
+        self.tungsten_bin_dir = '/opt/tungsten/bin'
         self._fixed_qemu_conf = False
 
     def update_vips_in_ctrl_details(self, ctrl_infos):
         if self._args.internal_vip:
             ctrl_infos.append('INTERNAL_VIP=%s' % self._args.internal_vip)
-        if self._args.contrail_internal_vip:
+        if self._args.tungsten_internal_vip:
             ctrl_infos.append('CONTRAIL_INTERNAL_VIP=%s' %
-                              self._args.contrail_internal_vip)
+                              self._args.tungsten_internal_vip)
         if self._args.external_vip:
             ctrl_infos.append('EXTERNAL_VIP=%s' % self._args.external_vip)
 
@@ -315,21 +315,21 @@ class ContrailSetup(object):
             log.warning("Exception: %s", str(e))
 
     def set_config(self, fl, sec, var, val=''):
-        local("sudo contrail-config --set %s %s %s '%s'" % (fl, sec, var, val),
+        local("sudo tungsten-config --set %s %s %s '%s'" % (fl, sec, var, val),
               warn_only=True)
 
     def del_config(self, fl, sec, var=''):
-        local("sudo contrail-config --del %s %s %s" % (fl, sec, var),
+        local("sudo tungsten-config --del %s %s %s" % (fl, sec, var),
               warn_only=True)
 
     def get_config(self, fl, sec, var=''):
         output = None
-        output = local("sudo contrail-config --get %s %s %s" % (fl, sec, var),
+        output = local("sudo tungsten-config --get %s %s %s" % (fl, sec, var),
                        capture=True, warn_only=True)
         return output
 
     def has_config(self, fl, sec, var=''):
-        output = local("sudo contrail-config --get %s %s %s" % (fl, sec, var),
+        output = local("sudo tungsten-config --get %s %s %s" % (fl, sec, var),
                        capture=True, warn_only=True)
         return output.succeeded
 

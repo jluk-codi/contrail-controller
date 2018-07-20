@@ -40,7 +40,7 @@ class TestQfxBasicDM(TestCommonDM):
         self.assertEqual(switch_opts.get_vtep_source_interface(), "lo0.0")
         import_name = DMUtils.make_import_name(vrf_name)
         imports = switch_opts.get_vrf_import() or []
-        if (role =='spine' and vn_mode == 'l2' and '_contrail_lr_internal_vn' in vrf_name) or \
+        if (role =='spine' and vn_mode == 'l2' and '_tungsten_lr_internal_vn' in vrf_name) or \
                        (role =='leaf' and vn_mode == 'l3'):
             self.assertNotIn(import_name, imports)
         else:
@@ -48,7 +48,7 @@ class TestQfxBasicDM(TestCommonDM):
         export_name = DMUtils.make_export_name(vrf_name)
         exports = switch_opts.get_vrf_export() or []
         # export policy is applicable only for spine/l3
-        if (role =='spine' and vn_mode == 'l2' and '_contrail_lr_internal_vn' in vrf_name) or \
+        if (role =='spine' and vn_mode == 'l2' and '_tungsten_lr_internal_vn' in vrf_name) or \
                         (role =='leaf'):
             self.assertNotIn(export_name, exports)
         else:

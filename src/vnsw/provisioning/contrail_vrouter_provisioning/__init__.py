@@ -1,4 +1,4 @@
-"""Contrail vrouter provisioning package"""
+"""Tungsten vrouter provisioning package"""
 
 import os
 import logging
@@ -6,17 +6,17 @@ import logging.handlers
 from subprocess import check_output, CalledProcessError, STDOUT
 
 
-LOG_DIR = "/var/log/contrail"
+LOG_DIR = "/var/log/tungsten"
 if os.path.exists(LOG_DIR):
-    LOG_FILENAME = os.path.join(LOG_DIR, 'contrail_vrouter_provisioning.log')
+    LOG_FILENAME = os.path.join(LOG_DIR, 'tungsten_vrouter_provisioning.log')
 else:
-    LOG_FILENAME = 'contrail_vrouter_provisioning.log'
+    LOG_FILENAME = 'tungsten_vrouter_provisioning.log'
 
 
 def setup_logger():
-    """Root logger for the contrail vrouter provisioning
+    """Root logger for the tungsten vrouter provisioning
     """
-    log = logging.getLogger('contrail_vrouter_provisioning')
+    log = logging.getLogger('tungsten_vrouter_provisioning')
     log.setLevel(logging.DEBUG)
     # create rotating file handler which logs even debug messages
     fh = logging.handlers.RotatingFileHandler(LOG_FILENAME,

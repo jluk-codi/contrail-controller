@@ -34,8 +34,8 @@ for file in setup_sources:
 
 # Generate the sandesh UVE source files
 control_node_pkg  = env.SandeshGenPy('sandesh/control_node.sandesh', 'control_node/', False)
-cpuinfo_pkg = env.SandeshGenPy('#src/contrail-common/base/sandesh/cpuinfo.sandesh', 'control_node/control_node/', False)
-process_info_pkg = env.SandeshGenPy('#src/contrail-common/base/sandesh/process_info.sandesh', 'control_node/control_node/', False)
+cpuinfo_pkg = env.SandeshGenPy('#src/tungsten-common/base/sandesh/cpuinfo.sandesh', 'control_node/control_node/', False)
+process_info_pkg = env.SandeshGenPy('#src/tungsten-common/base/sandesh/process_info.sandesh', 'control_node/control_node/', False)
 ifmap_pkg = env.SandeshGenPy('#controller/src/ifmap/ifmap_server_show.sandesh', 'control_node/control_node/', False)
 env.Depends(ifmap_pkg, control_node_pkg)
 env.Depends(cpuinfo_pkg, control_node_pkg)
@@ -61,7 +61,7 @@ env.Depends(sdist_gen, sdist_depends)
 env.Default(sdist_gen)
 env.Alias("control-node:node_mgr", sdist_gen)
 
-libcontrail_control_uve = env.Library('control_node_uve',
+libtungsten_control_uve = env.Library('control_node_uve',
                                       ControlNodeSandeshGenSrcs);
 
 env.Prepend(LIBS=['bgp',
@@ -218,7 +218,7 @@ env.GenerateBuildInfoCode(
 		['main.cc', 'options.cc'],
 	path = Dir('.').path)
 
-ctrlnode = env.Program(target = 'contrail-control',
+ctrlnode = env.Program(target = 'tungsten-control',
                        source = ['buildinfo.cc',
                                  'factory.cc',
                                  'main.cc',
@@ -237,12 +237,12 @@ env.Depends(ctrlnode, lib_rtarget)
 env.Depends(ctrlnode, lib_ifmap_server)
 
 env.Alias('control-node', ctrlnode)
-env.Alias('contrail-control', ctrlnode)
+env.Alias('tungsten-control', ctrlnode)
 
 env.SConscript('test/SConscript', exports='BuildEnv', duplicate = 0)
 
 #
-# contrail-control message documentation
+# tungsten-control message documentation
 #
 doc_files = []
 doc_files += env.SandeshGenDoc('sandesh/control_node.sandesh')
@@ -257,16 +257,16 @@ doc_files += env['SANDESH_DOC_FILES']
 # Please update sandesh/common/vns.sandesh on process name change
 env.Alias('install', env.Install(env['INSTALL_BIN'], ctrlnode))
 env.Alias('install', env.Install(env['INSTALL_CONF'], 
-    'contrail-control.conf'))
+    'tungsten-control.conf'))
 env.Alias('install', env.Install(env['INSTALL_CONF'], 
     'supervisord_control.conf'))
 env.Alias('install', env.Install(env['INSTALL_CONF'] + 
-    '/supervisord_control_files', 'contrail-control.ini'))
+    '/supervisord_control_files', 'tungsten-control.ini'))
 env.Alias('install', env.Install(env['INSTALL_CONF'] + 
-    '/supervisord_control_files', 'contrail-control.rules'))
+    '/supervisord_control_files', 'tungsten-control.rules'))
 env.Alias('install', env.InstallAs(env['INSTALL_INITD'] + 
-    '/contrail-control', 'contrail-control.initd.supervisord'))
+    '/tungsten-control', 'tungsten-control.initd.supervisord'))
 env.Alias('install', env.InstallAs(env['INSTALL_SYSTEMD'] +
-    '/contrail-control.service', 'systemd/contrail-control.service'))
+    '/tungsten-control.service', 'systemd/tungsten-control.service'))
 env.Alias('install', env.Install(env['INSTALL_MESSAGE_DOC'] +
-    '/contrail-control/', doc_files))
+    '/tungsten-control/', doc_files))

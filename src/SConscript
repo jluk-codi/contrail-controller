@@ -8,8 +8,8 @@
 import sys
 import subprocess
 import platform
-Import('contrail_common_base_doc_files')
-Import('contrail_common_io_doc_files')
+Import('tungsten_common_base_doc_files')
+Import('tungsten_common_io_doc_files')
 
 subdirs = [
            'analytics/database',
@@ -37,7 +37,7 @@ if sys.platform != 'darwin':
 if platform.system() != 'Windows':
     subdirs += ['container']
 
-include = ['#/controller/src', '#/build/include', '#src/contrail-common', '#controller/lib']
+include = ['#/controller/src', '#/build/include', '#src/tungsten-common', '#controller/lib']
 
 libpath = ['#/build/lib']
 
@@ -71,7 +71,7 @@ if not sys.platform.startswith('darwin'):
 if sys.platform.startswith('freebsd'):
     common.Append(CCFLAGS = ['-Wno-unused-local-typedefs'])
 common.Append(CPPPATH = include)
-common.Append(CCFLAGS = [common['CPPDEFPREFIX'] + 'RAPIDJSON_NAMESPACE=contrail_rapidjson'])
+common.Append(CCFLAGS = [common['CPPDEFPREFIX'] + 'RAPIDJSON_NAMESPACE=tungsten_rapidjson'])
 
 BuildEnv = common.Clone()
 
@@ -88,10 +88,10 @@ if sys.platform.startswith('freebsd'):
 #
 
 # base
-BuildEnv['BASE_DOC_FILES'] = contrail_common_base_doc_files
+BuildEnv['BASE_DOC_FILES'] = tungsten_common_base_doc_files
 
 # IO
-BuildEnv['IO_DOC_FILES'] = contrail_common_io_doc_files
+BuildEnv['IO_DOC_FILES'] = tungsten_common_io_doc_files
 
 # DB
 db_doc_files = []
@@ -157,7 +157,7 @@ ifmap_client_doc_files += BuildEnv.SandeshGenDoc('#controller/src/ifmap/ifmap_ag
 BuildEnv['IFMAP_CLIENT_DOC_FILES'] = ifmap_client_doc_files
 
 
-BuildEnv['INSTALL_DOC_PKG'] = BuildEnv['INSTALL_DOC'] + '/contrail-docs/html'
+BuildEnv['INSTALL_DOC_PKG'] = BuildEnv['INSTALL_DOC'] + '/tungsten-docs/html'
 BuildEnv['INSTALL_MESSAGE_DOC'] = BuildEnv['INSTALL_DOC_PKG'] + '/messages'
 
 BuildEnv.SConscript(dirs=['vnsw'], exports='BuildEnv')

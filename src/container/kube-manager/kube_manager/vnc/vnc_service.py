@@ -402,7 +402,7 @@ class VncService(VncCommon):
                 # if "loadBalancerIp" if specified in Service definition, allocate
                 #     loadBalancerIp as floating-ip.
                 # if  external ips specified, allocate external_ips as floating-ips.
-                # if None specficied, then let contrail allocate a floating-ip and
+                # if None specficied, then let tungsten allocate a floating-ip and
                 #     update the allocated fip to kubernetes
                 if loadBalancerIp:
                     allocated_fip = self._allocate_floating_ips(service_id,
@@ -640,8 +640,8 @@ class VncService(VncCommon):
         annotations = event['object']['metadata'].get('annotations')
         specified_fip_pool_fq_name_str = None
         if annotations:
-            if 'opencontrail.org/fip-pool' in annotations:
-                specified_fip_pool_fq_name_str = annotations['opencontrail.org/fip-pool']
+            if 'tungsten.io/fip-pool' in annotations:
+                specified_fip_pool_fq_name_str = annotations['tungsten.io/fip-pool']
 
         print("%s - Got %s %s %s:%s:%s"
               %(self._name, event_type, kind,

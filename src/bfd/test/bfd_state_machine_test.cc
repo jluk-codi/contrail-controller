@@ -7,7 +7,7 @@
 #include <boost/optional.hpp>
 
 #include "base/regex.h"
-typedef contrail::regex regex_t;
+typedef tungsten::regex regex_t;
 
 #include "bfd/bfd_state_machine.h"
 #include "bfd/test/bfd_test_utils.h"

@@ -1464,7 +1464,7 @@ void AclEntrySpec::PopulateAction(const AclTable *acl_table,
                 maction.ma.port = action_list.mirror_to.udp_port;
             } else {
                 // Adding default port
-                maction.ma.port = ContrailPorts::AnalyzerUdpPort();
+                maction.ma.port = TungstenPorts::AnalyzerUdpPort();
             }
             action_l.push_back(maction);
             AddMirrorEntry(acl_table->agent());

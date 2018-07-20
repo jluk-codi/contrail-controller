@@ -63,9 +63,9 @@ using namespace boost::program_options;
 using namespace std;
 using boost::assign::list_of;
 using boost::assign::map_list_of;
-using contrail::regex;
-using contrail::regex_match;
-using contrail::regex_search;
+using tungsten::regex;
+using tungsten::regex_match;
+using tungsten::regex_search;
 using namespace pugi;
 using namespace test;
 

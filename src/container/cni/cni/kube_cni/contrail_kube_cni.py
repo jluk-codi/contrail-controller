@@ -6,7 +6,7 @@
 #
 
 """
-Contrail CNI plugin for Kubernetes
+Tungsten CNI plugin for Kubernetes
 """
 
 
@@ -19,10 +19,10 @@ import traceback
 # set parent directory in sys.path
 cfile = os.path.abspath(inspect.getfile(inspect.currentframe()))  # nopep8
 sys.path.append(os.path.dirname(os.path.dirname(cfile)))  # nopep8
-from contrail.contrail_cni import ContrailCni as ContrailCni
+from tungsten.tungsten_cni import TungstenCni as TungstenCni
 from common.cni import Cni as Cni
 from common.cni import Error as CniError
-from contrail.contrail_cni import Error as ContrailError
+from tungsten.tungsten_cni import Error as TungstenError
 from kube_params import Error as K8SParamsError
 from kube_params import K8SParams as K8SParams
 
@@ -37,11 +37,11 @@ logger = None
 
 def main():
     try:
-        cni = ContrailCni()
+        cni = TungstenCni()
 
         # set logging
         global logger
-        logger = logging.getLogger('contrail-kube-cni')
+        logger = logging.getLogger('tungsten-kube-cni')
 
         k8s_params = K8SParams(cni.cni)
         cni.log()
@@ -50,7 +50,7 @@ def main():
     except CniError as err:
         err.log()
         Cni.error_exit(err.code, err.msg)
-    except ContrailError as err:
+    except TungstenError as err:
         err.log()
         Cni.error_exit(err.code, err.msg)
     except K8SParamsError as err:

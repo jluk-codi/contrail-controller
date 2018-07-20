@@ -60,7 +60,7 @@ class BgpProvisioner(object):
 
         if router_type != 'control-node':
             if 'erm-vpn' in address_families:
-                raise RuntimeError("Only contrail bgp routers can support "
+                raise RuntimeError("Only tungsten bgp routers can support "
                                    "family 'erm-vpn'")
 
         bgp_addr_fams = AddressFamilies(address_families)
@@ -75,7 +75,7 @@ class BgpProvisioner(object):
         vnc_lib = self._vnc_lib
 
         if router_type == 'control-node':
-            vendor = 'contrail'
+            vendor = 'tungsten'
         elif router_type == 'router':
             vendor = 'mx'
         else:

@@ -25,7 +25,7 @@ from device_api.juniper_common_xsd import *
 
 class JuniperConf(DeviceConf):
     _vendor = "juniper"
-    # mapping from contrail family names to junos
+    # mapping from tungsten family names to junos
     _FAMILY_MAP = {
         'route-target': '',
         'inet-vpn': FamilyInetVpn(unicast=''),
@@ -286,10 +286,10 @@ class JuniperConf(DeviceConf):
     # end prepare_groups
 
     def build_conf(self, groups, operation='replace'):
-        groups.set_name("__contrail__")
+        groups.set_name("__tungsten__")
         configuraion = Configuration(groups=groups)
         groups.set_operation(operation)
-        apply_groups = ApplyGroups(name="__contrail__")
+        apply_groups = ApplyGroups(name="__tungsten__")
         configuraion.set_apply_groups(apply_groups)
         if operation == "delete":
             apply_groups.set_operation(operation)

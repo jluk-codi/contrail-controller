@@ -9,7 +9,7 @@ import inspect
 from cliff.app import App
 import logging
 logging.basicConfig()
-from .contrailCli import ContrailCli
+from .tungstenCli import TungstenCli
 from .help import HelpAction
 from .commandmanager import CommandManager
 from sandesh_common.vns.constants import ServiceHttpPortMap
@@ -18,11 +18,11 @@ cli_mapping = namedtuple("cli_mapping", ("struct_name", "cli_name",
     "cli_help", "cli_params"))
 cli_params = namedtuple("cli_params", ("param_name", "param_help"))
 
-class ContrailCliApp(App):
+class TungstenCliApp(App):
 
     def __init__(self, commands_list):
-        super(ContrailCliApp, self).__init__(
-            description='ContrailCli Viewer',
+        super(TungstenCliApp, self).__init__(
+            description='TungstenCli Viewer',
             version='0.1',
             command_manager=CommandManager(self.NAME),
             deferred_help=True,
@@ -172,7 +172,7 @@ class ContrailCliApp(App):
         return parser
 
 def main(argv=sys.argv[1:]):
-    cliapp = ContrailCliApp([])
+    cliapp = TungstenCliApp([])
     return cliapp.run(argv)
 
 if __name__ == '__main__':

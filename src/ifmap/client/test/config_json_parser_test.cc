@@ -121,23 +121,23 @@ public:
         test_client->db_index_[idx].find(uuid);
         int index = it->second;
 
-        contrail_rapidjson::Document *events = test_client->events();
-        if (!(*events)[contrail_rapidjson::SizeType(index)]["db"].HasMember(
+        tungsten_rapidjson::Document *events = test_client->events();
+        if (!(*events)[tungsten_rapidjson::SizeType(index)]["db"].HasMember(
             uuid.c_str()))
             return;
-        for (contrail_rapidjson::Value::ConstMemberIterator k =
-             (*events)[contrail_rapidjson::SizeType(index)]["db"][
+        for (tungsten_rapidjson::Value::ConstMemberIterator k =
+             (*events)[tungsten_rapidjson::SizeType(index)]["db"][
              uuid.c_str()].MemberBegin();
-             k != (*events)[contrail_rapidjson::SizeType(index)]["db"][
+             k != (*events)[tungsten_rapidjson::SizeType(index)]["db"][
              uuid.c_str()].MemberEnd();
              ++k) {
             const char *k1 = k->name.GetString();
             const char *v1;
             uint64_t  ts = 0;
             if (k->value.IsArray()) {
-                v1 = k->value[contrail_rapidjson::SizeType(0)].GetString();
+                v1 = k->value[tungsten_rapidjson::SizeType(0)].GetString();
                 if (k->value.Size() > 1) {
-                    ts = k->value[contrail_rapidjson::SizeType(1)].GetUint64();
+                    ts = k->value[tungsten_rapidjson::SizeType(1)].GetUint64();
                 }
             } else {
                 v1 = k->value.GetString();

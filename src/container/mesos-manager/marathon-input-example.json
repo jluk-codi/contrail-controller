@@ -13,7 +13,7 @@
     }
   },
   "ipAddress": {
-    "networkName": "contrail-cni-plugin",
+    "networkName": "tungsten-cni-plugin",
     "labels": {
       "networks": "blue-network",
       "network-subnets": "5.5.5.0/24",

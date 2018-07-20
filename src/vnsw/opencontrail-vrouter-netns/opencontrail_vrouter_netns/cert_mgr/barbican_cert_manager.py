@@ -55,7 +55,7 @@ class BarbicanCertManager(object):
         if (auth_conf):
             self.auth_conf = auth_conf
         else:
-            self.auth_conf = '/etc/contrail/contrail-lbaas-auth.conf'
+            self.auth_conf = '/etc/tungsten/tungsten-lbaas-auth.conf'
         config.read(self.auth_conf)
 
         self.admin_user = config.get('BARBICAN', 'admin_user')

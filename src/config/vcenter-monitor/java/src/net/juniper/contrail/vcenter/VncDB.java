@@ -2,7 +2,7 @@
  * Copyright (c) 2014 Juniper Networks, Inc. All rights reserved.
  */
 
-package net.juniper.contrail.vcenter;
+package net.juniper.tungsten.vcenter;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -16,21 +16,21 @@ import java.util.UUID;
 import org.apache.log4j.Logger;
 import org.apache.commons.net.util.SubnetUtils;
 
-import net.juniper.contrail.api.ApiConnector;
-import net.juniper.contrail.api.ApiConnectorFactory;
-import net.juniper.contrail.api.ApiPropertyBase;
-import net.juniper.contrail.api.ObjectReference;
-import net.juniper.contrail.api.types.InstanceIp;
-import net.juniper.contrail.api.types.MacAddressesType;
-import net.juniper.contrail.api.types.NetworkIpam;
-import net.juniper.contrail.api.types.SubnetType;
-import net.juniper.contrail.api.types.VirtualMachine;
-import net.juniper.contrail.api.types.VirtualMachineInterface;
-import net.juniper.contrail.api.types.VirtualNetwork;
-import net.juniper.contrail.api.types.VnSubnetsType;
-import net.juniper.contrail.api.types.Project;
-import net.juniper.contrail.api.types.IdPermsType;
-import net.juniper.contrail.contrail_vrouter_api.ContrailVRouterApi;
+import net.juniper.tungsten.api.ApiConnector;
+import net.juniper.tungsten.api.ApiConnectorFactory;
+import net.juniper.tungsten.api.ApiPropertyBase;
+import net.juniper.tungsten.api.ObjectReference;
+import net.juniper.tungsten.api.types.InstanceIp;
+import net.juniper.tungsten.api.types.MacAddressesType;
+import net.juniper.tungsten.api.types.NetworkIpam;
+import net.juniper.tungsten.api.types.SubnetType;
+import net.juniper.tungsten.api.types.VirtualMachine;
+import net.juniper.tungsten.api.types.VirtualMachineInterface;
+import net.juniper.tungsten.api.types.VirtualNetwork;
+import net.juniper.tungsten.api.types.VnSubnetsType;
+import net.juniper.tungsten.api.types.Project;
+import net.juniper.tungsten.api.types.IdPermsType;
+import net.juniper.tungsten.tungsten_vrouter_api.TungstenVRouterApi;
 
 public class VncDB {
     private static final Logger s_logger = 
@@ -38,7 +38,7 @@ public class VncDB {
     private static final int vrouterApiPort = 9090;
     private final String apiServerAddress;
     private final int apiServerPort;
-    private HashMap<String, ContrailVRouterApi> vrouterApiMap;
+    private HashMap<String, TungstenVRouterApi> vrouterApiMap;
     
     private ApiConnector apiConnector;
     private Project vCenterProject;
@@ -53,7 +53,7 @@ public class VncDB {
     public VncDB(String apiServerAddress, int apiServerPort) {
         this.apiServerAddress = apiServerAddress;
         this.apiServerPort = apiServerPort;
-        vrouterApiMap = new HashMap<String, ContrailVRouterApi>();
+        vrouterApiMap = new HashMap<String, TungstenVRouterApi>();
     }
     
     public void Initialize() throws IOException {
@@ -146,9 +146,9 @@ public class VncDB {
                     " delete notification NOT sent");
             return;
         }
-        ContrailVRouterApi vrouterApi = vrouterApiMap.get(vrouterIpAddress);
+        TungstenVRouterApi vrouterApi = vrouterApiMap.get(vrouterIpAddress);
         if (vrouterApi == null) {
-            vrouterApi = new ContrailVRouterApi(
+            vrouterApi = new TungstenVRouterApi(
                     InetAddress.getByName(vrouterIpAddress), 
                     vrouterApiPort, false);
             vrouterApiMap.put(vrouterIpAddress, vrouterApi);
@@ -207,9 +207,9 @@ public class VncDB {
                         " delete notification NOT sent");
                 continue;
             }
-            ContrailVRouterApi vrouterApi = vrouterApiMap.get(vrouterIpAddress);
+            TungstenVRouterApi vrouterApi = vrouterApiMap.get(vrouterIpAddress);
             if (vrouterApi == null) {
-                vrouterApi = new ContrailVRouterApi(
+                vrouterApi = new TungstenVRouterApi(
                         InetAddress.getByName(vrouterIpAddress), 
                         vrouterApiPort, false);
                 vrouterApiMap.put(vrouterIpAddress, vrouterApi);
@@ -288,9 +288,9 @@ public class VncDB {
             return;
         }
         try {
-            ContrailVRouterApi vrouterApi = vrouterApiMap.get(vrouterIpAddress);
+            TungstenVRouterApi vrouterApi = vrouterApiMap.get(vrouterIpAddress);
             if (vrouterApi == null) {
-                   vrouterApi = new ContrailVRouterApi(
+                   vrouterApi = new TungstenVRouterApi(
                          InetAddress.getByName(vrouterIpAddress), 
                          vrouterApiPort, false);
                    vrouterApiMap.put(vrouterIpAddress, vrouterApi);
@@ -366,9 +366,9 @@ public class VncDB {
             return;
         }
         try {
-            ContrailVRouterApi vrouterApi = vrouterApiMap.get(vrouterIpAddress);
+            TungstenVRouterApi vrouterApi = vrouterApiMap.get(vrouterIpAddress);
             if (vrouterApi == null) {
-                   vrouterApi = new ContrailVRouterApi(
+                   vrouterApi = new TungstenVRouterApi(
                          InetAddress.getByName(vrouterIpAddress),
                          vrouterApiPort, false);
                    vrouterApiMap.put(vrouterIpAddress, vrouterApi);
@@ -557,7 +557,7 @@ public class VncDB {
     // KeepAlive with all active vRouter Agent Connections.
     public void vrouterAgentPeriodicConnectionCheck() {
         for (String vrouterIpAddress : vrouterApiMap.keySet()) {
-            ContrailVRouterApi vrouterApi = vrouterApiMap.get(vrouterIpAddress);
+            TungstenVRouterApi vrouterApi = vrouterApiMap.get(vrouterIpAddress);
             // run Keep Alive with vRouter Agent.
             if (vrouterApi != null) {
               vrouterApi.PeriodicConnectionCheck();

@@ -268,7 +268,7 @@ def all(ip='127.0.0.1', port=8082, domain_name='default-domain',
                        auth_url='http://127.0.0.1:5000/v2.0')
 
     # create admin account first to ensure there are no permission problems
-    admin = User(ip, port, kc, 'admin', 'contrail123', 'admin', 'admin')
+    admin = User(ip, port, kc, 'admin', 'tungsten123', 'admin', 'admin')
     alice = User(ip, port, kc, 'alice', 'alice123', 'alice-role', 'alice-proj')
     bob =   User(ip, port, kc, 'bob', 'bob123', 'bob-role', 'bob-proj')
 

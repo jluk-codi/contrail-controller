@@ -8,16 +8,16 @@ import argparse
 import platform
 import socket
 
-from contrail_vrouter_provisioning import local
-from contrail_vrouter_provisioning.base import ContrailSetup
-from contrail_vrouter_provisioning.toragent.templates import tor_agent_conf
-from contrail_vrouter_provisioning.toragent.templates import tor_agent_ini
-from contrail_vrouter_provisioning.toragent.templates import tor_agent_service
+from tungsten_vrouter_provisioning import local
+from tungsten_vrouter_provisioning.base import TungstenSetup
+from tungsten_vrouter_provisioning.toragent.templates import tor_agent_conf
+from tungsten_vrouter_provisioning.toragent.templates import tor_agent_ini
+from tungsten_vrouter_provisioning.toragent.templates import tor_agent_service
 from distutils.version import LooseVersion
 
 (PLATFORM, VERSION, EXTRA) = platform.linux_distribution()
 
-class TorAgentBaseSetup(ContrailSetup):
+class TorAgentBaseSetup(TungstenSetup):
     def __init__(self, tor_agent_args, args_str=None):
         super(TorAgentBaseSetup, self).__init__()
         self._args = tor_agent_args
@@ -28,9 +28,9 @@ class TorAgentBaseSetup(ContrailSetup):
             self._args.tor_agent_name = socket.gethostname()+ '-' + str(self._args.tor_id)
     def fixup_tor_agent(self):
         #if self._args.tor_ovs_protocol.lower() == 'pssl':
-        self.ssl_cacert = '/etc/contrail/ssl/certs/tor-ca-cert.pem'
-        self.ssl_cert = '/etc/contrail/ssl/certs/tor.' + self._args.tor_id + '.cert.pem'
-        self.ssl_privkey = '/etc/contrail/ssl/private/tor.' + self._args.tor_id + '.private.pem'
+        self.ssl_cacert = '/etc/tungsten/ssl/certs/tor-ca-cert.pem'
+        self.ssl_cert = '/etc/tungsten/ssl/certs/tor.' + self._args.tor_id + '.cert.pem'
+        self.ssl_privkey = '/etc/tungsten/ssl/private/tor.' + self._args.tor_id + '.private.pem'
         control_servers = ' '.join('%s:%s' % (server, '5269')
                                    for server in self._args.control_nodes)
         collector_servers = ' '.join('%s:%s' % (server, '8086')
@@ -38,59 +38,59 @@ class TorAgentBaseSetup(ContrailSetup):
         dns_servers = ' '.join('%s:%s' % (server, '53')
                                 for server in self._args.control_nodes)
         template_vals = {
-                '__contrail_control_ip__': self._args.self_ip,
-                '__contrail_tor_name__': self._args.tor_name,
-                '__contrail_http_server_port__': self._args.http_server_port,
-                '__contrail_tor_ip__': self._args.tor_ip,
-                '__contrail_tor_id__': self._args.tor_id,
-                '__contrail_tsn_ovs_port__': self._args.tor_ovs_port,
-                '__contrail_tsn_ip__': self._args.tsn_ip,
-                '__contrail_tor_ovs_protocol__': self._args.tor_ovs_protocol,
-                '__contrail_tor_agent_ovs_ka__': self._args.tor_agent_ovs_ka,
-                '__contrail_tor_agent_name__': self._args.tor_agent_name,
-                '__contrail_tor_tunnel_ip__': self._args.tor_tunnel_ip,
-                '__contrail_tor_product_name__': self._args.tor_product_name,
-                '__contrail_tor_vendor_name__': self._args.tor_vendor_name,
-                '__contrail_tor_ssl_cert__': self.ssl_cert,
-                '__contrail_tor_ssl_privkey__': self.ssl_privkey,
-                '__contrail_tor_ssl_cacert__': self.ssl_cacert,
-                '__contrail_control_servers__': control_servers,
-                '__contrail_collector_servers__': collector_servers,
-                '__contrail_dns_servers__': dns_servers,
+                '__tungsten_control_ip__': self._args.self_ip,
+                '__tungsten_tor_name__': self._args.tor_name,
+                '__tungsten_http_server_port__': self._args.http_server_port,
+                '__tungsten_tor_ip__': self._args.tor_ip,
+                '__tungsten_tor_id__': self._args.tor_id,
+                '__tungsten_tsn_ovs_port__': self._args.tor_ovs_port,
+                '__tungsten_tsn_ip__': self._args.tsn_ip,
+                '__tungsten_tor_ovs_protocol__': self._args.tor_ovs_protocol,
+                '__tungsten_tor_agent_ovs_ka__': self._args.tor_agent_ovs_ka,
+                '__tungsten_tor_agent_name__': self._args.tor_agent_name,
+                '__tungsten_tor_tunnel_ip__': self._args.tor_tunnel_ip,
+                '__tungsten_tor_product_name__': self._args.tor_product_name,
+                '__tungsten_tor_vendor_name__': self._args.tor_vendor_name,
+                '__tungsten_tor_ssl_cert__': self.ssl_cert,
+                '__tungsten_tor_ssl_privkey__': self.ssl_privkey,
+                '__tungsten_tor_ssl_cacert__': self.ssl_cacert,
+                '__tungsten_control_servers__': control_servers,
+                '__tungsten_collector_servers__': collector_servers,
+                '__tungsten_dns_servers__': dns_servers,
                 '__xmpp_dns_auth_enable__': self._args.xmpp_dns_auth_enable,
                 '__xmpp_auth_enable__': self._args.xmpp_auth_enable,
                 }
         self._template_substitute_write(
                 tor_agent_conf.template, template_vals,
                 self._temp_dir_name + '/tor_agent_conf')
-        self.tor_file_name = ('contrail-tor-agent-' + self._args.tor_id +
+        self.tor_file_name = ('tungsten-tor-agent-' + self._args.tor_id +
                               '.conf')
-        local("sudo mv %s/tor_agent_conf /etc/contrail/%s" %
+        local("sudo mv %s/tor_agent_conf /etc/tungsten/%s" %
               (self._temp_dir_name, self.tor_file_name))
 
     def fixup_tor_ini(self):
-        self.tor_process_name = 'contrail-tor-agent-' + self._args.tor_id
+        self.tor_process_name = 'tungsten-tor-agent-' + self._args.tor_id
         self.tor_log_file_name = self.tor_process_name + '-stdout.log'
 
         template_vals = {
-                '__contrail_tor_agent__': self.tor_process_name,
-                '__contrail_tor_agent_conf_file__': self.tor_file_name,
-                '__contrail_tor_agent_log_file__': self.tor_log_file_name
+                '__tungsten_tor_agent__': self.tor_process_name,
+                '__tungsten_tor_agent_conf_file__': self.tor_file_name,
+                '__tungsten_tor_agent_log_file__': self.tor_log_file_name
                         }
         self._template_substitute_write(
                 tor_agent_ini.template, template_vals,
                 self._temp_dir_name + '/tor_agent_ini')
         self.tor_ini_file_name = self.tor_process_name + '.ini'
         src = "%s/tor_agent_ini" % self._temp_dir_name
-        dst = "/etc/contrail/supervisord_vrouter_files/%s" %\
+        dst = "/etc/tungsten/supervisord_vrouter_files/%s" %\
               self.tor_ini_file_name
         local("sudo mv %s %s" % (src, dst))
 
     def fixup_tor_service(self):
-        self.tor_process_name = 'contrail-tor-agent-' + self._args.tor_id
+        self.tor_process_name = 'tungsten-tor-agent-' + self._args.tor_id
 
         template_vals = {
-                '__contrail_tor_agent_conf_file__': self.tor_file_name,
+                '__tungsten_tor_agent_conf_file__': self.tor_file_name,
                         }
         self._template_substitute_write(
                 tor_agent_service.template, template_vals,
@@ -102,10 +102,10 @@ class TorAgentBaseSetup(ContrailSetup):
         local("sudo mv %s %s" % (src, dst))
 
     def create_init_file(self):
-        local("sudo cp /etc/init.d/contrail-vrouter-agent /etc/init.d/%s" %(self.tor_process_name))
+        local("sudo cp /etc/init.d/tungsten-vrouter-agent /etc/init.d/%s" %(self.tor_process_name))
 
     def add_vnc_config(self):
-        cmd = "sudo python /opt/contrail/utils/provision_vrouter.py"
+        cmd = "sudo python /opt/tungsten/utils/provision_vrouter.py"
         cmd += " --host_name %s" % self._args.tor_agent_name
         cmd += " --host_ip %s" % self._args.self_ip
         cmd += " --api_server_ip %s" % self._args.cfgm_ip
@@ -120,7 +120,7 @@ class TorAgentBaseSetup(ContrailSetup):
         local(cmd)
 
     def add_physical_device(self):
-        cmd = "sudo python /opt/contrail/utils/provision_physical_device.py"
+        cmd = "sudo python /opt/tungsten/utils/provision_physical_device.py"
         cmd += " --device_name %s" % self._args.tor_name
         cmd += " --vendor_name %s" % self._args.tor_vendor_name
         cmd += " --device_mgmt_ip %s" % self._args.tor_ip
@@ -141,7 +141,7 @@ class TorAgentBaseSetup(ContrailSetup):
     
     def update_supervisor(self):
         if self._args.restart:
-            local("sudo supervisorctl -c /etc/contrail/supervisord_vrouter.conf update", warn_only=True)
+            local("sudo supervisorctl -c /etc/tungsten/supervisord_vrouter.conf update", warn_only=True)
 
     def run_services(self):
         if self._args.restart:
@@ -165,7 +165,7 @@ class TorAgentBaseSetup(ContrailSetup):
             self.add_physical_device()
             self.update_supervisor()
 
-class TorAgentSetup(ContrailSetup):
+class TorAgentSetup(TungstenSetup):
     def __init__(self, args_str=None):
         super(TorAgentSetup, self).__init__()
         self._args = None
@@ -190,7 +190,7 @@ class TorAgentSetup(ContrailSetup):
 
     def parse_args(self, args_str):
         '''
-        Eg. setup-vnc-tor-agent --agent_name contrail-tor-1
+        Eg. setup-vnc-tor-agent --agent_name tungsten-tor-1
             --http_server_port 9090 --discovery_server_ip 10.204.217.39
             --tor_id 1 --tor_ip 10.204.221.35 --tor_ovs_port 9999
             --tsn_ip 10.204.221.33 --tor_ovs_protocol tcp

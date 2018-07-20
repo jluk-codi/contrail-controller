@@ -94,8 +94,8 @@ class DMUtils(object):
     LO0_INTF_UNIT_START_ID = 1000
 
     @staticmethod
-    def contrail_prefix(name=''):
-        return "_contrail_" + name
+    def tungsten_prefix(name=''):
+        return "_tungsten_" + name
 
     @staticmethod
     def sanitize_name(name):
@@ -106,7 +106,7 @@ class DMUtils(object):
     @staticmethod
     def make_vrf_name(name, network_id, vrf_type, is_nat=False):
         name = DMUtils.sanitize_name(name)
-        vrf_name = DMUtils.contrail_prefix(name)
+        vrf_name = DMUtils.tungsten_prefix(name)
         network_id_str = '-' + str(network_id)
         nat_postfix = '-nat'
         vrf_type_str = '-' + str(vrf_type)
@@ -127,7 +127,7 @@ class DMUtils(object):
 
     @staticmethod
     def dynamic_tunnel_name(asn):
-        return DMUtils.contrail_prefix() + "asn-" + str(asn)
+        return DMUtils.tungsten_prefix() + "asn-" + str(asn)
 
     @staticmethod
     def get_network_gateways(ipam_refs=[]):
@@ -157,7 +157,7 @@ class DMUtils(object):
 
     @staticmethod
     def make_community_name(rt_name):
-        return DMUtils.contrail_prefix(rt_name.replace(':', '_'))
+        return DMUtils.tungsten_prefix(rt_name.replace(':', '_'))
     # end make_community_name
 
     @staticmethod
@@ -192,7 +192,7 @@ class DMUtils(object):
     def make_public_vrf_filter_name(inet_type):
         if inet_type == 'inet':
             inet_type = 'inet4'
-        return DMUtils.contrail_prefix('redirect-to-public-vrfs-' + inet_type)
+        return DMUtils.tungsten_prefix('redirect-to-public-vrfs-' + inet_type)
     # end make_public_filter_name
 
     @staticmethod
@@ -215,7 +215,7 @@ class DMUtils(object):
 
     @staticmethod
     def make_bgp_group_name(asn, is_external=False):
-        name = DMUtils.contrail_prefix() + "asn-" + str(asn)
+        name = DMUtils.tungsten_prefix() + "asn-" + str(asn)
         if is_external:
             return name + "-external"
         return name
@@ -223,7 +223,7 @@ class DMUtils(object):
 
     @staticmethod
     def get_dynamic_tunnel_name():
-        return '__contrail__'
+        return '__tungsten__'
     # end get_dynamic_tunnel_name
 
     @staticmethod
@@ -276,7 +276,7 @@ class DMUtils(object):
 
     @staticmethod
     def groups_comment():
-        return "/* Contrail Generated Group Config */"
+        return "/* Tungsten Generated Group Config */"
 
     @staticmethod
     def si_ri_comment(si):
@@ -483,7 +483,7 @@ class DMUtils(object):
 
     @staticmethod
     def make_ibgp_export_policy_name():
-        return "_contrail_ibgp_export_policy"
+        return "_tungsten_ibgp_export_policy"
 
     @staticmethod
     def ibgp_export_policy_comment():
@@ -511,7 +511,7 @@ class DMUtils(object):
 
     @classmethod
     def get_lr_internal_vn_prefix(cls):
-        return '__contrail_lr_internal_vn_'
+        return '__tungsten_lr_internal_vn_'
     # end get_lr_internal_vn_prefix
 
     @classmethod
@@ -528,7 +528,7 @@ class DMUtils(object):
 
     @classmethod
     def get_switch_policy_name(cls):
-        return "_contrail_switch_policy_"
+        return "_tungsten_switch_policy_"
     # end get_switch_policy_name
 
     @classmethod
@@ -538,12 +538,12 @@ class DMUtils(object):
 
     @classmethod
     def get_switch_export_policy_name(cls):
-        return "_contrail_switch_export_policy_"
+        return "_tungsten_switch_export_policy_"
     # end get_switch_export_policy_name
 
     @classmethod
     def get_switch_export_community_name(cls):
-        return "_contrail_switch_export_community_"
+        return "_tungsten_switch_export_community_"
     # end get_switch_export_community_name
 
     @classmethod

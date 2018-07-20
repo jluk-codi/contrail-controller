@@ -211,7 +211,7 @@ std::string LibvirtInstanceAdapter::DomainStartTask::XmlConf() {
     // modify and save as a string for libvirt
     DomainXMLAssignUUID(dom_uuid_str, domain_xml_conf);
 
-    // interfaces defined by Contrail (left, right, management)
+    // interfaces defined by Tungsten (left, right, management)
     DomainXMLSetInterfaceData(domain_xml_conf, dom_uuid_str);
 
     std::stringstream domain_conf;
@@ -226,7 +226,7 @@ void LibvirtInstanceAdapter::DomainStartTask::DomainXMLAssignUUID(
     xml_node uuid_node = get_or_create_node(&domain_node, "uuid");
     xml_node name_node = get_or_create_node(&domain_node, "name");
     if (name_node.text().empty())
-        name_node.text().set("contrail_si-");
+        name_node.text().set("tungsten_si-");
     uuid_node.text().set(dom_uuid_str.c_str());
     name_node.text().set((std::string(name_node.text().get()) + "-" +
         dom_uuid_str.substr(0, 5)).c_str());

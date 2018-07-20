@@ -1563,8 +1563,8 @@ def _mock_job_ctx_onbard_fabric():
                 "10.155.75.181:8086"
             ],
             "fabric_ansible_conf_file": [
-                "/etc/contrail/contrail-keystone-auth.conf",
-                "/etc/contrail/contrail-fabric-ansible.conf"
+                "/etc/tungsten/tungsten-keystone-auth.conf",
+                "/etc/tungsten/tungsten-fabric-ansible.conf"
             ]
         },
         "job_execution_id": "c37b199a-effb-4469-aefa-77f531f77758",
@@ -1614,8 +1614,8 @@ def _mock_job_ctx_onboard_brownfield_fabric():
                 "10.155.75.181:8086"
             ],
             "fabric_ansible_conf_file": [
-                "/etc/contrail/contrail-keystone-auth.conf",
-                "/etc/contrail/contrail-fabric-ansible.conf"
+                "/etc/tungsten/tungsten-keystone-auth.conf",
+                "/etc/tungsten/tungsten-fabric-ansible.conf"
             ]
         },
         "job_execution_id": "c37b199a-effb-4469-aefa-77f531f77758",
@@ -1650,8 +1650,8 @@ def _mock_job_ctx_delete_fabric():
                 "10.155.75.181:8086"
             ],
             "fabric_ansible_conf_file": [
-                "/etc/contrail/contrail-keystone-auth.conf",
-                "/etc/contrail/contrail-fabric-ansible.conf"
+                "/etc/tungsten/tungsten-keystone-auth.conf",
+                "/etc/tungsten/tungsten-fabric-ansible.conf"
             ]
         },
         "job_execution_id": "c37b199a-effb-4469-aefa-77f531f77758",
@@ -1673,8 +1673,8 @@ def _mock_job_ctx_delete_devices():
                 "10.155.75.181:8086"
             ],
             "fabric_ansible_conf_file": [
-                "/etc/contrail/contrail-keystone-auth.conf",
-                "/etc/contrail/contrail-fabric-ansible.conf"
+                "/etc/tungsten/tungsten-keystone-auth.conf",
+                "/etc/tungsten/tungsten-fabric-ansible.conf"
             ]
         },
         "job_execution_id": "c37b199a-effb-4469-aefa-77f531f77758",
@@ -1697,8 +1697,8 @@ def _mock_job_ctx_assign_roles():
                 "10.155.75.181:8086"
             ],
             "fabric_ansible_conf_file": [
-                "/etc/contrail/contrail-keystone-auth.conf",
-                "/etc/contrail/contrail-fabric-ansible.conf"
+                "/etc/tungsten/tungsten-keystone-auth.conf",
+                "/etc/tungsten/tungsten-fabric-ansible.conf"
             ]
         },
         "job_execution_id": "c37b199a-effb-4469-aefa-77f531f77758",

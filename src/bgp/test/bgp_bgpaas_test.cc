@@ -77,7 +77,7 @@ protected:
         vm2_session_manager_->Initialize(0);
         BGP_DEBUG_UT("Created server at port: " <<
             vm2_session_manager_->GetPort());
-        xmpp_server_ = new XmppServerTest(&evm_, "bgp.contrail.com");
+        xmpp_server_ = new XmppServerTest(&evm_, "bgp.tungsten.com");
         channel_manager_.reset(new BgpXmppChannelManager(xmpp_server_,
                                                          server_.get()));
         xmpp_server_->Initialize(0, false);

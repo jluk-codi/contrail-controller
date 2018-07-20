@@ -35,9 +35,9 @@
 #include "net/community_type.h"
 
 
-using contrail::regex;
-using contrail::regex_match;
-using contrail::regex_search;
+using tungsten::regex;
+using tungsten::regex_match;
+using tungsten::regex_search;
 using std::includes;
 using std::map;
 using std::ostringstream;

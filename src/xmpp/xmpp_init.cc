@@ -14,17 +14,17 @@
 using namespace std;
 
 const char *XmppInit::kControlNodeJID =
-    "network-control@contrailsystems.com";
+    "network-control@tungstensystems.com";
 const char *XmppInit::kAgentNodeJID =
-    "agent@contrailsystems.com";
+    "agent@tungstensystems.com";
 const char *XmppInit::kDnsNodeJID =
-    "network-dns@contrailsystems.com";
+    "network-dns@tungstensystems.com";
 const char *XmppInit::kPubSubNS =
     "http://jabber.org/protocol/pubsub";
 const char *XmppInit::kJIDControlBgp =
-    "network-control@contrailsystems.com/bgp-peer";
+    "network-control@tungstensystems.com/bgp-peer";
 const char *XmppInit::kJIDControlDns =
-    "network-control@contrailsystems.com/dns-peer";
+    "network-control@tungstensystems.com/dns-peer";
 const char *XmppInit::kFqnPrependAgentNodeJID =
     "default-global-system-config:";
 const char *XmppInit::kConfigPeer = "config";

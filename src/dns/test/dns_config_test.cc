@@ -182,7 +182,7 @@ TEST_F(DnsConfigManagerTest, Config) {
         <record-ttl-seconds>50</record-ttl-seconds>\
     </virtual-DNS-record>\
     <virtual-DNS name='test-DNS' domain='default-domain'>\
-        <domain-name>contrail.juniper.com</domain-name>\
+        <domain-name>tungsten.juniper.com</domain-name>\
         <dynamic-records-from-client>1</dynamic-records-from-client>\
         <record-order>fixed</record-order>\
         <default-ttl-seconds>120</default-ttl-seconds>\
@@ -229,7 +229,7 @@ TEST_F(DnsConfigManagerTest, Reordered) {
         <record-ttl-seconds>50</record-ttl-seconds>\
     </virtual-DNS-record>\
     <virtual-DNS name='test-DNS' domain='default-domain'>\
-        <domain-name>contrail.juniper.com</domain-name>\
+        <domain-name>tungsten.juniper.com</domain-name>\
         <dynamic-records-from-client>1</dynamic-records-from-client>\
         <record-order>fixed</record-order>\
         <default-ttl-seconds>120</default-ttl-seconds>\

@@ -2,12 +2,12 @@
  * Copyright (c) 2013 Juniper Networks, Inc. All rights reserved.
  */
 
-#ifndef vnsw_contrail_agent_init_hpp
-#define vnsw_contrail_agent_init_hpp
+#ifndef vnsw_tungsten_agent_init_hpp
+#define vnsw_tungsten_agent_init_hpp
 
 #include <boost/program_options.hpp>
-#include <init/contrail_init_common.h>
-#include <contrail/pkt0_interface.h>
+#include <init/tungsten_init_common.h>
+#include <tungsten/pkt0_interface.h>
 
 class Agent;
 class AgentParam;
@@ -17,10 +17,10 @@ class PktModule;
 
 // The class to drive agent initialization.
 // Defines control parameters used to enable/disable agent features
-class ContrailAgentInit : public ContrailInitCommon {
+class TungstenAgentInit : public TungstenInitCommon {
 public:
-    ContrailAgentInit();
-    virtual ~ContrailAgentInit();
+    TungstenAgentInit();
+    virtual ~TungstenAgentInit();
 
     void ProcessOptions(const std::string &config_file,
                         const std::string &program_name);
@@ -47,7 +47,7 @@ private:
     std::auto_ptr<PortIpcHandler> port_ipc_handler_;
     std::auto_ptr<RESTServer> rest_server_;
 
-    DISALLOW_COPY_AND_ASSIGN(ContrailAgentInit);
+    DISALLOW_COPY_AND_ASSIGN(TungstenAgentInit);
 };
 
-#endif // vnsw_contrail_agent_init_hpp
+#endif // vnsw_tungsten_agent_init_hpp

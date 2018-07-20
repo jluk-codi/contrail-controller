@@ -2,7 +2,7 @@
 
 import subprocess
 
-class ContrailVRouterApi(object):
+class TungstenVRouterApi(object):
 
     def __init__(self, server_port=9090, doconnect=False, semaphore=None):
         """

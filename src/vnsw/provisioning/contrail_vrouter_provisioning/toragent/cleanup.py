@@ -13,16 +13,16 @@ import subprocess
 import signal
 import logging
 
-from contrail_vrouter_provisioning import local
+from tungsten_vrouter_provisioning import local
 from setup import TorAgentSetup
-from contrail_vrouter_provisioning.base import ContrailSetup
+from tungsten_vrouter_provisioning.base import TungstenSetup
 from distutils.version import LooseVersion
 
 (PLATFORM, VERSION, EXTRA) = platform.linux_distribution()
 
-log = logging.getLogger('contrail_vrouter_provisioning.common')
+log = logging.getLogger('tungsten_vrouter_provisioning.common')
 
-class TorAgentBaseCleanup(ContrailSetup):
+class TorAgentBaseCleanup(TungstenSetup):
     def __init__(self, tor_agent_args, args_str=None):
         super(TorAgentBaseCleanup, self).__init__()
         self._args = tor_agent_args
@@ -40,21 +40,21 @@ class TorAgentBaseCleanup(ContrailSetup):
             self.suffix = '.service'
         else:
             self.systemd_setup = False
-            self.dirname = '/etc/contrail/supervisord_vrouter_files/'
+            self.dirname = '/etc/tungsten/supervisord_vrouter_files/'
             self.suffix = '.ini'
 
     def remove_tor_agent_conf_files(self, tor_id):
-        ssl_cert = '/etc/contrail/ssl/certs/tor.' + tor_id + '.cert.pem'
-        ssl_privkey = '/etc/contrail/ssl/private/tor.' + tor_id + '.privkey.pem'
+        ssl_cert = '/etc/tungsten/ssl/certs/tor.' + tor_id + '.cert.pem'
+        ssl_privkey = '/etc/tungsten/ssl/private/tor.' + tor_id + '.privkey.pem'
         # Remove ssl certs once
         if os.path.exists(ssl_cert):
             os.remove(ssl_cert)
         if os.path.exists(ssl_privkey):
             os.remove(ssl_privkey)
-        self.tor_file_name = '/etc/contrail/contrail-tor-agent-' + tor_id + '.conf'
+        self.tor_file_name = '/etc/tungsten/tungsten-tor-agent-' + tor_id + '.conf'
         if os.path.exists(self.tor_file_name):
             os.remove(self.tor_file_name)
-        self.tor_process_name = 'contrail-tor-agent-' + tor_id
+        self.tor_process_name = 'tungsten-tor-agent-' + tor_id
         local("sudo service %s stop" % self.tor_process_name)
         if self.systemd_setup:
             local("sudo systemctl disable %s" % self.tor_process_name)
@@ -68,7 +68,7 @@ class TorAgentBaseCleanup(ContrailSetup):
             os.remove(initd_file)
 
     def del_vnc_config(self):
-        cmd = "sudo python /opt/contrail/utils/provision_vrouter.py"
+        cmd = "sudo python /opt/tungsten/utils/provision_vrouter.py"
         cmd += " --host_name %s" % self.tor_agent_name
         cmd += " --host_ip %s" % self._args.self_ip
         cmd += " --api_server_ip %s" % self._args.cfgm_ip
@@ -80,7 +80,7 @@ class TorAgentBaseCleanup(ContrailSetup):
         local(cmd)
 
     def del_physical_device(self):
-        cmd = "sudo python /opt/contrail/utils/provision_physical_device.py"
+        cmd = "sudo python /opt/tungsten/utils/provision_physical_device.py"
         cmd += " --device_name %s" % self.tor_name
         cmd += " --vendor_name %s" % self.tor_vendor_name
         cmd += " --api_server_ip %s" % self._args.cfgm_ip
@@ -94,14 +94,14 @@ class TorAgentBaseCleanup(ContrailSetup):
     def stop_services(self):
         if self._args.restart:
             if not self.systemd_setup:
-                local("sudo supervisorctl -c /etc/contrail/supervisord_vrouter.conf update")
+                local("sudo supervisorctl -c /etc/tungsten/supervisord_vrouter.conf update")
             try:
                 vrouter_nodemgr_pid = [line.split()[1] for line in \
                                         subprocess.check_output("ps -eaf".split()).split("\n") \
-                                        if '--nodetype=contrail-vrouter' in line][0]
+                                        if '--nodetype=tungsten-vrouter' in line][0]
                 os.kill(int(vrouter_nodemgr_pid), signal.SIGHUP)
             except:
-                log.warning("contrail-vrouter-nodemgr is not running")
+                log.warning("tungsten-vrouter-nodemgr is not running")
 
     def cleanup(self, tor_id):
         self.remove_tor_agent_conf_files(tor_id)
@@ -111,12 +111,12 @@ class TorAgentBaseCleanup(ContrailSetup):
 
     def get_tor_id_list_old(self):
         for file in os.listdir(self.dirname):
-            if file.startswith('contrail-tor-agent'):
+            if file.startswith('tungsten-tor-agent'):
                 tor_id_old = re.findall(r'\d+', file)
                 self.tor_id_list_old.append(tor_id_old[0])
 
     def delete_torid_config(self, tor_id):
-        tor_conf_file = '/etc/contrail/contrail-tor-agent-' + tor_id + '.conf'
+        tor_conf_file = '/etc/tungsten/tungsten-tor-agent-' + tor_id + '.conf'
         config = ConfigParser.SafeConfigParser()
         config.read(tor_conf_file)
         self.tor_name = config.get('TOR', 'tor_name')

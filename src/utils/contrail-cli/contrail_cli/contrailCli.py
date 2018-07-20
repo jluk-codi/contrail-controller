@@ -13,9 +13,9 @@ from urllib3.exceptions import InsecureRequestWarning
 import warnings
 warnings.simplefilter('ignore', InsecureRequestWarning)
 
-class ContrailCli(Command):
+class TungstenCli(Command):
     def __init__(self, app, app_args, cmd_name=None):
-        super(ContrailCli, self).__init__(app, app_args)
+        super(TungstenCli, self).__init__(app, app_args)
         self.cmd_name = cmd_name
         self.cmd_list = []
 
@@ -50,7 +50,7 @@ class ContrailCli(Command):
 
     def get_parser(self, prog_name):
         self.prog_name = prog_name
-        parser = super(ContrailCli, self).get_parser(prog_name)
+        parser = super(TungstenCli, self).get_parser(prog_name)
         cmd_name = self.cmd_name
         for command in self.cmd_list:
             if cmd_name == command.cli_name:

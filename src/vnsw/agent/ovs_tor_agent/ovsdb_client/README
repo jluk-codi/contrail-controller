@@ -1,7 +1,7 @@
 OVSDB Client
 ------------
-OVSDB client in Contrail solution is part of the ToR Agent, where it is
-responsible to interface Contrail config with ToR switches used OVSDB
+OVSDB client in Tungsten solution is part of the ToR Agent, where it is
+responsible to interface Tungsten config with ToR switches used OVSDB
 
 it connects to OVSDB using either of the following
 - TCP where ToR hosts tcp port for connection, this is a non-secure mode
@@ -11,12 +11,12 @@ it connects to OVSDB using either of the following
 Currently ovsdb client supports only the hw_vtep OVSDB schema, which is used
 to manage ToR switches
 
-OVSDB Client translates the OpenContrail configuration to OVSDB and populates
+OVSDB Client translates the Tungsten Fabric configuration to OVSDB and populates
 the relevant OVSDB table entries in the TOR switch.
-The following table maps the OpenContrail configuration objects to
+The following table maps the Tungsten Fabric configuration objects to
 the OVSDB tables.
 
-   Contrail Objects          |     OVSDB Tables
+   Tungsten Objects          |     OVSDB Tables
 -----------------------------|------------------------------
     Physical Device          |    Physical Switch
     Physical Interface       |    Physical Port

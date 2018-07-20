@@ -36,7 +36,7 @@ class DeleteProjects(object):
 
     def _parse_args(self, args_str):
         '''
-        Eg. python del_projects.py --username admin --password contrail123 
+        Eg. python del_projects.py --username admin --password tungsten123 
                 --proj-uuid a98559a9-b8a8-4888-a1b6-ffb24b360bf4 --debug
         '''
 

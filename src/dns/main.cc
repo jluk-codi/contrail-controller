@@ -11,7 +11,7 @@
 #include "base/connection_info.h"
 #include <base/logging.h>
 #include <base/misc_utils.h>
-#include <base/contrail_ports.h>
+#include <base/tungsten_ports.h>
 #include <base/task.h>
 #include <io/process_signal.h>
 #include <config_client_manager.h>
@@ -231,7 +231,7 @@ int main(int argc, char *argv[]) {
                                    options.xmpp_server_cert(),
                                    options.xmpp_server_key(),
                                    options.xmpp_ca_cert())) {
-        LOG(ERROR, "Address already in use " << ContrailPorts::DnsXmpp());
+        LOG(ERROR, "Address already in use " << TungstenPorts::DnsXmpp());
         exit(1);
     }
 

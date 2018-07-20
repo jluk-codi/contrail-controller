@@ -23,12 +23,12 @@ class VrouterProcessStat(ProcessStat):
         self.logger.log(SandeshLogger.get_py_logger_level(level), msg)
 
     def get_vrouter_process_info(self, proc_name):
-        vrouter_file = "/etc/contrail/supervisord_vrouter_files"
+        vrouter_file = "/etc/tungsten/supervisord_vrouter_files"
         for root, dirs, files in os.walk(vrouter_file):
             for file in files:
                 if file.endswith(".ini"):
                     filename = \
-                        '/etc/contrail/supervisord_vrouter_files/' + file
+                        '/etc/tungsten/supervisord_vrouter_files/' + file
                     try:
                         data = StringIO('\n'.join(line.strip()
                                     for line in open(filename)))
@@ -55,7 +55,7 @@ class VrouterProcessStat(ProcessStat):
                             self.msg_log(msg + filename, SandeshLevel.SYS_ERR)
                             continue
                         args = command.split()
-                        if (args[0] == '/usr/bin/contrail-tor-agent'):
+                        if (args[0] == '/usr/bin/tungsten-tor-agent'):
                             try:
                                 index = args.index('--config_file')
                                 args_val = args[index + 1]

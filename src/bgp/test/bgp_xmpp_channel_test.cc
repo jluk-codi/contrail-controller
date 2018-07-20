@@ -205,7 +205,7 @@ protected:
         BgpObjectFactory::Register<BgpMembershipManager>(
                 boost::factory<BgpMembershipManagerTest *>());
         server_.reset(new BgpServer(&evm_));
-        enc_.reset(new XmppDocumentMock("agent.contrailsystems.com"));
+        enc_.reset(new XmppDocumentMock("agent.tungstensystems.com"));
 
         // Allocate 3 mock XmppChannel to simulate 3 xmpp connections.
         a.reset(new XmppChannelMock);

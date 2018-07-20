@@ -1,8 +1,8 @@
 #!/usr/bin/python 
 """
-Common utility functions for Contrail scripts
+Common utility functions for Tungsten scripts
 
-adapted from from contrail_lib.py in https://github.com/Juniper/vrouter-xen-utils
+adapted from from tungsten_lib.py in https://github.com/Juniper/vrouter-xen-utils
 
 Noel Burton-Krahn <noel@pistoncloud.com>
 """

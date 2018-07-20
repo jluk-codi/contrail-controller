@@ -6,7 +6,7 @@
 #define vnsw_test_ovs_agent_init_hpp
 
 #include <boost/program_options.hpp>
-#include <init/contrail_init_common.h>
+#include <init/tungsten_init_common.h>
 #include <test/test_pkt0_interface.h>
 #include <test/test_agent_init.h>
 #include <ovs_tor_agent/ovsdb_client/ovsdb_client_tcp.h>

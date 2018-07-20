@@ -27,7 +27,7 @@ std::string Dns::prog_name_;
 std::string Dns::collector_;
 std::string Dns::self_ip_;
 uint32_t Dns::http_port_;
-uint32_t Dns::dns_port_ = ContrailPorts::DnsServerPort();
+uint32_t Dns::dns_port_ = TungstenPorts::DnsServerPort();
 
 bool Dns::GetVersion(string &build_info_str) {
     return MiscUtils::GetBuildInfo(MiscUtils::Dns, BuildInfo, build_info_str);

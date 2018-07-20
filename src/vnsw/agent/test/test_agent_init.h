@@ -6,7 +6,7 @@
 #define vnsw_test_agent_init_hpp
 
 #include <boost/program_options.hpp>
-#include <init/contrail_init_common.h>
+#include <init/tungsten_init_common.h>
 #include <test/test_pkt0_interface.h>
 #include <uve/test/agent_stats_collector_test.h>
 #include <vrouter/flow_stats/flow_stats_collector.h>
@@ -17,7 +17,7 @@ class AgentParam;
 
 // The class to drive agent initialization.
 // Defines control parameters used to enable/disable agent features
-class TestAgentInit : public ContrailInitCommon {
+class TestAgentInit : public TungstenInitCommon {
 public:
     TestAgentInit();
     virtual ~TestAgentInit();

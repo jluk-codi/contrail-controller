@@ -8,9 +8,9 @@ Import('AnalyticsEnv')
 DatabaseEnv = AnalyticsEnv.Clone()
 
 utils_scripts = [
-    'contrail-cassandra-status.py',
-    'contrail-cassandra-repair.py',
-    'contrail-cassandra-check-start',
+    'tungsten-cassandra-status.py',
+    'tungsten-cassandra-repair.py',
+    'tungsten-cassandra-check-start',
 ]
 
 for utils in utils_scripts:

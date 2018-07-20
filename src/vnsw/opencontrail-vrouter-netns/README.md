@@ -1,7 +1,7 @@
-opencontrail-netns
+Tungsten Fabric-netns
 ==================
 
-OpenContrail Linux network namespace provisioning
+Tungsten Fabric Linux network namespace provisioning
 
 This package contains two scripts (netns-daemon-start, netns-daemon-stop) which are intended to be used as pre-start and post-stop scripts for applications started out of init.d.
 

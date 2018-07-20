@@ -8,7 +8,7 @@
 #include "base/logging.h"
 #include "base/regex.h"
 
-typedef contrail::regex regex_t;
+typedef tungsten::regex regex_t;
 #include <testing/gunit.h>
 
 using namespace BFD;

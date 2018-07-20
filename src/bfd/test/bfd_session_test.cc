@@ -4,7 +4,7 @@
 
 
 #include "base/regex.h"
-typedef contrail::regex regex_t;
+typedef tungsten::regex regex_t;
 
 #include "base/test/task_test_util.h"
 #include "bfd/bfd_server.h"

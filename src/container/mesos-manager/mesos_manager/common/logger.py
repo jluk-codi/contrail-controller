@@ -3,7 +3,7 @@
 #
 
 """
-Contrail Mesos Manager logger
+Tungsten Mesos Manager logger
 """
 
 import logging

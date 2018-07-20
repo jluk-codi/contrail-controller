@@ -16,7 +16,7 @@ class MESOSCniDataObject:
         self._conf['cid'] = data['cid']
         self._conf['cmd'] = data['cmd']
         lbl_dict = {}
-        lbl_dict['cluster-name'] = data['contrail']['cluster-name']
+        lbl_dict['cluster-name'] = data['tungsten']['cluster-name']
         lbl_dict['app_subnets'] = data['app_subnets']
         net_info = data['args']['org.apache.mesos']['network_info']
         if net_info and 'labels' in net_info:

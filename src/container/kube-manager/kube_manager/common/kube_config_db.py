@@ -31,7 +31,7 @@ class KubeDBBase(DBBase):
     def get_vn_from_annotation(self, annotations):
         """ Get vn-fq-name if specified in annotations of a k8s object.
         """
-        vn_ann = annotations.get('opencontrail.org/network', None)
+        vn_ann = annotations.get('tungsten.io/network', None)
         if vn_ann:
             return get_vn_fq_name_from_dict_string(vn_ann)
         return None
@@ -39,7 +39,7 @@ class KubeDBBase(DBBase):
     def get_fip_pool_from_annotation(self, annotations):
         """ Get fip-pool-fq-name if specified in annotations of a k8s object.
         """
-        fip_pool_ann = annotations.get('opencontrail.org/fip-pool', None)
+        fip_pool_ann = annotations.get('tungsten.io/fip-pool', None)
         if fip_pool_ann:
             return get_fip_pool_fq_name_from_dict_string(fip_pool_ann)
         return None
@@ -211,7 +211,7 @@ class NamespaceKM(KubeDBBase):
             return
 
         # Parse virtual network annotations.
-        if 'opencontrail.org/network' in annotations:
+        if 'tungsten.io/network' in annotations:
             try:
                 self.annotated_vn_fq_name = self.get_vn_from_annotation(
                     annotations)
@@ -221,14 +221,14 @@ class NamespaceKM(KubeDBBase):
                 raise Exception(err_msg)
 
         # Cache namespace isolation directive.
-        if 'opencontrail.org/isolation' in annotations:
-            ann_val = annotations['opencontrail.org/isolation']
+        if 'tungsten.io/isolation' in annotations:
+            ann_val = annotations['tungsten.io/isolation']
             if ann_val.lower() == 'true':
                 # Namespace isolation is configured
                 self.isolated = True
         # Cache namespace ip_fabric_forwarding directive
-        if 'opencontrail.org/ip_fabric_forwarding' in annotations:
-            ann_val = annotations['opencontrail.org/ip_fabric_forwarding']
+        if 'tungsten.io/ip_fabric_forwarding' in annotations:
+            ann_val = annotations['tungsten.io/ip_fabric_forwarding']
             if ann_val.lower() == 'true':
                 self.ip_fabric_forwarding = True
             elif ann_val.lower() == 'false':
@@ -236,8 +236,8 @@ class NamespaceKM(KubeDBBase):
         else:
             self.ip_fabric_forwarding = None
         # Cache namespace ip_fabric_snat directive
-        if 'opencontrail.org/ip_fabric_snat' in annotations:
-            ann_val = annotations['opencontrail.org/ip_fabric_snat']
+        if 'tungsten.io/ip_fabric_snat' in annotations:
+            ann_val = annotations['tungsten.io/ip_fabric_snat']
             if ann_val.lower() == 'true':
                 self.ip_fabric_snat = True
             elif ann_val.lower() == 'false':
@@ -250,7 +250,7 @@ class NamespaceKM(KubeDBBase):
                 annotations['net.beta.kubernetes.io/network-policy'])
 
         # Parse fip pool annotations.
-        if 'opencontrail.org/fip-pool' in annotations:
+        if 'tungsten.io/fip-pool' in annotations:
             try:
                 self.annotated_ns_fip_pool_fq_name = self.get_fip_pool_from_annotation(
                     annotations)

@@ -16,10 +16,10 @@ module: job_objectlog
 author: Juniper Networks
 short_description: private module to create job object log
 description:
-    - This module invokes Sandesh API to send job object log to Contrail
+    - This module invokes Sandesh API to send job object log to Tungsten
       analytics
 requirements:
-    - Contrail analytics must be reachable from API server
+    - Tungsten analytics must be reachable from API server
 options:
     job_ctx:
         description:
